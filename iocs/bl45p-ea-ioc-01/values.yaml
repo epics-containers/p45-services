@@ -1,0 +1,5 @@
+beamline: bl45p
+namespace: epics-iocs
+base_image: gcr.io/diamond-privreg/controls/work/ioc/ioc-aravisgige:latest
+# location of the ioc - depends epics-base from above image
+iocFolder: /R7.0.5/support/ioc

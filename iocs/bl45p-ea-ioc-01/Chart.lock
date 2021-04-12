@@ -1,0 +1,6 @@
+dependencies:
+- name: ioc-chart
+  repository: oci://europe-west2-docker.pkg.dev/diamond-privreg/controls/
+  version: 0.2.1
+digest: sha256:3a849676f88bea41fa2c597d47a4731bc5eaf049e6259aa4c1e889f8bc459364
+generated: "2021-04-12T15:47:33.576684841+01:00"
