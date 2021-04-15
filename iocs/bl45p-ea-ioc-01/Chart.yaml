@@ -6,9 +6,9 @@ description: |
 type: application
 
 # Version (chart version) to track changes in ioc-chart
-version: 0.2.3
+version: 0.3.5
 # appVersion tracks changes in the IOC itself (specifically the boot file)
-appVersion: 0.2.9
+appVersion: 0.3.5
 
 dependencies:
   - name: ioc-chart
