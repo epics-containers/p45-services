@@ -1,6 +1,10 @@
 beamline: bl45p
 namespace: epics-iocs
-base_image: gcr.io/diamond-privreg/controls/prod/ioc/ioc-adaravis:2.2b1
+base_image: gcr.io/diamond-privreg/controls/work/ioc/ioc-adaravis:debug
+#base_image: gcr.io/diamond-privreg/controls/prod/ioc/ioc-adaravis:2.2b1
+
 # The location of the ioc folder - this depends on epics-base from the above image
-# This is used in the ioc-chart helm library - do not remove
+# It is used in the ioc-chart helm library to locate start.sh
+# TODO I feel we could eliminate this requirement
+# (e.g. a start.sh in root generated in the image itself)
 iocFolder: /R7.0.5/support/ioc

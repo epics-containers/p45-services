@@ -30,4 +30,6 @@ adcore=${SUPPORT}/ADCore-R3-10
 # Output to /tmp for guarenteed writability
 msi -MTOP=${TOP},THIS_DIR=${config_dir},ADCORE=${adcore} ${boot} > /tmp/ioc.boot
 
+export ARV_DEBUG=stream:3,device:3
+
 exec ${SUPPORT}/ioc/bin/linux-x86_64/ioc /tmp/ioc.boot
