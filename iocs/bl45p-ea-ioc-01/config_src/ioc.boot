@@ -235,6 +235,9 @@ callbackSetQueueSize(10000)
 
 iocInit
 
+# set the stream port
+dbpf "BL45P-EA-IOC-01:GC_GevSCPHostPort", "53000"
+
 # Extra post-init IOC commands
 dbpf "BL45P-EA-MAP-01:FIMG:FileTemplate", "%s/%s_%d.avi"
 dbpf "BL45P-EA-MAP-01:HDF5:FileTemplate", "%s/%s_%d.h5"
