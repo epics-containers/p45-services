@@ -5,8 +5,6 @@
 #
 
 this_dir=$(realpath $(dirname $0))
-ioc_name=$(basename ${this_dir})
-
 TOP=$(realpath ${this_dir}/..)
 
 cd ${this_dir}
@@ -17,6 +15,8 @@ then
 
     mkdir -p ${config_dir}
     tar -zxvf config.tz -C ${config_dir}
+else
+    config_dir=${TOP}/config
 fi
 
 boot=${config_dir}/ioc.boot
