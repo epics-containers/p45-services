@@ -10,6 +10,9 @@ HELM_REPO=europe-docker.pkg.dev/diamond-privreg/bl45p-iocs
 # turn on Open Container Initiative support
 export HELM_EXPERIMENTAL_OCI=1
 
+# log in to the registry
+cat /etc/gcp/config.json | helm registry login -u _json_key --password-stdin https://europe-docker.pkg.dev
+
 # Update all chart dependencies. All IOC charts have:
 for ioc in iocs/*; do helm dependency update $ioc; done
 
@@ -17,9 +20,6 @@ for ioc in iocs/*; do helm dependency update $ioc; done
 TAG=$(date +%Y.%m.%d-T%H%M)
 # udate the helm chart versions with the tag
 sed -e "s/^version: .*$/version: ${TAG}/g" -e "s/^appVersion: .*$/appVersion: ${TAG}/g" -i iocs/*/Chart.yaml
-
-# log in to the registry
-cat /etc/gcp/config.json | helm registry login -u _json_key --password-stdin https://europe-docker.pkg.dev
 
 # push all ioc chart packages to the registry
 for ioc in iocs/*
