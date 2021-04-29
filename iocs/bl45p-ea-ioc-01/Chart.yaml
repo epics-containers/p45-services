@@ -6,11 +6,11 @@ description: |
 type: application
 
 # Version (chart version) to track changes in ioc-chart
-version: 0.3.5
+version: 2021.04.29-T1424
 # appVersion tracks changes in the IOC itself (specifically the boot file)
-appVersion: 0.3.5b1.4
+appVersion: 2021.04.29-T1424
 
 dependencies:
   - name: ioc-chart
     version: 0.2.2
-    repository: "oci://europe-west2-docker.pkg.dev/diamond-privreg/controls/"
+    repository: "oci://europe-docker.pkg.dev/diamond-privreg/controls/"

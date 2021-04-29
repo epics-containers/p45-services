@@ -1,17 +1,38 @@
 # helm pulishing CI script for beamline iocs
 # uses image gcr.io/diamond-privreg/controls/prod/gitlab/gcloud-helm:0.1.0
+
+# IMPORTANT: for new beamlines you will need to first create the beamline
+# helm repo with:
+#   module load gcloud
+#   gcloud auth login --no-launch-browser
+#   gcloud artifacts repositories create --location=europe \
+#      --repository-format=docker bl40p-iocs
+
+
 helm version
 
 set -e
 
 # Helm Registry in diamond GCR
-HELM_REPO=europe-docker.pkg.dev/diamond-privreg/bl45p-iocs
+HELM_REPO=europe-docker.pkg.dev/diamond-privreg
+
 
 # turn on Open Container Initiative support
 export HELM_EXPERIMENTAL_OCI=1
 
 # log in to the registry
-cat /etc/gcp/config.json | helm registry login -u _json_key --password-stdin https://europe-docker.pkg.dev/diamond-privreg
+if [ -z ${CI_BUILD_ID} ]
+then
+    # this was run locally - get creds from gcloud and push to work repo
+    echo "LOCAL deploy to helm repo"
+    CI_PROJECT_NAME="work"
+    gcloud auth print-access-token | helm registry login -u oauth2accesstoken \
+      --password-stdin ${HELM_REPO}
+else
+    # running under Gitlab CI - get creds from /etc/gcp/config.json
+    cat /etc/gcp/config.json | helm registry login -u _json_key \
+      --password-stdin ${HELM_REPO}
+fi
 
 # Update all chart dependencies.
 for ioc in iocs/*; do helm dependency update $ioc; done
@@ -26,7 +47,7 @@ for ioc in iocs/*
 do
     for THIS_TAG in latest ${TAG}
     do
-        URL="${HELM_REPO}/$(basename $ioc):${THIS_TAG}"
+        URL="${HELM_REPO}/${CI_PROJECT_NAME}-iocs/$(basename $ioc):${THIS_TAG}"
         echo saving ${ioc} to "${URL}" ...
         helm chart save ${ioc} "${URL}"
         echo push to "${URL}" ...
