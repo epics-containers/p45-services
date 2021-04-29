@@ -11,9 +11,9 @@ HELM_REPO=europe-docker.pkg.dev/diamond-privreg/bl45p-iocs
 export HELM_EXPERIMENTAL_OCI=1
 
 # log in to the registry
-cat /etc/gcp/config.json | helm registry login -u _json_key --password-stdin https://europe-docker.pkg.dev
+cat /etc/gcp/config.json | helm registry login -u _json_key --password-stdin https://europe-docker.pkg.dev/diamond-privreg
 
-# Update all chart dependencies. All IOC charts have:
+# Update all chart dependencies.
 for ioc in iocs/*; do helm dependency update $ioc; done
 
 # determine the tag to use based on date
