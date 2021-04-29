@@ -1,14 +1,14 @@
 apiVersion: v2
-name: bl45p-ea-ioc-01
+name: bl45p-mo-ioc-01
 description: |
-    A basic example exposing PVs example1, example2
+    main motion IOC for the bl4p test beamline
 
 type: application
 
 # Version (chart version) to track changes in ioc-chart
-version: 0.3.5
+version: 0.1.3
 # appVersion tracks changes in the IOC itself (specifically the boot file)
-appVersion: 0.3.5b1.4
+appVersion: 0.1.3
 
 dependencies:
   - name: ioc-chart

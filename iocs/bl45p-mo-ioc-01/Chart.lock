@@ -1,0 +1,6 @@
+dependencies:
+- name: ioc-chart
+  repository: file:///home/giles/containers/epics-containers/ioc-chart
+  version: 0.2.2
+digest: sha256:7414b3da5445d624ed1afea8eb9e6935d29acff204c57ee4d777d9fd313bf286
+generated: "2021-04-29T08:36:57.058838808+01:00"
