@@ -1,5 +1,5 @@
 # helm pulishing CI script for beamline iocs
-# uses image gcr.io/diamond-privreg/controls/prod/gitlab/gcloud-helm:0.1.0
+# uses image gcr.io/diamond-privreg/controls/prod/gitlab/gcloud-helm:0.2.2
 
 # IMPORTANT: for new beamlines you will need to first create the beamline
 # helm repo with:
@@ -34,6 +34,12 @@ else
     # running under Gitlab CI - get creds from /etc/gcp/config.json
     cat /etc/gcp/config.json | helm registry login -u _json_key \
       --password-stdin ${HELM_REPO}
+fi
+
+if [ -z "${CI_COMMIT_TAG}" ]
+then
+    # untagged builds go into the work repo instead of beamline repo
+    CI_PROJECT_NAME="work"
 fi
 
 # Update all chart dependencies.
