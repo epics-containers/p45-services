@@ -8,6 +8,8 @@
 #   gcloud artifacts repositories create --location=europe \
 #      --repository-format=docker bl40p-iocs
 
+# TODO I think all this functionality should be placed in a
+# gitlab runner image derived from gcr.io/diamond-pubreg/buildutil:0.0.0
 
 helm version
 
@@ -38,7 +40,7 @@ fi
 for ioc in iocs/*; do helm dependency update $ioc; done
 
 # determine the tag to use based on date
-TAG=$(date +%Y.%m.%d-T%H%M)
+TAG=$(date +%Y.%m.%d-%H%M)
 # udate the helm chart versions with the tag
 sed -e "s/^version: .*$/version: ${TAG}/g" -e "s/^appVersion: .*$/appVersion: ${TAG}/g" -i iocs/*/Chart.yaml
 

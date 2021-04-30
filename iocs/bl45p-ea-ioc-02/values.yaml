@@ -1,0 +1,9 @@
+beamline: bl45p
+namespace: epics-iocs
+base_image: gcr.io/diamond-privreg/controls/prod/ioc/ioc-adpandablocks:4.10b1.0
+
+# The location of the ioc folder - this depends on epics-base from the above image
+# It is used in the ioc-chart helm library to locate start.sh
+# TODO I feel we could eliminate this requirement
+# (e.g. a start.sh in root generated in the image itself)
+iocFolder: /R7.0.5/support/ioc

@@ -1,7 +1,7 @@
 apiVersion: v2
-name: bl45p-mo-ioc-01
+name: bl45p-ea-ioc-02
 description: |
-    main motion IOC for the bl4p test beamline
+    panda IOC for BL45P
 
 type: application
 
