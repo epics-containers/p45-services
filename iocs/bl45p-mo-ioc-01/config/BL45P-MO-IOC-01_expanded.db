@@ -1,6 +1,12 @@
 #% macro, __doc__, Create some records for reading IOC statistics and details.
 #% macro, IOC, Device prefix
 
+record(stringin, "BL45P-MO-IOC-01:DEMO")
+{
+    field(PINI, "YES")
+    field(VAL, "Hello demo")
+}
+
 # Used by Channel Access Security to determine access to this IOC.
 record(mbbo, "BL45P-MO-IOC-01:ACCESS")
 {
@@ -37,7 +43,7 @@ record(calcout, "BL45P-MO-IOC-01:HEARTBEAT")
     field(SCAN, "1 second")
     field(INPA, "BL45P-MO-IOC-01:HEARTBEAT")
 }
-# if autosave is working, START_CNT creates a running count of 
+# if autosave is working, START_CNT creates a running count of
 # number of times the IOC was started.
 record(calcout, "BL45P-MO-IOC-01:START_CNT")
 {
@@ -753,12 +759,12 @@ record(calc, "BL45P-MO-IOC-01:SCANMON_SEVR") {
 
 ##############################################################
 #
-# Records to read asynPortDriver parameters from the param 
+# Records to read asynPortDriver parameters from the param
 # library for the class pmacController.
 #
-# The Asyn address is set as zero because that's what we use 
+# The Asyn address is set as zero because that's what we use
 # for controller parameters.
-# 
+#
 ##############################################################
 
 # % macro, PORT, The asyn port for the pmac controller
@@ -951,7 +957,7 @@ record(bo, "BL45P-MO-STEP-01:AxesReadonly")
 
 #
 # Read back the readonly mode for axes
-# 
+#
 record(bi, "BL45P-MO-STEP-01:AxesReadonly_RBV")
 {
     field(DTYP, "asynInt32")
@@ -2372,7 +2378,7 @@ record(mbbiDirect, "BL45P-MO-STEP-01:AXIS8:status3") {
 #% macro, HOMEVIS, If 1 then home is visible on the gui
 #% macro, HOMEVISSTR, If HOMEVIS=0, then display this text on the gui instead
 #% macro, name   , Object name and gui association name
-#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails, 
+#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails,
 #                  set to '#' to comment out alh lines
 #% macro, gda_name, Name to export this as to GDA
 #% macro, gda_desc, Description to export this as to GDA
@@ -2486,11 +2492,11 @@ record(motor,"BL45P-MO-SAMP-01:THETA")
 	field(DHLM,"10000000")
 	field(DLLM,"-10000000")
 	field(HLM,"")
-	field(LLM,"")	
+	field(LLM,"")
 	field(HLSV,"MAJOR")
 	field(INIT,"")
 	field(RTRY,"0")
-	field(DLY,"0")	
+	field(DLY,"0")
 	field(HVEL,"0")
 	field(SREV, "1000")
 	field(RRES, "")
@@ -2499,15 +2505,15 @@ record(motor,"BL45P-MO-SAMP-01:THETA")
 	field(JVEL, "180")
 	field(JAR, "")
 	field(UEIP, "0")
-	field(URIP, "0")	
-	field(RDBL, "")		
+	field(URIP, "0")
+	field(RDBL, "")
 	field(VMAX, "180")
 	field(OFF, "0")
 	field(RDBD, "")
 	field(FOFF, "0")
 	field(ADEL, "0")
 	field(NTM, "1")
-	field(SDIS, "BL45P-MO-SAMP-01:THETA:SDIS.VAL")	
+	field(SDIS, "BL45P-MO-SAMP-01:THETA:SDIS.VAL")
 	field(RLNK, "")
 }
 
@@ -2557,7 +2563,7 @@ record(ao, "BL45P-MO-SAMP-01:THETA:KILL") {
 record(ai, "BL45P-MO-SAMP-01:THETA:ELOSS") {
     field(PINI, "YES")
     field(HIHI, "1")
-    field(HHSV, "MAJOR")    
+    field(HHSV, "MAJOR")
 }
 
 # dummy record that looks like an eloss reset
@@ -2566,7 +2572,7 @@ record(calcout, "BL45P-MO-SAMP-01:THETA:ELOSSRC") {
 
 # check if SYNC has been pressed
 record(calcout, "BL45P-MO-SAMP-01:THETA:CHECK_SYNC") {
-  field(INPA, "BL45P-MO-SAMP-01:THETA.SYNC CP")  
+  field(INPA, "BL45P-MO-SAMP-01:THETA.SYNC CP")
   field(CALC, "A>0")
   field(OOPT, "When Non-zero")
   field(OUT, "BL45P-MO-SAMP-01:THETA:MR_MOVE_WRITE.PROC PP")
@@ -2607,7 +2613,7 @@ record(calc, "BL45P-MO-SAMP-01:THETA:FERRORMAX")
 	field(HSV, "NO_ALARM")
 	field(PREC,"3")
 	field(EGU, "deg")
-}	
+}
 
 #Record to reset the maximum following error
 record(bo, "BL45P-MO-SAMP-01:THETA:FEMAXRESET")
@@ -2616,7 +2622,7 @@ record(bo, "BL45P-MO-SAMP-01:THETA:FEMAXRESET")
 	field(DTYP,"Soft Channel")
 	field(OUT, "BL45P-MO-SAMP-01:THETA:FERRORMAX.VAL")
 	field(VAL, "0")
-}	
+}
 
 
 #Record to determin HOME button visibility on the motor.edl screen.
@@ -2627,7 +2633,7 @@ record(bo, "BL45P-MO-SAMP-01:THETA:HOMEVIS")
 	field(VAL, "1")
         field(ZNAM, "Invisible")
 	field(ONAM, "Visible")
-}	 
+}
 
 #Record to display a message if the HOME buttons are not visible (if HOMEVIS=0).
 record(stringout, "BL45P-MO-SAMP-01:THETA:HOMEVISSTR")
@@ -2736,10 +2742,10 @@ record(stringin, "BL45P-MO-SAMP-01:THETA:CsAxis_RBV") {
   field(DTYP, "asynOctetRead")
   field(INP, "@asyn(BRICK1,3)PMAC_C_GROUP_ASSIGN_RBV")
   field(SCAN, "I/O Intr")
-}# These are the supporting records for doing kill, eloss, and adding autohome 
+}# These are the supporting records for doing kill, eloss, and adding autohome
 # support to a motor record
 
-#% macro, SPORT, Asyn port for eloss commands 
+#% macro, SPORT, Asyn port for eloss commands
 # usually PMAC_S<n> for pmacs, the name of the pmacAsynIpPort for bricks
 #% macro, HOME, Prefix for autohome instance. Defaults to BL45P-MO-SAMP-01. If unspecified,
 # the template contains enough records to keep the motor record happy
@@ -2797,8 +2803,8 @@ record(ai, "BL45P-MO-SAMP-01:THETA:HMPOS_RBV") {
 
 record(calcout, "BL45P-MO-SAMP-01:THETA:HMPOS:CALC") {
   field(INPA, "BL45P-MO-SAMP-01:THETA.MRES CP")
-  field(INPB, "BL45P-MO-SAMP-01:THETA:SCALE")  
-  field(INPC, "BL45P-MO-SAMP-01:THETA:HMPOS_RBV CP")  
+  field(INPB, "BL45P-MO-SAMP-01:THETA:SCALE")
+  field(INPC, "BL45P-MO-SAMP-01:THETA:HMPOS_RBV CP")
   field(CALC, "A*B*C")
   field(OUT, "BL45P-MO-SAMP-01:THETA:HMPOS PP")
 }
@@ -2822,7 +2828,7 @@ record(stringout, "BL45P-MO-SAMP-01:HM:M3PV"){
 # define a kill record
 record(ao, "BL45P-MO-SAMP-01:THETA:KILL") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,3)PMAC_C_KILL_AXIS")  
+  field(OUT, "@asyn(BRICK1,3)PMAC_C_KILL_AXIS")
   field(VAL, "0")
 }
 
@@ -2833,20 +2839,20 @@ record(calc, "BL45P-MO-SAMP-01:THETA:ELOSSVAR") {
 
 record(ai, "BL45P-MO-SAMP-01:THETA:ELOSS") {
   field(DTYP, "asynInt32")
-  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+3`")  
-  field(SCAN, "I/O Intr")  
+  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+3`")
+  field(SCAN, "I/O Intr")
 }
 
 record(calcout, "BL45P-MO-SAMP-01:THETA:ELOSSRC") {
-  field(OUT, "BL45P-MO-SAMP-01:THETA:SEND_ELOSSRC PP") 
+  field(OUT, "BL45P-MO-SAMP-01:THETA:SEND_ELOSSRC PP")
   field(DESC, "Write 0 to A to reset Eloss")
   field(CALC, "A")
-  field(A, "0")  
+  field(A, "0")
 }
 
 record(ao, "BL45P-MO-SAMP-01:THETA:SEND_ELOSSRC") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+3`")  
+  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+3`")
 }
 
 # Overwrite the description of pmacStatus
@@ -3107,10 +3113,10 @@ record(stringin, "BL45P-MO-STEP-01:M3:CsAxis_RBV") {
   field(DTYP, "asynOctetRead")
   field(INP, "@asyn(BRICK1,3)PMAC_C_GROUP_ASSIGN_RBV")
   field(SCAN, "I/O Intr")
-}# These are the supporting records for doing kill, eloss, and adding autohome 
+}# These are the supporting records for doing kill, eloss, and adding autohome
 # support to a motor record
 
-#% macro, SPORT, Asyn port for eloss commands 
+#% macro, SPORT, Asyn port for eloss commands
 # usually PMAC_S<n> for pmacs, the name of the pmacAsynIpPort for bricks
 #% macro, HOME, Prefix for autohome instance. Defaults to BL45P-MO-STEP-01:. If unspecified,
 # the template contains enough records to keep the motor record happy
@@ -3168,8 +3174,8 @@ record(ai, "BL45P-MO-STEP-01:M3:HMPOS_RBV") {
 
 record(calcout, "BL45P-MO-STEP-01:M3:HMPOS:CALC") {
   field(INPA, "BL45P-MO-STEP-01:M3.MRES CP")
-  field(INPB, "BL45P-MO-STEP-01:M3:SCALE")  
-  field(INPC, "BL45P-MO-STEP-01:M3:HMPOS_RBV CP")  
+  field(INPB, "BL45P-MO-STEP-01:M3:SCALE")
+  field(INPC, "BL45P-MO-STEP-01:M3:HMPOS_RBV CP")
   field(CALC, "A*B*C")
   field(OUT, "BL45P-MO-STEP-01:M3:HMPOS PP")
 }
@@ -3193,7 +3199,7 @@ record(stringout, "BL45P-MO-STEP-01::HM:M3PV"){
 # define a kill record
 record(ao, "BL45P-MO-STEP-01:M3:KILL") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,3)PMAC_C_KILL_AXIS")  
+  field(OUT, "@asyn(BRICK1,3)PMAC_C_KILL_AXIS")
   field(VAL, "0")
 }
 
@@ -3204,20 +3210,20 @@ record(calc, "BL45P-MO-STEP-01:M3:ELOSSVAR") {
 
 record(ai, "BL45P-MO-STEP-01:M3:ELOSS") {
   field(DTYP, "asynInt32")
-  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+3`")  
-  field(SCAN, "I/O Intr")  
+  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+3`")
+  field(SCAN, "I/O Intr")
 }
 
 record(calcout, "BL45P-MO-STEP-01:M3:ELOSSRC") {
-  field(OUT, "BL45P-MO-STEP-01:M3:SEND_ELOSSRC PP") 
+  field(OUT, "BL45P-MO-STEP-01:M3:SEND_ELOSSRC PP")
   field(DESC, "Write 0 to A to reset Eloss")
   field(CALC, "A")
-  field(A, "0")  
+  field(A, "0")
 }
 
 record(ao, "BL45P-MO-STEP-01:M3:SEND_ELOSSRC") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+3`")  
+  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+3`")
 }
 
 # Overwrite the description of pmacStatus
@@ -3455,7 +3461,7 @@ record(ao,"BL45P-MO-STEP-01:M3:OffsetDrv") {
 #% macro, HOMEVIS, If 1 then home is visible on the gui
 #% macro, HOMEVISSTR, If HOMEVIS=0, then display this text on the gui instead
 #% macro, name   , Object name and gui association name
-#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails, 
+#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails,
 #                  set to '#' to comment out alh lines
 #% macro, gda_name, Name to export this as to GDA
 #% macro, gda_desc, Description to export this as to GDA
@@ -3569,11 +3575,11 @@ record(motor,"BL45P-MO-CHOP-01:HOR")
 	field(DHLM,"10000000")
 	field(DLLM,"-10000000")
 	field(HLM,"")
-	field(LLM,"")	
+	field(LLM,"")
 	field(HLSV,"MAJOR")
 	field(INIT,"")
 	field(RTRY,"0")
-	field(DLY,"0")	
+	field(DLY,"0")
 	field(HVEL,"0")
 	field(SREV, "1000")
 	field(RRES, "")
@@ -3582,15 +3588,15 @@ record(motor,"BL45P-MO-CHOP-01:HOR")
 	field(JVEL, "43")
 	field(JAR, "")
 	field(UEIP, "0")
-	field(URIP, "0")	
-	field(RDBL, "")		
+	field(URIP, "0")
+	field(RDBL, "")
 	field(VMAX, "43")
 	field(OFF, "0")
 	field(RDBD, "")
 	field(FOFF, "0")
 	field(ADEL, "0")
 	field(NTM, "1")
-	field(SDIS, "BL45P-MO-CHOP-01:HOR:SDIS.VAL")	
+	field(SDIS, "BL45P-MO-CHOP-01:HOR:SDIS.VAL")
 	field(RLNK, "")
 }
 
@@ -3640,7 +3646,7 @@ record(ao, "BL45P-MO-CHOP-01:HOR:KILL") {
 record(ai, "BL45P-MO-CHOP-01:HOR:ELOSS") {
     field(PINI, "YES")
     field(HIHI, "1")
-    field(HHSV, "MAJOR")    
+    field(HHSV, "MAJOR")
 }
 
 # dummy record that looks like an eloss reset
@@ -3649,7 +3655,7 @@ record(calcout, "BL45P-MO-CHOP-01:HOR:ELOSSRC") {
 
 # check if SYNC has been pressed
 record(calcout, "BL45P-MO-CHOP-01:HOR:CHECK_SYNC") {
-  field(INPA, "BL45P-MO-CHOP-01:HOR.SYNC CP")  
+  field(INPA, "BL45P-MO-CHOP-01:HOR.SYNC CP")
   field(CALC, "A>0")
   field(OOPT, "When Non-zero")
   field(OUT, "BL45P-MO-CHOP-01:HOR:MR_MOVE_WRITE.PROC PP")
@@ -3690,7 +3696,7 @@ record(calc, "BL45P-MO-CHOP-01:HOR:FERRORMAX")
 	field(HSV, "NO_ALARM")
 	field(PREC,"5")
 	field(EGU, "deg")
-}	
+}
 
 #Record to reset the maximum following error
 record(bo, "BL45P-MO-CHOP-01:HOR:FEMAXRESET")
@@ -3699,7 +3705,7 @@ record(bo, "BL45P-MO-CHOP-01:HOR:FEMAXRESET")
 	field(DTYP,"Soft Channel")
 	field(OUT, "BL45P-MO-CHOP-01:HOR:FERRORMAX.VAL")
 	field(VAL, "0")
-}	
+}
 
 
 #Record to determin HOME button visibility on the motor.edl screen.
@@ -3710,7 +3716,7 @@ record(bo, "BL45P-MO-CHOP-01:HOR:HOMEVIS")
 	field(VAL, "0")
         field(ZNAM, "Invisible")
 	field(ONAM, "Visible")
-}	 
+}
 
 #Record to display a message if the HOME buttons are not visible (if HOMEVIS=0).
 record(stringout, "BL45P-MO-CHOP-01:HOR:HOMEVISSTR")
@@ -3819,10 +3825,10 @@ record(stringin, "BL45P-MO-CHOP-01:HOR:CsAxis_RBV") {
   field(DTYP, "asynOctetRead")
   field(INP, "@asyn(BRICK1,4)PMAC_C_GROUP_ASSIGN_RBV")
   field(SCAN, "I/O Intr")
-}# These are the supporting records for doing kill, eloss, and adding autohome 
+}# These are the supporting records for doing kill, eloss, and adding autohome
 # support to a motor record
 
-#% macro, SPORT, Asyn port for eloss commands 
+#% macro, SPORT, Asyn port for eloss commands
 # usually PMAC_S<n> for pmacs, the name of the pmacAsynIpPort for bricks
 #% macro, HOME, Prefix for autohome instance. Defaults to BL45P-MO-CHOP-01. If unspecified,
 # the template contains enough records to keep the motor record happy
@@ -3880,8 +3886,8 @@ record(ai, "BL45P-MO-CHOP-01:HOR:HMPOS_RBV") {
 
 record(calcout, "BL45P-MO-CHOP-01:HOR:HMPOS:CALC") {
   field(INPA, "BL45P-MO-CHOP-01:HOR.MRES CP")
-  field(INPB, "BL45P-MO-CHOP-01:HOR:SCALE")  
-  field(INPC, "BL45P-MO-CHOP-01:HOR:HMPOS_RBV CP")  
+  field(INPB, "BL45P-MO-CHOP-01:HOR:SCALE")
+  field(INPC, "BL45P-MO-CHOP-01:HOR:HMPOS_RBV CP")
   field(CALC, "A*B*C")
   field(OUT, "BL45P-MO-CHOP-01:HOR:HMPOS PP")
 }
@@ -3905,7 +3911,7 @@ record(stringout, "BL45P-MO-CHOP-01:HM:M4PV"){
 # define a kill record
 record(ao, "BL45P-MO-CHOP-01:HOR:KILL") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,4)PMAC_C_KILL_AXIS")  
+  field(OUT, "@asyn(BRICK1,4)PMAC_C_KILL_AXIS")
   field(VAL, "0")
 }
 
@@ -3916,20 +3922,20 @@ record(calc, "BL45P-MO-CHOP-01:HOR:ELOSSVAR") {
 
 record(ai, "BL45P-MO-CHOP-01:HOR:ELOSS") {
   field(DTYP, "asynInt32")
-  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+4`")  
-  field(SCAN, "I/O Intr")  
+  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+4`")
+  field(SCAN, "I/O Intr")
 }
 
 record(calcout, "BL45P-MO-CHOP-01:HOR:ELOSSRC") {
-  field(OUT, "BL45P-MO-CHOP-01:HOR:SEND_ELOSSRC PP") 
+  field(OUT, "BL45P-MO-CHOP-01:HOR:SEND_ELOSSRC PP")
   field(DESC, "Write 0 to A to reset Eloss")
   field(CALC, "A")
-  field(A, "0")  
+  field(A, "0")
 }
 
 record(ao, "BL45P-MO-CHOP-01:HOR:SEND_ELOSSRC") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+4`")  
+  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+4`")
 }
 
 # Overwrite the description of pmacStatus
@@ -4190,10 +4196,10 @@ record(stringin, "BL45P-MO-STEP-01:M4:CsAxis_RBV") {
   field(DTYP, "asynOctetRead")
   field(INP, "@asyn(BRICK1,4)PMAC_C_GROUP_ASSIGN_RBV")
   field(SCAN, "I/O Intr")
-}# These are the supporting records for doing kill, eloss, and adding autohome 
+}# These are the supporting records for doing kill, eloss, and adding autohome
 # support to a motor record
 
-#% macro, SPORT, Asyn port for eloss commands 
+#% macro, SPORT, Asyn port for eloss commands
 # usually PMAC_S<n> for pmacs, the name of the pmacAsynIpPort for bricks
 #% macro, HOME, Prefix for autohome instance. Defaults to BL45P-MO-STEP-01:. If unspecified,
 # the template contains enough records to keep the motor record happy
@@ -4251,8 +4257,8 @@ record(ai, "BL45P-MO-STEP-01:M4:HMPOS_RBV") {
 
 record(calcout, "BL45P-MO-STEP-01:M4:HMPOS:CALC") {
   field(INPA, "BL45P-MO-STEP-01:M4.MRES CP")
-  field(INPB, "BL45P-MO-STEP-01:M4:SCALE")  
-  field(INPC, "BL45P-MO-STEP-01:M4:HMPOS_RBV CP")  
+  field(INPB, "BL45P-MO-STEP-01:M4:SCALE")
+  field(INPC, "BL45P-MO-STEP-01:M4:HMPOS_RBV CP")
   field(CALC, "A*B*C")
   field(OUT, "BL45P-MO-STEP-01:M4:HMPOS PP")
 }
@@ -4276,7 +4282,7 @@ record(stringout, "BL45P-MO-STEP-01::HM:M4PV"){
 # define a kill record
 record(ao, "BL45P-MO-STEP-01:M4:KILL") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,4)PMAC_C_KILL_AXIS")  
+  field(OUT, "@asyn(BRICK1,4)PMAC_C_KILL_AXIS")
   field(VAL, "0")
 }
 
@@ -4287,20 +4293,20 @@ record(calc, "BL45P-MO-STEP-01:M4:ELOSSVAR") {
 
 record(ai, "BL45P-MO-STEP-01:M4:ELOSS") {
   field(DTYP, "asynInt32")
-  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+4`")  
-  field(SCAN, "I/O Intr")  
+  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+4`")
+  field(SCAN, "I/O Intr")
 }
 
 record(calcout, "BL45P-MO-STEP-01:M4:ELOSSRC") {
-  field(OUT, "BL45P-MO-STEP-01:M4:SEND_ELOSSRC PP") 
+  field(OUT, "BL45P-MO-STEP-01:M4:SEND_ELOSSRC PP")
   field(DESC, "Write 0 to A to reset Eloss")
   field(CALC, "A")
-  field(A, "0")  
+  field(A, "0")
 }
 
 record(ao, "BL45P-MO-STEP-01:M4:SEND_ELOSSRC") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+4`")  
+  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+4`")
 }
 
 # Overwrite the description of pmacStatus
@@ -4538,7 +4544,7 @@ record(ao,"BL45P-MO-STEP-01:M4:OffsetDrv") {
 #% macro, HOMEVIS, If 1 then home is visible on the gui
 #% macro, HOMEVISSTR, If HOMEVIS=0, then display this text on the gui instead
 #% macro, name   , Object name and gui association name
-#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails, 
+#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails,
 #                  set to '#' to comment out alh lines
 #% macro, gda_name, Name to export this as to GDA
 #% macro, gda_desc, Description to export this as to GDA
@@ -4652,11 +4658,11 @@ record(motor,"BL45P-MO-CHOP-01:VER")
 	field(DHLM,"10000000")
 	field(DLLM,"-10000000")
 	field(HLM,"")
-	field(LLM,"")	
+	field(LLM,"")
 	field(HLSV,"MAJOR")
 	field(INIT,"")
 	field(RTRY,"0")
-	field(DLY,"0")	
+	field(DLY,"0")
 	field(HVEL,"0")
 	field(SREV, "1000")
 	field(RRES, "")
@@ -4665,15 +4671,15 @@ record(motor,"BL45P-MO-CHOP-01:VER")
 	field(JVEL, "720")
 	field(JAR, "")
 	field(UEIP, "0")
-	field(URIP, "0")	
-	field(RDBL, "")		
+	field(URIP, "0")
+	field(RDBL, "")
 	field(VMAX, "720")
 	field(OFF, "0")
 	field(RDBD, "")
 	field(FOFF, "0")
 	field(ADEL, "0")
 	field(NTM, "1")
-	field(SDIS, "BL45P-MO-CHOP-01:VER:SDIS.VAL")	
+	field(SDIS, "BL45P-MO-CHOP-01:VER:SDIS.VAL")
 	field(RLNK, "")
 }
 
@@ -4723,7 +4729,7 @@ record(ao, "BL45P-MO-CHOP-01:VER:KILL") {
 record(ai, "BL45P-MO-CHOP-01:VER:ELOSS") {
     field(PINI, "YES")
     field(HIHI, "1")
-    field(HHSV, "MAJOR")    
+    field(HHSV, "MAJOR")
 }
 
 # dummy record that looks like an eloss reset
@@ -4732,7 +4738,7 @@ record(calcout, "BL45P-MO-CHOP-01:VER:ELOSSRC") {
 
 # check if SYNC has been pressed
 record(calcout, "BL45P-MO-CHOP-01:VER:CHECK_SYNC") {
-  field(INPA, "BL45P-MO-CHOP-01:VER.SYNC CP")  
+  field(INPA, "BL45P-MO-CHOP-01:VER.SYNC CP")
   field(CALC, "A>0")
   field(OOPT, "When Non-zero")
   field(OUT, "BL45P-MO-CHOP-01:VER:MR_MOVE_WRITE.PROC PP")
@@ -4773,7 +4779,7 @@ record(calc, "BL45P-MO-CHOP-01:VER:FERRORMAX")
 	field(HSV, "NO_ALARM")
 	field(PREC,"5")
 	field(EGU, "deg")
-}	
+}
 
 #Record to reset the maximum following error
 record(bo, "BL45P-MO-CHOP-01:VER:FEMAXRESET")
@@ -4782,7 +4788,7 @@ record(bo, "BL45P-MO-CHOP-01:VER:FEMAXRESET")
 	field(DTYP,"Soft Channel")
 	field(OUT, "BL45P-MO-CHOP-01:VER:FERRORMAX.VAL")
 	field(VAL, "0")
-}	
+}
 
 
 #Record to determin HOME button visibility on the motor.edl screen.
@@ -4793,7 +4799,7 @@ record(bo, "BL45P-MO-CHOP-01:VER:HOMEVIS")
 	field(VAL, "0")
         field(ZNAM, "Invisible")
 	field(ONAM, "Visible")
-}	 
+}
 
 #Record to display a message if the HOME buttons are not visible (if HOMEVIS=0).
 record(stringout, "BL45P-MO-CHOP-01:VER:HOMEVISSTR")
@@ -4902,10 +4908,10 @@ record(stringin, "BL45P-MO-CHOP-01:VER:CsAxis_RBV") {
   field(DTYP, "asynOctetRead")
   field(INP, "@asyn(BRICK1,5)PMAC_C_GROUP_ASSIGN_RBV")
   field(SCAN, "I/O Intr")
-}# These are the supporting records for doing kill, eloss, and adding autohome 
+}# These are the supporting records for doing kill, eloss, and adding autohome
 # support to a motor record
 
-#% macro, SPORT, Asyn port for eloss commands 
+#% macro, SPORT, Asyn port for eloss commands
 # usually PMAC_S<n> for pmacs, the name of the pmacAsynIpPort for bricks
 #% macro, HOME, Prefix for autohome instance. Defaults to BL45P-MO-CHOP-01. If unspecified,
 # the template contains enough records to keep the motor record happy
@@ -4963,8 +4969,8 @@ record(ai, "BL45P-MO-CHOP-01:VER:HMPOS_RBV") {
 
 record(calcout, "BL45P-MO-CHOP-01:VER:HMPOS:CALC") {
   field(INPA, "BL45P-MO-CHOP-01:VER.MRES CP")
-  field(INPB, "BL45P-MO-CHOP-01:VER:SCALE")  
-  field(INPC, "BL45P-MO-CHOP-01:VER:HMPOS_RBV CP")  
+  field(INPB, "BL45P-MO-CHOP-01:VER:SCALE")
+  field(INPC, "BL45P-MO-CHOP-01:VER:HMPOS_RBV CP")
   field(CALC, "A*B*C")
   field(OUT, "BL45P-MO-CHOP-01:VER:HMPOS PP")
 }
@@ -4988,7 +4994,7 @@ record(stringout, "BL45P-MO-CHOP-01:HM:M5PV"){
 # define a kill record
 record(ao, "BL45P-MO-CHOP-01:VER:KILL") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,5)PMAC_C_KILL_AXIS")  
+  field(OUT, "@asyn(BRICK1,5)PMAC_C_KILL_AXIS")
   field(VAL, "0")
 }
 
@@ -4999,20 +5005,20 @@ record(calc, "BL45P-MO-CHOP-01:VER:ELOSSVAR") {
 
 record(ai, "BL45P-MO-CHOP-01:VER:ELOSS") {
   field(DTYP, "asynInt32")
-  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+5`")  
-  field(SCAN, "I/O Intr")  
+  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+5`")
+  field(SCAN, "I/O Intr")
 }
 
 record(calcout, "BL45P-MO-CHOP-01:VER:ELOSSRC") {
-  field(OUT, "BL45P-MO-CHOP-01:VER:SEND_ELOSSRC PP") 
+  field(OUT, "BL45P-MO-CHOP-01:VER:SEND_ELOSSRC PP")
   field(DESC, "Write 0 to A to reset Eloss")
   field(CALC, "A")
-  field(A, "0")  
+  field(A, "0")
 }
 
 record(ao, "BL45P-MO-CHOP-01:VER:SEND_ELOSSRC") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+5`")  
+  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+5`")
 }
 
 # Overwrite the description of pmacStatus
@@ -5273,10 +5279,10 @@ record(stringin, "BL45P-MO-STEP-01:M5:CsAxis_RBV") {
   field(DTYP, "asynOctetRead")
   field(INP, "@asyn(BRICK1,5)PMAC_C_GROUP_ASSIGN_RBV")
   field(SCAN, "I/O Intr")
-}# These are the supporting records for doing kill, eloss, and adding autohome 
+}# These are the supporting records for doing kill, eloss, and adding autohome
 # support to a motor record
 
-#% macro, SPORT, Asyn port for eloss commands 
+#% macro, SPORT, Asyn port for eloss commands
 # usually PMAC_S<n> for pmacs, the name of the pmacAsynIpPort for bricks
 #% macro, HOME, Prefix for autohome instance. Defaults to BL45P-MO-STEP-01:. If unspecified,
 # the template contains enough records to keep the motor record happy
@@ -5334,8 +5340,8 @@ record(ai, "BL45P-MO-STEP-01:M5:HMPOS_RBV") {
 
 record(calcout, "BL45P-MO-STEP-01:M5:HMPOS:CALC") {
   field(INPA, "BL45P-MO-STEP-01:M5.MRES CP")
-  field(INPB, "BL45P-MO-STEP-01:M5:SCALE")  
-  field(INPC, "BL45P-MO-STEP-01:M5:HMPOS_RBV CP")  
+  field(INPB, "BL45P-MO-STEP-01:M5:SCALE")
+  field(INPC, "BL45P-MO-STEP-01:M5:HMPOS_RBV CP")
   field(CALC, "A*B*C")
   field(OUT, "BL45P-MO-STEP-01:M5:HMPOS PP")
 }
@@ -5359,7 +5365,7 @@ record(stringout, "BL45P-MO-STEP-01::HM:M5PV"){
 # define a kill record
 record(ao, "BL45P-MO-STEP-01:M5:KILL") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,5)PMAC_C_KILL_AXIS")  
+  field(OUT, "@asyn(BRICK1,5)PMAC_C_KILL_AXIS")
   field(VAL, "0")
 }
 
@@ -5370,20 +5376,20 @@ record(calc, "BL45P-MO-STEP-01:M5:ELOSSVAR") {
 
 record(ai, "BL45P-MO-STEP-01:M5:ELOSS") {
   field(DTYP, "asynInt32")
-  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+5`")  
-  field(SCAN, "I/O Intr")  
+  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+5`")
+  field(SCAN, "I/O Intr")
 }
 
 record(calcout, "BL45P-MO-STEP-01:M5:ELOSSRC") {
-  field(OUT, "BL45P-MO-STEP-01:M5:SEND_ELOSSRC PP") 
+  field(OUT, "BL45P-MO-STEP-01:M5:SEND_ELOSSRC PP")
   field(DESC, "Write 0 to A to reset Eloss")
   field(CALC, "A")
-  field(A, "0")  
+  field(A, "0")
 }
 
 record(ao, "BL45P-MO-STEP-01:M5:SEND_ELOSSRC") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+5`")  
+  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+5`")
 }
 
 # Overwrite the description of pmacStatus
@@ -5621,7 +5627,7 @@ record(ao,"BL45P-MO-STEP-01:M5:OffsetDrv") {
 #% macro, HOMEVIS, If 1 then home is visible on the gui
 #% macro, HOMEVISSTR, If HOMEVIS=0, then display this text on the gui instead
 #% macro, name   , Object name and gui association name
-#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails, 
+#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails,
 #                  set to '#' to comment out alh lines
 #% macro, gda_name, Name to export this as to GDA
 #% macro, gda_desc, Description to export this as to GDA
@@ -5735,11 +5741,11 @@ record(motor,"BL45P-MO-STAGE-01:X")
 	field(DHLM,"50.5")
 	field(DLLM,"0.1")
 	field(HLM,"")
-	field(LLM,"")	
+	field(LLM,"")
 	field(HLSV,"MAJOR")
 	field(INIT,"")
 	field(RTRY,"0")
-	field(DLY,"0")	
+	field(DLY,"0")
 	field(HVEL,"0")
 	field(SREV, "1000")
 	field(RRES, "")
@@ -5748,15 +5754,15 @@ record(motor,"BL45P-MO-STAGE-01:X")
 	field(JVEL, "5")
 	field(JAR, "")
 	field(UEIP, "0")
-	field(URIP, "0")	
-	field(RDBL, "")		
+	field(URIP, "0")
+	field(RDBL, "")
 	field(VMAX, "5")
 	field(OFF, "0")
 	field(RDBD, "")
 	field(FOFF, "0")
 	field(ADEL, "0")
 	field(NTM, "1")
-	field(SDIS, "BL45P-MO-STAGE-01:X:SDIS.VAL")	
+	field(SDIS, "BL45P-MO-STAGE-01:X:SDIS.VAL")
 	field(RLNK, "")
 }
 
@@ -5806,7 +5812,7 @@ record(ao, "BL45P-MO-STAGE-01:X:KILL") {
 record(ai, "BL45P-MO-STAGE-01:X:ELOSS") {
     field(PINI, "YES")
     field(HIHI, "1")
-    field(HHSV, "MAJOR")    
+    field(HHSV, "MAJOR")
 }
 
 # dummy record that looks like an eloss reset
@@ -5815,7 +5821,7 @@ record(calcout, "BL45P-MO-STAGE-01:X:ELOSSRC") {
 
 # check if SYNC has been pressed
 record(calcout, "BL45P-MO-STAGE-01:X:CHECK_SYNC") {
-  field(INPA, "BL45P-MO-STAGE-01:X.SYNC CP")  
+  field(INPA, "BL45P-MO-STAGE-01:X.SYNC CP")
   field(CALC, "A>0")
   field(OOPT, "When Non-zero")
   field(OUT, "BL45P-MO-STAGE-01:X:MR_MOVE_WRITE.PROC PP")
@@ -5856,7 +5862,7 @@ record(calc, "BL45P-MO-STAGE-01:X:FERRORMAX")
 	field(HSV, "NO_ALARM")
 	field(PREC,"3")
 	field(EGU, "mm")
-}	
+}
 
 #Record to reset the maximum following error
 record(bo, "BL45P-MO-STAGE-01:X:FEMAXRESET")
@@ -5865,7 +5871,7 @@ record(bo, "BL45P-MO-STAGE-01:X:FEMAXRESET")
 	field(DTYP,"Soft Channel")
 	field(OUT, "BL45P-MO-STAGE-01:X:FERRORMAX.VAL")
 	field(VAL, "0")
-}	
+}
 
 
 #Record to determin HOME button visibility on the motor.edl screen.
@@ -5876,7 +5882,7 @@ record(bo, "BL45P-MO-STAGE-01:X:HOMEVIS")
 	field(VAL, "1")
         field(ZNAM, "Invisible")
 	field(ONAM, "Visible")
-}	 
+}
 
 #Record to display a message if the HOME buttons are not visible (if HOMEVIS=0).
 record(stringout, "BL45P-MO-STAGE-01:X:HOMEVISSTR")
@@ -5985,10 +5991,10 @@ record(stringin, "BL45P-MO-STAGE-01:X:CsAxis_RBV") {
   field(DTYP, "asynOctetRead")
   field(INP, "@asyn(BRICK1,6)PMAC_C_GROUP_ASSIGN_RBV")
   field(SCAN, "I/O Intr")
-}# These are the supporting records for doing kill, eloss, and adding autohome 
+}# These are the supporting records for doing kill, eloss, and adding autohome
 # support to a motor record
 
-#% macro, SPORT, Asyn port for eloss commands 
+#% macro, SPORT, Asyn port for eloss commands
 # usually PMAC_S<n> for pmacs, the name of the pmacAsynIpPort for bricks
 #% macro, HOME, Prefix for autohome instance. Defaults to BL45P-MO-STAGE-01. If unspecified,
 # the template contains enough records to keep the motor record happy
@@ -6046,8 +6052,8 @@ record(ai, "BL45P-MO-STAGE-01:X:HMPOS_RBV") {
 
 record(calcout, "BL45P-MO-STAGE-01:X:HMPOS:CALC") {
   field(INPA, "BL45P-MO-STAGE-01:X.MRES CP")
-  field(INPB, "BL45P-MO-STAGE-01:X:SCALE")  
-  field(INPC, "BL45P-MO-STAGE-01:X:HMPOS_RBV CP")  
+  field(INPB, "BL45P-MO-STAGE-01:X:SCALE")
+  field(INPC, "BL45P-MO-STAGE-01:X:HMPOS_RBV CP")
   field(CALC, "A*B*C")
   field(OUT, "BL45P-MO-STAGE-01:X:HMPOS PP")
 }
@@ -6071,7 +6077,7 @@ record(stringout, "BL45P-MO-STAGE-01:HM:M6PV"){
 # define a kill record
 record(ao, "BL45P-MO-STAGE-01:X:KILL") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,6)PMAC_C_KILL_AXIS")  
+  field(OUT, "@asyn(BRICK1,6)PMAC_C_KILL_AXIS")
   field(VAL, "0")
 }
 
@@ -6082,20 +6088,20 @@ record(calc, "BL45P-MO-STAGE-01:X:ELOSSVAR") {
 
 record(ai, "BL45P-MO-STAGE-01:X:ELOSS") {
   field(DTYP, "asynInt32")
-  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+6`")  
-  field(SCAN, "I/O Intr")  
+  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+6`")
+  field(SCAN, "I/O Intr")
 }
 
 record(calcout, "BL45P-MO-STAGE-01:X:ELOSSRC") {
-  field(OUT, "BL45P-MO-STAGE-01:X:SEND_ELOSSRC PP") 
+  field(OUT, "BL45P-MO-STAGE-01:X:SEND_ELOSSRC PP")
   field(DESC, "Write 0 to A to reset Eloss")
   field(CALC, "A")
-  field(A, "0")  
+  field(A, "0")
 }
 
 record(ao, "BL45P-MO-STAGE-01:X:SEND_ELOSSRC") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+6`")  
+  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+6`")
 }
 
 # Overwrite the description of pmacStatus
@@ -6356,10 +6362,10 @@ record(stringin, "BL45P-MO-STEP-01:M6:CsAxis_RBV") {
   field(DTYP, "asynOctetRead")
   field(INP, "@asyn(BRICK1,6)PMAC_C_GROUP_ASSIGN_RBV")
   field(SCAN, "I/O Intr")
-}# These are the supporting records for doing kill, eloss, and adding autohome 
+}# These are the supporting records for doing kill, eloss, and adding autohome
 # support to a motor record
 
-#% macro, SPORT, Asyn port for eloss commands 
+#% macro, SPORT, Asyn port for eloss commands
 # usually PMAC_S<n> for pmacs, the name of the pmacAsynIpPort for bricks
 #% macro, HOME, Prefix for autohome instance. Defaults to BL45P-MO-STEP-01:. If unspecified,
 # the template contains enough records to keep the motor record happy
@@ -6417,8 +6423,8 @@ record(ai, "BL45P-MO-STEP-01:M6:HMPOS_RBV") {
 
 record(calcout, "BL45P-MO-STEP-01:M6:HMPOS:CALC") {
   field(INPA, "BL45P-MO-STEP-01:M6.MRES CP")
-  field(INPB, "BL45P-MO-STEP-01:M6:SCALE")  
-  field(INPC, "BL45P-MO-STEP-01:M6:HMPOS_RBV CP")  
+  field(INPB, "BL45P-MO-STEP-01:M6:SCALE")
+  field(INPC, "BL45P-MO-STEP-01:M6:HMPOS_RBV CP")
   field(CALC, "A*B*C")
   field(OUT, "BL45P-MO-STEP-01:M6:HMPOS PP")
 }
@@ -6442,7 +6448,7 @@ record(stringout, "BL45P-MO-STEP-01::HM:M6PV"){
 # define a kill record
 record(ao, "BL45P-MO-STEP-01:M6:KILL") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,6)PMAC_C_KILL_AXIS")  
+  field(OUT, "@asyn(BRICK1,6)PMAC_C_KILL_AXIS")
   field(VAL, "0")
 }
 
@@ -6453,20 +6459,20 @@ record(calc, "BL45P-MO-STEP-01:M6:ELOSSVAR") {
 
 record(ai, "BL45P-MO-STEP-01:M6:ELOSS") {
   field(DTYP, "asynInt32")
-  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+6`")  
-  field(SCAN, "I/O Intr")  
+  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+6`")
+  field(SCAN, "I/O Intr")
 }
 
 record(calcout, "BL45P-MO-STEP-01:M6:ELOSSRC") {
-  field(OUT, "BL45P-MO-STEP-01:M6:SEND_ELOSSRC PP") 
+  field(OUT, "BL45P-MO-STEP-01:M6:SEND_ELOSSRC PP")
   field(DESC, "Write 0 to A to reset Eloss")
   field(CALC, "A")
-  field(A, "0")  
+  field(A, "0")
 }
 
 record(ao, "BL45P-MO-STEP-01:M6:SEND_ELOSSRC") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+6`")  
+  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+6`")
 }
 
 # Overwrite the description of pmacStatus
@@ -6704,7 +6710,7 @@ record(ao,"BL45P-MO-STEP-01:M6:OffsetDrv") {
 #% macro, HOMEVIS, If 1 then home is visible on the gui
 #% macro, HOMEVISSTR, If HOMEVIS=0, then display this text on the gui instead
 #% macro, name   , Object name and gui association name
-#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails, 
+#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails,
 #                  set to '#' to comment out alh lines
 #% macro, gda_name, Name to export this as to GDA
 #% macro, gda_desc, Description to export this as to GDA
@@ -6818,11 +6824,11 @@ record(motor,"BL45P-MO-STAGE-01:Y")
 	field(DHLM,"12")
 	field(DLLM,"-0.05")
 	field(HLM,"")
-	field(LLM,"")	
+	field(LLM,"")
 	field(HLSV,"MAJOR")
 	field(INIT,"")
 	field(RTRY,"0")
-	field(DLY,"0")	
+	field(DLY,"0")
 	field(HVEL,"0")
 	field(SREV, "1000")
 	field(RRES, "")
@@ -6831,15 +6837,15 @@ record(motor,"BL45P-MO-STAGE-01:Y")
 	field(JVEL, "5")
 	field(JAR, "")
 	field(UEIP, "0")
-	field(URIP, "0")	
-	field(RDBL, "")		
+	field(URIP, "0")
+	field(RDBL, "")
 	field(VMAX, "5")
 	field(OFF, "0")
 	field(RDBD, "")
 	field(FOFF, "0")
 	field(ADEL, "0")
 	field(NTM, "1")
-	field(SDIS, "BL45P-MO-STAGE-01:Y:SDIS.VAL")	
+	field(SDIS, "BL45P-MO-STAGE-01:Y:SDIS.VAL")
 	field(RLNK, "")
 }
 
@@ -6889,7 +6895,7 @@ record(ao, "BL45P-MO-STAGE-01:Y:KILL") {
 record(ai, "BL45P-MO-STAGE-01:Y:ELOSS") {
     field(PINI, "YES")
     field(HIHI, "1")
-    field(HHSV, "MAJOR")    
+    field(HHSV, "MAJOR")
 }
 
 # dummy record that looks like an eloss reset
@@ -6898,7 +6904,7 @@ record(calcout, "BL45P-MO-STAGE-01:Y:ELOSSRC") {
 
 # check if SYNC has been pressed
 record(calcout, "BL45P-MO-STAGE-01:Y:CHECK_SYNC") {
-  field(INPA, "BL45P-MO-STAGE-01:Y.SYNC CP")  
+  field(INPA, "BL45P-MO-STAGE-01:Y.SYNC CP")
   field(CALC, "A>0")
   field(OOPT, "When Non-zero")
   field(OUT, "BL45P-MO-STAGE-01:Y:MR_MOVE_WRITE.PROC PP")
@@ -6939,7 +6945,7 @@ record(calc, "BL45P-MO-STAGE-01:Y:FERRORMAX")
 	field(HSV, "NO_ALARM")
 	field(PREC,"3")
 	field(EGU, "mm")
-}	
+}
 
 #Record to reset the maximum following error
 record(bo, "BL45P-MO-STAGE-01:Y:FEMAXRESET")
@@ -6948,7 +6954,7 @@ record(bo, "BL45P-MO-STAGE-01:Y:FEMAXRESET")
 	field(DTYP,"Soft Channel")
 	field(OUT, "BL45P-MO-STAGE-01:Y:FERRORMAX.VAL")
 	field(VAL, "0")
-}	
+}
 
 
 #Record to determin HOME button visibility on the motor.edl screen.
@@ -6959,7 +6965,7 @@ record(bo, "BL45P-MO-STAGE-01:Y:HOMEVIS")
 	field(VAL, "1")
         field(ZNAM, "Invisible")
 	field(ONAM, "Visible")
-}	 
+}
 
 #Record to display a message if the HOME buttons are not visible (if HOMEVIS=0).
 record(stringout, "BL45P-MO-STAGE-01:Y:HOMEVISSTR")
@@ -7068,10 +7074,10 @@ record(stringin, "BL45P-MO-STAGE-01:Y:CsAxis_RBV") {
   field(DTYP, "asynOctetRead")
   field(INP, "@asyn(BRICK1,7)PMAC_C_GROUP_ASSIGN_RBV")
   field(SCAN, "I/O Intr")
-}# These are the supporting records for doing kill, eloss, and adding autohome 
+}# These are the supporting records for doing kill, eloss, and adding autohome
 # support to a motor record
 
-#% macro, SPORT, Asyn port for eloss commands 
+#% macro, SPORT, Asyn port for eloss commands
 # usually PMAC_S<n> for pmacs, the name of the pmacAsynIpPort for bricks
 #% macro, HOME, Prefix for autohome instance. Defaults to BL45P-MO-STAGE-01. If unspecified,
 # the template contains enough records to keep the motor record happy
@@ -7129,8 +7135,8 @@ record(ai, "BL45P-MO-STAGE-01:Y:HMPOS_RBV") {
 
 record(calcout, "BL45P-MO-STAGE-01:Y:HMPOS:CALC") {
   field(INPA, "BL45P-MO-STAGE-01:Y.MRES CP")
-  field(INPB, "BL45P-MO-STAGE-01:Y:SCALE")  
-  field(INPC, "BL45P-MO-STAGE-01:Y:HMPOS_RBV CP")  
+  field(INPB, "BL45P-MO-STAGE-01:Y:SCALE")
+  field(INPC, "BL45P-MO-STAGE-01:Y:HMPOS_RBV CP")
   field(CALC, "A*B*C")
   field(OUT, "BL45P-MO-STAGE-01:Y:HMPOS PP")
 }
@@ -7154,7 +7160,7 @@ record(stringout, "BL45P-MO-STAGE-01:HM:M7PV"){
 # define a kill record
 record(ao, "BL45P-MO-STAGE-01:Y:KILL") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,7)PMAC_C_KILL_AXIS")  
+  field(OUT, "@asyn(BRICK1,7)PMAC_C_KILL_AXIS")
   field(VAL, "0")
 }
 
@@ -7165,20 +7171,20 @@ record(calc, "BL45P-MO-STAGE-01:Y:ELOSSVAR") {
 
 record(ai, "BL45P-MO-STAGE-01:Y:ELOSS") {
   field(DTYP, "asynInt32")
-  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+7`")  
-  field(SCAN, "I/O Intr")  
+  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+7`")
+  field(SCAN, "I/O Intr")
 }
 
 record(calcout, "BL45P-MO-STAGE-01:Y:ELOSSRC") {
-  field(OUT, "BL45P-MO-STAGE-01:Y:SEND_ELOSSRC PP") 
+  field(OUT, "BL45P-MO-STAGE-01:Y:SEND_ELOSSRC PP")
   field(DESC, "Write 0 to A to reset Eloss")
   field(CALC, "A")
-  field(A, "0")  
+  field(A, "0")
 }
 
 record(ao, "BL45P-MO-STAGE-01:Y:SEND_ELOSSRC") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+7`")  
+  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+7`")
 }
 
 # Overwrite the description of pmacStatus
@@ -7439,10 +7445,10 @@ record(stringin, "BL45P-MO-STEP-01:M7:CsAxis_RBV") {
   field(DTYP, "asynOctetRead")
   field(INP, "@asyn(BRICK1,7)PMAC_C_GROUP_ASSIGN_RBV")
   field(SCAN, "I/O Intr")
-}# These are the supporting records for doing kill, eloss, and adding autohome 
+}# These are the supporting records for doing kill, eloss, and adding autohome
 # support to a motor record
 
-#% macro, SPORT, Asyn port for eloss commands 
+#% macro, SPORT, Asyn port for eloss commands
 # usually PMAC_S<n> for pmacs, the name of the pmacAsynIpPort for bricks
 #% macro, HOME, Prefix for autohome instance. Defaults to BL45P-MO-STEP-01:. If unspecified,
 # the template contains enough records to keep the motor record happy
@@ -7500,8 +7506,8 @@ record(ai, "BL45P-MO-STEP-01:M7:HMPOS_RBV") {
 
 record(calcout, "BL45P-MO-STEP-01:M7:HMPOS:CALC") {
   field(INPA, "BL45P-MO-STEP-01:M7.MRES CP")
-  field(INPB, "BL45P-MO-STEP-01:M7:SCALE")  
-  field(INPC, "BL45P-MO-STEP-01:M7:HMPOS_RBV CP")  
+  field(INPB, "BL45P-MO-STEP-01:M7:SCALE")
+  field(INPC, "BL45P-MO-STEP-01:M7:HMPOS_RBV CP")
   field(CALC, "A*B*C")
   field(OUT, "BL45P-MO-STEP-01:M7:HMPOS PP")
 }
@@ -7525,7 +7531,7 @@ record(stringout, "BL45P-MO-STEP-01::HM:M7PV"){
 # define a kill record
 record(ao, "BL45P-MO-STEP-01:M7:KILL") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,7)PMAC_C_KILL_AXIS")  
+  field(OUT, "@asyn(BRICK1,7)PMAC_C_KILL_AXIS")
   field(VAL, "0")
 }
 
@@ -7536,20 +7542,20 @@ record(calc, "BL45P-MO-STEP-01:M7:ELOSSVAR") {
 
 record(ai, "BL45P-MO-STEP-01:M7:ELOSS") {
   field(DTYP, "asynInt32")
-  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+7`")  
-  field(SCAN, "I/O Intr")  
+  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+7`")
+  field(SCAN, "I/O Intr")
 }
 
 record(calcout, "BL45P-MO-STEP-01:M7:ELOSSRC") {
-  field(OUT, "BL45P-MO-STEP-01:M7:SEND_ELOSSRC PP") 
+  field(OUT, "BL45P-MO-STEP-01:M7:SEND_ELOSSRC PP")
   field(DESC, "Write 0 to A to reset Eloss")
   field(CALC, "A")
-  field(A, "0")  
+  field(A, "0")
 }
 
 record(ao, "BL45P-MO-STEP-01:M7:SEND_ELOSSRC") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+7`")  
+  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+7`")
 }
 
 # Overwrite the description of pmacStatus
@@ -7787,7 +7793,7 @@ record(ao,"BL45P-MO-STEP-01:M7:OffsetDrv") {
 #% macro, HOMEVIS, If 1 then home is visible on the gui
 #% macro, HOMEVISSTR, If HOMEVIS=0, then display this text on the gui instead
 #% macro, name   , Object name and gui association name
-#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails, 
+#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails,
 #                  set to '#' to comment out alh lines
 #% macro, gda_name, Name to export this as to GDA
 #% macro, gda_desc, Description to export this as to GDA
@@ -7901,11 +7907,11 @@ record(motor,"BL45P-MO-STAGE-01:Z")
 	field(DHLM,"12")
 	field(DLLM,"-0.05")
 	field(HLM,"")
-	field(LLM,"")	
+	field(LLM,"")
 	field(HLSV,"MAJOR")
 	field(INIT,"")
 	field(RTRY,"0")
-	field(DLY,"0")	
+	field(DLY,"0")
 	field(HVEL,"0")
 	field(SREV, "1000")
 	field(RRES, "")
@@ -7914,15 +7920,15 @@ record(motor,"BL45P-MO-STAGE-01:Z")
 	field(JVEL, "5")
 	field(JAR, "")
 	field(UEIP, "0")
-	field(URIP, "0")	
-	field(RDBL, "")		
+	field(URIP, "0")
+	field(RDBL, "")
 	field(VMAX, "5")
 	field(OFF, "0")
 	field(RDBD, "")
 	field(FOFF, "0")
 	field(ADEL, "0")
 	field(NTM, "1")
-	field(SDIS, "BL45P-MO-STAGE-01:Z:SDIS.VAL")	
+	field(SDIS, "BL45P-MO-STAGE-01:Z:SDIS.VAL")
 	field(RLNK, "")
 }
 
@@ -7972,7 +7978,7 @@ record(ao, "BL45P-MO-STAGE-01:Z:KILL") {
 record(ai, "BL45P-MO-STAGE-01:Z:ELOSS") {
     field(PINI, "YES")
     field(HIHI, "1")
-    field(HHSV, "MAJOR")    
+    field(HHSV, "MAJOR")
 }
 
 # dummy record that looks like an eloss reset
@@ -7981,7 +7987,7 @@ record(calcout, "BL45P-MO-STAGE-01:Z:ELOSSRC") {
 
 # check if SYNC has been pressed
 record(calcout, "BL45P-MO-STAGE-01:Z:CHECK_SYNC") {
-  field(INPA, "BL45P-MO-STAGE-01:Z.SYNC CP")  
+  field(INPA, "BL45P-MO-STAGE-01:Z.SYNC CP")
   field(CALC, "A>0")
   field(OOPT, "When Non-zero")
   field(OUT, "BL45P-MO-STAGE-01:Z:MR_MOVE_WRITE.PROC PP")
@@ -8022,7 +8028,7 @@ record(calc, "BL45P-MO-STAGE-01:Z:FERRORMAX")
 	field(HSV, "NO_ALARM")
 	field(PREC,"3")
 	field(EGU, "mm")
-}	
+}
 
 #Record to reset the maximum following error
 record(bo, "BL45P-MO-STAGE-01:Z:FEMAXRESET")
@@ -8031,7 +8037,7 @@ record(bo, "BL45P-MO-STAGE-01:Z:FEMAXRESET")
 	field(DTYP,"Soft Channel")
 	field(OUT, "BL45P-MO-STAGE-01:Z:FERRORMAX.VAL")
 	field(VAL, "0")
-}	
+}
 
 
 #Record to determin HOME button visibility on the motor.edl screen.
@@ -8042,7 +8048,7 @@ record(bo, "BL45P-MO-STAGE-01:Z:HOMEVIS")
 	field(VAL, "1")
         field(ZNAM, "Invisible")
 	field(ONAM, "Visible")
-}	 
+}
 
 #Record to display a message if the HOME buttons are not visible (if HOMEVIS=0).
 record(stringout, "BL45P-MO-STAGE-01:Z:HOMEVISSTR")
@@ -8151,10 +8157,10 @@ record(stringin, "BL45P-MO-STAGE-01:Z:CsAxis_RBV") {
   field(DTYP, "asynOctetRead")
   field(INP, "@asyn(BRICK1,8)PMAC_C_GROUP_ASSIGN_RBV")
   field(SCAN, "I/O Intr")
-}# These are the supporting records for doing kill, eloss, and adding autohome 
+}# These are the supporting records for doing kill, eloss, and adding autohome
 # support to a motor record
 
-#% macro, SPORT, Asyn port for eloss commands 
+#% macro, SPORT, Asyn port for eloss commands
 # usually PMAC_S<n> for pmacs, the name of the pmacAsynIpPort for bricks
 #% macro, HOME, Prefix for autohome instance. Defaults to BL45P-MO-STAGE-01. If unspecified,
 # the template contains enough records to keep the motor record happy
@@ -8212,8 +8218,8 @@ record(ai, "BL45P-MO-STAGE-01:Z:HMPOS_RBV") {
 
 record(calcout, "BL45P-MO-STAGE-01:Z:HMPOS:CALC") {
   field(INPA, "BL45P-MO-STAGE-01:Z.MRES CP")
-  field(INPB, "BL45P-MO-STAGE-01:Z:SCALE")  
-  field(INPC, "BL45P-MO-STAGE-01:Z:HMPOS_RBV CP")  
+  field(INPB, "BL45P-MO-STAGE-01:Z:SCALE")
+  field(INPC, "BL45P-MO-STAGE-01:Z:HMPOS_RBV CP")
   field(CALC, "A*B*C")
   field(OUT, "BL45P-MO-STAGE-01:Z:HMPOS PP")
 }
@@ -8237,7 +8243,7 @@ record(stringout, "BL45P-MO-STAGE-01:HM:M8PV"){
 # define a kill record
 record(ao, "BL45P-MO-STAGE-01:Z:KILL") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,8)PMAC_C_KILL_AXIS")  
+  field(OUT, "@asyn(BRICK1,8)PMAC_C_KILL_AXIS")
   field(VAL, "0")
 }
 
@@ -8248,20 +8254,20 @@ record(calc, "BL45P-MO-STAGE-01:Z:ELOSSVAR") {
 
 record(ai, "BL45P-MO-STAGE-01:Z:ELOSS") {
   field(DTYP, "asynInt32")
-  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+8`")  
-  field(SCAN, "I/O Intr")  
+  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+8`")
+  field(SCAN, "I/O Intr")
 }
 
 record(calcout, "BL45P-MO-STAGE-01:Z:ELOSSRC") {
-  field(OUT, "BL45P-MO-STAGE-01:Z:SEND_ELOSSRC PP") 
+  field(OUT, "BL45P-MO-STAGE-01:Z:SEND_ELOSSRC PP")
   field(DESC, "Write 0 to A to reset Eloss")
   field(CALC, "A")
-  field(A, "0")  
+  field(A, "0")
 }
 
 record(ao, "BL45P-MO-STAGE-01:Z:SEND_ELOSSRC") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+8`")  
+  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+8`")
 }
 
 # Overwrite the description of pmacStatus
@@ -8522,10 +8528,10 @@ record(stringin, "BL45P-MO-STEP-01:M8:CsAxis_RBV") {
   field(DTYP, "asynOctetRead")
   field(INP, "@asyn(BRICK1,8)PMAC_C_GROUP_ASSIGN_RBV")
   field(SCAN, "I/O Intr")
-}# These are the supporting records for doing kill, eloss, and adding autohome 
+}# These are the supporting records for doing kill, eloss, and adding autohome
 # support to a motor record
 
-#% macro, SPORT, Asyn port for eloss commands 
+#% macro, SPORT, Asyn port for eloss commands
 # usually PMAC_S<n> for pmacs, the name of the pmacAsynIpPort for bricks
 #% macro, HOME, Prefix for autohome instance. Defaults to BL45P-MO-STEP-01:. If unspecified,
 # the template contains enough records to keep the motor record happy
@@ -8583,8 +8589,8 @@ record(ai, "BL45P-MO-STEP-01:M8:HMPOS_RBV") {
 
 record(calcout, "BL45P-MO-STEP-01:M8:HMPOS:CALC") {
   field(INPA, "BL45P-MO-STEP-01:M8.MRES CP")
-  field(INPB, "BL45P-MO-STEP-01:M8:SCALE")  
-  field(INPC, "BL45P-MO-STEP-01:M8:HMPOS_RBV CP")  
+  field(INPB, "BL45P-MO-STEP-01:M8:SCALE")
+  field(INPC, "BL45P-MO-STEP-01:M8:HMPOS_RBV CP")
   field(CALC, "A*B*C")
   field(OUT, "BL45P-MO-STEP-01:M8:HMPOS PP")
 }
@@ -8608,7 +8614,7 @@ record(stringout, "BL45P-MO-STEP-01::HM:M8PV"){
 # define a kill record
 record(ao, "BL45P-MO-STEP-01:M8:KILL") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,8)PMAC_C_KILL_AXIS")  
+  field(OUT, "@asyn(BRICK1,8)PMAC_C_KILL_AXIS")
   field(VAL, "0")
 }
 
@@ -8619,20 +8625,20 @@ record(calc, "BL45P-MO-STEP-01:M8:ELOSSVAR") {
 
 record(ai, "BL45P-MO-STEP-01:M8:ELOSS") {
   field(DTYP, "asynInt32")
-  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+8`")  
-  field(SCAN, "I/O Intr")  
+  field(INP, "@asyn(BRICK1,0)PMAC_VIS_P`464+8`")
+  field(SCAN, "I/O Intr")
 }
 
 record(calcout, "BL45P-MO-STEP-01:M8:ELOSSRC") {
-  field(OUT, "BL45P-MO-STEP-01:M8:SEND_ELOSSRC PP") 
+  field(OUT, "BL45P-MO-STEP-01:M8:SEND_ELOSSRC PP")
   field(DESC, "Write 0 to A to reset Eloss")
   field(CALC, "A")
-  field(A, "0")  
+  field(A, "0")
 }
 
 record(ao, "BL45P-MO-STEP-01:M8:SEND_ELOSSRC") {
   field(DTYP, "asynInt32")
-  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+8`")  
+  field(OUT, "@asyn(BRICK1,0)PMAC_VIS_P`464+8`")
 }
 
 # Overwrite the description of pmacStatus
@@ -8816,9 +8822,9 @@ record(ao,"BL45P-MO-STEP-01:M8:OffsetDrv") {
 # Records to read asynPortDriver parameters from the param
 # library for the class pmacCsController.
 #
-# The Asyn address is set as zero because that's what we use 
+# The Asyn address is set as zero because that's what we use
 # for controller parameters.
-# 
+#
 ##############################################################
 
 # % macro, PORT, The asyn port for the pmac cs controller
@@ -10345,9 +10351,9 @@ record(ao,"BL45P-MO-STEP-01:CS1:M9:OffsetDrv") {
 # Records to read asynPortDriver parameters from the param
 # library for the class pmacCsController.
 #
-# The Asyn address is set as zero because that's what we use 
+# The Asyn address is set as zero because that's what we use
 # for controller parameters.
-# 
+#
 ##############################################################
 
 # % macro, PORT, The asyn port for the pmac cs controller
@@ -11893,14 +11899,14 @@ record(ai, "BL45P-MO-STEP-01:ProgramVersion_RBV") {
   field(DESC, "Motion Program Version")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_PROG_V")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(ai, "BL45P-MO-STEP-01:DriverVersion_RBV") {
   field(DESC, "EPICS Driver Version")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_CODE_V")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(longin, "BL45P-MO-STEP-01:ProfileNaxes") {
@@ -11916,7 +11922,7 @@ record(longin, "BL45P-MO-STEP-01:ProfileNumAxes_RBV") {
   field(DESC, "Number of axes selected")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PROFILE_NUM_AXES")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(longout,"BL45P-MO-STEP-01:ProfileNumPoints") {
@@ -11935,7 +11941,7 @@ record(longin, "BL45P-MO-STEP-01:ProfileNumPoints_RBV") {
   field(DESC, "Number of points defined")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PROFILE_NUM_POINTS")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 
@@ -11954,14 +11960,14 @@ record(longin, "BL45P-MO-STEP-01:ProfilePointsToBuild_RBV") {
   field(DESC, "# of points to build/append")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PROFILE_NUM_BUILD")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(longin, "BL45P-MO-STEP-01:ProfilePointsBuilt_RBV") {
   field(DESC, "# of points built into scan")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PROFILE_POINTS_BUILT")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 ##
@@ -11971,7 +11977,7 @@ record(longin, "BL45P-MO-STEP-01:ProfileCurrentPoint_RBV") {
   field(DESC, "Currently executing point")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PROFILE_CURRENT_POINT")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 
@@ -11998,7 +12004,7 @@ record(bi, "BL45P-MO-STEP-01:ProfileTimeMode_RBV")
   field(INP,  "@asyn(BRICK1,0)PROFILE_TIME_MODE")
   field(ZNAM, "FIXED")
   field(ONAM, "ARRAY")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 ##
@@ -12015,7 +12021,7 @@ record(ai, "BL45P-MO-STEP-01:ProfileFixedTime_RBV") {
   field(DESC, "Fixed time between points")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn(BRICK1,0)PROFILE_FIXED_TIME")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 ##
@@ -12052,7 +12058,7 @@ record(waveform,"BL45P-MO-STEP-01:VelocityMode") {
 
 
 ###################################################################
-#  These records control trajectory scan building (pre-execute)   # 
+#  These records control trajectory scan building (pre-execute)   #
 #                                                                 #
 ###################################################################
 
@@ -12061,21 +12067,21 @@ record(waveform,"BL45P-MO-STEP-01:VelocityMode") {
 #  field(OUT, "@asyn(BRICK1,0)PMAC_C_TRAJ_CS_PORT")
 #}
 
-record(mbbo, "BL45P-MO-STEP-01:ProfileCsName") 
+record(mbbo, "BL45P-MO-STEP-01:ProfileCsName")
 {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn(BRICK1 0)PMAC_C_TRAJ_CS_PORT")
   field(PINI, "YES")
-  field(VAL,  "0")  
+  field(VAL,  "0")
 }
 
 #record(stringin, "BL45P-MO-STEP-01:ProfileCsName_RBV") {
 #  field(DTYP, "asynOctetRead")
 #  field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_CS_PORT")
-#  field(SCAN, "I/O Intr")  
+#  field(SCAN, "I/O Intr")
 #}
 
-record(mbbi, "BL45P-MO-STEP-01:ProfileCsName_RBV") 
+record(mbbi, "BL45P-MO-STEP-01:ProfileCsName_RBV")
 {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn(BRICK1 0)PMAC_C_TRAJ_CS_PORT")
@@ -12084,7 +12090,7 @@ record(mbbi, "BL45P-MO-STEP-01:ProfileCsName_RBV")
 }
 
 ###################################################################
-#  These records control trajectory scan building (pre-execute)   # 
+#  These records control trajectory scan building (pre-execute)   #
 #                                                                 #
 ###################################################################
 
@@ -12134,7 +12140,7 @@ record(waveform, "BL45P-MO-STEP-01:ProfileBuildMessage_RBV")
 
 
 ###################################################################
-#  These records control trajectory scan appending (points can    # 
+#  These records control trajectory scan appending (points can    #
 #  only be appended after a scan has been built)                  #
 ###################################################################
 
@@ -12184,7 +12190,7 @@ record(waveform, "BL45P-MO-STEP-01:ProfileAppendMessage_RBV")
 
 
 ###################################################################
-#  These records control trajectory scan execution                # 
+#  These records control trajectory scan execution                #
 #                                                                 #
 ###################################################################
 
@@ -12245,7 +12251,7 @@ record(waveform, "BL45P-MO-STEP-01:ProfileExecuteMessage_RBV")
 }
 
 ###################################################################
-#  This record aborts a trajectory scan                           # 
+#  This record aborts a trajectory scan                           #
 #                                                                 #
 ###################################################################
 
@@ -12258,7 +12264,7 @@ record(busy,"BL45P-MO-STEP-01:ProfileAbort") {
 }
 
 ###################################################################
-#  These records are to set and read the motion program number    # 
+#  These records are to set and read the motion program number    #
 #                                                                 #
 ###################################################################
 
@@ -12272,11 +12278,11 @@ record(longin, "BL45P-MO-STEP-01:TscanProgNo_RBV") {
   field(DESC, "Trajectory program number")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_PROG")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 ###################################################################
-#  These records provide status feedback                          # 
+#  These records provide status feedback                          #
 #                                                                 #
 ###################################################################
 
@@ -12284,35 +12290,35 @@ record(longin, "BL45P-MO-STEP-01:BufferAAddress_RBV") {
   field(DESC, "PMAC address of buffer A")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_ADRA")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(longin, "BL45P-MO-STEP-01:BufferBAddress_RBV") {
   field(DESC, "PMAC address of buffer B")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_ADRB")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(longin, "BL45P-MO-STEP-01:BufferLength_RBV") {
   field(DESC, "Length of trajectory buffers")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_LENGTH")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(longin, "BL45P-MO-STEP-01:CurrentIndex_RBV") {
   field(DESC, "Current PMAC index of buffer")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_INDEX")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(longin, "BL45P-MO-STEP-01:TotalPoints_RBV") {
   field(DESC, "Total points scanned")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_POINTS")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(bi, "BL45P-MO-STEP-01:CurrentBuffer_RBV") {
@@ -12321,7 +12327,7 @@ record(bi, "BL45P-MO-STEP-01:CurrentBuffer_RBV") {
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_CBUFF")
   field(ZNAM, "A")
   field(ONAM, "B")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(mbbi, "BL45P-MO-STEP-01:TrajectoryStatus_RBV") {
@@ -12336,11 +12342,11 @@ record(mbbi, "BL45P-MO-STEP-01:TrajectoryStatus_RBV") {
   field(ONST, "Running")
   field(TWST, "Finished")
   field(THST, "Error")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 ###################################################################
-#  These records report the current EPICS filled buffer ptrs      # 
+#  These records report the current EPICS filled buffer ptrs      #
 #                                                                 #
 ###################################################################
 
@@ -12348,36 +12354,36 @@ record(longin, "BL45P-MO-STEP-01:EpicsBufferAPtr_RBV") {
   field(DESC, "Current EPICS buffer A Ptr")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_FILLA")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(longin, "BL45P-MO-STEP-01:EpicsBufferBPtr_RBV") {
   field(DESC, "Current EPICS buffer B Ptr")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_FILLB")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(ai, "BL45P-MO-STEP-01:TscanTime_RBV") {
   field(DESC, "Time of scan (s)")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_TIME")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(longin, "BL45P-MO-STEP-01:TscanCs_RBV") {
   field(DESC, "CS Number of current scan")
   field(DTYP, "asynInt32")
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_CS")
-  field(SCAN, "I/O Intr")  
+  field(SCAN, "I/O Intr")
 }
 
 record(ai, "BL45P-MO-STEP-01:TscanPercent_RBV") {
   field(DESC, "Time of scan (s)")
   field(DTYP, "asynFloat64")
   field(INP, "@asyn(BRICK1,0)PMAC_C_TRAJ_PERCENT")
-  field(SCAN, "I/O Intr")  
-  field(EGU, "%")  
+  field(SCAN, "I/O Intr")
+  field(EGU, "%")
 }
 
 record(mbbi, "BL45P-MO-STEP-01:TscanExtStatus_RBV") {
@@ -12393,7 +12399,7 @@ record(mbbi, "BL45P-MO-STEP-01:TscanExtStatus_RBV") {
 }
 
 ###################################################################
-#  Axis A Trajectory Scan Records                                 # 
+#  Axis A Trajectory Scan Records                                 #
 #                                                                 #
 ###################################################################
 
@@ -12426,7 +12432,7 @@ record(longout,"BL45P-MO-STEP-01:A:NoOfPts") {
 }
 
 ###################################################################
-#  Axis B Trajectory Scan Records                                 # 
+#  Axis B Trajectory Scan Records                                 #
 #                                                                 #
 ###################################################################
 
@@ -12460,7 +12466,7 @@ record(longout,"BL45P-MO-STEP-01:B:NoOfPts") {
 
 
 ###################################################################
-#  Axis C Trajectory Scan Records                                 # 
+#  Axis C Trajectory Scan Records                                 #
 #                                                                 #
 ###################################################################
 
@@ -12494,7 +12500,7 @@ record(longout,"BL45P-MO-STEP-01:C:NoOfPts") {
 
 
 ###################################################################
-#  Axis U Trajectory Scan Records                                 # 
+#  Axis U Trajectory Scan Records                                 #
 #                                                                 #
 ###################################################################
 
@@ -12528,7 +12534,7 @@ record(longout,"BL45P-MO-STEP-01:U:NoOfPts") {
 
 
 ###################################################################
-#  Axis V Trajectory Scan Records                                 # 
+#  Axis V Trajectory Scan Records                                 #
 #                                                                 #
 ###################################################################
 
@@ -12561,7 +12567,7 @@ record(longout,"BL45P-MO-STEP-01:V:NoOfPts") {
 }
 
 ###################################################################
-#  Axis W Trajectory Scan Records                                 # 
+#  Axis W Trajectory Scan Records                                 #
 #                                                                 #
 ###################################################################
 
@@ -12594,7 +12600,7 @@ record(longout,"BL45P-MO-STEP-01:W:NoOfPts") {
 }
 
 ###################################################################
-#  Axis X Trajectory Scan Records                                 # 
+#  Axis X Trajectory Scan Records                                 #
 #                                                                 #
 ###################################################################
 
@@ -12627,7 +12633,7 @@ record(longout,"BL45P-MO-STEP-01:X:NoOfPts") {
 }
 
 ###################################################################
-#  Axis Y Trajectory Scan Records                                 # 
+#  Axis Y Trajectory Scan Records                                 #
 #                                                                 #
 ###################################################################
 
@@ -12660,7 +12666,7 @@ record(longout,"BL45P-MO-STEP-01:Y:NoOfPts") {
 }
 
 ###################################################################
-#  Axis Z Trajectory Scan Records                                 # 
+#  Axis Z Trajectory Scan Records                                 #
 #                                                                 #
 ###################################################################
 
@@ -12746,7 +12752,7 @@ record(longout,"BL45P-MO-STEP-01:Z:NoOfPts") {
 #% macro, HOMEVIS, If 1 then home is visible on the gui
 #% macro, HOMEVISSTR, If HOMEVIS=0, then display this text on the gui instead
 #% macro, name   , Object name and gui association name
-#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails, 
+#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails,
 #                  set to '#' to comment out alh lines
 #% macro, gda_name, Name to export this as to GDA
 #% macro, gda_desc, Description to export this as to GDA
@@ -12860,11 +12866,11 @@ record(motor,"BL45P-MO-STAGE-01:VX")
 	field(DHLM,"100")
 	field(DLLM,"-100")
 	field(HLM,"")
-	field(LLM,"")	
+	field(LLM,"")
 	field(HLSV,"MAJOR")
 	field(INIT,"")
 	field(RTRY,"0")
-	field(DLY,"0")	
+	field(DLY,"0")
 	field(HVEL,"0")
 	field(SREV, "1000")
 	field(RRES, "")
@@ -12873,15 +12879,15 @@ record(motor,"BL45P-MO-STAGE-01:VX")
 	field(JVEL, ".5")
 	field(JAR, "")
 	field(UEIP, "0")
-	field(URIP, "0")	
-	field(RDBL, "")		
+	field(URIP, "0")
+	field(RDBL, "")
 	field(VMAX, ".5")
 	field(OFF, "0")
 	field(RDBD, "")
 	field(FOFF, "0")
 	field(ADEL, "0")
 	field(NTM, "1")
-	field(SDIS, "BL45P-MO-STAGE-01:VX:SDIS.VAL")	
+	field(SDIS, "BL45P-MO-STAGE-01:VX:SDIS.VAL")
 	field(RLNK, "")
 }
 
@@ -12931,7 +12937,7 @@ record(ao, "BL45P-MO-STAGE-01:VX:KILL") {
 record(ai, "BL45P-MO-STAGE-01:VX:ELOSS") {
     field(PINI, "YES")
     field(HIHI, "1")
-    field(HHSV, "MAJOR")    
+    field(HHSV, "MAJOR")
 }
 
 # dummy record that looks like an eloss reset
@@ -12940,7 +12946,7 @@ record(calcout, "BL45P-MO-STAGE-01:VX:ELOSSRC") {
 
 # check if SYNC has been pressed
 record(calcout, "BL45P-MO-STAGE-01:VX:CHECK_SYNC") {
-  field(INPA, "BL45P-MO-STAGE-01:VX.SYNC CP")  
+  field(INPA, "BL45P-MO-STAGE-01:VX.SYNC CP")
   field(CALC, "A>0")
   field(OOPT, "When Non-zero")
   field(OUT, "BL45P-MO-STAGE-01:VX:MR_MOVE_WRITE.PROC PP")
@@ -12981,7 +12987,7 @@ record(calc, "BL45P-MO-STAGE-01:VX:FERRORMAX")
 	field(HSV, "NO_ALARM")
 	field(PREC,"3")
 	field(EGU, "mm")
-}	
+}
 
 #Record to reset the maximum following error
 record(bo, "BL45P-MO-STAGE-01:VX:FEMAXRESET")
@@ -12990,7 +12996,7 @@ record(bo, "BL45P-MO-STAGE-01:VX:FEMAXRESET")
 	field(DTYP,"Soft Channel")
 	field(OUT, "BL45P-MO-STAGE-01:VX:FERRORMAX.VAL")
 	field(VAL, "0")
-}	
+}
 
 
 #Record to determin HOME button visibility on the motor.edl screen.
@@ -13001,7 +13007,7 @@ record(bo, "BL45P-MO-STAGE-01:VX:HOMEVIS")
 	field(VAL, "1")
         field(ZNAM, "Invisible")
 	field(ONAM, "Visible")
-}	 
+}
 
 #Record to display a message if the HOME buttons are not visible (if HOMEVIS=0).
 record(stringout, "BL45P-MO-STAGE-01:VX:HOMEVISSTR")
@@ -13072,7 +13078,7 @@ alias(BL45P-MO-STAGE-01:VX, BL45P-MO-STEP-01:CS2:M7)# A Coordinate system axis.
 #% macro, HOMEVIS, If 1 then home is visible on the gui
 #% macro, HOMEVISSTR, If HOMEVIS=0, then display this text on the gui instead
 #% macro, name   , Object name and gui association name
-#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails, 
+#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails,
 #                  set to '#' to comment out alh lines
 #% macro, gda_name, Name to export this as to GDA
 #% macro, gda_desc, Description to export this as to GDA
@@ -13186,11 +13192,11 @@ record(motor,"BL45P-MO-STAGE-01:VY")
 	field(DHLM,"100")
 	field(DLLM,"-100")
 	field(HLM,"")
-	field(LLM,"")	
+	field(LLM,"")
 	field(HLSV,"MAJOR")
 	field(INIT,"")
 	field(RTRY,"0")
-	field(DLY,"0")	
+	field(DLY,"0")
 	field(HVEL,"0")
 	field(SREV, "1000")
 	field(RRES, "")
@@ -13199,15 +13205,15 @@ record(motor,"BL45P-MO-STAGE-01:VY")
 	field(JVEL, ".5")
 	field(JAR, "")
 	field(UEIP, "0")
-	field(URIP, "0")	
-	field(RDBL, "")		
+	field(URIP, "0")
+	field(RDBL, "")
 	field(VMAX, ".5")
 	field(OFF, "0")
 	field(RDBD, "")
 	field(FOFF, "0")
 	field(ADEL, "0")
 	field(NTM, "1")
-	field(SDIS, "BL45P-MO-STAGE-01:VY:SDIS.VAL")	
+	field(SDIS, "BL45P-MO-STAGE-01:VY:SDIS.VAL")
 	field(RLNK, "")
 }
 
@@ -13257,7 +13263,7 @@ record(ao, "BL45P-MO-STAGE-01:VY:KILL") {
 record(ai, "BL45P-MO-STAGE-01:VY:ELOSS") {
     field(PINI, "YES")
     field(HIHI, "1")
-    field(HHSV, "MAJOR")    
+    field(HHSV, "MAJOR")
 }
 
 # dummy record that looks like an eloss reset
@@ -13266,7 +13272,7 @@ record(calcout, "BL45P-MO-STAGE-01:VY:ELOSSRC") {
 
 # check if SYNC has been pressed
 record(calcout, "BL45P-MO-STAGE-01:VY:CHECK_SYNC") {
-  field(INPA, "BL45P-MO-STAGE-01:VY.SYNC CP")  
+  field(INPA, "BL45P-MO-STAGE-01:VY.SYNC CP")
   field(CALC, "A>0")
   field(OOPT, "When Non-zero")
   field(OUT, "BL45P-MO-STAGE-01:VY:MR_MOVE_WRITE.PROC PP")
@@ -13307,7 +13313,7 @@ record(calc, "BL45P-MO-STAGE-01:VY:FERRORMAX")
 	field(HSV, "NO_ALARM")
 	field(PREC,"3")
 	field(EGU, "mm")
-}	
+}
 
 #Record to reset the maximum following error
 record(bo, "BL45P-MO-STAGE-01:VY:FEMAXRESET")
@@ -13316,7 +13322,7 @@ record(bo, "BL45P-MO-STAGE-01:VY:FEMAXRESET")
 	field(DTYP,"Soft Channel")
 	field(OUT, "BL45P-MO-STAGE-01:VY:FERRORMAX.VAL")
 	field(VAL, "0")
-}	
+}
 
 
 #Record to determin HOME button visibility on the motor.edl screen.
@@ -13327,7 +13333,7 @@ record(bo, "BL45P-MO-STAGE-01:VY:HOMEVIS")
 	field(VAL, "1")
         field(ZNAM, "Invisible")
 	field(ONAM, "Visible")
-}	 
+}
 
 #Record to display a message if the HOME buttons are not visible (if HOMEVIS=0).
 record(stringout, "BL45P-MO-STAGE-01:VY:HOMEVISSTR")
@@ -13398,7 +13404,7 @@ alias(BL45P-MO-STAGE-01:VY, BL45P-MO-STEP-01:CS2:M8)# A Coordinate system axis.
 #% macro, HOMEVIS, If 1 then home is visible on the gui
 #% macro, HOMEVISSTR, If HOMEVIS=0, then display this text on the gui instead
 #% macro, name   , Object name and gui association name
-#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails, 
+#% macro, alh    , Set this to alh to add the motor to the alarm handler and send emails,
 #                  set to '#' to comment out alh lines
 #% macro, gda_name, Name to export this as to GDA
 #% macro, gda_desc, Description to export this as to GDA
@@ -13512,11 +13518,11 @@ record(motor,"BL45P-MO-STAGE-01:VZ")
 	field(DHLM,"100")
 	field(DLLM,"-100")
 	field(HLM,"")
-	field(LLM,"")	
+	field(LLM,"")
 	field(HLSV,"MAJOR")
 	field(INIT,"")
 	field(RTRY,"0")
-	field(DLY,"0")	
+	field(DLY,"0")
 	field(HVEL,"0")
 	field(SREV, "1000")
 	field(RRES, "")
@@ -13525,15 +13531,15 @@ record(motor,"BL45P-MO-STAGE-01:VZ")
 	field(JVEL, ".5")
 	field(JAR, "")
 	field(UEIP, "0")
-	field(URIP, "0")	
-	field(RDBL, "")		
+	field(URIP, "0")
+	field(RDBL, "")
 	field(VMAX, ".5")
 	field(OFF, "0")
 	field(RDBD, "")
 	field(FOFF, "0")
 	field(ADEL, "0")
 	field(NTM, "1")
-	field(SDIS, "BL45P-MO-STAGE-01:VZ:SDIS.VAL")	
+	field(SDIS, "BL45P-MO-STAGE-01:VZ:SDIS.VAL")
 	field(RLNK, "")
 }
 
@@ -13583,7 +13589,7 @@ record(ao, "BL45P-MO-STAGE-01:VZ:KILL") {
 record(ai, "BL45P-MO-STAGE-01:VZ:ELOSS") {
     field(PINI, "YES")
     field(HIHI, "1")
-    field(HHSV, "MAJOR")    
+    field(HHSV, "MAJOR")
 }
 
 # dummy record that looks like an eloss reset
@@ -13592,7 +13598,7 @@ record(calcout, "BL45P-MO-STAGE-01:VZ:ELOSSRC") {
 
 # check if SYNC has been pressed
 record(calcout, "BL45P-MO-STAGE-01:VZ:CHECK_SYNC") {
-  field(INPA, "BL45P-MO-STAGE-01:VZ.SYNC CP")  
+  field(INPA, "BL45P-MO-STAGE-01:VZ.SYNC CP")
   field(CALC, "A>0")
   field(OOPT, "When Non-zero")
   field(OUT, "BL45P-MO-STAGE-01:VZ:MR_MOVE_WRITE.PROC PP")
@@ -13633,7 +13639,7 @@ record(calc, "BL45P-MO-STAGE-01:VZ:FERRORMAX")
 	field(HSV, "NO_ALARM")
 	field(PREC,"3")
 	field(EGU, "mm")
-}	
+}
 
 #Record to reset the maximum following error
 record(bo, "BL45P-MO-STAGE-01:VZ:FEMAXRESET")
@@ -13642,7 +13648,7 @@ record(bo, "BL45P-MO-STAGE-01:VZ:FEMAXRESET")
 	field(DTYP,"Soft Channel")
 	field(OUT, "BL45P-MO-STAGE-01:VZ:FERRORMAX.VAL")
 	field(VAL, "0")
-}	
+}
 
 
 #Record to determin HOME button visibility on the motor.edl screen.
@@ -13653,7 +13659,7 @@ record(bo, "BL45P-MO-STAGE-01:VZ:HOMEVIS")
 	field(VAL, "1")
         field(ZNAM, "Invisible")
 	field(ONAM, "Visible")
-}	 
+}
 
 #Record to display a message if the HOME buttons are not visible (if HOMEVIS=0).
 record(stringout, "BL45P-MO-STAGE-01:VZ:HOMEVISSTR")
