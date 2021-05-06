@@ -1,6 +1,12 @@
 #% macro, __doc__, Create some records for reading IOC statistics and details.
 #% macro, IOC, Device prefix
 
+record(stringin, "BL45P-MO-IOC-01:DEMO")
+{
+    field(PINI, "YES")
+    field(VAL, "Hello Demo")
+}
+
 # Used by Channel Access Security to determine access to this IOC.
 record(mbbo, "BL45P-MO-IOC-01:ACCESS")
 {
