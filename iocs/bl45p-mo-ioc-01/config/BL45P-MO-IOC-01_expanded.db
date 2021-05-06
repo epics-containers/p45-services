@@ -4,7 +4,7 @@
 record(stringin, "BL45P-MO-IOC-01:DEMO")
 {
     field(PINI, "YES")
-    field(VAL, "Hello demo")
+    field(VAL, "Hello demo1")
 }
 
 # Used by Channel Access Security to determine access to this IOC.
