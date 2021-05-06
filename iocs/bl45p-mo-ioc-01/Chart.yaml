@@ -6,8 +6,8 @@ description: |
 type: application
 
 # chart and app version - these are updated automatically by CI
-version: 2021.04.29-1440
-appVersion: 2021.04.29-1440
+version: 2021.05.06-work0620
+appVersion: 2021.05.06620
 
 dependencies:
   - name: ioc-chart
