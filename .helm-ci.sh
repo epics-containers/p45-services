@@ -41,10 +41,10 @@ then
     # untagged builds go into the work repo instead of beamline repo
     CI_PROJECT_NAME="work"
     # determine the tag to use based on date
-    TAG=$(date +%Y.%m.%dW%H%M)
+    TAG=$(date +%Y.%m.%dW%-H%M)
 else
     # determine the tag to use based on date
-    TAG=$(date +%Y.%m.%dP%H%M)
+    TAG=$(date +%Y.%m.%dP%-H%M)
 fi
 
 # Update all chart dependencies.
