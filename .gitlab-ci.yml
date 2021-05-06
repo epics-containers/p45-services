@@ -12,4 +12,4 @@ build_image:
     - ./.helm-ci.sh
   only:
     refs:
-      - master
+      - tags
