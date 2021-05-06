@@ -40,13 +40,17 @@ if [ -z "${CI_COMMIT_TAG}" ]
 then
     # untagged builds go into the work repo instead of beamline repo
     CI_PROJECT_NAME="work"
+    # determine the tag to use based on date
+    TAG=$(date +%Y.%m.%dW%H%M)
+else
+    # determine the tag to use based on date
+    TAG=$(date +%Y.%m.%dP%H%M)
 fi
 
 # Update all chart dependencies.
 for ioc in iocs/*; do helm dependency update $ioc; done
 
-# determine the tag to use based on date
-TAG=$(date +%Y.%m.%d-%H%M)
+
 # udate the helm chart versions with the tag
 sed -e "s/^version: .*$/version: ${TAG}/g" -e "s/^appVersion: .*$/appVersion: ${TAG}/g" -i iocs/*/Chart.yaml
 
