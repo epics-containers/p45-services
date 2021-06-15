@@ -1,9 +1,7 @@
 beamline: bl45p
+# currently epics-iocs namespace is for all proof of concept iocs
+# in future all beamlines will have their own namespace
 namespace: epics-iocs
-base_image: gcr.io/diamond-privreg/controls/prod/ioc/ioc-pmac:0.1.4
-
-# The location of the ioc folder - this depends on epics-base from the above image
-# It is used in the ioc-chart helm library to locate start.sh
-# TODO I feel we could eliminate this requirement
-# (e.g. a start.sh in root generated in the image itself)
-iocFolder: /R7.0.5/support/ioc
+base_image: gcr.io/diamond-pubreg/controls/prod/ioc/ioc-pmac:2.5.3r1.0
+# root folder of generic ioc source - not expected to change
+iocFolder: /epics/ioc

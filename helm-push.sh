@@ -16,7 +16,7 @@ helm version
 set -e
 
 # Helm Registry in diamond GCR
-HELM_REPO=europe-docker.pkg.dev/diamond-privreg
+HELM_REPO=ghcr.io/epics-containers/
 
 
 # turn on Open Container Initiative support
@@ -27,9 +27,7 @@ if [ -z ${CI_BUILD_ID} ]
 then
     # this was run locally - get creds from gcloud and push to work repo
     echo "LOCAL deploy to helm repo"
-    CI_PROJECT_NAME="work"
-    gcloud auth print-access-token | helm registry login -u oauth2accesstoken \
-      --password-stdin ${HELM_REPO}
+    echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
 else
     # running under Gitlab CI - get creds from /etc/gcp/config.json
     cat /etc/gcp/config.json | helm registry login -u _json_key \

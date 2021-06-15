@@ -1,15 +1,15 @@
 apiVersion: v2
 name: bl45p-mo-ioc-01
 description: |
-    main motion IOC for the bl4p test beamline
+    main motion IOC for the bl45p test beamline
 
 type: application
 
 # chart and app version - these are updated automatically by CI
-version: 2021.05.06-work0620
-appVersion: 2021.05.06620
+version: 2021.6.14
+appVersion: 2021.6.14
 
 dependencies:
-  - name: ioc-chart
-    version: 0.2.2
-    repository: "oci://europe-docker.pkg.dev/diamond-privreg/controls/"
+  - name: helm-ioc
+    version: 1.0
+    repository: "oci://ghcr.io/epics-containers"
