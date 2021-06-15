@@ -50,19 +50,20 @@ else
     TAG=$(date +%Y.%-m.%-d-%-H%M)
 fi
 
-# Update all chart dependencies.
-for ioc in iocs/*; do helm dependency update $ioc; done
+ioc_dirs=$(ls -d iocs/*/)
 
+# Update all chart dependencies.
+for ioc in ${ioc_dirs}; do helm dependency update $ioc; done
 
 # udate the helm chart versions with the tag
 sed -e "s/^version: .*$/version: ${TAG}/g" -e "s/^appVersion: .*$/appVersion: ${TAG}/g" -i iocs/*/Chart.yaml
 
 # push all ioc chart packages to the registry
-for ioc in iocs/*
+for ioc in ${ioc_dirs}
 do
     for THIS_TAG in latest ${TAG}
     do
-        URL="${HELM_REPO}/${CI_PROJECT_NAME}-iocs/$(basename $ioc):${THIS_TAG}"
+        URL="${HELM_REPO}/$(basename $ioc):${THIS_TAG}"
         echo saving ${ioc} to "${URL}" ...
         helm chart save ${ioc} "${URL}"
         echo push to "${URL}" ...

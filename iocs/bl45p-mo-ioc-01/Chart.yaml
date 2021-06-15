@@ -6,10 +6,10 @@ description: |
 type: application
 
 # chart and app version - these are updated automatically by CI
-version: 2021.6.14
-appVersion: 2021.6.14
+version: 2021.6.15-work1318
+appVersion: 2021.6.15-work1318
 
 dependencies:
-  - name: helm-ioc
-    version: 1.0
+  - name: helm-ioc-lib
+    version: "1.0"
     repository: "oci://ghcr.io/epics-containers"

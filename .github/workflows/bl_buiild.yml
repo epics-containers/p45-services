@@ -1,4 +1,4 @@
-name:  Build and publish image to ghcr.io/epics-containers
+name:  Build and publish a beamline's ioc helm charts
 
 on:
   push:
@@ -34,19 +34,20 @@ jobs:
           if [[ ${GITHUB_REF} = refs/tags/* ]] ; then
 
             TAG=${GITHUB_REF#refs/tags/}
+            ioc_dirs=$(ls -d iocs/*/)
 
             # Update all chart dependencies.
-            for ioc in iocs/*; do helm dependency update ${ioc}; done
+            for ioc in ${ioc_dirs}; do helm dependency update ${ioc}; done
 
             # update the helm chart versions with the tag
             sed -e "s/^version: .*$/version: ${TAG}/g" -e "s/^appVersion: .*$/appVersion: ${TAG}/g" -i iocs/*/Chart.yaml
 
             # push all ioc chart packages to the registry
-            for ioc in iocs/*
+            for ioc in ${ioc_dirs}
             do
                 for THIS_TAG in latest ${TAG}
                 do
-                    URL="${HELM_REPO}/${CI_PROJECT_NAME}-iocs/$(basename $ioc):${THIS_TAG}"
+                    URL="${GCR_ROOT}/$(basename $ioc):${THIS_TAG}"
                     echo saving ${ioc} to "${URL}" ...
                     helm chart save ${ioc} "${URL}"
                     echo push to "${URL}" ...
