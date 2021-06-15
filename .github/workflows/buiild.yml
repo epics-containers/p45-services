@@ -36,7 +36,7 @@ jobs:
             TAG=${GITHUB_REF#refs/tags/}
 
             # Update all chart dependencies.
-            for ioc in iocs/*; do helm dependency update $ioc; done
+            for ioc in iocs/*; do helm dependency update ${ioc}; done
 
             # update the helm chart versions with the tag
             sed -e "s/^version: .*$/version: ${TAG}/g" -e "s/^appVersion: .*$/appVersion: ${TAG}/g" -i iocs/*/Chart.yaml
