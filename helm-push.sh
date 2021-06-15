@@ -1,3 +1,8 @@
+# TODO UNDER DEVELOPMENT
+# WARNING - this needs genericizing
+# all real beamlines should have CI to push to their private repos
+# this is an example of how to do it to ghcr.io/epics-containers/
+
 # helm pulishing CI script for beamline iocs
 # uses image gcr.io/diamond-privreg/controls/prod/gitlab/gcloud-helm:0.2.2
 

@@ -1,0 +1,57 @@
+name:  Build and publish image to ghcr.io/epics-containers
+
+on:
+  push:
+  pull_request:
+
+env:
+  HELM_EXPERIMENTAL_OCI: 1 #enable OCI support
+  HELM_VERSION_TO_INSTALL: 3.5.0 # version of HELM to install
+  GCR_ROOT: ghcr.io/epics-containers
+
+jobs:
+  build-and-push-helm-charts:
+    name: publish helm charts to ghcr.io
+    runs-on: ubuntu-latest
+    environment: prod
+    # TODO build of helm charts will in future use ibek. For now they are
+    # hand coded. (Note that this workflow must continue to support pre-coded
+    # charts for those who choose not use ibek).
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: install helm
+        uses: Azure/setup-helm@v1
+        with:
+          version: ${{ env.HELM_VERSION_TO_INSTALL }}
+
+      - name: push each ioc helm chart
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ${{ env.GCR_ROOT }} --username ${{ github.repository_owner }} --password-stdin
+
+          # only publish if this is a tagged releasse
+          if [[ ${GITHUB_REF} = refs/tags/* ]] ; then
+
+            TAG=${GITHUB_REF#refs/tags/}
+
+            # Update all chart dependencies.
+            for ioc in iocs/*; do helm dependency update $ioc; done
+
+            # update the helm chart versions with the tag
+            sed -e "s/^version: .*$/version: ${TAG}/g" -e "s/^appVersion: .*$/appVersion: ${TAG}/g" -i iocs/*/Chart.yaml
+
+            # push all ioc chart packages to the registry
+            for ioc in iocs/*
+            do
+                for THIS_TAG in latest ${TAG}
+                do
+                    URL="${HELM_REPO}/${CI_PROJECT_NAME}-iocs/$(basename $ioc):${THIS_TAG}"
+                    echo saving ${ioc} to "${URL}" ...
+                    helm chart save ${ioc} "${URL}"
+                    echo push to "${URL}" ...
+                    helm chart push "${URL}"
+                done
+            done
+
+          fi
