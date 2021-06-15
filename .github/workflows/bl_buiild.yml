@@ -30,6 +30,9 @@ jobs:
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ${{ env.GCR_ROOT }} --username ${{ github.repository_owner }} --password-stdin
 
+          # tar up any config folders that require it
+          ./tar_config_src.sh
+
           # only publish if this is a tagged releasse
           if [[ ${GITHUB_REF} = refs/tags/* ]] ; then
 
