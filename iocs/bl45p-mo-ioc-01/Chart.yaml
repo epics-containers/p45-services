@@ -6,8 +6,8 @@ description: |
 type: application
 
 # chart and app version - these are updated automatically by CI
-version: 2021.6.15-work1318
-appVersion: 2021.6.15-work1318
+version: 2021.2.0
+appVersion: 2021.2.0
 
 dependencies:
   - name: helm-ioc-lib

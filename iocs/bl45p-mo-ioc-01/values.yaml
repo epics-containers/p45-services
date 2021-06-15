@@ -2,6 +2,6 @@ beamline: bl45p
 # currently epics-iocs namespace is for all proof of concept iocs
 # in future all beamlines will have their own namespace
 namespace: epics-iocs
-base_image: gcr.io/diamond-pubreg/controls/prod/ioc/ioc-pmac:2.5.3r1.0
+base_image: ghcr.io/epics-containers/ioc-pmac:2.5.3r1.0
 # root folder of generic ioc source - not expected to change
 iocFolder: /epics/ioc
