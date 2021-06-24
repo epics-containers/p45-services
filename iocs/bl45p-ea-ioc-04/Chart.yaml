@@ -1,7 +1,7 @@
 apiVersion: v2
-name: bl45p-ea-ioc-03
+name: bl45p-ea-ioc-04
 description: |
-    simulated PCO Camera with Kafka producer for test beamline BL45P
+    simulated Pilatus Camera with Kafka producer for test beamline BL45P
 
 type: application
 
