@@ -1,0 +1,15 @@
+apiVersion: v2
+name: bl45p-ea-ioc-03
+description: |
+    simulated PCO Camera with Kafka producer for test beamline BL45P
+
+type: application
+
+# chart and app version - these are updated automatically by CI
+version: 2021.2.0
+appVersion: 2021.2.0
+
+dependencies:
+  - name: helm-ioc-lib
+    version: "1.0"
+    repository: "oci://ghcr.io/epics-containers"
