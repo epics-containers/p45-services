@@ -41,4 +41,4 @@ dbpf "BL45P-EA-PIL-01:KFK:KafkaMaxQueueSize", "50"
 
 dbpf "BL45P-EA-PIL-01:CAM:ImageMode",  "Multiple"
 dbpf "BL45P-EA-PIL-01:CAM:NumImages", "1000"
-dbpf "BL45P-EA-PIL-01:CAM:AcquirePeriod", "2"
+dbpf "BL45P-EA-PIL-01:CAM:AcquirePeriod", ".02"
