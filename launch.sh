@@ -11,13 +11,18 @@
 
 if [ -z "${1}" ]
 then
-    echo 'usage ioc-launch <ioc-name> [user]
+    echo 'usage ioc-launch <ioc-name> [command] [additional parameters]
         launches the ioc in a local container for debugging purposes
+        if command is supplied, instead launches the container with command
+        additional parameters are added e.g. '--user root'
     '
     exit 1
 fi
 
 ioc=$(realpath ${1})
+shift
+command=${1:-"bash /epics/ioc/config/start.sh"}
+shift
 
 if [ -z $(which docker 2> /dev/null) ]
 then
@@ -26,9 +31,8 @@ then
     alias docker='podman'
 fi
 
-command="bash /epics/ioc/config/start.sh"
 image=$(awk '/base_image/{print $NF}' ${ioc}/values.yaml)
 
-echo docker run -it --network host -v=${ioc}/config:/epics/ioc/config:rw ${image} ${command}
-docker run -it --network host -v=${ioc}/config:/epics/ioc/config:rw -vautosave:/autosave ${image} ${command}
+echo docker run -it --network host $@ -v=${ioc}/config:/epics/ioc/config:rw ${image} ${command}
+docker run -it --network host $@ -v=${ioc}/config:/epics/ioc/config:rw -vautosave:/autosave ${image} ${command}
 

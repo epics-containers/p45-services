@@ -1,6 +1,12 @@
 beamline: bl45p
 namespace: epics-iocs
-base_image: ghcr.io/epics-containers/ioc-adpandablocks:4.12r1.0
+base_image: ghcr.io/epics-containers/ioc-adpandablocks:4.12r2.0
 
 # root folder of generic ioc source - not expected to change
 iocFolder: /epics/ioc
+
+# useAffinity - only run on nodes with label beamline:bl45p
+useAffinity: true
+# use default resource limits
+memory:
+cpu:
