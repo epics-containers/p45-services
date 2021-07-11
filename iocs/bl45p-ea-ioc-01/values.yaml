@@ -1,6 +1,6 @@
 beamline: bl45p
 namespace: epics-iocs
-base_image: ghcr.io/epics-containers/ioc-adaravis:2.2.1r1.1
+base_image: ghcr.io/epics-containers/ioc-adaravis:2.2.1r3.0.run
 
 # root folder of generic ioc source - not expected to change
 iocFolder: /epics/ioc
