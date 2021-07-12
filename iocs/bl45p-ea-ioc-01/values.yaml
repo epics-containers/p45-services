@@ -10,3 +10,6 @@ useAffinity: true
 # resource limits
 memory: 2048Mi
 cpu: 4
+
+# when autosave is true: create PVC and mount at /autosave
+autosave: true

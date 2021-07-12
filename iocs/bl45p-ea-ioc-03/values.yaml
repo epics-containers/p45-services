@@ -10,3 +10,6 @@ useAffinity: true
 # use default resource limits
 memory:
 cpu:
+
+# when autosave is true: create PVC and mount at /autosave
+autosave: true
