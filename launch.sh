@@ -33,6 +33,6 @@ fi
 
 image=$(awk '/base_image/{print $NF}' ${ioc}/values.yaml)
 
-echo docker run -it --network host $@ -v=${ioc}/config:/epics/ioc/config:rw ${image} ${command}
+set -x
 docker run -it --network host $@ -v=${ioc}/config:/epics/ioc/config:rw -vautosave:/autosave ${image} ${command}
 

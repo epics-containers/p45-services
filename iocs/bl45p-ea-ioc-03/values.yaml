@@ -1,6 +1,6 @@
 beamline: bl45p
 namespace: epics-iocs
-base_image: ghcr.io/epics-containers/ioc-adsimdetector:2.10r2.0
+base_image: ghcr.io/epics-containers/ioc-adsimdetector:2.10r3.0.run
 
 # root folder of generic ioc source - not expected to change
 iocFolder: /epics/ioc
