@@ -1,0 +1,682 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 1132
+y 397
+w 417
+h 359
+font "arial-bold-r-12.0"
+ctlFont "arial-bold-r-12.0"
+btnFont "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 25
+ctlFgColor2 index 25
+ctlBgColor1 index 3
+ctlBgColor2 index 3
+topShadowColor index 1
+botShadowColor index 11
+showGrid
+snapToGrid
+gridSize 5
+disableScroll
+endScreenProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 0
+y 0
+w 415
+h 45
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 48
+value {
+  "HDF5 Frame Chunking"
+  "$(P)$(R)"
+}
+border
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 60
+w 405
+h 290
+lineColor index 14
+fill
+fillColor index 3
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 5
+y 50
+w 185
+h 13
+font "arial-medium-r-12.0"
+fgColor index 14
+bgColor index 5
+value {
+  "  Frame Chunking Configuration  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 305
+y 95
+w 95
+h 20
+controlPv "$(P)$(R)NumColChunks_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 200
+y 95
+w 95
+h 20
+controlPv "$(P)$(R)NumColChunks"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 95
+w 170
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Dim0 Chunk Size (Columns)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 70
+w 170
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Auto Chunk Size"
+}
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 200
+y 70
+w 95
+h 20
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(R)ChunkSizeAuto"
+indicatorPv "$(P)$(R)ChunkSizeAuto_RBV"
+font "arial-bold-r-12.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 305
+y 120
+w 95
+h 20
+controlPv "$(P)$(R)NumRowChunks_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 200
+y 120
+w 95
+h 20
+controlPv "$(P)$(R)NumRowChunks"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 120
+w 170
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Dim1 Chunk Size (Rows)"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 305
+y 145
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize2_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 200
+y 145
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize2"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 145
+w 170
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Dim2 Chunk Size"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 305
+y 170
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize3_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 200
+y 170
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize3"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 170
+w 170
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Dim3 Chunk Size"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 305
+y 195
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize4_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 200
+y 195
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize4"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 195
+w 170
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Dim4 Chunk Size"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 305
+y 220
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize5_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 200
+y 220
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize5"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 220
+w 170
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Dim5 Chunk Size"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 305
+y 245
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize6_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 200
+y 245
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize6"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 245
+w 170
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Dim6 Chunk Size"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 305
+y 270
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize7_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 200
+y 270
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize7"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 270
+w 170
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Dim7 Chunk Size"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 305
+y 295
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize8_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 200
+y 295
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize8"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 295
+w 170
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Dim8 Chunk Size"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 305
+y 320
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize9_RBV"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 200
+y 320
+w 95
+h 20
+controlPv "$(P)$(R)ChunkSize9"
+fgColor index 25
+fgAlarm
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 320
+w 170
+h 20
+font "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+useDisplayBg
+value {
+  "Dim9 Chunk Size"
+}
+endObjectProperties
+

@@ -1,0 +1,266 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 887
+y 260
+w 390
+h 820
+font "arial-bold-r-12.0"
+ctlFont "arial-bold-r-12.0"
+btnFont "arial-bold-r-12.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 25
+ctlFgColor2 index 25
+ctlBgColor1 index 3
+ctlBgColor2 index 3
+topShadowColor index 1
+botShadowColor index 11
+showGrid
+gridSize 5
+endScreenProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 0
+y 0
+w 390
+h 385
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "file"
+file "NDPluginBase"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "NDPluginBase"
+  1 "NDPluginBase"
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 2
+y 387
+w 385
+h 52
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "menu"
+filePv "LOC\\dummy=i:0"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "NDGather_embed"
+}
+symbols {
+  0 "N=1"
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1
+y 441
+w 385
+h 52
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "menu"
+filePv "LOC\\dummy=i:0"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "NDGather_embed"
+}
+symbols {
+  0 "N=2"
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 2
+y 495
+w 385
+h 52
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "menu"
+filePv "LOC\\dummy=i:0"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "NDGather_embed"
+}
+symbols {
+  0 "N=3"
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 4
+y 549
+w 385
+h 52
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "menu"
+filePv "LOC\\dummy=i:0"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "NDGather_embed"
+}
+symbols {
+  0 "N=4"
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 603
+w 385
+h 52
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "menu"
+filePv "LOC\\dummy=i:0"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "NDGather_embed"
+}
+symbols {
+  0 "N=5"
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 4
+y 657
+w 385
+h 52
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "menu"
+filePv "LOC\\dummy=i:0"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "NDGather_embed"
+}
+symbols {
+  0 "N=6"
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 714
+w 385
+h 52
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "menu"
+filePv "LOC\\dummy=i:0"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "NDGather_embed"
+}
+symbols {
+  0 "N=7"
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 768
+w 385
+h 52
+fgColor index 14
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+displaySource "menu"
+filePv "LOC\\dummy=i:0"
+sizeOfs 5
+numDsps 1
+displayFileName {
+  0 "NDGather_embed"
+}
+symbols {
+  0 "N=8"
+}
+noScroll
+endObjectProperties
+
