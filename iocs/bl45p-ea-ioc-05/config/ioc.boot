@@ -38,7 +38,7 @@ set_pass1_restoreFile "BL45P-EA-IOC-05_1.sav"
 set_pass1_restoreFile "BL45P-EA-IOC-05_2.sav"
 
 # KafkaPluginConfigure(portName, queueSize, blockingCallbacks, NDArrayPort, NDArrayAddr, maxMemory, brokerAddress, topic)
-KafkaPluginConfigure("ANDK", 3, 1, "AND.CAM", 0, -1, 172.23.168.20:30008, and_topic)
+KafkaPluginConfigure("ANDK", 3, 1, "AND.CAM", 0, -1, cs05r-sc-cloud-19.diamond.ac.uk:30016, and_topic)
 
 # Final ioc initialisation
 # ------------------------
