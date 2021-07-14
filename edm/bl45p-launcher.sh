@@ -5,6 +5,13 @@ shift 1
 
 thisdir=$(realpath $(dirname ${BASH_SOURCE[0]}))
 
+if [ -n $(which edm 2>  /dev/null) ]
+then
+    EDMDATAFILES=$(echo $EDMDATAFILES | sed s-/screens-${thisdir}-g)
+    edm -noedit -x ${start}
+    exit 0
+fi
+
 if [ -z $(which docker 2> /dev/null) ]
 then
     # try podman if we dont see docker installed
