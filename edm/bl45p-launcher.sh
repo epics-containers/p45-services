@@ -7,7 +7,8 @@ thisdir=$(realpath $(dirname ${BASH_SOURCE[0]}))
 
 if [ -n $(which edm 2>  /dev/null) ]
 then
-    EDMDATAFILES=$(echo $EDMDATAFILES | sed s-/screens-${thisdir}-g)
+    export EPICS_CA_ADDR_LIST=172.23.59.64
+    export EDMDATAFILES=$(echo $EDMDATAFILES | sed s-/screens-${thisdir}-g)
     edm -noedit -x ${start}
     exit 0
 fi
@@ -17,7 +18,7 @@ then
     # try podman if we dont see docker installed
     shopt -s expand_aliases
     alias docker='podman'
-    opts="--privilege "
+    opts="--privileged "
     module load gcloud
 fi
 
