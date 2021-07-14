@@ -1,7 +1,8 @@
+#!/bin/bash
 
-ioc=${1}
-start=${2}
-shift 2
+start=${1}
+shift 1
+
 thisdir=$(realpath $(dirname ${BASH_SOURCE[0]}))
 
 if [ -z $(which docker 2> /dev/null) ]
@@ -13,12 +14,13 @@ then
 fi
 
 image=gcr.io/diamond-pubreg/controls/python3/s03_utils/epics/edm:latest
-servers="172.23.59.1 172.23.59.101"
-environ="-e DISPLAY=$DISPLAY -e EDMDATAFILES=/screens -e EPICS_CA_AUTO_ADDR_LIST=NO"
-volumes="-v ${thisdir}/screens:/screens -v /tmp:/tmp"
+environ="-e DISPLAY=$DISPLAY -e EDMDATAFILES=${EDMDATAFILES}"
+# there is a cagateway running on p45-ws001 at 172.23.59.64
+environ="$environ -e EPICS_CA_ADDR_LIST=172.23.59.64"
+volumes="-v ${thisdir}:/screens -v /tmp:/tmp"
 opts=${opts}"-ti"
 
 set -x
 xhost +local:docker
 docker pull ${image}
-docker run -e EPICS_CA_ADDR_LIST="${servers}" ${environ} ${volumes} ${@} ${opts} ${image} edm -x -noedit ${start}
+docker run ${environ} ${volumes} ${@} ${opts} ${image} edm -x -noedit ${start}

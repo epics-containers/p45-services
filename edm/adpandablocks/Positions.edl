@@ -1,0 +1,1694 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 784
+y 99
+w 915
+h 1055
+font "arial-medium-r-18.0"
+ctlFont "arial-medium-r-18.0"
+btnFont "arial-medium-r-18.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 14
+ctlFgColor2 index 0
+ctlBgColor1 index 0
+ctlBgColor2 index 14
+topShadowColor index 0
+botShadowColor index 14
+title "Position Bus"
+showGrid
+snapToGrid
+gridSize 5
+endScreenProperties
+
+# (Exit Button)
+object activeExitButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 1050
+y 1025
+w 90
+h 25
+fgColor index 43
+bgColor index 4
+topShadowColor index 1
+botShadowColor index 11
+label "EXIT"
+font "arial-medium-r-18.0"
+3d
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 55
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS0:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 3
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS0"
+  1 "POSBUS0"
+  2 "POSBUS0"
+}
+symbols {
+  0 "N=0,P=$(P),R=$(R)"
+  1 "N=0,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 700
+y 35
+w 54
+h 21
+font "arial-medium-r-18.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "UNITS"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 570
+y 35
+w 74
+h 21
+font "arial-medium-r-18.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "OFFSET"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 440
+y 35
+w 60
+h 21
+font "arial-medium-r-18.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "SCALE"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 170
+y 35
+w 87
+h 21
+font "arial-medium-r-18.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "CAPTURE"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 35
+w 53
+h 21
+font "arial-medium-r-18.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "NAME"
+}
+autoSize
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 85
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS1:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS1"
+  1 "POSBUS1"
+  2 "POSBUS1"
+}
+symbols {
+  0 "N=1,P=$(P),R=$(R)"
+  1 "N=1,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 115
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS2:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS2"
+  1 "POSBUS2"
+  2 "POSBUS2"
+}
+symbols {
+  0 "N=2,P=$(P),R=$(R)"
+  1 "N=2,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 145
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS3:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS3"
+  1 "POSBUS3"
+  2 "POSBUS3"
+}
+symbols {
+  0 "N=3,P=$(P),R=$(R)"
+  1 "N=3,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 175
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS4:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS4"
+  1 "POSBUS4"
+  2 "POSBUS4"
+}
+symbols {
+  0 "N=4,P=$(P),R=$(R)"
+  1 "N=4,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 205
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS5:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS5"
+  1 "POSBUS5"
+  2 "POSBUS5"
+}
+symbols {
+  0 "N=5,P=$(P),R=$(R)"
+  1 "N=5,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 265
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS7:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS7"
+  1 "POSBUS7"
+  2 "POSBUS7"
+}
+symbols {
+  0 "N=7,P=$(P),R=$(R)"
+  1 "N=7,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 235
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS6:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS6"
+  1 "POSBUS6"
+  2 "POSBUS6"
+}
+symbols {
+  0 "N=6,P=$(P),R=$(R)"
+  1 "N=6,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 295
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS8:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS8"
+  1 "POSBUS8"
+  2 "POSBUS8"
+}
+symbols {
+  0 "N=8,P=$(P),R=$(R)"
+  1 "N=8,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 325
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS9:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS9"
+  1 "POSBUS9"
+  2 "POSBUS9"
+}
+symbols {
+  0 "N=9,P=$(P),R=$(R)"
+  1 "N=9,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 355
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS10:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS10"
+  1 "POSBUS10"
+  2 "POSBUS10"
+}
+symbols {
+  0 "N=10,P=$(P),R=$(R)"
+  1 "N=10,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 385
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS11:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS11"
+  1 "POSBUS11"
+  2 "POSBUS11"
+}
+symbols {
+  0 "N=11,P=$(P),R=$(R)"
+  1 "N=11,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 475
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS14:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS14"
+  1 "POSBUS14"
+  2 "POSBUS14"
+}
+symbols {
+  0 "N=14,P=$(P),R=$(R)"
+  1 "N=14,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 505
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS15:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS15"
+  1 "POSBUS15"
+  2 "POSBUS15"
+}
+symbols {
+  0 "N=15,P=$(P),R=$(R)"
+  1 "N=15,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 445
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS13:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS13"
+  1 "POSBUS13"
+  2 "POSBUS13"
+}
+symbols {
+  0 "N=13,P=$(P),R=$(R)"
+  1 "N=13,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 415
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS12:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS12"
+  1 "POSBUS12"
+  2 "POSBUS12"
+}
+symbols {
+  0 "N=12,P=$(P),R=$(R)"
+  1 "N=12,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 985
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS31:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS31"
+  1 "POSBUS31"
+  2 "POSBUS31"
+}
+symbols {
+  0 "N=31,P=$(P),R=$(R)"
+  1 "N=31,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 955
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS30:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS30"
+  1 "POSBUS30"
+  2 "POSBUS30"
+}
+symbols {
+  0 "N=30,P=$(P),R=$(R)"
+  1 "N=30,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 925
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS29:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS29"
+  1 "POSBUS29"
+  2 "POSBUS29"
+}
+symbols {
+  0 "N=29,P=$(P),R=$(R)"
+  1 "N=29,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 895
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS28:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS28"
+  1 "POSBUS28"
+  2 "POSBUS28"
+}
+symbols {
+  0 "N=28,P=$(P),R=$(R)"
+  1 "N=28,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 865
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS27:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS27"
+  1 "POSBUS27"
+  2 "POSBUS27"
+}
+symbols {
+  0 "N=27,P=$(P),R=$(R)"
+  1 "N=27,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 835
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS26:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS26"
+  1 "POSBUS26"
+  2 "POSBUS26"
+}
+symbols {
+  0 "N=26,P=$(P),R=$(R)"
+  1 "N=26,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 805
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS25:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS25"
+  1 "POSBUS25"
+  2 "POSBUS25"
+}
+symbols {
+  0 "N=25,P=$(P),R=$(R)"
+  1 "N=25,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 775
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS24:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS24"
+  1 "POSBUS24"
+  2 "POSBUS24"
+}
+symbols {
+  0 "N=24,P=$(P),R=$(R)"
+  1 "N=24,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 745
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS23:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS23"
+  1 "POSBUS23"
+  2 "POSBUS23"
+}
+symbols {
+  0 "N=23,P=$(P),R=$(R)"
+  1 "N=23,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 715
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS22:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS22"
+  1 "POSBUS22"
+  2 "POSBUS22"
+}
+symbols {
+  0 "N=22,P=$(P),R=$(R)"
+  1 "N=22,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 685
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS21:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS21"
+  1 "POSBUS21"
+  2 "POSBUS21"
+}
+symbols {
+  0 "N=21,P=$(P),R=$(R)"
+  1 "N=21,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 655
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS20:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS20"
+  1 "POSBUS20"
+  2 "POSBUS20"
+}
+symbols {
+  0 "N=20,P=$(P),R=$(R)"
+  1 "N=20,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 625
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS19:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS19"
+  1 "POSBUS19"
+  2 "POSBUS19"
+}
+symbols {
+  0 "N=19,P=$(P),R=$(R)"
+  1 "N=19,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 595
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS18:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS18"
+  1 "POSBUS18"
+  2 "POSBUS18"
+}
+symbols {
+  0 "N=18,P=$(P),R=$(R)"
+  1 "N=18,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 565
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS17:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS17"
+  1 "POSBUS17"
+  2 "POSBUS17"
+}
+symbols {
+  0 "N=17,P=$(P),R=$(R)"
+  1 "N=17,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 535
+w 900
+h 30
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+displaySource "menu"
+filePv "$(P)$(R)POSBUS16:SCREENTYPE"
+file "PosBusWriteable.edl"
+sizeOfs 5
+numDsps 2
+displayFileName {
+  0 "PosBusWriteable.edl"
+  1 "PosBusReadOnly.edl"
+  2 "PosBusEmpty.edl"
+}
+menuLabel {
+  0 "POSBUS16"
+  1 "POSBUS16"
+  2 "POSBUS16"
+}
+symbols {
+  0 "N=16,P=$(P),R=$(R)"
+  1 "N=16,P=$(P),R=$(R)"
+}
+replaceSymbols {
+  0 1
+  1 1
+}
+propagateMacros {
+  0 0
+  1 0
+}
+noScroll
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 310
+y 35
+w 88
+h 21
+font "arial-medium-r-18.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "POSITION"
+}
+autoSize
+endObjectProperties
+
+# (Exit Button)
+object activeExitButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 810
+y 1025
+w 95
+h 25
+fgColor index 46
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+label "EXIT"
+font "arial-medium-r-18.0"
+3d
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 910
+h 30
+
+beginGroup
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y -4
+w 914
+h 30
+lineColor index 3
+fill
+fillColor index 3
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 0
+y 0
+w 914
+h 24
+lineColor index 11
+fillColor index 0
+numPoints 3
+xPoints {
+  0 0
+  1 914
+  2 914
+}
+yPoints {
+  0 24
+  1 24
+  2 0
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 0
+y 0
+w 914
+h 24
+font "arial-medium-r-16.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 48
+value {
+  "Pos Bus"
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 0
+y 0
+w 914
+h 24
+lineColor index 1
+fillColor index 0
+numPoints 3
+xPoints {
+  0 0
+  1 0
+  2 914
+}
+yPoints {
+  0 24
+  1 0
+  2 0
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+

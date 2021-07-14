@@ -1,0 +1,1240 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 2589
+y 180
+w 500
+h 800
+font "arial-medium-r-14.0"
+ctlFont "arial-medium-r-14.0"
+btnFont "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 14
+ctlFgColor2 index 0
+ctlBgColor1 index 0
+ctlBgColor2 index 14
+topShadowColor index 0
+botShadowColor index 14
+showGrid
+snapToGrid
+gridSize 5
+endScreenProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 0
+y 0
+w 500
+h 55
+font "arial-bold-r-18.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 6
+value {
+  "Aerotech A3200 Axis Status"
+}
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 220
+y 105
+w 20
+h 640
+
+beginGroup
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 220
+y 425
+w 20
+h 320
+controlPv "$(P)$(M):AXIS0:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+shift 16
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 220
+y 105
+w 20
+h 320
+controlPv "$(P)$(M):AXIS0:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+endObjectProperties
+
+endGroup
+
+visPv "$(P)$(M):AXIS0:STATUS"
+visMin "0"
+visMax "4294967295"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 255
+y 105
+w 20
+h 640
+
+beginGroup
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 255
+y 425
+w 20
+h 320
+controlPv "$(P)$(M):AXIS1:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+shift 16
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 255
+y 105
+w 20
+h 320
+controlPv "$(P)$(M):AXIS1:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+endObjectProperties
+
+endGroup
+
+visPv "$(P)$(M):AXIS1:STATUS"
+visMin "0"
+visMax "4294967295"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 290
+y 105
+w 20
+h 640
+
+beginGroup
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 290
+y 425
+w 20
+h 320
+controlPv "$(P)$(M):AXIS2:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+shift 16
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 290
+y 105
+w 20
+h 320
+controlPv "$(P)$(M):AXIS2:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+endObjectProperties
+
+endGroup
+
+visPv "$(P)$(M):AXIS2:STATUS"
+visMin "0"
+visMax "4294967295"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 105
+w 20
+h 640
+
+beginGroup
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 425
+w 20
+h 320
+controlPv "$(P)$(M):AXIS3:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+shift 16
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 105
+w 20
+h 320
+controlPv "$(P)$(M):AXIS3:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+endObjectProperties
+
+endGroup
+
+visPv "$(P)$(M):AXIS3:STATUS"
+visMin "0"
+visMax "4294967295"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 360
+y 105
+w 20
+h 640
+
+beginGroup
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 360
+y 425
+w 20
+h 320
+controlPv "$(P)$(M):AXIS4:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+shift 16
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 360
+y 105
+w 20
+h 320
+controlPv "$(P)$(M):AXIS4:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+endObjectProperties
+
+endGroup
+
+visPv "$(P)$(M):AXIS4:STATUS"
+visMin "0"
+visMax "4294967295"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 395
+y 105
+w 20
+h 640
+
+beginGroup
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 395
+y 425
+w 20
+h 320
+controlPv "$(P)$(M):AXIS5:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+shift 16
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 395
+y 105
+w 20
+h 320
+controlPv "$(P)$(M):AXIS5:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+endObjectProperties
+
+endGroup
+
+visPv "$(P)$(M):AXIS5:STATUS"
+visMin "0"
+visMax "4294967295"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 430
+y 105
+w 20
+h 640
+
+beginGroup
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 430
+y 425
+w 20
+h 320
+controlPv "$(P)$(M):AXIS6:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+shift 16
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 430
+y 105
+w 20
+h 320
+controlPv "$(P)$(M):AXIS6:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+endObjectProperties
+
+endGroup
+
+visPv "$(P)$(M):AXIS6:STATUS"
+visMin "0"
+visMax "4294967295"
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 465
+y 105
+w 20
+h 640
+
+beginGroup
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 465
+y 425
+w 20
+h 320
+controlPv "$(P)$(M):AXIS7:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+shift 16
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 465
+y 105
+w 20
+h 320
+controlPv "$(P)$(M):AXIS7:STATUS"
+lineColor index 14
+onColor index 15
+offColor index 19
+lineWidth 2
+endian "little"
+endObjectProperties
+
+endGroup
+
+visPv "$(P)$(M):AXIS7:STATUS"
+visMin "0"
+visMax "4294967295"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 80
+y 145
+w 130
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Positive limit sw"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 80
+y 105
+w 130
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Position error"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 80
+y 125
+w 130
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Over current"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 80
+y 165
+w 130
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Negative limit sw"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 80
+y 185
+w 130
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "High software limit"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 80
+y 205
+w 130
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Low software limit"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 80
+y 225
+w 130
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Amplifier fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 245
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Position feedback fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 265
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Velocity feedback fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 285
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Hall sensor fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 5
+y 305
+w 205
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Max velocity command fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 325
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Emergency stop fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 345
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Velocity error fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 385
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Probe input fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 405
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "External fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 445
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Motor temp fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 465
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Amplifier temp fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 485
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Encoder fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 20
+y 505
+w 190
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Communication lost fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 545
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Gantry misalignment"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 565
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Feedback scaling fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 585
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Marker search fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 605
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Safe zone fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 625
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "In position timeout"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 645
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Voltage clamp fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 665
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Power supply fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 685
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Missed interrupt fault"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 35
+y 705
+w 175
+h 20
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Internal fault"
+}
+endObjectProperties
+
+# (Exit Button)
+object activeExitButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 405
+y 765
+w 85
+h 25
+fgColor index 46
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+label "EXIT"
+font "arial-bold-r-12.0"
+3d
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 220
+y 80
+w 20
+h 20
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "0"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 255
+y 80
+w 20
+h 20
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "1"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 290
+y 80
+w 20
+h 20
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "2"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 325
+y 80
+w 20
+h 20
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "3"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 360
+y 80
+w 20
+h 20
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "4"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 395
+y 80
+w 20
+h 20
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "5"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 430
+y 80
+w 20
+h 20
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "6"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 465
+y 80
+w 20
+h 20
+font "arial-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "7"
+}
+endObjectProperties
+

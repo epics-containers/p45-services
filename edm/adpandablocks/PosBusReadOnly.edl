@@ -1,0 +1,208 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 2618
+y 197
+w 900
+h 31
+font "arial-medium-r-18.0"
+ctlFont "arial-medium-r-18.0"
+btnFont "arial-medium-r-18.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 14
+ctlFgColor2 index 0
+ctlBgColor1 index 0
+ctlBgColor2 index 14
+topShadowColor index 0
+botShadowColor index 14
+title "Data Selection - $(P) $(AXIS) $(IND)"
+showGrid
+snapToGrid
+gridSize 5
+endScreenProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 160
+y 0
+w 140
+h 30
+lineColor index 5
+fill
+fillColor index 5
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 160
+h 30
+lineColor index 3
+fill
+fillColor index 3
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 10
+y 5
+w 145
+h 25
+controlPv "$(P)$(R)POSBUS$(N)"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 165
+y 5
+w 125
+h 24
+fgColor index 25
+bgColor index 2
+inconsistentColor index 0
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(P)$(R)POSBUS$(N):CAPTURE"
+indicatorPv "$(P)$(R)POSBUS$(N):CAPTURE"
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 295
+y 0
+w 125
+h 30
+lineColor index 3
+fill
+fillColor index 3
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 305
+y 5
+w 115
+h 25
+controlPv "$(P)$(R)POSBUS$(N):VAL"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 430
+y 5
+w 115
+h 25
+controlPv "$(P)$(R)POSBUS$(N):SCALE"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 560
+y 5
+w 115
+h 25
+controlPv "$(P)$(R)POSBUS$(N):OFFSET"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 690
+y 5
+w 115
+h 25
+controlPv "$(P)$(R)POSBUS$(N):UNITS"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-bold-r-14.0"
+endObjectProperties
+
+# (Extended Related Display)
+object ExtendedRelatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 815
+y 5
+w 80
+h 25
+fgColor index 43
+bgColor index 3
+topShadowColor index 1
+botShadowColor index 11
+font "arial-bold-r-14.0"
+buttonLabel "Home"
+numPvs 4
+numDsps 1
+displayFileName {
+  0 "motorHoming.edl"
+}
+symbols {
+  0 "P=$(P), R=$(R), N=$(N)"
+}
+endObjectProperties
+
