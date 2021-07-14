@@ -10,7 +10,8 @@ then
     # try podman if we dont see docker installed
     shopt -s expand_aliases
     alias docker='podman'
-    opts= "--privilege "
+    opts="--privilege "
+    module load gcloud
 fi
 
 image=gcr.io/diamond-pubreg/controls/python3/s03_utils/epics/edm:latest
@@ -22,5 +23,4 @@ opts=${opts}"-ti"
 
 set -x
 xhost +local:docker
-docker pull ${image}
 docker run ${environ} ${volumes} ${@} ${opts} ${image} edm -x -noedit ${start}
