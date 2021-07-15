@@ -1,10 +1,10 @@
 4 0 1
 beginScreenProperties
-h 897
+h 100
 major 4
 minor 0
 release 1
-w 607
+w 210
 x 0
 y 0
 bgColor index 3
@@ -31,7 +31,7 @@ h 30
 major 4
 minor 0
 release 0
-w 607
+w 210
 x 0
 y 0
 
@@ -45,7 +45,7 @@ h 25
 major 4
 minor 0
 release 0
-w 605
+w 208
 x 0
 y 2
 fillColor index 0
@@ -59,7 +59,7 @@ h 25
 major 4
 minor 0
 release 0
-w 605
+w 208
 x 1
 y 3
 fillColor index 0
@@ -73,7 +73,7 @@ h 24
 major 4
 minor 2
 release 0
-w 605
+w 208
 x 1
 y 3
 bgColor index 3
@@ -103,7 +103,7 @@ h 25
 major 4
 minor 1
 release 0
-w 647
+w 250
 x 1
 y 3
 bgColor index 48
@@ -120,123 +120,6 @@ endGroup
 
 endObjectProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-h 847
-major 4
-minor 0
-release 0
-w 392
-x 10
-y 40
-
-
-beginGroup
-
-# (Choice Button)
-object activeChoiceButtonClass
-beginObjectProperties
-h 25
-major 4
-minor 0
-release 0
-w 391
-x 10
-y 40
-bgColor index 3
-botShadowColor index 11
-controlPv "LOC\\$(!W)tab=e:0,ANDK"
-fgColor index 14
-font "arial-bold-r-12.0"
-inconsistentColor index 0
-orientation "horizontal"
-selectColor index 4
-topShadowColor index 1
-endObjectProperties
-
-# (Lines)
-object activeLineClass
-beginObjectProperties
-h 821
-major 4
-minor 0
-release 1
-w 392
-x 10
-y 66
-fillColor index 0
-lineColor index 1
-numPoints 3
-xPoints {
-  0 10
-  1 402
-  2 402
-}
-yPoints {
-  0 887
-  1 887
-  2 66
-}
-endObjectProperties
-
-# (Lines)
-object activeLineClass
-beginObjectProperties
-h 821
-major 4
-minor 0
-release 1
-w 392
-x 10
-y 66
-fillColor index 0
-lineColor index 11
-numPoints 3
-xPoints {
-  0 10
-  1 10
-  2 402
-}
-yPoints {
-  0 887
-  1 66
-  2 66
-}
-endObjectProperties
-
-# (Embedded Window)
-object activePipClass
-beginObjectProperties
-h 820
-major 4
-minor 1
-release 0
-w 390
-x 11
-y 66
-bgColor index 3
-botShadowColor index 0
-displayFileName {
-  0 "ADKafkaPlugin.edl"
-}
-displaySource "menu"
-fgColor index 14
-filePv "LOC\\$(!W)tab"
-noScroll
-numDsps 1
-sizeOfs 5
-symbols {
-  0 "device=BL45P-EA-AND-01:KFK:,P=BL45P-EA-AND-01,R=:KFK:,PORT=ANDK,label=ANDK"
-}
-topShadowColor index 0
-endObjectProperties
-
-endGroup
-
-
-endObjectProperties
-
 # (Related Display)
 object relatedDisplayClass
 beginObjectProperties
@@ -245,7 +128,7 @@ major 4
 minor 2
 release 0
 w 100
-x 417
+x 10
 y 40
 bgColor index 3
 botShadowColor index 11
@@ -271,7 +154,7 @@ major 4
 minor 2
 release 0
 w 60
-x 537
+x 130
 y 40
 bgColor index 3
 botShadowColor index 11
@@ -293,7 +176,7 @@ major 4
 minor 0
 release 0
 w 20
-x 517
+x 110
 y 40
 bgColor index 0
 controlPvs {
@@ -326,7 +209,7 @@ major 4
 minor 0
 release 0
 w 90
-x 417
+x 10
 y 70
 
 
@@ -340,7 +223,7 @@ major 4
 minor 2
 release 0
 w 90
-x 417
+x 10
 y 70
 bgColor index 3
 botShadowColor index 11
@@ -363,7 +246,7 @@ major 4
 minor 1
 release 0
 w 86
-x 419
+x 12
 y 72
 alarmPv "LOC\\dummy0=i:0"
 bgAlarm
@@ -388,7 +271,7 @@ major 4
 minor 1
 release 0
 w 86
-x 419
+x 12
 y 72
 alarmPv "LOC\\dummy0=i:0"
 bgAlarm
@@ -518,8 +401,8 @@ major 4
 minor 1
 release 0
 w 90
-x 507
-y 867
+x 110
+y 70
 3d
 bgColor index 3
 botShadowColor index 11

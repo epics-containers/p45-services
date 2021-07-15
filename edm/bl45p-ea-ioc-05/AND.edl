@@ -146,7 +146,7 @@ x 10
 y 40
 bgColor index 3
 botShadowColor index 11
-controlPv "LOC\\$(!W)tab=e:0,CAM"
+controlPv "LOC\\$(!W)tab=e:0,cam,tiff,pva,kaf"
 fgColor index 14
 font "arial-bold-r-12.0"
 inconsistentColor index 0
@@ -219,15 +219,21 @@ bgColor index 3
 botShadowColor index 0
 displayFileName {
   0 "simDetector.edl"
+  1 "NDFileTIFF.edl"
+  2 "NDPvaPlugin.edl"
+  3 "ADKafkaPlugin.edl"
 }
 displaySource "menu"
 fgColor index 14
 filePv "LOC\\$(!W)tab"
 noScroll
-numDsps 1
+numDsps 4
 sizeOfs 5
 symbols {
-  0 "P=BL45P-EA-AND-01,R=:CAM:,label=CAM"
+  0 "P=BL45P-EA-AND-01,R=:CAM:,label=cam"
+  1 "P=BL45P-EA-AND-01,R=:TIFF:,label=tiff"
+  2 "P=BL45P-EA-AND-01,R=:PVA:,label=pva"
+  3 "device=BL45P-EA-AND-01:KFK:,P=BL45P-EA-AND-01,R=:KFK:,PORT=AND.kaf,label=kaf"
 }
 topShadowColor index 0
 endObjectProperties

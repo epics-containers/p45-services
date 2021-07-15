@@ -3,12 +3,15 @@
 #
 # generic kubernetes IOC startup script
 #
-
 this_dir=$(realpath $(dirname $0))
 TOP=$(realpath ${this_dir}/..)
-
 cd ${this_dir}
-if [ -f config.tz ]
+
+# add module paths to environment for use in ioc startup script
+source ${SUPPORT}/configure/RELEASE.shell
+
+# if there is a non-zero length config.tz then decompress into config_untar
+if [ -s config.tz ]
 then
     # decompress the configuration files into config_untar
     config_dir=${TOP}/config_untar
@@ -20,10 +23,6 @@ else
 fi
 
 boot=${config_dir}/ioc.boot
-
-#TODO in future ibek will build this IOC on the fly with correct paths
-# this is not generic (but is benign to non AD IOCs)
-adcore=${SUPPORT}/ADCore-R3-10
 
 # Update the boot script to work in the directory it resides in
 # using msi MACRO substitution.

@@ -5,7 +5,7 @@ shift 1
 
 thisdir=$(realpath $(dirname ${BASH_SOURCE[0]}))
 
-if [ -n $(which edm 2>  /dev/null) ]
+if [ ! -z $(which edm 2>  /dev/null) ]
 then
     export EPICS_CA_ADDR_LIST=172.23.59.64
     export EDMDATAFILES=$(echo $EDMDATAFILES | sed s-/screens-${thisdir}-g)
