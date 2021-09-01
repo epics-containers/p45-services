@@ -1,6 +1,6 @@
 beamline: bl45p
 namespace: epics-iocs
-base_image: ghcr.io/epics-containers/ioc-adpandablocks:4.12r3.0.run
+base_image: ghcr.io/epics-containers/ioc-adpandablocks:4.14r1.0.run
 
 # root folder of generic ioc source - not expected to change
 iocFolder: /epics/ioc
