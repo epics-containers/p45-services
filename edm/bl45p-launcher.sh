@@ -5,9 +5,11 @@ shift 1
 
 thisdir=$(realpath $(dirname ${BASH_SOURCE[0]}))
 
+# there is a cagateway running on p45-ws001 at 172.23.59.64
+export EPICS_CA_ADDR_LIST=${EPICS_CA_ADDR_LIST:-172.23.59.64}
+
 if [ ! -z $(which edm 2>  /dev/null) ]
 then
-    export EPICS_CA_ADDR_LIST=172.23.59.64
     export EDMDATAFILES=$(echo $EDMDATAFILES | sed s+/screens+${thisdir}+g)
     echo launching native edm with paths: $EDMDATAFILES
     edm -noedit -x ${start}
@@ -24,9 +26,8 @@ then
 fi
 
 image=gcr.io/diamond-pubreg/controls/python3/s03_utils/epics/edm:latest
-environ="-e DISPLAY=$DISPLAY -e EDMDATAFILES=${EDMDATAFILES}"
-# there is a cagateway running on p45-ws001 at 172.23.59.64
-environ="$environ -e EPICS_CA_ADDR_LIST=172.23.59.64"
+environ="-e DISPLAY=$DISPLAY -e EDMDATAFILES"
+environ="$environ -e EPICS_CA_ADDR_LIST"
 volumes="-v ${thisdir}:/screens -v /tmp:/tmp"
 opts=${opts}"-ti"
 
