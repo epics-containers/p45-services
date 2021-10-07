@@ -13,3 +13,6 @@ cpu:
 autosave: true
 
 hostNetwork: true
+
+# This IOC needs to run in the cluster nodes for perf testing
+useAffinity: false
