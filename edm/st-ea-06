@@ -1,7 +1,8 @@
 #!/bin/bash
+thisdir=$(realpath $(dirname ${BASH_SOURCE[0]}))
 
 EDMDATAFILES=/screens/bl45p-ea-ioc-05
-for i in $(cat edm/paths.txt); do
+for i in $(cat ${thisdir}/paths.txt); do
     export EDMDATAFILES=$EDMDATAFILES:${i}
 done
 
