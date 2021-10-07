@@ -1,0 +1,8 @@
+#!/bin/bash
+
+EDMDATAFILES=/screens/bl45p-ea-ioc-05
+for i in $(cat edm/paths.txt); do
+    export EDMDATAFILES=$EDMDATAFILES:${i}
+done
+
+$(dirname ${BASH_SOURCE[0]})/bl45p-launcher.sh  BL45P-EA-IOC-06Top.edl ${@}
