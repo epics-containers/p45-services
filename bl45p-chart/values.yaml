@@ -1,0 +1,25 @@
+# default values for all IOCs on bl45p
+exports:
+  beamline_defaults:
+    test: hello
+
+    beamline: bl45p
+    namespace: bl45p
+    serviceAccount: bl45p-priv
+
+    # provide a PVC for autosave
+    autosave: true
+
+    hostNetwork: true
+
+    # useAffinity - only run on nodes with label beamline:bl45p
+    useAffinity: true
+
+    # some beamline default resource limits
+    resources:
+      limits:
+        cpu: "3"
+        memory: 1Gi
+      requests:
+        cpu: 500m
+        memory: 200Mi

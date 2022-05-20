@@ -1,0 +1,10 @@
+apiVersion: v2
+name: bl45p-chart
+description: |
+  main motion IOC for the bl45p test beamline
+
+type: application
+
+# chart and app version - these are updated automatically by CI
+version: 1.0.0
+appVersion: 1.0.0

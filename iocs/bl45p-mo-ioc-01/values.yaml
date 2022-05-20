@@ -1,13 +1,1 @@
-beamline: bl45p
-# currently epics-iocs namespace is for all proof of concept iocs
-# in future all beamlines will have their own namespace
-namespace: epics-iocs
 base_image: ghcr.io/epics-containers/ioc-pmac:1.0.0.run
-# root folder of generic ioc source - not expected to change
-iocFolder: /repos/epics/ioc
-
-# useAffinity - only run on nodes with label beamline:bl45p
-useAffinity: true
-# use default resource limits
-memory:
-cpu:

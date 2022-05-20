@@ -5,8 +5,9 @@ shift 1
 
 thisdir=$(realpath $(dirname ${BASH_SOURCE[0]}))
 
-# there is a cagateway running on p45-ws001 at 172.23.59.64
-export EPICS_CA_ADDR_LIST=${EPICS_CA_ADDR_LIST:-172.23.59.64}
+# if there is a no cagateway running on p45-ws001 at 172.23.59.64
+# use addresses for all nodes in the p45 beamline instead
+export EPICS_CA_ADDR_LIST=${EPICS_CA_ADDR_LIST:-"172.23.59.101 172.23.59.1"}
 
 # if there is a local install of edm run it (deprecated for RHEL8 !!)
 #

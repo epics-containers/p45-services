@@ -1,0 +1,6 @@
+
+{{- define "bl45p-chart.ioc" }}
+
+{{ include "ioc-chart.ioc" . }}
+
+{{- end }}
