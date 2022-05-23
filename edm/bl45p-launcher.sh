@@ -31,7 +31,7 @@ image=gcr.io/diamond-pubreg/controls/python3/s03_utils/epics/edm:latest
 environ="-e DISPLAY=$DISPLAY -e EDMDATAFILES"
 environ="$environ -e EPICS_CA_ADDR_LIST"
 volumes="-v ${thisdir}:/screens -v /tmp:/tmp"
-opts=${opts}"--privileged -ti --net host"
+opts=${opts}"--privileged --rm -d --net host"
 
 set -x
 xhost +local:docker
