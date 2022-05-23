@@ -1,8 +1,0 @@
-#!/bin/bash
-
-EDMDATAFILES=/screens/bl45p-ea-ioc-03
-for i in adsimdetector autosave deviocstats adcore adutil adkafka; do
-    export EDMDATAFILES=$EDMDATAFILES:/screens/${i}
-done
-
-$(dirname ${BASH_SOURCE[0]})/bl45p-launcher.sh BL45P-EA-IOC-03Top.edl ${@}

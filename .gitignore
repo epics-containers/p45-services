@@ -2,3 +2,5 @@
 *.tgz
 .history
 **/Chart.lock
+**/*.bob
+edm/bobs

@@ -1,10 +1,6 @@
-/screens/bl45p-ea-ioc-06
-/screens/bl45p-ea-ioc-05
-/screens/simHDF5Detector
+
 /screens/bl45p-ea-ioc-02
-/screens/adkafka
 /screens/bl45p-ea-ioc-01
-/screens/adsimdetector
 /screens/phoebus
 /screens/deviocstats
 /screens/adpandablocks
@@ -14,7 +10,5 @@
 /screens/bl45p-mo-ioc-01
 /screens/motor
 /screens/adutil
-/screens/bl45p-ea-ioc-04
 /screens/autosave
 /screens/adaravis
-/screens/bl45p-ea-ioc-03

@@ -2,23 +2,27 @@
 
 thisdir=$(realpath $(dirname ${BASH_SOURCE[0]}))
 
-if [ -z $(which docker 2> /dev/null) ]
+if [ -z $(which podman 2> /dev/null) ]
 then
-    # try podman if we dont see docker installed
+    # use docker if we dont see podman installed
     shopt -s expand_aliases
-    alias docker='podman'
-    opts="--privileged "
-    module load gcloud
+    alias podman='docker'
 fi
 
+function addvol ()
+{
+  vols=$vols" --mount type=bind,source=${1},destination=${2},bind-propagation=rslave"
+}
 image=ghcr.io/epics-containers/ec-phoebus:main
 environ="-e DISPLAY=$DISPLAY"
-volumes="-v ${thisdir}:/screens -v ${thisdir}/phoebus:/settings -v /tmp:/tmp"
-opts=${opts}"-ti"
+addvol ${thisdir} /screens
+addvol ${thisdir}/phoebus /settings
+addvol /tmp /tmp
+opts=${opts}"-d --rm --net host --security-opt label=disable"
 phoebus_opts="-settings /settings/settings.ini"
 
 set -x
-xhost +local:docker
-docker run ${environ} ${volumes} ${opts} ${image} ${phoebus_opts} ${@}
+xhost +local:podman
+podman run ${environ} ${vols} ${opts} ${image} ${phoebus_opts} ${@}
 
 

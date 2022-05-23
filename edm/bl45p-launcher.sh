@@ -26,8 +26,7 @@ then
     alias podman='docker'
 fi
 
-# TODO move this image to GCR so we dont need DLS specific gcloud creds
-image=gcr.io/diamond-pubreg/controls/python3/s03_utils/epics/edm:latest
+image=ghcr.io/epics-containers/edm
 environ="-e DISPLAY=$DISPLAY -e EDMDATAFILES"
 environ="$environ -e EPICS_CA_ADDR_LIST"
 volumes="-v ${thisdir}:/screens -v /tmp:/tmp"
