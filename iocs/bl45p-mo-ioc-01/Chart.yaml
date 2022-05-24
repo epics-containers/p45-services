@@ -17,6 +17,6 @@ dependencies:
       - beamline_defaults
   - name: helm-ioc-lib
     version: "1.6.1"
-    repository: oci://ghcr.io/epics-containers/helm-ioc-lib
+    repository: oci://ghcr.io/epics-containers
     import-values:
       - defaults

@@ -1,15 +1,11 @@
-beamline: bl45p
-namespace: bl45p
+name: bl45p-ea-ioc-01
 base_image: ghcr.io/epics-containers/ioc-adaravis:2.2.1r3.0.run
 
-# root folder of generic ioc source - not expected to change
-iocFolder: /epics/ioc
-
-# useAffinity - only run on nodes with label beamline:bl45p
-useAffinity: true
-# resource limits
-memory: 2048Mi
-cpu: 4
-
-# when autosave is true: create PVC and mount at /autosave
-autosave: true
+# Area detector may need more than beamline default resources
+resources:
+  limits:
+    cpu: 4
+    memory: 4Gi
+  requests:
+    cpu: 1
+    memory: 500Mi
