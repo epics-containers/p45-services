@@ -3,18 +3,6 @@
 # all real beamlines should have CI to push to their private repos
 # this is an example of how to do it to ghcr.io/epics-containers/
 
-# helm pulishing CI script for beamline iocs
-# uses image gcr.io/diamond-privreg/controls/prod/gitlab/gcloud-helm:0.2.2
-
-# IMPORTANT: for new beamlines you will need to first create the beamline
-# helm repo with:
-#   module load gcloud
-#   gcloud auth login --no-launch-browser
-#   gcloud artifacts repositories create --location=europe \
-#      --repository-format=docker bl40p-iocs
-
-# TODO I think all this functionality should be placed in a
-# gitlab runner image derived from gcr.io/diamond-pubreg/buildutil:0.0.0
 
 helm version
 
@@ -22,10 +10,6 @@ set -e
 
 # Helm Registry in diamond GCR
 HELM_REPO=ghcr.io/epics-containers/
-
-
-# turn on Open Container Initiative support
-export HELM_EXPERIMENTAL_OCI=1
 
 # log in to the registry
 if [ -z ${CI_BUILD_ID} ]

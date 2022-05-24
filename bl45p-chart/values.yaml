@@ -1,8 +1,6 @@
 # default values for all IOCs on bl45p
 exports:
   beamline_defaults:
-    test: hello
-
     beamline: bl45p
     namespace: bl45p
     serviceAccount: bl45p-priv

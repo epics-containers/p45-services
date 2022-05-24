@@ -5,9 +5,8 @@ on:
   pull_request:
 
 env:
-  HELM_EXPERIMENTAL_OCI: 1 #enable OCI support
-  HELM_VERSION_TO_INSTALL: 3.5.0 # version of HELM to install
-  GCR_ROOT: ghcr.io/epics-containers
+  HELM_VERSION_TO_INSTALL: 3.8.2 # version of HELM to install
+  GHCR_ROOT: ghcr.io/epics-containers
 
 jobs:
   build-and-push-helm-charts:
@@ -28,12 +27,12 @@ jobs:
 
       - name: push each ioc helm chart
         run: |
-          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ${{ env.GCR_ROOT }} --username ${{ github.repository_owner }} --password-stdin
+          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ${{ env.GHCR_ROOT }} --username ${{ github.repository_owner }} --password-stdin
 
           # tar up any config folders that require it
           ./tar_config_src.sh
 
-          # only publish if this is a tagged releasse
+          # only publish if this is a tagged release
           if [[ ${GITHUB_REF} = refs/tags/* ]] ; then
 
             TAG=${GITHUB_REF#refs/tags/}
@@ -50,7 +49,7 @@ jobs:
             do
                 for THIS_TAG in latest ${TAG}
                 do
-                    URL="${GCR_ROOT}/$(basename $ioc):${THIS_TAG}"
+                    URL="${GHCR_ROOT}/$(basename $ioc):${THIS_TAG}"
                     echo saving ${ioc} to "${URL}" ...
                     helm chart save ${ioc} "${URL}"
                     echo push to "${URL}" ...
