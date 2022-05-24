@@ -1,6 +1,7 @@
-*.tz
-*.tgz
+**/*.tz
+**/*.tgz
 .history
 **/Chart.lock
+**/charts
 **/*.bob
 edm/bobs
