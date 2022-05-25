@@ -1,58 +1,32 @@
-# TODO UNDER DEVELOPMENT
-# WARNING - this needs genericizing
-# all real beamlines should have CI to push to their private repos
-# this is an example of how to do it to ghcr.io/epics-containers/
+#!/bin/bash
 
-
-helm version
-
+# NOTE: all beamlines should have CI to push their IOC helm charts
+# WARNING: use this script for testing but not for deploying 
+# production IOCs. Instead use the CI by pushing a tag to 
+# the main branch (this makes the source for the chart discoverable)
 set -e
 
-# Helm Registry in diamond GCR
-HELM_REPO=ghcr.io/epics-containers/
+IOC_ROOT="${1}"
+# determine the tag to use based on date or argument 2
+TAG=${2:-$(date +%Y.%-m.%-d-%-H%M)}
 
-# log in to the registry
-if [ -z ${CI_BUILD_ID} ]
-then
-    # this was run locally - get creds from gcloud and push to work repo
-    echo "LOCAL deploy to helm repo"
-    echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
-else
-    # running under Gitlab CI - get creds from /etc/gcp/config.json
-    cat /etc/gcp/config.json | helm registry login -u _json_key \
-      --password-stdin ${HELM_REPO}
+if [ -z "${IOC_ROOT}" ] ; then
+  echo "usage: helm-push.sh <ioc root folder> <semvar tag>"
 fi
 
-if [ -z "${CI_COMMIT_TAG}" ]
-then
-    # untagged builds go into the work repo instead of beamline repo
-    CI_PROJECT_NAME="work"
-    # determine the tag to use based on date
-    TAG=$(date +%Y.%-m.%-d-work%-H%M)
-else
-    # determine the tag to use based on date
-    TAG=$(date +%Y.%-m.%-d-%-H%M)
-fi
+# Helm Registry in diamond GHCR
+HELM_REPO=ghcr.io/epics-containers
 
-ioc_dirs=$(ls -d iocs/*/)
+# extract name from the Chart.yaml
+NAME=$(awk '/^name:/{print $NF}' "${IOC_ROOT}/Chart.yaml")
 
-# Update all chart dependencies.
-for ioc in ${ioc_dirs}; do helm dependency update $ioc; done
+# must set CR_PAT to a github personal access token 
+# see https://github.com/settings/tokens
+echo $CR_PAT | helm registry login -u USERNAME --password-stdin $HELM_REPO
 
-# udate the helm chart versions with the tag
-sed -e "s/^version: .*$/version: ${TAG}/g" -e "s/^appVersion: .*$/appVersion: ${TAG}/g" -i iocs/*/Chart.yaml
-
-# push all ioc chart packages to the registry
-for ioc in ${ioc_dirs}
-do
-    for THIS_TAG in latest ${TAG}
-    do
-        URL="${HELM_REPO}/$(basename $ioc):${THIS_TAG}"
-        echo saving ${ioc} to "${URL}" ...
-        helm chart save ${ioc} "${URL}"
-        echo push to "${URL}" ...
-        helm chart push "${URL}"
-    done
-done
-
-echo Done
+echo "deploying ${IOC_ROOT} to helm repo as version ${TAG}"
+helm package "${IOC_ROOT}" -u --app-version ${TAG} --version ${TAG}
+package=${NAME}-${TAG}.tgz
+          
+helm push "${package}" oci://${HELM_REPO}
+rm "${package}"

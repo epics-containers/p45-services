@@ -32,14 +32,14 @@ jobs:
           # tar up any config folders that require it
           ./tar_config_src.sh
 
+          # Update all chart dependencies.
+          for ioc in ${ioc_dirs}; do helm dependency update ${ioc}; done
+
           # only publish if this is a tagged release
           if [[ ${GITHUB_REF} = refs/tags/* ]] ; then
 
             TAG=${GITHUB_REF#refs/tags/}
             ioc_dirs=$(ls -d iocs/*/)
-
-            # Update all chart dependencies.
-            for ioc in ${ioc_dirs}; do helm dependency update ${ioc}; done
 
             # update the helm chart versions with the tag
             sed -e "s/^version: .*$/version: ${TAG}/g" -e "s/^appVersion: .*$/appVersion: ${TAG}/g" -i iocs/*/Chart.yaml
