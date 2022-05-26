@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#
+########################################
 # generic kubernetes IOC startup script
-#
+########################################
 
 this_dir=$(realpath $(dirname $0))
 TOP=$(realpath ${this_dir}/..)
