@@ -1,4 +1,4 @@
-name:  Build and publish a beamline's ioc helm charts
+name: Build and publish a beamline's ioc helm charts
 
 on:
   push:
@@ -7,6 +7,7 @@ on:
 env:
   HELM_VERSION_TO_INSTALL: 3.8.2 # version of HELM to install
   GHCR_ROOT: ghcr.io/epics-containers
+  CR_PAT: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   build-and-push-helm-charts:
@@ -27,34 +28,18 @@ jobs:
 
       - name: push each ioc helm chart
         run: |
-          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ${{ env.GHCR_ROOT }} --username ${{ github.repository_owner }} --password-stdin
-
           # tar up any config folders that require it
           ./tar_config_src.sh
 
-          # only publish if this is a tagged release
-          if [[ ${GITHUB_REF} = refs/tags/* ]] ; then
-
-            TAG=${GITHUB_REF#refs/tags/}
-            ioc_dirs=$(ls -d iocs/*/)
-
-            # Update all chart dependencies.
-            for ioc in ${ioc_dirs}; do helm dependency update ${ioc}; done
-
-            # update the helm chart versions with the tag
-            sed -e "s/^version: .*$/version: ${TAG}/g" -e "s/^appVersion: .*$/appVersion: ${TAG}/g" -i iocs/*/Chart.yaml
-
-            # push all ioc chart packages to the registry
-            for ioc in ${ioc_dirs}
-            do
-                for THIS_TAG in latest ${TAG}
-                do
-                    URL="${GHCR_ROOT}/$(basename $ioc):${THIS_TAG}"
-                    echo saving ${ioc} to "${URL}" ...
-                    helm chart save ${ioc} "${URL}"
-                    echo push to "${URL}" ...
-                    helm chart push "${URL}"
-                done
-            done
-
+          # helm tags must be SemVar. Use 0.0.0-b0 for testing the latest non-tagged build
+          if [ "${GITHUB_REF_TYPE}" == "tag" ] ; then
+            TAG=${GITHUB_REF_NAME}
+          else
+            TAG="0.0.0-b0"
           fi
+
+          # All IOCS that have changes since last pushed to the helm registry
+          # will have version ${TAG} pushed 
+          for ioc_root in $(ls -d iocs/*/) ; do
+            ./helm-push.sh ${ioc_root} ${TAG}
+          done

@@ -6,8 +6,8 @@ description: |
 type: application
 
 # chart and app version - these are updated automatically by CI
-version: 2021.2.0
-appVersion: 2021.2.0
+version: 0.0.0-b0
+appVersion: 0.0.0-b0
 
 dependencies:
   - name: bl45p-chart

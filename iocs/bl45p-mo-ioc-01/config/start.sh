@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#
+########################################
 # generic kubernetes IOC startup script
-#
+########################################
 
 this_dir=$(realpath $(dirname $0))
 TOP=$(realpath ${this_dir}/..)
@@ -23,7 +23,7 @@ boot=${config_dir}/ioc.boot
 
 # Update the boot script to work in the directory it resides in
 # using msi MACRO substitution.
-# Output to /tmp for guarenteed writability
+# Output to /tmp for guarenteed writability.
 msi -MTOP=${TOP},THIS_DIR=${config_dir} ${boot} > /tmp/ioc.boot
 
 exec ${IOC}/bin/linux-x86_64/ioc /tmp/ioc.boot
