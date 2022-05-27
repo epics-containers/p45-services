@@ -1,5 +1,4 @@
-name: bl45p-ea-ioc-01
-base_image: ghcr.io/epics-containers/ioc-adaravis:2.2.1r3.0.run
+base_image: ghcr.io/epics-containers/ioc-adaravis:1.0.1.run
 
 # Area detector may need more than beamline default resources
 resources:

@@ -7,8 +7,8 @@
 set -e
 
 IOC_ROOT="$(realpath ${1})"
-# determine the tag to use based on date or argument 2
-TAG=${2:-$(date +%Y.%-m.%-d-%-H%M)}
+# create a tag for todays date and beta number as time of day
+TAG=${2:-$(+%Y.%-m.%-d-b%-H.%M)}
 
 if [ -z "${IOC_ROOT}" ] ; then
   echo "usage: helm-push.sh <ioc root folder> <semvar tag>"
