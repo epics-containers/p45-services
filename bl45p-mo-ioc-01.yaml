@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=file:///workspace/bl45p/ibek/pmac.ibek.entities.schema.json
+ioc_name: bl45p-mo-ioc-01
+description: motion IOC for the test beamline p45 in G13
+generic_ioc_image: ghcr.io/epics-containers/ioc-pmac:main.run
+
+entities:
+  - type: pmac.PmacAsynIPPort
+    name: BRICK1port
+    IP: 172.23.59.21
+
+  - type: pmac.Geobrick
+    name: BL45P-MO-BRICK-01
+    PORT: BRICK1port
+    P: "BL45P-MO-STEP-01:"
+    numAxes: 8
+    idlePoll: 100
+    movingPoll: 500
+
+  - type: pmac.DlsPmacAsynMotor
+    name: Sample Theta
+    PMAC: BL45P-MO-BRICK-01
+    axis: 1
+    P: BL45P-MO-SAMP-01
+    M: ":THETA"
+    MRES: 0.036
