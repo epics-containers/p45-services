@@ -9,17 +9,33 @@ entities:
     IP: 172.23.59.21
 
   - type: pmac.Geobrick
-    name: BL45P-MO-BRICK-99
+    name: BRICK1
     PORT: BRICK1port
-    P: "BL45P-MO-STEP-99:"
+    P: BL45P-MO-STEP-01
     numAxes: 8
     idlePoll: 100
     movingPoll: 500
 
   - type: pmac.DlsPmacAsynMotor
     name: Sample Theta
-    PMAC: BL45P-MO-BRICK-99
+    PMAC: BRICK1
     axis: 1
     P: BL45P-MO-SAMP-99
     M: ":THETA"
     MRES: 0.036
+
+  - type: pmac.pmacDisableLimitsCheck
+    Controller: BRICK1
+    Axis: 2
+
+  - type: pmac.pmacDisableLimitsCheck
+    Controller: BRICK1
+    Axis: 3
+
+  - type: pmac.pmacDisableLimitsCheck
+    Controller: BRICK1
+    Axis: 4
+
+  - type: pmac.pmacDisableLimitsCheck
+    Controller: BRICK1
+    Axis: 5

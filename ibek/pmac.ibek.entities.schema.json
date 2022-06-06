@@ -116,6 +116,34 @@
               },
               "name": {
                 "type": "string",
+                "description": "Asyn port name",
+                "vscode_ibek_plugin_type": "type_id"
+              },
+              "IP": {
+                "type": "string",
+                "description": "IP address of pmac"
+              },
+              "type": {
+                "type": "string",
+                "const": "pmac.PmacAsynIPPort",
+                "default": "pmac.PmacAsynIPPort"
+              }
+            },
+            "required": [
+              "name",
+              "IP"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "entity_enabled": {
+                "type": "boolean",
+                "default": true
+              },
+              "name": {
+                "type": "string",
                 "description": "Name to use for the geobrick's asyn port",
                 "vscode_ibek_plugin_type": "type_id"
               },
@@ -153,34 +181,6 @@
               "numAxes",
               "idlePoll",
               "movingPoll"
-            ],
-            "additionalProperties": false
-          },
-          {
-            "type": "object",
-            "properties": {
-              "entity_enabled": {
-                "type": "boolean",
-                "default": true
-              },
-              "name": {
-                "type": "string",
-                "description": "Asyn port name",
-                "vscode_ibek_plugin_type": "type_id"
-              },
-              "IP": {
-                "type": "string",
-                "description": "IP address of pmac"
-              },
-              "type": {
-                "type": "string",
-                "const": "pmac.PmacAsynIPPort",
-                "default": "pmac.PmacAsynIPPort"
-              }
-            },
-            "required": [
-              "name",
-              "IP"
             ],
             "additionalProperties": false
           },
@@ -457,6 +457,34 @@
               "axis",
               "P",
               "M"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "entity_enabled": {
+                "type": "boolean",
+                "default": true
+              },
+              "Controller": {
+                "type": "string",
+                "description": "Geobrick on which to disable limits",
+                "vscode_ibek_plugin_type": "type_object"
+              },
+              "Axis": {
+                "type": "integer",
+                "description": "Axis to have limits disabled"
+              },
+              "type": {
+                "type": "string",
+                "const": "pmac.pmacDisableLimitsCheck",
+                "default": "pmac.pmacDisableLimitsCheck"
+              }
+            },
+            "required": [
+              "Controller",
+              "Axis"
             ],
             "additionalProperties": false
           }

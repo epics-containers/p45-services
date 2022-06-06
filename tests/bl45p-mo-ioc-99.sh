@@ -13,4 +13,4 @@ ibek build-helm bl45p-mo-ioc-99.yaml
 
 echo "make ioc startup files"
 cd $root/iocs/bl45p-mo-ioc-99
-ibek build-startup config/ioc.boot.yaml $ibek/*.ibek.defs.yaml config/ioc.boot
+ibek build-startup config/ioc.boot.yaml $ibek/*.ibek.defs.yaml --out config/ioc.boot

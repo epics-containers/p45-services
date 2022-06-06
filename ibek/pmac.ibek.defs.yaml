@@ -1,8 +1,24 @@
-# yaml-language-server: $schema=../schemas/ibek.defs.schema.json
+# yaml-language-server: $schema=ibek.defs.schema.json
+
 module: pmac
+
 defs:
   # TODO - this is basic Geobrick support only. Does not do CS groups or
   # status screen PVs
+
+  - name: PmacAsynIPPort
+    args:
+      - type: id
+        name: name
+        description: Asyn port name
+
+      - type: str
+        name: IP
+        description: IP address of pmac
+
+    script:
+      - pmacAsynIPConfigure({{ name }}, {{ IP if ":" in IP else IP + ":1025" }})
+
   - name: Geobrick
     args:
       - type: id
@@ -40,19 +56,6 @@ defs:
         define_args: PMAC={{ P }}
       - file: pmacStatus.template
         define_args: PMAC={{ P }}
-
-  - name: PmacAsynIPPort
-    args:
-      - type: id
-        name: name
-        description: Asyn port name
-
-      - type: str
-        name: IP
-        description: IP address of pmac
-
-    script:
-      - pmacAsynIPConfigure({{name}}, {{IP if ":" in IP else IP + ":1025"}})
 
   - name: DlsPmacAsynMotor
     args:
@@ -314,7 +317,7 @@ defs:
         default: "#"
 
     databases:
-      - file: $(PMAC)/db/dls_pmac_asyn_motor.template
+      - file: dls_pmac_asyn_motor.template
         define_args: >
           ADDR={{ axis }}
           PORT={{ PMAC.name }}
@@ -371,3 +374,16 @@ defs:
           - HOME
           - PMAC
           - ALLOW_HOMED_SET
+
+  - name: pmacDisableLimitsCheck
+    args:
+      - type: object
+        name: Controller
+        description: Geobrick on which to disable limits
+
+      - type: int
+        name: Axis
+        description: Axis to have limits disabled
+
+    script:
+      - pmacDisableLimitsCheck({{ Controller.name }}, {{ Axis }}, 0)
