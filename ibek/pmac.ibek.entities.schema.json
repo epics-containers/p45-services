@@ -404,9 +404,9 @@
                 "default": 1.0
               },
               "PREC": {
-                "type": "number",
+                "type": "integer",
                 "description": "Display Precision",
-                "default": 3.0
+                "default": 3
               },
               "EGU": {
                 "type": "string",
@@ -436,7 +436,7 @@
               "VMAX": {
                 "type": "string",
                 "description": "Max Velocity (EGU/s)",
-                "default": "$(VELO)"
+                "default": "{{VELO}}"
               },
               "ACCL": {
                 "type": "number",
@@ -489,9 +489,9 @@
                 "default": ""
               },
               "SREV": {
-                "type": "number",
+                "type": "integer",
                 "description": "Steps per Revolution",
-                "default": 1000.0
+                "default": 1000
               },
               "RRES": {
                 "type": "number",
@@ -601,20 +601,10 @@
                 "description": "Set this to alh to add the motor to the alarm handler and send emails",
                 "default": ""
               },
-              "gda_name": {
-                "type": "string",
-                "description": "Name to export this as to GDA",
-                "default": "none"
-              },
-              "gda_desc": {
-                "type": "string",
-                "description": "Description to export as to GDA",
-                "default": "$(DESC)"
-              },
               "HOME": {
                 "type": "string",
                 "description": "Prefix for autohome instance. Defaults to $(P) If unspecified",
-                "default": "$(P)"
+                "default": "{{P}}"
               },
               "ALLOW_HOMED_SET": {
                 "type": "string",
@@ -712,7 +702,7 @@
               "VMAX": {
                 "type": "string",
                 "description": "Max Velocity (EGU/s)",
-                "default": "$(VELO)"
+                "default": "{{VELO}}"
               },
               "ACCL": {
                 "type": "number",
@@ -877,20 +867,10 @@
                 "description": "Set this to alh to add the motor to the alarm handler and send emails",
                 "default": ""
               },
-              "gda_name": {
-                "type": "string",
-                "description": "Name to export this as to GDA",
-                "default": "none"
-              },
-              "gda_desc": {
-                "type": "string",
-                "description": "Description to export as to GDA",
-                "default": "$(DESC)"
-              },
               "HOME": {
                 "type": "string",
                 "description": "Prefix for autohome instance. Defaults to $(P) If unspecified",
-                "default": "$(P)"
+                "default": "{{P}}"
               },
               "ALLOW_HOMED_SET": {
                 "type": "string",

@@ -21,7 +21,7 @@ fi
 
 ioc=$(realpath ${1})
 shift
-command=${1:-"bash /epics/ioc/config/start.sh"}
+command=${1:-"bash /repos/epics/ioc/config/start.sh"}
 shift
 
 if [ -z $(which docker 2> /dev/null) ]
@@ -32,7 +32,8 @@ then
 fi
 
 image=$(awk '/base_image/{print $NF}' ${ioc}/values.yaml)
+volumes="-v=${ioc}/config:/repos/epics/ioc/config:rw -vautosave:/autosave:rw"
 
 set -x
-docker run -it --rm --network host $@ -v=${ioc}/config:/epics/ioc/config:rw -vautosave:/autosave:rw ${image} ${command}
+docker run -it --rm --network host $@ ${volumes} ${image} ${command}
 

@@ -137,7 +137,7 @@ defs:
         description: axis Velocity (EGU/s)
         default: 1.0
 
-      - type: float
+      - type: int
         name: PREC
         description: Display Precision
         default: 3
@@ -170,7 +170,7 @@ defs:
       - type: str
         name: VMAX
         description: Max Velocity (EGU/s)
-        default: $(VELO)
+        default: "{{VELO}}"
 
       - type: float
         name: ACCL
@@ -222,7 +222,7 @@ defs:
         description: Startup commands
         default: ""
 
-      - type: float
+      - type: int
         name: SREV
         description: Steps per Revolution
         default: 1000
@@ -338,19 +338,9 @@ defs:
         default: ""
 
       - type: str
-        name: gda_name
-        description: Name to export this as to GDA
-        default: none
-
-      - type: str
-        name: gda_desc
-        description: Description to export as to GDA
-        default: $(DESC)
-
-      - type: str
         name: HOME
         description: Prefix for autohome instance. Defaults to $(P) If unspecified
-        default: $(P)
+        default: "{{P}}"
 
       - type: str
         name: ALLOW_HOMED_SET
@@ -361,6 +351,7 @@ defs:
       - file: dls_pmac_asyn_motor.template
         define_args: |
           ADDR={{ axis }}
+          PMAC={{ Controller.P }}
           PORT={{ Controller.name }}
           SPORT={{ Controller.PORT.name }}
         include_args:
@@ -410,8 +401,6 @@ defs:
             HOMEVISSTR,
             name,
             alh,
-            gda_name,
-            gda_desc,
             HOME,
             ALLOW_HOMED_SET,
           ]
@@ -486,7 +475,7 @@ defs:
       - type: str
         name: VMAX
         description: Max Velocity (EGU/s)
-        default: $(VELO)
+        default: "{{VELO}}"
 
       - type: float
         name: ACCL
@@ -654,19 +643,9 @@ defs:
         default: ""
 
       - type: str
-        name: gda_name
-        description: Name to export this as to GDA
-        default: none
-
-      - type: str
-        name: gda_desc
-        description: Description to export as to GDA
-        default: $(DESC)
-
-      - type: str
         name: HOME
         description: Prefix for autohome instance. Defaults to $(P) If unspecified
-        default: $(P)
+        default: "{{P}}"
 
       - type: str
         name: ALLOW_HOMED_SET
@@ -725,8 +704,6 @@ defs:
             HOMEVISSTR,
             name,
             alh,
-            gda_name,
-            gda_desc,
             HOME,
             ALLOW_HOMED_SET,
           ]
