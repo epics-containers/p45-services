@@ -3,23 +3,106 @@ ioc_name: bl45p-mo-ioc-01
 description: motion IOC for the test beamline p45 in G13
 generic_ioc_image: ghcr.io/epics-containers/ioc-pmac:main.run
 
+# TODO need to make use of lists / strings consistent
+# currently include_args is a list, define_args is a string, script is a list
+# script should be a string, not sure about include_args but it could be a , and CR
+# separate string?
+
+# TODO would be good to have 'databases: include_all' for auto-substitution modules.
+
 entities:
+  - type: epics.EPICS_CA_MAX_ARRAY_BYTES
+    max_bytes: 6000000
+
   - type: pmac.PmacAsynIPPort
     name: BRICK1port
     IP: 172.23.59.21
 
+  - type: deviocstats.iocAdminSoft
+    IOC: BL45P-MO-IOC-01
+
   - type: pmac.Geobrick
-    name: BL45P-MO-BRICK-01
+    name: BRICK1
+    # NOTE: validation cannot check the object type
     PORT: BRICK1port
-    P: "BL45P-MO-STEP-01:"
+    P: BL45P-MO-STEP-01
+    # NOTE: There is no honouring defaults in Database files
+    # in fact we repeat the defaults in the definitions YAML
     numAxes: 8
     idlePoll: 100
     movingPoll: 500
 
   - type: pmac.DlsPmacAsynMotor
-    name: Sample Theta
-    PMAC: BL45P-MO-BRICK-01
-    axis: 1
-    P: BL45P-MO-SAMP-01
-    M: ":THETA"
-    MRES: 0.036
+    name: STAGE1.THETA_TOP
+    Controller: BRICK1
+    axis: 2
+    P: BL45P-MO-STAGE-01
+    M: :THETA:TOP
+    ACCL: 0.1
+    MRES: 0.087890625
+    VELO: 90
+    # NOTE: VMAX is a string because we usually use $(VELO)
+    # ? Would a Union be better - what about other number args 
+    VMAX: "1080"
+    HOMEVISSTR: Absolute Encoder
+    EGU: deg
+
+  - type: pmac.CS
+    name: BRICK1.CS1
+    CS: 1
+    Controller: BRICK1
+
+    # NOTE: objects must be defined before references to them.
+    # Vscode schema checks do NOT pick this up and the apischema error is v bad.
+  - type: pmac.CS
+    name: BRICK1.CS2
+    CS: 2
+    Controller: BRICK1
+
+  - type: pmac.CS
+    name: BRICK1.CS3
+    CS: 3
+    Controller: BRICK1
+
+  - type: pmac.DlsCsPmacAsynMotor     
+    name: STAGE1.CS.THETA
+    CsController: BRICK1.CS2
+    axis: 7 
+    P: BL45P-MO-STAGE-01 
+    M: :THETA:POS 
+    ACCL: 0.1 
+    MRES: 0.0001 
+    VELO: 30 
+    DESC: Theta position 
+    DHLM: 10000 
+    DLLM: -10000 
+    EGU: deg 
+    PREC: 3 
+    TWV: 5 
+    
+  - type: pmac.pmacDisableLimitsCheck
+    Controller: BRICK1
+    Axis: 2
+
+  - type: pmac.pmacDisableLimitsCheck
+    Controller: BRICK1
+    Axis: 3
+
+  - type: pmac.pmacDisableLimitsCheck
+    Controller: BRICK1
+    Axis: 4
+
+  - type: pmac.pmacDisableLimitsCheck
+    Controller: BRICK1
+    Axis: 5
+
+  - type: pmac.autohome
+    Controller: BRICK1
+    P: BL45P-MO-STAGE-01
+    PLC: 10
+    GRP2: Theta
+    GRP3: X
+    GRP4: Y top
+    GRP5: Y bottom
+
+
