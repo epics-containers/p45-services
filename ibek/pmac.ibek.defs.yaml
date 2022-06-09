@@ -152,7 +152,7 @@ defs:
         description: Engineering Units
         default: mm
 
-      - type: int
+      - type: float
         name: TWV
         description: Tweak Step Size (EGU)
         default: 1
@@ -459,7 +459,7 @@ defs:
         description: Engineering Units
         default: mm
 
-      - type: int
+      - type: float
         name: TWV
         description: Tweak Step Size (EGU)
         default: 1

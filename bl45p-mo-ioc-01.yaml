@@ -169,11 +169,52 @@ entities:
     PREC: 3
     TWV: 5
 
-  # - type: pmac.DlsCsPmacAsynMotor
+  - type: pmac.DlsCsPmacAsynMotor
+    name: STAGE1.CS.THETA_SKEW
+    CsController: BRICK1.CS2 
+    axis: 8 
+    P: BL45P-MO-STAGE-01 
+    M: :THETA:SKEW 
+    ACCL: 0.1 
+    DESC: Theta skew 
+    DHLM: 360 
+    DLLM: -360 
+    EGU: deg 
+    MRES: 0.0001 
+    PREC: 3 
+    TWV: 5 
+    VELO: 10 
 
-  # - type: pmac.DlsCsPmacAsynMotor
 
-  # - type: pmac.DlsCsPmacAsynMotor
+  - type: pmac.DlsCsPmacAsynMotor
+    name: STAGE1.CS.Y
+    CsController: BRICK1.CS3 
+    axis: 7 
+    P: BL45P-MO-STAGE-01 
+    M: :CS:Y 
+    DESC: CS Y 
+    DHLM: 4 
+    DLLM: -1 
+    EGU: mm 
+    MRES: 0.0001 
+    PREC: 3 
+    TWV: 0.5 
+    VELO: 5 
+
+  - type: pmac.DlsCsPmacAsynMotor
+    name: STAGE1.CS.Y_STRETCH
+    CsController: BRICK1.CS3 
+    axis: 8 
+    P: BL45P-MO-STAGE-01 
+    M: :CS:Y:STRETCH 
+    DESC: CS Y stretch 
+    DHLM: 2 
+    DLLM: -2 
+    EGU: mm 
+    MRES: 0.0001 
+    PREC: 3 
+    TWV: 0.5 
+    VELO: 5 
 
   - type: pmac.pmacDisableLimitsCheck
     Controller: BRICK1

@@ -419,9 +419,9 @@
                 "default": "mm"
               },
               "TWV": {
-                "type": "integer",
+                "type": "number",
                 "description": "Tweak Step Size (EGU)",
-                "default": 1
+                "default": 1.0
               },
               "DTYP": {
                 "type": "string",
@@ -685,9 +685,9 @@
                 "default": "mm"
               },
               "TWV": {
-                "type": "integer",
+                "type": "number",
                 "description": "Tweak Step Size (EGU)",
-                "default": 1
+                "default": 1.0
               },
               "DTYP": {
                 "type": "string",
