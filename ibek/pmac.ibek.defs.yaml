@@ -13,8 +13,13 @@ defs:
         name: IP
         description: IP address of pmac
 
+      - type: int
+        name: PORT
+        description: TCP port for connection
+        default: 1025
+
     script:
-      - pmacAsynIPConfigure({{ name }}, {{ IP if ":" in IP else IP + ":1025" }})
+      - pmacAsynIPConfigure({{ name }}, {{ IP }}:{{ PORT }})
 
   - name: Geobrick
     args:
@@ -167,9 +172,11 @@ defs:
         description: Base Velocity (EGU/s)
         default: 1.0
 
+      # TODO type float
       - type: str
         name: VMAX
         description: Max Velocity (EGU/s)
+        # TODO make default a UNION of type and str (for jinja)
         default: "{{VELO}}"
 
       - type: float
@@ -442,7 +449,7 @@ defs:
         description: axis Velocity (EGU/s)
         default: 1.0
 
-      - type: float
+      - type: int
         name: PREC
         description: Display Precision
         default: 3
@@ -527,7 +534,7 @@ defs:
         description: Startup commands
         default: ""
 
-      - type: float
+      - type: int
         name: SREV
         description: Steps per Revolution
         default: 1000
@@ -657,6 +664,8 @@ defs:
         define_args: |
           ADDR={{ axis }}
           PORT={{ CsController.name }}
+          CS=CS{{ CsController.CS }}
+          PMAC={{ CsController.Controller.name }}
         include_args:
           [
             P,

@@ -9,14 +9,15 @@ thisdir=$(realpath $(dirname ${BASH_SOURCE[0]}))
 # use addresses for all nodes in the p45 beamline instead
 export EPICS_CA_ADDR_LIST="172.23.59.101 172.23.59.1"
 
-# if there is a local install of edm run it 
-if [ ! -z $(which edm 2>  /dev/null) ]
-then
-    export EDMDATAFILES=$(echo $EDMDATAFILES | sed s+/screens+${thisdir}+g)
-    echo launching native edm with paths: $EDMDATAFILES
-    edm -noedit -x ${start}
-    exit 0
-fi
+# if there is a local install of edm run it
+# TODO fix this to detect RHEL 8 and not use edm 
+# if [ ! -z $(which edm 2>  /dev/null) ]
+# then
+#     export EDMDATAFILES=$(echo $EDMDATAFILES | sed s+/screens+${thisdir}+g)
+#     echo launching native edm with paths: $EDMDATAFILES
+#     edm -noedit -x ${start}
+#     exit 0
+# fi
 
 if [ -z $(which podman 2> /dev/null) ]
 then

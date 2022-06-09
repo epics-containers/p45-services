@@ -264,6 +264,11 @@
                 "type": "string",
                 "description": "IP address of pmac"
               },
+              "PORT": {
+                "type": "integer",
+                "description": "TCP port for connection",
+                "default": 1025
+              },
               "type": {
                 "type": "string",
                 "const": "pmac.PmacAsynIPPort",
@@ -670,9 +675,9 @@
                 "default": 1.0
               },
               "PREC": {
-                "type": "number",
+                "type": "integer",
                 "description": "Display Precision",
-                "default": 3.0
+                "default": 3
               },
               "EGU": {
                 "type": "string",
@@ -755,9 +760,9 @@
                 "default": ""
               },
               "SREV": {
-                "type": "number",
+                "type": "integer",
                 "description": "Steps per Revolution",
-                "default": 1000.0
+                "default": 1000
               },
               "RRES": {
                 "type": "number",
