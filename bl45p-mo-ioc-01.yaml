@@ -50,6 +50,92 @@ entities:
     HOMEVISSTR: Absolute Encoder
     EGU: deg
 
+  - type: pmac.DlsPmacAsynMotor
+    name: STAGE1.THETA_BOT
+    Controller: BRICK1
+    ACCL: 0.1
+    axis: 3
+    P: BL45P-MO-STAGE-01
+    M: :THETA:BOT
+    DESC: Theta bottom
+    EGU: deg
+    HOMEVISSTR: Absolute Encoder
+    MRES: 0.087890625
+    PREC: 3
+    VELO: 90
+    VMAX: "1080"
+
+  - type: pmac.DlsPmacAsynMotor
+    name: CHOP1.HOR
+    Controller: BRICK1
+    axis: 4
+    P: BL45P-MO-CHOP-01
+    M: :ENDAT
+    DESC: Hor EnDat chopper
+    EGU: deg
+    HOMEVIS: 0
+    HOMEVISSTR: Absolute Encoder
+    MRES: 0.000043
+    PREC: 5
+    VELO: 43
+
+  - type: pmac.DlsPmacAsynMotor
+    name: CHOP1.VER
+    Controller: BRICK1
+    ACCL: 0.01
+    axis: 5
+    P: BL45P-MO-CHOP-01
+    M: :BISS
+    DESC: Ver Biss chopper
+    EGU: deg
+    HOMEVIS: 0
+    HOMEVISSTR: Absolute Encoder
+    MRES: 0.000687
+    PREC: 5
+    VELO: 720
+
+  - type: pmac.DlsPmacAsynMotor
+    name: STAGE1.X
+    Controller: BRICK1
+    axis: 6
+    P: BL45P-MO-STAGE-01
+    M: :X
+    DESC: Sample X
+    DHLM: 19
+    DLLM: 0.0
+    EGU: mm
+    MRES: 0.0001
+    PREC: 3
+    VELO: 5
+
+  - type: pmac.DlsPmacAsynMotor
+    name: STAGE1.Y_TOP
+    Controller: BRICK1
+    axis: 7
+    P: BL45P-MO-STAGE-01
+    M: :Y:TOP
+    DESC: Sample Y top
+    DHLM: 4
+    DLLM: -1
+    EGU: mm
+    MRES: 0.0005
+    PREC: 3
+    VELO: 5
+
+  - type: pmac.DlsPmacAsynMotor
+    name: STAGE1.Y_BOT
+    Controller: BRICK1
+    P: BL45P-MO-STAGE-01
+    M: :Y:BOT
+    axis: 8
+    DESC: Sample Y bottom
+    DHLM: 4
+    DLLM: -1
+    EGU: mm
+    MRES: 0.0005
+    PREC: 3
+    VELO: 5
+
   - type: pmac.CS
     name: BRICK1.CS1
     CS: 1
@@ -82,6 +168,12 @@ entities:
     EGU: deg
     PREC: 3
     TWV: 5
+
+  # - type: pmac.DlsCsPmacAsynMotor
+
+  # - type: pmac.DlsCsPmacAsynMotor
+
+  # - type: pmac.DlsCsPmacAsynMotor
 
   - type: pmac.pmacDisableLimitsCheck
     Controller: BRICK1

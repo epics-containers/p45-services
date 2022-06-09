@@ -7,7 +7,7 @@ thisdir=$(realpath $(dirname ${BASH_SOURCE[0]}))
 
 # if there is a no cagateway running on p45-ws001 at 172.23.59.64
 # use addresses for all nodes in the p45 beamline instead
-export EPICS_CA_ADDR_LIST="172.23.59.101 172.23.59.1"
+export EPICS_CA_ADDR_LIST="172.23.59.101 172.23.59.1 172.23.245.116"
 
 # if there is a local install of edm run it
 # TODO fix this to detect RHEL 8 and not use edm 
