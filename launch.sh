@@ -35,6 +35,8 @@ fi
 
 image=$(awk '/base_image/{print $NF}' ${ioc}/values.yaml)
 volumes="-v=${ioc}/config:/repos/epics/ioc/config:rw -vautosave:/autosave:rw"
+# mount this repo and peers for debugging assistance
+volumes="${volumes} -v$(pwd)/..:/code"
 
 if [ "${ioc_developer}" ] ; then
     echo yy
@@ -44,5 +46,5 @@ fi
 echo "launching container ${image} with ${command}"
 
 set -x
-docker run -it --rm --network host $@ ${volumes} ${image} ${command}
+docker run -it --network host $@ ${volumes} ${image} ${command}
 
