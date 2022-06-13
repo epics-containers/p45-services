@@ -28,7 +28,7 @@ jobs:
 
       - name: push each ioc helm chart
         run: |
-          pip install ibek >=0.9
+          pip install ibek >=0.9.1
 
           # tar up any config folders that require it
           ./tar_config_src.sh
