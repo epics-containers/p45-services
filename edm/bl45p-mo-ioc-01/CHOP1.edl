@@ -20,7 +20,7 @@ font "arial-medium-r-14.0"
 showGrid
 snapToGrid
 textColor index 14
-title "Device - CHOP01"
+title "Device - CHOP1"
 topShadowColor index 1
 endScreenProperties
 
@@ -111,7 +111,7 @@ fgColor index 14
 font "arial-bold-r-16.0"
 fontAlign "center"
 value {
-  "CHOP01 Top"
+  "CHOP1 Top"
 }
 endObjectProperties
 
@@ -146,7 +146,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "box-label=X Chopper,motor=BL45P-MO-CHOP-01:HOR"
+  0 "box-label=Hor EnDat chopper,motor=BL45P-MO-CHOP-01:ENDAT"
 }
 topShadowColor index 0
 xPosOffset -100
@@ -180,7 +180,7 @@ x 143
 y 123
 3d
 botShadowColor index 11
-controlPv "BL45P-MO-CHOP-01:HOR.STOP"
+controlPv "BL45P-MO-CHOP-01:ENDAT.STOP"
 fgColor index 21
 font "arial-bold-r-14.0"
 offColor index 3
@@ -205,7 +205,7 @@ x 18
 y 96
 bgColor index 3
 controlPvs {
-  0 "BL45P-MO-CHOP-01:HOR.SEVR"
+  0 "BL45P-MO-CHOP-01:ENDAT.SEVR"
 }
 fgColor index 14
 file "symbols-traffic-light-symbol.edl"
@@ -238,7 +238,7 @@ x 172
 y 96
 bgColor index 3
 controlPvs {
-  0 "BL45P-MO-CHOP-01:HOR.DMOV"
+  0 "BL45P-MO-CHOP-01:ENDAT.DMOV"
 }
 fgColor index 14
 file "symbols-traffic-light-symbol.edl"
@@ -276,7 +276,7 @@ font "arial-bold-r-14.0"
 numDsps 1
 numPvs 4
 symbols {
-  0 "motor=BL45P-MO-CHOP-01:HOR"
+  0 "motor=BL45P-MO-CHOP-01:ENDAT"
 }
 topShadowColor index 1
 endObjectProperties
@@ -297,7 +297,7 @@ border
 fgColor index 14
 font "arial-medium-r-12.0"
 value {
-  "  X Chopper  "
+  "  Hor EnDat chopper  "
 }
 endObjectProperties
 
@@ -313,7 +313,7 @@ x 75
 y 125
 autoHeight
 bgColor index 3
-controlPv "BL45P-MO-CHOP-01:HOR.TWV"
+controlPv "BL45P-MO-CHOP-01:ENDAT.TWV"
 editable
 fgColor index 14
 font "arial-bold-r-14.0"
@@ -338,7 +338,7 @@ x 15
 y 61
 3d
 botShadowColor index 11
-controlPv "BL45P-MO-CHOP-01:HOR.TWR"
+controlPv "BL45P-MO-CHOP-01:ENDAT.TWR"
 fgColor index 25
 font "arial-bold-r-24.0"
 offColor index 3
@@ -362,7 +362,7 @@ w 83
 x 63
 y 59
 bgColor index 3
-controlPv "BL45P-MO-CHOP-01:HOR"
+controlPv "BL45P-MO-CHOP-01:ENDAT"
 displayMode "decimal"
 fgColor index 25
 font "arial-bold-r-14.0"
@@ -383,7 +383,7 @@ x 151
 y 61
 3d
 botShadowColor index 11
-controlPv "BL45P-MO-CHOP-01:HOR.TWF"
+controlPv "BL45P-MO-CHOP-01:ENDAT.TWF"
 fgColor index 25
 font "arial-bold-r-16.0"
 offColor index 3
@@ -408,11 +408,11 @@ x 151
 y 46
 bgColor index 3
 botShadowColor index 11
-controlPv "BL45P-MO-CHOP-01:HOR.SPMG"
+controlPv "BL45P-MO-CHOP-01:ENDAT.SPMG"
 fgColor index 25
 font "helvetica-medium-r-8.0"
 inconsistentColor index 14
-indicatorPv "BL45P-MO-CHOP-01:HOR.SPMG"
+indicatorPv "BL45P-MO-CHOP-01:ENDAT.SPMG"
 topShadowColor index 1
 endObjectProperties
 
@@ -427,7 +427,7 @@ w 115
 x 48
 y 97
 bgColor index 10
-controlPv "BL45P-MO-CHOP-01:HOR.RBV"
+controlPv "BL45P-MO-CHOP-01:ENDAT.RBV"
 fgAlarm
 fgColor index 15
 fill
@@ -461,7 +461,7 @@ x 131
 y 46
 3d
 botShadowColor index 11
-controlPv "BL45P-MO-CHOP-01:HOR:KILL.PROC"
+controlPv "BL45P-MO-CHOP-01:ENDAT:KILL.PROC"
 fgColor index 22
 font "helvetica-medium-r-8.0"
 offColor index 3
@@ -476,7 +476,7 @@ endGroup
 
 visMax "1"
 visMin "0"
-visPv "BL45P-MO-CHOP-01:HOR:KILL"
+visPv "BL45P-MO-CHOP-01:ENDAT:KILL"
 endObjectProperties
 
 # (Group)
@@ -516,7 +516,7 @@ endGroup
 
 visMax "3"
 visMin "2"
-visPv "CALC\\\{A&2\}(BL45P-MO-CHOP-01:HOR:ELOSS)"
+visPv "CALC\\\{A&2\}(BL45P-MO-CHOP-01:ENDAT:ELOSS)"
 endObjectProperties
 
 # (Group)
@@ -556,7 +556,7 @@ endGroup
 
 visMax "5"
 visMin "4"
-visPv "CALC\\\{A&4\}(BL45P-MO-CHOP-01:HOR:ELOSS)"
+visPv "CALC\\\{A&4\}(BL45P-MO-CHOP-01:ENDAT:ELOSS)"
 endObjectProperties
 
 # (Group)
@@ -585,7 +585,7 @@ x 168
 y 96
 3d
 botShadowColor index 11
-controlPv "BL45P-MO-CHOP-01:HOR:ELOSSRC.A"
+controlPv "BL45P-MO-CHOP-01:ENDAT:ELOSSRC.A"
 fgColor index 14
 font "helvetica-medium-r-8.0"
 offColor index 20
@@ -600,7 +600,7 @@ endGroup
 
 visMax "2"
 visMin "1"
-visPv "CALC\\\{A&1\}(BL45P-MO-CHOP-01:HOR:ELOSS)"
+visPv "CALC\\\{A&1\}(BL45P-MO-CHOP-01:ENDAT:ELOSS)"
 endObjectProperties
 
 # (Related Display)
@@ -629,7 +629,7 @@ setPosition {
   0 "button"
 }
 symbols {
-  0 "box-label=Y Chopper,motor=BL45P-MO-CHOP-01:VER"
+  0 "box-label=Ver Biss chopper,motor=BL45P-MO-CHOP-01:BISS"
 }
 topShadowColor index 0
 xPosOffset -100
@@ -663,7 +663,7 @@ x 348
 y 123
 3d
 botShadowColor index 11
-controlPv "BL45P-MO-CHOP-01:VER.STOP"
+controlPv "BL45P-MO-CHOP-01:BISS.STOP"
 fgColor index 21
 font "arial-bold-r-14.0"
 offColor index 3
@@ -688,7 +688,7 @@ x 223
 y 96
 bgColor index 3
 controlPvs {
-  0 "BL45P-MO-CHOP-01:VER.SEVR"
+  0 "BL45P-MO-CHOP-01:BISS.SEVR"
 }
 fgColor index 14
 file "symbols-traffic-light-symbol.edl"
@@ -721,7 +721,7 @@ x 377
 y 96
 bgColor index 3
 controlPvs {
-  0 "BL45P-MO-CHOP-01:VER.DMOV"
+  0 "BL45P-MO-CHOP-01:BISS.DMOV"
 }
 fgColor index 14
 file "symbols-traffic-light-symbol.edl"
@@ -759,7 +759,7 @@ font "arial-bold-r-14.0"
 numDsps 1
 numPvs 4
 symbols {
-  0 "motor=BL45P-MO-CHOP-01:VER"
+  0 "motor=BL45P-MO-CHOP-01:BISS"
 }
 topShadowColor index 1
 endObjectProperties
@@ -780,7 +780,7 @@ border
 fgColor index 14
 font "arial-medium-r-12.0"
 value {
-  "  Y Chopper  "
+  "  Ver Biss chopper  "
 }
 endObjectProperties
 
@@ -796,7 +796,7 @@ x 280
 y 125
 autoHeight
 bgColor index 3
-controlPv "BL45P-MO-CHOP-01:VER.TWV"
+controlPv "BL45P-MO-CHOP-01:BISS.TWV"
 editable
 fgColor index 14
 font "arial-bold-r-14.0"
@@ -821,7 +821,7 @@ x 220
 y 61
 3d
 botShadowColor index 11
-controlPv "BL45P-MO-CHOP-01:VER.TWR"
+controlPv "BL45P-MO-CHOP-01:BISS.TWR"
 fgColor index 25
 font "arial-bold-r-24.0"
 offColor index 3
@@ -845,7 +845,7 @@ w 83
 x 268
 y 59
 bgColor index 3
-controlPv "BL45P-MO-CHOP-01:VER"
+controlPv "BL45P-MO-CHOP-01:BISS"
 displayMode "decimal"
 fgColor index 25
 font "arial-bold-r-14.0"
@@ -866,7 +866,7 @@ x 356
 y 61
 3d
 botShadowColor index 11
-controlPv "BL45P-MO-CHOP-01:VER.TWF"
+controlPv "BL45P-MO-CHOP-01:BISS.TWF"
 fgColor index 25
 font "arial-bold-r-16.0"
 offColor index 3
@@ -891,11 +891,11 @@ x 356
 y 46
 bgColor index 3
 botShadowColor index 11
-controlPv "BL45P-MO-CHOP-01:VER.SPMG"
+controlPv "BL45P-MO-CHOP-01:BISS.SPMG"
 fgColor index 25
 font "helvetica-medium-r-8.0"
 inconsistentColor index 14
-indicatorPv "BL45P-MO-CHOP-01:VER.SPMG"
+indicatorPv "BL45P-MO-CHOP-01:BISS.SPMG"
 topShadowColor index 1
 endObjectProperties
 
@@ -910,7 +910,7 @@ w 115
 x 253
 y 97
 bgColor index 10
-controlPv "BL45P-MO-CHOP-01:VER.RBV"
+controlPv "BL45P-MO-CHOP-01:BISS.RBV"
 fgAlarm
 fgColor index 15
 fill
@@ -944,7 +944,7 @@ x 336
 y 46
 3d
 botShadowColor index 11
-controlPv "BL45P-MO-CHOP-01:VER:KILL.PROC"
+controlPv "BL45P-MO-CHOP-01:BISS:KILL.PROC"
 fgColor index 22
 font "helvetica-medium-r-8.0"
 offColor index 3
@@ -959,7 +959,7 @@ endGroup
 
 visMax "1"
 visMin "0"
-visPv "BL45P-MO-CHOP-01:VER:KILL"
+visPv "BL45P-MO-CHOP-01:BISS:KILL"
 endObjectProperties
 
 # (Group)
@@ -999,7 +999,7 @@ endGroup
 
 visMax "3"
 visMin "2"
-visPv "CALC\\\{A&2\}(BL45P-MO-CHOP-01:VER:ELOSS)"
+visPv "CALC\\\{A&2\}(BL45P-MO-CHOP-01:BISS:ELOSS)"
 endObjectProperties
 
 # (Group)
@@ -1039,7 +1039,7 @@ endGroup
 
 visMax "5"
 visMin "4"
-visPv "CALC\\\{A&4\}(BL45P-MO-CHOP-01:VER:ELOSS)"
+visPv "CALC\\\{A&4\}(BL45P-MO-CHOP-01:BISS:ELOSS)"
 endObjectProperties
 
 # (Group)
@@ -1068,7 +1068,7 @@ x 373
 y 96
 3d
 botShadowColor index 11
-controlPv "BL45P-MO-CHOP-01:VER:ELOSSRC.A"
+controlPv "BL45P-MO-CHOP-01:BISS:ELOSSRC.A"
 fgColor index 14
 font "helvetica-medium-r-8.0"
 offColor index 20
@@ -1083,7 +1083,7 @@ endGroup
 
 visMax "2"
 visMin "1"
-visPv "CALC\\\{A&1\}(BL45P-MO-CHOP-01:VER:ELOSS)"
+visPv "CALC\\\{A&1\}(BL45P-MO-CHOP-01:BISS:ELOSS)"
 endObjectProperties
 
 # (Group)
@@ -1178,7 +1178,7 @@ font "arial-bold-r-14.0"
 fontAlign "center"
 useDisplayBg
 value {
-  "CHOP01"
+  "CHOP1"
 }
 endObjectProperties
 

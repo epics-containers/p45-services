@@ -323,7 +323,7 @@ bgColor index 3
 botShadowColor index 11
 buttonLabel ""
 displayFileName {
-  0 "SAMP01.edl"
+  0 "STAGE1.edl"
 }
 fgColor index 43
 font "arial-bold-r-14.0"
@@ -349,7 +349,7 @@ fgColor index 43
 font "arial-bold-r-14.0"
 fontAlign "center"
 value {
-  "SAMP01"
+  "STAGE1"
 }
 visInvert
 visMax "2"
@@ -374,7 +374,7 @@ fgColor index 43
 font "arial-bold-r-14.0"
 fontAlign "center"
 value {
-  "SAMP01"
+  "STAGE1"
 }
 visMax "2"
 visMin "1"
@@ -414,7 +414,7 @@ bgColor index 3
 botShadowColor index 11
 buttonLabel ""
 displayFileName {
-  0 "CHOP01.edl"
+  0 "CHOP1.edl"
 }
 fgColor index 43
 font "arial-bold-r-14.0"
@@ -440,7 +440,7 @@ fgColor index 43
 font "arial-bold-r-14.0"
 fontAlign "center"
 value {
-  "CHOP01"
+  "CHOP1"
 }
 visInvert
 visMax "2"
@@ -465,7 +465,7 @@ fgColor index 43
 font "arial-bold-r-14.0"
 fontAlign "center"
 value {
-  "CHOP01"
+  "CHOP1"
 }
 visMax "2"
 visMin "1"

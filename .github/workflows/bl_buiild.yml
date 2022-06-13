@@ -28,15 +28,22 @@ jobs:
 
       - name: push each ioc helm chart
         run: |
+          pip install ibek >=0.9.1
+
           # tar up any config folders that require it
           ./tar_config_src.sh
 
-          # helm tags must be SemVar. Use 0.0.0-b0 for testing the latest non-tagged build
+          # helm tags must be SemVar. Use 0.0.1-b0 for testing the latest non-tagged build
           if [ "${GITHUB_REF_TYPE}" == "tag" ] ; then
             TAG=${GITHUB_REF_NAME}
           else
-            TAG="0.0.0-b0"
+            TAG="0.0.1-b0"
           fi
+
+          # make helm charts from ibek entity yaml files
+          for ioc in $(ls *.yaml) ; do
+            ibek build-helm "${ioc}"
+          done
 
           # All IOCS that have changes since last pushed to the helm registry
           # will have version ${TAG} pushed 

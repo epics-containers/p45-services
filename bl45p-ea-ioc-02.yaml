@@ -1,5 +1,0 @@
-# DUMMY YAML definition of experimental apparatus IOC 02
-#
-# In future this will contain a YAML definition of this IOC
-# and ibek (IOC Builder for EPICS in Kubernetes) will generate
-# the helm charts in iocs folder from this definition.

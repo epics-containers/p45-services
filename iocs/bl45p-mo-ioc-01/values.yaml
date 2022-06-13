@@ -1,2 +1,0 @@
-name: bl45p-mo-ioc-01
-base_image: ghcr.io/epics-containers/ioc-pmac:1.0.0.run
