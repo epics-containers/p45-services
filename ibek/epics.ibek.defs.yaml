@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=file://schemas/ibek.defs.schema.json
+# yaml-language-server: $schema=http://github.com/epics-containers/ibek/releases/download/0.9/ibek.defs.schema.json
 module: epics
 defs:
   - name: EPICS_CA_MAX_ARRAY_BYTES
