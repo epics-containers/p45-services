@@ -9,7 +9,11 @@
 # this mounts the ioc instance's bin volume using -v=source:target
 # wheras on the k8s cluster this will be done with a config map
 
-echo DEPRECATED: use cdev-ioc-launch from k8s-epics-utils/dev-functions.sh
+echo SUGGESTION: use cdev-ioc-launch from k8s-epics-utils/dev-functions.sh
+
+this_dir=$(realpath $(dirname $0))
+
+cd ${this_dir}
 
 if [ -z "${1}" ]
 then
@@ -21,7 +25,7 @@ then
     exit 1
 fi
 
-ioc=$(realpath ${1})
+ioc=$(realpath iocs/${1})
 shift
 command=${1:-"bash /repos/epics/ioc/config/start.sh"}
 shift

@@ -3,6 +3,43 @@
 module: pmac
 
 defs:
+  - name: PmacAsynSSHPort
+    args:
+      - type: id
+        name: name
+        description: Asyn port name
+
+      - type: str
+        name: IP
+        description: IP address of Power pmac
+
+      - type: str
+        name: USERNAME
+        description: Username for login
+        default: root
+
+      - type: str
+        name: PASSWORD
+        description: Password for login
+        default: deltatau
+
+      - type: int
+        name: PRIORITY
+        description: Priority of the port
+        default: 0
+
+      - type: int
+        name: NOAUTOCONNECT
+        description: Disables autoconnect if set to 1
+        default: 0
+
+      - type: int
+        name: NOEOS
+        description: No EOS used if set to 1
+        default: 0
+
+    script:
+      - drvAsynPowerPMACPortConfigure("{{name}}", "{{IP}}", "{{USERNAME}}", "{{PASSWORD}}", "{{PRIORITY}}", "{{NOAUTOCONNECT}}", "{{NOEOS}}")
   - name: PmacAsynIPPort
     args:
       - type: id

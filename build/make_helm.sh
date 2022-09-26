@@ -10,6 +10,7 @@ ibek ioc-schema ${ibek}/*.ibek.defs.yaml ${ibek}/pmac.ibek.entities.schema.json 
 echo "make helm Chart"
 cd $root
 ibek build-helm bl45p-mo-ioc-01.yaml
+ibek build-helm bl45p-mo-ioc-90.yaml
 
 # REMOVED: below deferred to ioc startup time
 # echo "make ioc startup files"
