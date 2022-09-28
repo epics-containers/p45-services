@@ -262,6 +262,59 @@
               },
               "IP": {
                 "type": "string",
+                "description": "IP address of Power pmac"
+              },
+              "USERNAME": {
+                "type": "string",
+                "description": "Username for login",
+                "default": "root"
+              },
+              "PASSWORD": {
+                "type": "string",
+                "description": "Password for login",
+                "default": "deltatau"
+              },
+              "PRIORITY": {
+                "type": "integer",
+                "description": "Priority of the port",
+                "default": 0
+              },
+              "NOAUTOCONNECT": {
+                "type": "integer",
+                "description": "Disables autoconnect if set to 1",
+                "default": 0
+              },
+              "NOEOS": {
+                "type": "integer",
+                "description": "No EOS used if set to 1",
+                "default": 0
+              },
+              "type": {
+                "type": "string",
+                "const": "pmac.PmacAsynSSHPort",
+                "default": "pmac.PmacAsynSSHPort"
+              }
+            },
+            "required": [
+              "name",
+              "IP"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "entity_enabled": {
+                "type": "boolean",
+                "default": true
+              },
+              "name": {
+                "type": "string",
+                "description": "Asyn port name",
+                "vscode_ibek_plugin_type": "type_id"
+              },
+              "IP": {
+                "type": "string",
                 "description": "IP address of pmac"
               },
               "PORT": {
