@@ -1,0 +1,17 @@
+{{ include "ioc-chart.ioc" . }}
+
+{{- /*
+  add the contents of every file in the config folder of this IOC helm chart
+  into the config map - this must include start.sh the startup script.
+  The files must be text only. Any files ending in .tz are explicitly ommitted
+*/ -}}
+
+{{ (.Files.Glob "config/*[!.tz]").AsConfig | indent 2 }}
+  version.txt: |
+    IOC {{ .Release.Name }} version {{ .Chart.AppVersion }}
+
+binaryData:
+  # this clause for config that is too big and needed to be tarred
+  # it has no effect if there is no config.tz in config folder
+  config.tz: |-
+            {{ .Files.Get "config/config.tz" | b64enc }}

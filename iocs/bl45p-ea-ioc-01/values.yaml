@@ -1,0 +1,10 @@
+base_image: ghcr.io/epics-containers/ioc-adaravis-linux-runtime:work
+
+# Area detector may need more than beamline default resources
+resources:
+  limits:
+    cpu: 4
+    memory: 4Gi
+  requests:
+    cpu: 1
+    memory: 500Mi
