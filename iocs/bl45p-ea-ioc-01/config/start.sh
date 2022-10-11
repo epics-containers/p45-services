@@ -4,7 +4,7 @@
 # generic kubernetes IOC startup script
 #
 this_dir=$(realpath $(dirname $0))
-TOP=$(realpath ${this_dir}/..)
+export TOP=$(realpath ${this_dir}/..)
 cd ${this_dir}
 
 set -x -e
@@ -44,6 +44,5 @@ if [ -f ${startup_src} ] ; then
     bash ${db_src} > ${db}
 fi
 
-export TOP=${IOC}
 cd ${IOC}
 exec ${IOC}/bin/linux-x86_64/ioc ${boot}
