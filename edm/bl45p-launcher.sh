@@ -7,11 +7,20 @@ thisdir=$(realpath $(dirname ${BASH_SOURCE[0]}))
 
 # if there is a no cagateway running on p45-ws001 at 172.23.59.64
 # use addresses for all nodes in the p45 beamline instead
-export EPICS_CA_ADDR_LIST="172.23.59.101 172.23.59.1"
+#export EPICS_CA_ADDR_LIST="172.23.59.101 172.23.59.1"
 
 # use the gateway
-#export EPICS_CA_ADDR_LIST="172.23.59.64"
-
+if [[ ${CA} != none ]] ; then
+    # leave ADDR_LIST alone
+    echo EPICS_CA_ADDR_LIST is ${EPICS_CA_ADDR_LIST}
+elif [[ ${CA} == all ]] ; then
+    # setting EPICS_CA_ADDR_LIST to controls dev gateway
+    export EPICS_CA_ADDR_LIST=172.23.240.13
+else
+    # default to use the P45 gateway on p45-ws001
+    echo "setting EPICS_CA_ADDR_LIST to p45"
+    export EPICS_CA_ADDR_LIST="172.23.59.64"
+fi
 
 export EDMDATAFILES=$(echo $EDMDATAFILES | sed s+/screens+${thisdir}+g)
 echo launching edm with paths: $EDMDATAFILES

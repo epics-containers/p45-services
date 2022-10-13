@@ -227,8 +227,8 @@ NDPosPluginConfigure("DIFF.POS", 1000, 0, "DIFF.DET", 0, 0, 0, 0, 0)
 # Final ioc initialisation
 # ------------------------
 cd $(TOP)
-dbLoadRecords $(THIS_DIR)/BL45P-EA-IOC-01_expanded.db
-dbLoadRecords $(THIS_DIR)/BL45P-EA-IOC-01.db
+dbLoadRecords $(DB_DIR)/BL45P-EA-IOC-01_expanded.db
+dbLoadRecords $(DB_DIR)/BL45P-EA-IOC-01.db
 
 # Extra IOC commands
 callbackSetQueueSize(10000)
