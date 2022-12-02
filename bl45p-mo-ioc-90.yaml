@@ -25,7 +25,7 @@ entities:
   - type: pmac.DlsPmacAsynMotor
     name: STAGE90
     Controller: BRICK90
-    axis: 2
+    axis: 1
     P: BL45P-MO-STAGE-90
     M: :THETA:TOP
     ACCL: 0.1
