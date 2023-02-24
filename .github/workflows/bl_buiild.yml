@@ -34,8 +34,10 @@ jobs:
 
           # only publish helm charts for tagged builds
           if [ "${GITHUB_REF_TYPE}" == "tag" ] ; then
-            TAG=${GITHUB_REF_NAME}
-            for ioc_root in $(ls -d iocs/*/) ; do
-              ./helm-push.sh ${ioc_root} ${TAG}
-            done
+            export DO_PUSH=true
+            export TAG=${GITHUB_REF_NAME}
           fi
+
+          for ioc_root in $(ls -d iocs/*/) ; do
+            ./helm-push.sh ${ioc_root}
+          done

@@ -1,6 +1,15 @@
 #!/bin/bash
 
-set -xe
+function do_push() {
+    if [[ -z ${DO_PUSH} ]] ; then
+        echo "DRY RUN: helm push ${PACKAGE} oci://${REGISTRY_ROOT}"
+    else
+        echo "PUSHING: helm push ${PACKAGE} oci://${REGISTRY_ROOT}"
+        helm push "${PACKAGE}" oci://${REGISTRY_ROOT}
+    fi
+}
+
+set -e
 
 IOC_ROOT="$(realpath ${1})"
 
@@ -45,15 +54,16 @@ if helm pull ${CHART} &> out.txt; then
     tar -xf *${TAG}.tgz -C this_ioc
 
     # compare the packages and push the new package if it has changed
-    if diff -r --exclude Chart.lock latest_ioc this_ioc ; then
-        echo "NOT PUSHING unchanged IOC ${CHART} version ${LATEST_VERSION}"
+    if diff -r --exclude Chart.lock latest_ioc this_ioc > /dev/null ; then
+        echo "IOC ${CHART} version ${LATEST_VERSION} is UNCHANGED."
     else
-        echo "PUSHING ${CHART} version ${TAG}"
-        helm push "${PACKAGE}" oci://${REGISTRY_ROOT}
+        echo "IOC ${CHART} version ${TAG} has CHANGED since ${LATEST_VERSION}."
+        do_push
     fi
 else
     # there was no previous version so push this one.
-    helm push "${PACKAGE}" oci://${REGISTRY_ROOT}
+    echo "IOC ${CHART} version ${LATEST_VERSION} is a NEW IOC."
+    do_push
 fi
 
 # clean up
