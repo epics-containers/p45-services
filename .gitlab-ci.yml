@@ -23,6 +23,7 @@ build:
       export TAG=${GITHUB_REF_NAME}
       fi
 
+    # push each ioc helm chart if it has changed
     - for ioc_root in $(ls -d iocs/*/) ; do
       ./helm-push.sh ${ioc_root}
       done
