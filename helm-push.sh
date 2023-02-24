@@ -43,15 +43,17 @@ PACKAGE=$(realpath ${NAME}-${TAG}.tgz)
 # extract the latest version to a temporary folder
 if helm pull ${CHART} &> out.txt; then
     cat $(realpath out.txt)
+    # the output from helm pull contains the latest version number
     LATEST_VERSION=$(sed -n '/^Pulled:/s/.*://p' out.txt)
     echo "LATEST VERSION of ${CHART} is ${LATEST_VERSION}"
     mkdir latest_ioc this_ioc
     tar -xf *${LATEST_VERSION}.tgz -C latest_ioc
+    rm *${LATEST_VERSION}.tgz
 
     # repackage the new IOC with same version as above for direct comparison
     # (packaging reformats the Chart.yaml file so this is the simplest approach)
     helm package "${IOC_ROOT}" --app-version ${LATEST_VERSION} --version ${LATEST_VERSION}
-    tar -xf *${TAG}.tgz -C this_ioc
+    tar -xf *${LATEST_VERSION}.tgz -C this_ioc
 
     # compare the packages and push the new package if it has changed
     if diff -r --exclude Chart.lock latest_ioc this_ioc > /dev/null ; then
