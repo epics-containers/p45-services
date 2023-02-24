@@ -15,7 +15,7 @@
 #  CR_USER: the username for the registry (default: USERNAME)
 #  CR_TOKEN: the password for the registry (default: None)
 
-function do_push() {
+do_push() {
     if [[ ${DO_PUSH} == "true" ]] ; then
         echo "DRY RUN: helm push ${PACKAGE} ${CHART_FOLDER}"
         echo "use 'export DO_PUSH=true' to push the beta chart to the registry."
@@ -64,7 +64,7 @@ helm package "${CHART_ROOT}" -u --app-version ${TAG} --version ${TAG}
 PACKAGE=$(realpath ${NAME}-${TAG}.tgz)
 
 # extract the latest version to a temporary folder
-if helm pull ${CHART} &> out.txt; then
+if helm pull ${CHART} > out.txt 2>&1; then
     cat $(realpath out.txt)
     # the output from helm pull contains the latest version number
     LATEST_VERSION=$(sed -n '/^Pulled:/s/.*://p' out.txt)
