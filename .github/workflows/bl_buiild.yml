@@ -5,9 +5,10 @@ on:
   pull_request:
 
 env:
-  HELM_VERSION_TO_INSTALL: 3.8.2 # version of HELM to install
-  GHCR_ROOT: ghcr.io/epics-containers
-  CR_PAT: ${{ secrets.GITHUB_TOKEN }}
+  HELM_VERSION_TO_INSTALL: 3.11.1 # version of HELM to install
+  REGISTRY_ROOT: ghcr.io/epics-containers
+  CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  CR_USER: USERNAME
 
 jobs:
   build-and-push-helm-charts:
@@ -26,27 +27,15 @@ jobs:
         with:
           version: ${{ env.HELM_VERSION_TO_INSTALL }}
 
-      - name: push each ioc helm chart
+      - name: push each ioc helm chart if it has changed
         run: |
-          pip install ibek >=0.9.1
-
           # tar up any config folders that require it
           ./tar_config_src.sh
 
-          # helm tags must be SemVar. Use 0.0.1-b0 for testing the latest non-tagged build
+          # only publish helm charts for tagged builds
           if [ "${GITHUB_REF_TYPE}" == "tag" ] ; then
             TAG=${GITHUB_REF_NAME}
-          else
-            TAG="0.0.1-b0"
+            for ioc_root in $(ls -d iocs/*/) ; do
+              ./helm-push.sh ${ioc_root} ${TAG}
+            done
           fi
-
-          # make helm charts from ibek entity yaml files
-          for ioc in $(ls *.yaml) ; do
-            ibek build-helm "${ioc}"
-          done
-
-          # All IOCS that have changes since last pushed to the helm registry
-          # will have version ${TAG} pushed 
-          for ioc_root in $(ls -d iocs/*/) ; do
-            ./helm-push.sh ${ioc_root} ${TAG}
-          done

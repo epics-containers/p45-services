@@ -1,0 +1,16 @@
+apiVersion: v2
+name: bl45p-mo-ioc-01
+description: |
+  motion IOC for the test beamline p45 in G13
+
+type: application
+
+# chart and app version - these are updated automatically by CI
+# when a new version of the chart is released
+version: 2021.8.27
+appVersion: 2021.8.27
+
+dependencies:
+  - name: helm-ioc-lib
+    version: "1.5"
+    repository: "oci://ghcr.io/epics-containers"
