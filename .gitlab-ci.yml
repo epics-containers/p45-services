@@ -7,27 +7,21 @@ build:
     - docker-image
   stage: helm_push
   variables:
-    REGISTRY_ROOT: ghcr.io/epics-containers
-    CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    CR_USER: USERNAME
+    REGISTRY_ROOT: helm-test.diamond.ac.uk/
+    CR_TOKEN: $NEXUS_USER
+    CR_USER: $NEXUS_PASSWORD
   image:
     name: alpine/k8s
     entrypoint: [""]
   script:
-    # tar up any config folders that require it
     - ./tar_config_src.sh
-
-    # only publish helm charts for tagged builds
     - if [ "${GITHUB_REF_TYPE}" == "tag" ] ; then
       export DO_PUSH=true
       export TAG=${GITHUB_REF_NAME}
       fi
-
-    # push each ioc helm chart if it has changed
     - for ioc_root in $(ls -d iocs/*/) ; do
       ./helm-push.sh ${ioc_root}
       done
-
   only:
     refs:
       - tags
