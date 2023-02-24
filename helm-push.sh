@@ -9,7 +9,7 @@ function do_push() {
     fi
 }
 
-set -e
+set -ex
 
 IOC_ROOT="$(realpath ${1})"
 
@@ -18,7 +18,7 @@ if [ -z "${IOC_ROOT}" ] ; then
 fi
 
 # TAG defaults to todays date and beta number as time of day
-TAG=${TAG:-$(date +%Y.%-m.%-d-b%-H.%M)}
+TAG=${TAG:-$(date +%Y.%-m.%-d-b%-H-%M)}
 # Helm Registry defaults to GHCR
 REGISTRY_ROOT=${REGISTRY_ROOT:-"ghcr.io/epics-containers"}
 # Registry user defaults to USERNAME (default for GHCR)
