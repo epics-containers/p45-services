@@ -11,7 +11,7 @@ build:
     CR_TOKEN: $NEXUS_USER
     CR_USER: $NEXUS_PASSWORD
   image:
-    name: alpine/k8s
+    name: alpine/k8s:1.25.6
     entrypoint: [""]
   script:
     - ./tar_config_src.sh
