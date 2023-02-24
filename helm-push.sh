@@ -14,6 +14,9 @@
 #  REGISTRY_FOLDER: the folder in the registry (default: the current root folder name)
 #  CR_USER: the username for the registry (default: USERNAME)
 #  CR_TOKEN: the password for the registry (default: None)
+#  DO_PUSH: if set to "true" then the chart will be pushed to the registry (default: not set)
+#           if not set then this script is just a dry run
+#  HELM_PUSH_DEBUG: if set to "true" then the comparison output will be saved (default: not set)
 
 function do_push() {
     if [[ -z ${DO_PUSH} ]] ; then
