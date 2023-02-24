@@ -17,10 +17,10 @@
 
 function do_push() {
     if [[ -z ${DO_PUSH} ]] ; then
-        echo "DRY RUN: helm push ${PACKAGE} ${CHART}"
+        echo "DRY RUN: helm push ${PACKAGE} ${CHART_FOLDER}"
     else
-        echo "PUSHING: helm push ${PACKAGE} ${CHART}"
-        helm push "${PACKAGE}" ${CHART}
+        echo "PUSHING: helm push ${PACKAGE} ${CHART_FOLDER}"
+        helm push "${PACKAGE}" ${CHART_FOLDER}
     fi
 }
 
