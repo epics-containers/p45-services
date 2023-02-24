@@ -7,7 +7,8 @@ build:
     - docker-image
   stage: helm_push
   variables:
-    REGISTRY_ROOT: helm-test.diamond.ac.uk/
+    REGISTRY_ROOT: helm-test.diamond.ac.uk/iocs
+    REGISTRY_FOLDER: $CI_PROJECT_NAME
     CR_TOKEN: $NEXUS_PASSWORD
     CR_USER: $NEXUS_USER
   image:

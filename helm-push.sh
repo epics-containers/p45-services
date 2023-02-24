@@ -2,10 +2,10 @@
 
 function do_push() {
     if [[ -z ${DO_PUSH} ]] ; then
-        echo "DRY RUN: helm push ${PACKAGE} oci://${REGISTRY_ROOT}"
+        echo "DRY RUN: helm push ${PACKAGE} ${CHART}"
     else
-        echo "PUSHING: helm push ${PACKAGE} oci://${REGISTRY_ROOT}"
-        helm push "${PACKAGE}" oci://${REGISTRY_ROOT}
+        echo "PUSHING: helm push ${PACKAGE} ${CHART}"
+        helm push "${PACKAGE}" ${CHART}
     fi
 }
 
@@ -23,10 +23,12 @@ TAG=${TAG:-$(date +%Y.%-m.%-d-b%-H-%M)}
 REGISTRY_ROOT=${REGISTRY_ROOT:-"ghcr.io/epics-containers"}
 # Registry user defaults to USERNAME (default for GHCR)
 CR_USER=${CR_USER:-"USERNAME"}
+# Registry folder should be the name of the repo (default to the current folder)
+REGISTRY_FOLDER=${REGISTRY_FOLDER:-$(basename $(realpath .))}
 
 # extract name from the Chart.yaml
 NAME=$(sed -n '/^name: */s///p' "${IOC_ROOT}/Chart.yaml")
-CHART=oci://${REGISTRY_ROOT}/${NAME}
+CHART=oci://${REGISTRY_ROOT}/${REGISTRY_FOLDER}/${NAME}
 
 # Before calling this script: set CR_TOKEN to an access token fo the
 # target registry.
