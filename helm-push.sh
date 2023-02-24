@@ -56,10 +56,10 @@ if helm pull ${CHART} &> out.txt; then
     tar -xf *${LATEST_VERSION}.tgz -C this_ioc
 
     # compare the packages and push the new package if it has changed
-    if diff -r --exclude Chart.lock latest_ioc this_ioc > /dev/null ; then
+    if diff -r --exclude Chart.lock latest_ioc this_ioc ; then
         echo "IOC ${CHART} version ${LATEST_VERSION} is UNCHANGED."
     else
-        echo "IOC ${CHART} version ${TAG} has CHANGED since ${LATEST_VERSION}."
+        echo "IOC ${CHART} has CHANGED since ${LATEST_VERSION}, deploying version ${TAG}."
         do_push
     fi
 else
