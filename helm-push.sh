@@ -14,13 +14,11 @@
 #  REGISTRY_FOLDER: the folder in the registry (default: the current root folder name)
 #  CR_USER: the username for the registry (default: USERNAME)
 #  CR_TOKEN: the password for the registry (default: None)
-#  DO_PUSH: if set to "true" then the chart will be pushed to the registry (default: not set)
-#           if not set then this script is just a dry run
-#  HELM_PUSH_DEBUG: if set to "true" then the comparison output will be saved (default: not set)
 
 function do_push() {
-    if [[ -z ${DO_PUSH} ]] ; then
+    if [[ ${DO_PUSH} == "true" ]] ; then
         echo "DRY RUN: helm push ${PACKAGE} ${CHART_FOLDER}"
+        echo "use 'export DO_PUSH=true' to push the beta chart to the registry."
     else
         echo "PUSHING: helm push ${PACKAGE} ${CHART_FOLDER}"
         helm push "${PACKAGE}" ${CHART_FOLDER}
@@ -29,14 +27,21 @@ function do_push() {
 
 set -ex
 
-CHART_ROOT="$(realpath ${1})"
-
-if [ -z "${CHART_ROOT}" ] ; then
+if [ -z "${1}" ] ; then
   echo "usage: helm-push.sh <chart root folder>"
+  exit 1
 fi
 
+CHART_ROOT="$(realpath ${1})"
+
 # TAG defaults to todays date and beta number as time of day
-TAG=${TAG:-$(date +%Y.%-m.%-d-b%-H-%M)}
+if [ -z "${TAG}" || "${DO_PUSH}" == "false" ] ; then
+    TAG=${TAG:-$(date +%Y.%-m.%-d-b%-H-%M)}
+else
+    # if a tag was supplied and DO_PUSH is not set to false, then push the chart
+    DO_PUSH=${DO_PUSH:-true}
+fi
+
 # Helm Registry defaults to GHCR
 REGISTRY_ROOT=${REGISTRY_ROOT:-"ghcr.io/epics-containers"}
 # Registry user defaults to USERNAME (default for GHCR)

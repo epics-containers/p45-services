@@ -5,39 +5,19 @@ on:
   pull_request:
 
 env:
-  HELM_VERSION_TO_INSTALL: 3.11.1 # version of HELM to install
   REGISTRY_ROOT: ghcr.io/epics-containers
+  REGISTRY_FOLDER: ${{ github.event.repository.name }}
   CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   CR_USER: USERNAME
+  TAG: ${{ github.ref_name }}
+
+  DO_PUSH: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags') }}
 
 jobs:
-  build-and-push-helm-charts:
-    name: publish helm charts to ghcr.io
+  helm-build-push:
     runs-on: ubuntu-latest
-    environment: prod
-    # TODO build of helm charts will in future use ibek. For now they are
-    # hand coded. (Note that this workflow must continue to support pre-coded
-    # charts for those who choose not use ibek).
+    container:
+      image: alpine/k8s:1.25.6
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: install helm
-        uses: Azure/setup-helm@v1
-        with:
-          version: ${{ env.HELM_VERSION_TO_INSTALL }}
-
-      - name: push each ioc helm chart if it has changed
-        run: |
-          # tar up any config folders that require it
-          ./tar_config_src.sh
-
-          # only publish helm charts for tagged builds
-          if [ "${GITHUB_REF_TYPE}" == "tag" ] ; then
-            export DO_PUSH=true
-            export TAG=${GITHUB_REF_NAME}
-          fi
-
-          for ioc_root in $(ls -d iocs/*/) ; do
-            ./helm-push.sh ${ioc_root}
-          done
+      - uses: actions/checkout@v3
+      - run: sh ./ci_build.sh
