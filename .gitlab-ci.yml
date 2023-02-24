@@ -8,8 +8,8 @@ build:
   stage: helm_push
   variables:
     REGISTRY_ROOT: helm-test.diamond.ac.uk/
-    CR_TOKEN: $NEXUS_USER
-    CR_USER: $NEXUS_PASSWORD
+    CR_TOKEN: $NEXUS_PASSWORD
+    CR_USER: $NEXUS_USER
   image:
     name: alpine/k8s:1.25.6
     entrypoint: [""]
@@ -17,7 +17,7 @@ build:
     - ./tar_config_src.sh
     - if [ "${CI_COMMIT_TAG}" != "" ] ; then
       export DO_PUSH=true ;
-      export TAG=${GITHUB_REF_NAME} ;
+      export TAG=${CI_COMMIT_TAG} ;
       fi
     - for ioc_root in $(ls -d iocs/*/) ; do
       ./helm-push.sh ${ioc_root} ;
