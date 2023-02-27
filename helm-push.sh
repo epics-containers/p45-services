@@ -16,18 +16,18 @@
 #  CR_TOKEN: the password for the registry (default: None)
 
 do_push() {
-    if [[ ${DO_PUSH} == "true" ]] ; then
-        echo "DRY RUN: helm push ${PACKAGE} ${CHART_FOLDER}"
-        echo "use 'export DO_PUSH=true' to push the beta chart to the registry."
-    else
+    if [[ ${DO_PUSH} == "true" || "true" ]] ; then
         echo "PUSHING: helm push ${PACKAGE} ${CHART_FOLDER}"
         helm push "${PACKAGE}" ${CHART_FOLDER}
+    else
+        echo "DRY RUN: helm push ${PACKAGE} ${CHART_FOLDER}"
+        echo "use 'export DO_PUSH=true' to push the beta chart to the registry."
     fi
 }
 
 set -ex
 
-if [ -z "${1}" ] ; then
+if [[ -z "${1}" ]] ; then
   echo "usage: helm-push.sh <chart root folder>"
   exit 1
 fi
@@ -35,8 +35,9 @@ fi
 CHART_ROOT="$(realpath ${1})"
 
 # TAG defaults to todays date and beta number as time of day
-if [ -z "${TAG}" || "${DO_PUSH}" == "false" ] ; then
-    TAG=${TAG:-$(date +%Y.%-m.%-d-b%-H-%M)}
+# GitHub set TAG to branch name for untagged builds so it also sets DO_PUSH to false
+if [[ -z "${TAG}" || "${DO_PUSH}" == "false" ]] ; then
+    TAG=$(date +%Y.%-m.%-d-b%-H-%M)
 else
     # if a tag was supplied and DO_PUSH is not set to false, then push the chart
     DO_PUSH=${DO_PUSH:-true}
@@ -52,6 +53,7 @@ REGISTRY_FOLDER=${REGISTRY_FOLDER:-$(basename $(realpath $(git rev-parse --show-
 # extract name from the Chart.yaml
 NAME=$(sed -n '/^name: */s///p' "${CHART_ROOT}/Chart.yaml")
 CHART_FOLDER=oci://${REGISTRY_ROOT}/${REGISTRY_FOLDER}
+CHART_FOLDER=${CHART_FOLDER%/} # remove trailing slash
 CHART=${CHART_FOLDER}/${NAME}
 
 echo ${CR_TOKEN} | helm registry login -u ${CR_USER} --password-stdin $REGISTRY_ROOT
@@ -92,7 +94,7 @@ else
 fi
 
 # clean up
-if [ -z ${HELM_PUSH_DEBUG} ] ; then
+if [[ -z ${HELM_PUSH_DEBUG} ]] ; then
     rm -r ${TMPDIR}
 else
     echo "helm-push.sh comparison output is in ${TMPDIR}"
