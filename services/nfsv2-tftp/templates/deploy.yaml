@@ -85,7 +85,7 @@ metadata:
     app: {{ .Values.domain }}-nfstftpserver
 spec:
   type: LoadBalancer
-  #  externalTrafficPolicy: Local
+  externalTrafficPolicy: Local
   ports:
     - name: rpcbind
       port: 111
