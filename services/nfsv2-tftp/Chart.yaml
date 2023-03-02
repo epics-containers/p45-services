@@ -1,0 +1,10 @@
+apiVersion: v2
+name: bl45p-nfsv2-tftp
+description: |
+  A service for serving IOC files to RTEMS 5 hard IOCs via TFTP and NFSv2
+
+type: application
+
+# chart and app version - these are updated automatically by CI
+version: 0.0.0-b0
+appVersion: 0.0.0-b0

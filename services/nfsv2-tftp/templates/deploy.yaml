@@ -1,0 +1,153 @@
+# IOC volume
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ .Values.domain }}-ioc-volume-claim
+  namespace: {{ .Values.domain }}
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+# Autosave volume
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ .Values.domain }}-autosave-volume-claim
+  namespace: {{ .Values.domain }}
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ .Values.domain }}-nfstftpserver
+  namespace: {{ .Values.domain }}
+  labels:
+    app: {{ .Values.domain }}-nfstftpserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.domain }}-nfstftpserver
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.domain }}-nfstftpserver
+    spec:
+      volumes:
+        - name: {{ .Values.domain }}-ioc-volume
+          persistentVolumeClaim:
+            claimName: {{ .Values.domain }}-ioc-volume-claim
+        - name: {{ .Values.domain }}-autosave-volume
+          persistentVolumeClaim:
+            claimName: {{ .Values.domain }}-autosave-volume-claim
+      containers:
+        - name: server
+          image: {{ .Values.image }}
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "1"
+            limits:
+              memory: "1Gi"
+              cpu: "2"
+          ports:
+            - containerPort: 2049
+              protocol: UDP
+            - containerPort: 20048
+              protocol: UDP
+            - containerPort: 111
+              protocol: UDP
+            - containerPort: 69
+              protocol: UDP
+          volumeMounts:
+            - mountPath: "/iocs"
+              name: {{ .Values.domain }}-ioc-volume
+            - mountPath: "/autosave"
+              name: {{ .Values.domain }}-autosave-volume
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Values.domain }}-nfstftpserver
+  namespace: {{ .Values.domain }}
+  labels:
+    app: {{ .Values.domain }}-nfstftpserver
+spec:
+  type: LoadBalancer
+  #  externalTrafficPolicy: Local
+  ports:
+    - name: rpcbind
+      port: 111
+      protocol: UDP
+      targetPort: 111
+    - name: nfsd
+      port: 2049
+      protocol: UDP
+      targetPort: 2049
+    - name: mountd
+      port: 20048
+      protocol: UDP
+      targetPort: 20048
+    - name: tftp
+      port: 69
+      protocol: UDP
+      targetPort: 69
+  sessionAffinity: None
+  selector:
+    app: {{ .Values.domain }}-nfstftpserver
+  loadBalancerIP: "{{ .Values.loadBalancerIP }}"
+
+---
+# Pod as a target for kubectl cp commands
+# to put them in the volume.
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ .Values.domain }}-file-transfer-station
+  namespace: {{ .Values.domain }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.domain }}-file-transfer-station
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.domain }}-file-transfer-station
+    spec:
+      volumes:
+        - name: {{ .Values.domain }}-ioc-volume
+          persistentVolumeClaim:
+            claimName: {{ .Values.domain }}-ioc-volume-claim
+        - name: {{ .Values.domain }}-autosave-volume
+          persistentVolumeClaim:
+            claimName: {{ .Values.domain }}-autosave-volume-claim
+      containers:
+        - name: {{ .Values.domain }}-file-transfer-station
+          image: debian:latest
+          command: ["/bin/sleep"]
+          args: ["infinity"]
+
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "1"
+            limits:
+              memory: "1Gi"
+              cpu: "2"
+          volumeMounts:
+            - mountPath: "/iocs"
+              name: {{ .Values.domain }}-ioc-volume
+            - mountPath: "/autosave"
+              name: {{ .Values.domain }}-autosave-volume
