@@ -2,8 +2,8 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ .Values.domain }}-ioc-volume-claim
-  namespace: {{ .Values.domain }}
+  name: ioc-volume-claim
+  namespace: {{ .Values.namespace }}
 spec:
   accessModes:
     - ReadWriteMany
@@ -16,8 +16,8 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ .Values.domain }}-autosave-volume-claim
-  namespace: {{ .Values.domain }}
+  name: autosave-volume-claim
+  namespace: {{ .Values.namespace }}
 spec:
   accessModes:
     - ReadWriteMany
@@ -29,27 +29,27 @@ spec:
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: {{ .Values.domain }}-nfstftpserver
-  namespace: {{ .Values.domain }}
+  name: nfstftpserver
+  namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Values.domain }}-nfstftpserver
+    app: nfstftpserver
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.domain }}-nfstftpserver
+      app: nfstftpserver
   template:
     metadata:
       labels:
-        app: {{ .Values.domain }}-nfstftpserver
+        app: nfstftpserver
     spec:
       volumes:
-        - name: {{ .Values.domain }}-ioc-volume
+        - name: ioc-volume
           persistentVolumeClaim:
-            claimName: {{ .Values.domain }}-ioc-volume-claim
-        - name: {{ .Values.domain }}-autosave-volume
+            claimName: ioc-volume-claim
+        - name: autosave-volume
           persistentVolumeClaim:
-            claimName: {{ .Values.domain }}-autosave-volume-claim
+            claimName: autosave-volume-claim
       containers:
         - name: server
           image: {{ .Values.image }}
@@ -71,18 +71,18 @@ spec:
               protocol: UDP
           volumeMounts:
             - mountPath: "/iocs"
-              name: {{ .Values.domain }}-ioc-volume
+              name: ioc-volume
             - mountPath: "/autosave"
-              name: {{ .Values.domain }}-autosave-volume
+              name: autosave-volume
 
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: {{ .Values.domain }}-nfstftpserver
-  namespace: {{ .Values.domain }}
+  name: nfstftpserver
+  namespace: {{ .Values.namespace }}
   labels:
-    app: {{ .Values.domain }}-nfstftpserver
+    app: nfstftpserver
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Local
@@ -105,7 +105,7 @@ spec:
       targetPort: 69
   sessionAffinity: None
   selector:
-    app: {{ .Values.domain }}-nfstftpserver
+    app: nfstftpserver
   loadBalancerIP: "{{ .Values.loadBalancerIP }}"
 
 ---
@@ -114,27 +114,27 @@ spec:
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: {{ .Values.domain }}-file-transfer-station
-  namespace: {{ .Values.domain }}
+  name: file-transfer-station
+  namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.domain }}-file-transfer-station
+      app: file-transfer-station
   template:
     metadata:
       labels:
-        app: {{ .Values.domain }}-file-transfer-station
+        app: file-transfer-station
     spec:
       volumes:
-        - name: {{ .Values.domain }}-ioc-volume
+        - name: ioc-volume
           persistentVolumeClaim:
-            claimName: {{ .Values.domain }}-ioc-volume-claim
-        - name: {{ .Values.domain }}-autosave-volume
+            claimName: ioc-volume-claim
+        - name: autosave-volume
           persistentVolumeClaim:
-            claimName: {{ .Values.domain }}-autosave-volume-claim
+            claimName: autosave-volume-claim
       containers:
-        - name: {{ .Values.domain }}-file-transfer-station
+        - name: file-transfer-station
           image: debian:latest
           command: ["/bin/sleep"]
           args: ["infinity"]
@@ -148,6 +148,6 @@ spec:
               cpu: "2"
           volumeMounts:
             - mountPath: "/iocs"
-              name: {{ .Values.domain }}-ioc-volume
+              name: ioc-volume
             - mountPath: "/autosave"
-              name: {{ .Values.domain }}-autosave-volume
+              name: autosave-volume

@@ -1,1 +1,1 @@
-base_image: ghcr.io/epics-containers/ioc-pmac-linux-developer:work
+base_image: ghcr.io/epics-containers/ioc-pmac-linux-developer:23.3.4

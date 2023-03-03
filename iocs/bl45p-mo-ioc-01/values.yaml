@@ -1,6 +1,6 @@
 beamline: bl45p
 namespace: epics-iocs
-base_image: ghcr.io/epics-containers/ioc-pmac-linux-runtime:1.3.0
+base_image: ghcr.io/epics-containers/ioc-pmac-linux-runtime:23.3.4
 
 # root folder of generic ioc source - not expected to change
 iocFolder: /epics/ioc
