@@ -5,6 +5,5 @@ description: |
 
 type: application
 
-# chart and app version - these are updated automatically by CI
-version: 0.0.0-b0
-appVersion: 0.0.0-b0
+version: 0.1.1
+appVersion: 0.1.1
