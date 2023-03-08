@@ -74,6 +74,9 @@ spec:
               name: ioc-volume
             - mountPath: "/autosave"
               name: autosave-volume
+          securityContext:
+            capabilities:
+                drop: [NET_RAW]
 
 ---
 kind: Service
