@@ -2,8 +2,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: ioc-volume-claim
-  namespace: {{ .Values.namespace }}
+  name: ioc-nfsv2-tftp-claim
 spec:
   accessModes:
     - ReadWriteMany
@@ -17,7 +16,6 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: autosave-volume-claim
-  namespace: {{ .Values.namespace }}
 spec:
   accessModes:
     - ReadWriteMany
@@ -30,7 +28,6 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: nfstftpserver
-  namespace: {{ .Values.namespace }}
   labels:
     app: nfstftpserver
 spec:
@@ -44,9 +41,9 @@ spec:
         app: nfstftpserver
     spec:
       volumes:
-        - name: ioc-volume
+        - name: ioc-nfsv2-tftp-volume
           persistentVolumeClaim:
-            claimName: ioc-volume-claim
+            claimName: ioc-nfsv2-tftp-claim
         - name: autosave-volume
           persistentVolumeClaim:
             claimName: autosave-volume-claim
@@ -71,7 +68,7 @@ spec:
               protocol: UDP
           volumeMounts:
             - mountPath: "/iocs"
-              name: ioc-volume
+              name: ioc-nfsv2-tftp-volume
             - mountPath: "/autosave"
               name: autosave-volume
           securityContext:
@@ -83,7 +80,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: nfstftpserver
-  namespace: {{ .Values.namespace }}
   labels:
     app: nfstftpserver
 spec:
@@ -118,7 +114,6 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: file-transfer-station
-  namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   selector:
@@ -130,9 +125,9 @@ spec:
         app: file-transfer-station
     spec:
       volumes:
-        - name: ioc-volume
+        - name: ioc-nfsv2-tftp-volume
           persistentVolumeClaim:
-            claimName: ioc-volume-claim
+            claimName: ioc-nfsv2-tftp-claim
         - name: autosave-volume
           persistentVolumeClaim:
             claimName: autosave-volume-claim
@@ -151,6 +146,6 @@ spec:
               cpu: "2"
           volumeMounts:
             - mountPath: "/iocs"
-              name: ioc-volume
+              name: ioc-nfsv2-tftp-volume
             - mountPath: "/autosave"
               name: autosave-volume

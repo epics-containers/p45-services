@@ -1,4 +1,3 @@
 # this is an internal DLS reference at present. TODO - open source this container
 image: gcr.io/diamond-privreg/controls/nfsv2-tftp-server:latest
-namespace: bl45p
 loadBalancerIP: 172.23.168.220
