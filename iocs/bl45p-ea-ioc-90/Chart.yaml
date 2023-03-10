@@ -1,13 +1,13 @@
 apiVersion: v2
-name: bl45p-ea-ioc-01
+name: bl45p-ea-ioc-90
 description: |
-  Gige camera IOC  for the bl45p test beamline
+  example RTEMS IOC for bl45p
 
 type: application
 
 # chart and app version - these are updated automatically by CI
-version: 2021.2.0
-appVersion: 2021.2.0
+version: 0.0.0-b0
+appVersion: 0.0.0-b0
 
 dependencies:
   - name: beamline-chart
@@ -15,8 +15,13 @@ dependencies:
     repository: file://../../beamline-chart
     import-values:
       - beamline_defaults
+  # - name: helm-ioc-lib
+  #   version: "1.6.2"
+  #   repository: oci://ghcr.io/epics-containers
+  #   import-values:
+  #     - defaults
   - name: helm-ioc-lib
-    version: "1.6.2"
-    repository: oci://ghcr.io/epics-containers
+    version: "1.0.0-b1"
+    repository: file://../../../helm-ioc-lib
     import-values:
       - defaults

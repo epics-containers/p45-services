@@ -21,3 +21,12 @@ exports:
       requests:
         cpu: 500m
         memory: 200Mi
+
+    # Where to find RTEMS IOC files
+    globalenv:
+      - name: "K8S_IOC_TFTP_ADDR"
+        value: "172.23.168.220"
+      - name: "K8S_IOC_TFTP_PORT"
+        value: "69"
+      - name: "K8S_IOC_NFS_MOUNT"
+        value: ""

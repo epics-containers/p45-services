@@ -1,0 +1,18 @@
+base_image: ghcr.io/epics-containers/ioc-template-rtems-runtime:23.3.1
+
+# for RTEMS IOCS add the volume name for the filesystem where RTEMS
+# IOCs look for their files
+nfsv2TftpClaim: ioc-nfsv2-tftp-claim
+
+env:
+  # RTEMS console connection details
+  - name: RTEMS_VME_CONSOLE_ADDR
+    value: ts0001.cs.diamond.ac.uk
+  - name: RTEMS_VME_CONSOLE_PORT
+    value: "7007"
+
+  # RTEMS crate monitor connection details
+  - name: RTEMS_VME_CRATE_MONITOR_ADDR
+    value: ts0001.cs.diamond.ac.uk
+  - name: "RTEMS_VME_CRATE_MONITOR_PORT"
+    value: "7008"
