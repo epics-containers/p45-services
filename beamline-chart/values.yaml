@@ -29,4 +29,6 @@ exports:
       - name: "K8S_IOC_TFTP_PORT"
         value: "69"
       - name: "K8S_IOC_NFS_MOUNT"
-        value: ""
+        value: "172.23.168.220:iocs"
+      - name: "K8S_IOC_ROOT"
+        value: "/nfsv2-tftp"

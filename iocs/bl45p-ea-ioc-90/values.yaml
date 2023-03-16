@@ -1,4 +1,4 @@
-base_image: ghcr.io/epics-containers/ioc-template-rtems-runtime:23.3.1
+base_image: ghcr.io/epics-containers/ioc-template-rtems-runtime:23.3.3b1
 
 # for RTEMS IOCS add the volume name for the filesystem where RTEMS
 # IOCs look for their files
