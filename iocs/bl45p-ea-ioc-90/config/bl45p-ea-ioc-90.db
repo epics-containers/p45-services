@@ -34,3 +34,8 @@ record(ao, "BL45P-EA-IOC-90:C") {
     field(VAL,  "0.000")
     field(FLNK, "BL45P-EA-IOC-90:SUM")
 }
+
+record(ao, "BL45P-EA-IOC-90:EXTRA") {
+    field(DESC, "Extra")
+    field(PREC, "3")
+}
