@@ -12,6 +12,7 @@ dbLoadDatabase "/iocs/bl45p/bl45p-ea-ioc-90/dbd/ioc.dbd"
 ioc_registerRecordDeviceDriver(pdbbase)
 epicsEnvSet("PRINTDEBUG", "3")
 
+dbLoadRecords("/iocs/bl45p/bl45p-ea-ioc-90/config/bl45p-ea-ioc-90.db")
 dbLoadRecords("/iocs/bl45p/bl45p-ea-ioc-90/config/ioc.db")
 
 iocInit

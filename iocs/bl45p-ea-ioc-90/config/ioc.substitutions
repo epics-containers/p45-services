@@ -1,0 +1,16 @@
+
+# Macros:
+#  IOC  Device prefix
+file $(DEVIOCSTATS)/db/iocAdminSoft.db
+{
+pattern { IOC }
+    { "bl45p-ea-ioc-90" }
+}
+
+# Macros:
+#  IOC  Device prefix
+file $(DEVIOCSTATS)/db/iocAdminScanMon.db
+{
+pattern { IOC }
+    { "bl45p-ea-ioc-90" }
+}

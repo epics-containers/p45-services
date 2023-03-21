@@ -24,3 +24,13 @@ record(ao, "BL45P-EA-IOC-90:B") {
     field(VAL,  "0.000")
     field(FLNK, "BL45P-EA-IOC-90:SUM")
 }
+
+record(ao, "BL45P-EA-IOC-90:C") {
+    field(DESC, "C voltage")
+    field(PREC, "3")
+    field(EGU,  "Volts")
+    field(DRVL, "-10")
+    field(DRVH, "+10")
+    field(VAL,  "0.000")
+    field(FLNK, "BL45P-EA-IOC-90:SUM")
+}
