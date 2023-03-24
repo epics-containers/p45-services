@@ -2,7 +2,6 @@
 exports:
   beamline_defaults:
     beamline: bl45p
-    namespace: bl45p
     serviceAccount: bl45p-priv
 
     # provide a PVC for autosave
