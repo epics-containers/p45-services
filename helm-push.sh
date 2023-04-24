@@ -47,9 +47,13 @@ CR_USER=${CR_USER:-"USERNAME"}
 
 # login ########################################################################
 
-echo ${CR_TOKEN} | helm registry login -u ${CR_USER} \
+if not echo ${CR_TOKEN} | helm registry login -u ${CR_USER} \
     --password-stdin http://${REGISTRY_FOLDER}
-
+then
+    # ALTERNATIVE login using a json key file
+    cat /etc/gcp/config.json | helm registry login -u _json_key \
+        --password-stdin http://${REGISTRY_FOLDER}
+fi
 
 # build the new helm chart #####################################################
 
