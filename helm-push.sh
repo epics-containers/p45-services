@@ -47,7 +47,7 @@ CR_USER=${CR_USER:-"USERNAME"}
 
 # login ########################################################################
 
-if not echo ${CR_TOKEN} | helm registry login -u ${CR_USER} \
+if ! echo ${CR_TOKEN} | helm registry login -u ${CR_USER} \
     --password-stdin http://${REGISTRY_FOLDER}
 then
     # ALTERNATIVE login using a json key file
