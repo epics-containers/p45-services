@@ -9,8 +9,8 @@ build:
 
   variables:
     REGISTRY_FOLDER: gcr.io/diamond-privreg/controls/prod/helm/${CI_PROJECT_NAME}
-    CR_TOKEN: $NEXUS_PASSWORD
-    CR_USER: $NEXUS_USER
+    CR_TOKEN: $CR_TOKEN
+    CR_USER: $CR_USER
     TAG: $CI_COMMIT_TAG
 
   rules:
