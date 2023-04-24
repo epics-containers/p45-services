@@ -8,7 +8,7 @@ build:
   stage: helm_push
 
   variables:
-    REGISTRY_FOLDER: helm-test.diamond.ac.uk/iocs/${CI_PROJECT_NAME}
+    REGISTRY_FOLDER: gcr.io/diamond-privreg/controls/prod/helm/${CI_PROJECT_NAME}
     CR_TOKEN: $NEXUS_PASSWORD
     CR_USER: $NEXUS_USER
     TAG: $CI_COMMIT_TAG
