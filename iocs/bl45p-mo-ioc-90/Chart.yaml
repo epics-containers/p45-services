@@ -1,7 +1,7 @@
 apiVersion: v2
 name: bl45p-mo-ioc-90
 description: |
-    motion IOC for the test beamline p45 in G13
+  motion IOC for the test beamline p45 in G13
 
 type: application
 
@@ -16,7 +16,7 @@ dependencies:
     import-values:
       - beamline_defaults
   - name: helm-ioc-lib
-    version: "1.6.2"
+    version: "1.8.1"
     repository: oci://ghcr.io/epics-containers
     import-values:
       - defaults

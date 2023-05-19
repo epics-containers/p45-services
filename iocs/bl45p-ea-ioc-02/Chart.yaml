@@ -1,7 +1,7 @@
 apiVersion: v2
 name: bl45p-ea-ioc-02
 description: |
-    panda IOC for the bl45p test beamline
+  panda IOC for the bl45p test beamline
 
 type: application
 
@@ -11,5 +11,5 @@ appVersion: 2021.8.27
 
 dependencies:
   - name: helm-ioc-lib
-    version: "1.5"
+    version: "1.8.1"
     repository: "oci://ghcr.io/epics-containers"
