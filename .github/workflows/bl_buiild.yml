@@ -3,7 +3,7 @@ on:
   pull_request:
 
 env:
-  REGISTRY_FOLDER: ghcr.io/epics-containers
+  REGISTRY_FOLDER: ghcr.io/${{ github.repository }}
   CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   CR_USER: ${{ github.actor }}
   TAG: ${{ github.ref_name }}
