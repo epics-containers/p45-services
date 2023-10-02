@@ -1,5 +1,3 @@
-{{- define "ioc-chart.deployment" -}}
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -55,7 +53,7 @@ spec:
             name: {{ .Chart.Name }}
       containers:
       - name: {{ .Chart.Name }}
-        image: {{ .Values.base_image }}
+        image: {{ .Values.image }}
         command:
           - bash
         args:
@@ -130,6 +128,3 @@ spec:
           operator: Equal
           value: {{ .Values.beamline }}
           effect: NoSchedule
-
-
-{{ end }}

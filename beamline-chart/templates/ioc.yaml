@@ -1,0 +1,20 @@
+{{- /*
+  add the contents of every file in the config folder of this IOC helm chart
+  into the config map - The files must be text only.
+*/ -}}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name:  {{ .Chart.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+    beamline: {{ .Values.beamline }}
+    ioc_version: {{ .Chart.AppVersion | quote }}
+    is_ioc: "True"
+data:
+
+{{ (.Files.Glob "config/*").AsConfig | indent 2 }}
+  version.txt: |
+    IOC {{ .Release.Name }} version {{ .Chart.AppVersion }}
+

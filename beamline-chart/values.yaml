@@ -43,7 +43,7 @@ securityContext:
 # note that the configuration for the generic IOC is provided by placing its
 # config folder into beamline-chart/config. When the chart is packaged, the
 # template
-base_image:
+image:
 
 # provide a PVC for autosave
 autosave: true
@@ -58,8 +58,8 @@ dataVolume:
 # default resource limits
 resources:
   limits:
-    cpu: 100m
-    memory: 128Mi
-  requests:
     cpu: 500m
-    memory: 128Mi
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 64Mi
