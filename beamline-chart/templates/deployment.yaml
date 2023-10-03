@@ -1,0 +1,130 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+    beamline: {{ .Values.beamline }}
+    ioc_version: {{ .Chart.AppVersion | quote }}
+    is_ioc: "True"
+  annotations:
+    kubernetes.io/change-cause: {{ .Chart.AppVersion }} deployed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+        beamline: {{ .Values.beamline }}
+        ioc_version: {{ .Chart.AppVersion | quote }}
+        is_ioc: "True"
+    spec:
+      {{ if .Values.serviceAccountName }}
+      serviceAccountName: {{ .Values.serviceAccountName | quote }}
+      {{- end }}
+      hostNetwork: {{ .Values.hostNetwork }}
+      terminationGracePeriodSeconds: 15 # nice to have quick restarts on IOCs
+      volumes:
+        {{- if .Values.nfsv2TftpClaim }}
+        - name: nfsv2-tftp-volume
+          persistentVolumeClaim:
+            claimName: {{ .Values.nfsv2TftpClaim }}
+        {{- end }}
+        {{- if .Values.autosave }}
+        - name: {{ .Chart.Name }}
+          persistentVolumeClaim:
+            claimName: {{ .Chart.Name }}
+        {{- end }}
+        {{- if .Values.dataVolume.pvc }}
+        - name: {{ .Chart.Name }}-data
+          persistentVolumeClaim:
+            claimName: {{ .Chart.Name }}-data
+        {{- else if .Values.dataVolume.hostPath }}
+        - name: {{ .Chart.Name }}-data
+          hostPath:
+            path: {{ .Values.dataVolume.hostPath }}
+            type: Directory
+        {{- end }}
+        - name: config-volume
+          configMap:
+            name: {{ .Chart.Name }}
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ .Values.image }}
+        command:
+          - bash
+        args:
+          - {{ .Values.iocFolder }}/start.sh
+        livenessProbe:
+          exec:
+            command:
+            - /bin/bash
+            - /epics/ioc/liveness.sh
+          initialDelaySeconds: 120
+          periodSeconds: 10
+        lifecycle:
+          preStop:
+            exec:
+              command: ["bash", "-c", "/epics/ioc/stop.sh"]
+        volumeMounts:
+        - name: config-volume
+          mountPath: {{ .Values.iocFolder }}/config
+        {{- if .Values.autosave }}
+        - name: {{ .Chart.Name }}
+          mountPath: /autosave
+        {{- end }}
+        {{- if or (.Values.dataVolume.pvc) (.Values.dataVolume.hostPath)  }}
+        - name: {{ .Chart.Name }}-data
+          mountPath: /data
+          {{- if .Values.dataVolume.hostPath }}
+          mountPropagation: HostToContainer
+          {{- end}}
+        {{- end }}
+        {{- if .Values.nfsv2TftpClaim }}
+        - name: nfsv2-tftp-volume
+          mountPath: /nfsv2-tftp
+          subPath: "{{ .Values.beamline }}/{{ .Chart.Name }}"
+          {{- end }}
+        stdin: true
+        tty: true
+        securityContext:
+{{  toYaml .Values.securityContext | indent 10}}
+        resources:
+{{  toYaml .Values.resources | indent 10}}
+        imagePullPolicy: Always
+        env:
+        - name: IOCSH_PS1
+          value: "{{ .Chart.Name }} > "
+        - name: IOC_NAME
+          value: {{ .Chart.Name }}
+        - name: IOC_PREFIX
+          value: {{ or .Values.prefix .Chart.Name | quote }}
+        - name: IOC_VERSION
+          value: {{ .Chart.AppVersion | quote }}
+        {{- range $envVar := .Values.env }}
+        - name: {{ $envVar.name }}
+          value: {{ $envVar.value | quote }}
+        {{- end }}
+        {{- range $envVar := .Values.globalenv }}
+        - name: {{ $envVar.name }}
+          value: {{ $envVar.value | quote }}
+        {{- end }}
+      {{- if .Values.useAffinity }}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: beamline
+                operator: In
+                values:
+                  - {{ .Values.beamline }}
+      {{- end }}
+      tolerations:
+        - key: nodetype
+          operator: Equal
+          value: {{ .Values.beamline }}
+          effect: NoSchedule
