@@ -11,17 +11,19 @@ export EC_LOG_URL='https://graylog2.diamond.ac.uk/search?rangetype=relative&fiel
 # export EC_CONTAINER_CLI=podman (not specified so ec can detect best option)
 
 # the following configures kubernetes inside DLS.
-if module --version &> /dev/null; then
+if module --version > /dev/null; then
     if module avail pollux > /dev/null; then
         module load pollux > /dev/null
     fi
 fi
 
 # install the epics-containers-cli if (ec command) if we are in a venv
-if [[ -z "$VIRTUAL_ENV" ]] ; then
+if [[ -n "$VIRTUAL_ENV" ]] ; then
     if ! ec --version &> /dev/null; then
-        echo "ec not installed. Please activate a virtualenv and re-run"
-    else
         pip install epics-containers-cli
     fi
+else
+    echo "Please activate a virtualenv and re-run to install ec commandline tool"
 fi
+
+exec ${SHELL}

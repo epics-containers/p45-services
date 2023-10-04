@@ -25,7 +25,7 @@ source ~/.local/epics-containers/bin/activate
 curl https://raw.githubusercontent.com/epics-containers/bl45p/main/environment.sh -o ~/.local/bin/bl45p
 
 # set up the environment
-source ~/.local/bl45p
+~/.local/bl45p
 
 # You will asked for kubernetes credentials which are same as your linux login.
 
