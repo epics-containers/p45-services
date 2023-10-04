@@ -26,6 +26,9 @@ curl https://raw.githubusercontent.com/epics-containers/bl45p/main/environment.s
 
 # set up the environment
 source ~/.local/bl45p
+
+# you may be asked for kubernetes credentials which are same as your linux login
+# you may also need to ask for access to the kubernetes namespace bl45p
 ```
 
 3. Now if everything is working you should be able to see the IOC instances
