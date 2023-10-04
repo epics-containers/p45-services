@@ -24,6 +24,6 @@ do
     cp -r ${ioc}/values.yaml ci_test/
     # launch the generic IOC pointing at that config
     container=$(ec --log-level debug dev launch --target runtime ci_test --args '-dit')
-    podman stop ${container} -t0
+    ec --log-level debug dev stop ./ci_test/
 
 done
