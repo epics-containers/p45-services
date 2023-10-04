@@ -1,5 +1,5 @@
-Beamline BL45P Reference Implementation of and epics-containers Beamline
-========================================================================
+Beamline BL45P the test epics-containers Beamline
+=================================================
 
 This repository contains the configuration files for the IOC instances
 running on the test beamline BL45P at DLS.
@@ -27,8 +27,9 @@ curl https://raw.githubusercontent.com/epics-containers/bl45p/main/environment.s
 # set up the environment
 source ~/.local/bl45p
 
-# you may be asked for kubernetes credentials which are same as your linux login
-# you may also need to ask for access to the kubernetes namespace bl45p
+# You will asked for kubernetes credentials which are same as your linux login.
+
+# You may also need to ask the cloud team for access to the kubernetes namespace bl45p on pollux.
 ```
 
 3. Now if everything is working you should be able to see the IOC instances
