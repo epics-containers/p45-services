@@ -28,11 +28,7 @@ fi
 if module --version &> /dev/null; then
     if module avail pollux > /dev/null; then
         module load pollux > /dev/null
-        ec ps
+        # allow this to fail if the cluster is not available
+        if ! ec ps ; then echo "no cluster available"; fi
     fi
 fi
-
-set +e
-# replace the shell so the caller can use the environment
-exec ${SHELL}
-
