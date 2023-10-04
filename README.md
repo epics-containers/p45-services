@@ -10,25 +10,32 @@ It is a reference implementation of a beamline for
 Inside DLS you can experiment with BL45P by setting up your environment
 as follows:
 
+1. Set up a python virtual environment if you do not already have one.
+
+```bash
+module load python/3.10
+python -m venv ~/.local/epics-containers
+source ~/.local/epics-containers/bin/activate
+```
+
+2. Set up your environment for BL45P
+
 ```bash
 # get bl45p environment file
 curl https://raw.githubusercontent.com/epics-containers/bl45p/main/environment.sh -o ~/.local/bin/bl45p
 
-# start a new shell to pick up .local/bin in PATH
-bash
-
 # set up the environment
-source bl45p
+source ~/.local/bl45p
 ```
 
-Now if everythin is working you should be able to see the IOC instances
-running on the bl45p kubernetes cluster:
+3. Now if everything is working you should be able to see the IOC instances
+   running on the bl45p kubernetes cluster:
 
 ```bash
 ec ps
 ```
 
-And also take a look at what other commands are available:
+4. And also take a look at what other commands are available:
 
 ```bash
 ec --help

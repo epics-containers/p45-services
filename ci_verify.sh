@@ -23,7 +23,7 @@ do
     # put the values.yaml file a test config directory with basic startup script
     cp -r ${ioc}/values.yaml ci_test/
     # launch the generic IOC pointing at that config
-    container=$(ec --log-level debug dev launch --target runtime ci_test --args '-dit')
+    ec --log-level debug dev launch --target runtime ci_test --args '-dit'
     ec --log-level debug dev stop ./ci_test/
 
 done
