@@ -12,8 +12,12 @@ hostNetwork: true
 useAffinity: true
 
 # root folder for ioc source/binaries inside generic IOC container
-# not expected to change
 iocFolder: /epics/ioc
+iocConfig: /epics/ioc/config
+# scripts for controlling the IOC
+start: /epics/ioc/start.sh
+stop: /epics/ioc/stop.sh
+liveness: /epics/ioc/liveness.sh
 
 # the following are added to the pod's environment
 globalenv:
