@@ -1,0 +1,5 @@
+# Pandablocks IOC image
+image: ghcr.io/pandablocks/pandablocks-ioc:0.2
+# this places the start.sh directly in the epics/ioc folder replacing where
+# the framework usually looks for the global start.sh
+iocConfig: /epics/ioc

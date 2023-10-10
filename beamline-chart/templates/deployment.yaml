@@ -57,21 +57,21 @@ spec:
         command:
           - bash
         args:
-          - {{ .Values.iocFolder }}/start.sh
+          - {{ .Values.start }}
         livenessProbe:
           exec:
             command:
             - /bin/bash
-            - /epics/ioc/liveness.sh
+            - {{ .Values.liveness }}
           initialDelaySeconds: 120
           periodSeconds: 10
         lifecycle:
           preStop:
             exec:
-              command: ["bash", "-c", "/epics/ioc/stop.sh"]
+              command: ["bash", "-c", "{{ .Values.stop }}"]
         volumeMounts:
         - name: config-volume
-          mountPath: {{ .Values.iocFolder }}/config
+          mountPath: {{ .Values.iocConfig }}
         {{- if .Values.autosave }}
         - name: {{ .Chart.Name }}
           mountPath: /autosave
