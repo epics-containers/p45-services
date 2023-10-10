@@ -20,6 +20,7 @@ export EC_LOG_URL='https://graylog2.diamond.ac.uk/search?rangetype=relative&fiel
 # the following configures kubernetes inside DLS.
 if module --version &> /dev/null; then
     if module avail pollux > /dev/null; then
+        module unload pollux > /dev/null
         module load pollux > /dev/null
     fi
 fi
