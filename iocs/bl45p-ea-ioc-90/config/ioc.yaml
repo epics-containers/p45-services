@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=/epics/ioc-adsimdetector/ibek.ioc.schema.json
+# yaml-language-server: $schema=https://github.com/epics-containers/ioc-adsimdetector/releases/download/2023.10.5/ibek.ioc.schema.json
 
 ioc_name: bl45p-ea-ioc-90
 description: Sample and overview cameras IOC for BL45P
@@ -17,7 +17,6 @@ entities:
     ADDR: "0"
     WIDTH: 1280
     HEIGHT: 1024
-
 
   - type: ADCore.NDPvaPlugin
     PORT: DET.PVA
