@@ -9,12 +9,12 @@ The following steps will get you viewing data from the Simulator.
 1. clone ioc-adsimdetector project
    - git clone --recursive git@github.com:epics-containers/ioc-adsimdetector.git
 1. clone this example beamline project as a peer of the above
-   - git@github.com:epics-containers/bl45p.git
+   - git clone git@github.com:epics-containers/bl45p.git
 1. open ioc-adsimdetector in vscode
    - module load vscode
    - code ioc-simdetector
-1. choose re-open in a container when prompted
-   (or use the blue button bottom left if not prompted)
+1. choose re-open in a container when prompted (or click on
+   the blue bottom left corner and choose open in container)
 1. File -> add folder to workspace and choose
    - /repos/bl45p
    - you will get a transient error and need to click reload
