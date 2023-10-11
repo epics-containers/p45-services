@@ -1,1 +1,1 @@
-image: ghcr.io/epics-containers/ioc-adaravis-linux-runtime:23.9.4
+image: ghcr.io/epics-containers/ioc-adaravis-linux-runtime:2023.10.1
