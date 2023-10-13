@@ -11,7 +11,6 @@ echo "Loading IOC environment for BL45P ..."
 # a mapping between genenric IOC repo roots and the related container registry
 export EC_REGISTRY_MAPPING='github.com=ghcr.io gitlab.diamond.ac.uk=gcr.io/diamond-privreg/controls/ioc'
 export EC_K8S_NAMESPACE=bl45p
-export EC_EPICS_DOMAIN=bl45p
 export EC_GIT_ORG=https://github.com/epics-containers
 export EC_LOG_URL='https://graylog2.diamond.ac.uk/search?rangetype=relative&fields=message%2Csource&width=1489&highlightMessage=&relative=172800&q=pod_name%3A{ioc_name}*'
 # export EC_CONTAINER_CLI=podman (uncomment to enforce a specific container cli)
