@@ -24,13 +24,16 @@ if module --version &> /dev/null; then
     fi
 fi
 
-# must be in a venv and this is the reliable check
-if python3 -c 'import sys; sys.exit(0 if sys.base_prefix==sys.prefix else 1)'
-then
-    echo "ERROR: Please activate a virtualenv and re-run"
-else
-    if ! ec --version &> /dev/null; then
+# check if epics-containers-cli (ec command) is installed and install if not
+if ! ec --version &> /dev/null; then
+    # must be in a venv and this is the reliable check
+    if python3 -c 'import sys; sys.exit(0 if sys.base_prefix==sys.prefix else 1)'; then
+        echo "ERROR: Please activate a virtualenv and re-run"
+        return
+    elif ! ec --version &> /dev/null; then
         pip install epics-containers-cli
     fi
-    ec --install-completion ${SHELL} &> /dev/null
 fi
+
+# enable shell completion for ec commands
+source <(ec --show-completion ${SHELL})
