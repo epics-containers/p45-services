@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://github.com/epics-containers/ioc-adsimdetector/releases/download/2023.10.5/ibek.ioc.schema.json
+
+ioc_name: bl45p-ea-ioc-90
+description: Sample and overview cameras IOC for BL45P
+
+# Just a comment to force rebuild
+
+entities:
+  - type: epics.EpicsCaMaxArrayBytes
+    max_bytes: 6000000
+
+  - type: ADSimDetector.simDetector
+    PORT: DET.CAM
+    P: BL45P-EA-SIM-01
+    R: ":CAM:"
+    TIMEOUT: "1"
+    ADDR: "0"
+    WIDTH: 1280
+    HEIGHT: 1024
+
+  - type: ADCore.NDPvaPlugin
+    PORT: DET.PVA
+    PVNAME: BL45P-EA-SIM-01:PVA:OUTPUT
+    P: BL45P-EA-SIM-01
+    R: ":PVA:"
+    NDARRAY_PORT: DET.CAM
+    BLOCK: 1 # TODO remaining ARGS should have defaults
+    PRIORITY: 0
+    STACKSIZE: 0
+    NDARRAY_ADDR: 0
+
+  - type: ADCore.NDFileHDF5
+    PORT: DET.HDF5
+    P: BL45P-EA-SIM-01
+    R: ":HDF5:"
+    NDARRAY_PORT: DET.CAM
+    BLOCK: 1 # TODO remaining ARGS should have defaults
+    NDARRAY_ADDR: 0
