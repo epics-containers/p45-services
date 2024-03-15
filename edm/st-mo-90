@@ -1,8 +1,0 @@
-#!/bin/bash
-
-EDMDATAFILES=/screens/bl45p-mo-ioc-90
-for i in motor pmac autosave deviocstats; do
-    export EDMDATAFILES=$EDMDATAFILES:/screens/${i}
-done
-
-$(dirname ${BASH_SOURCE[0]})/bl45p-launcher.sh BL45P-MO-IOC-90Top.edl ${@}
