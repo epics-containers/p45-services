@@ -6,8 +6,3 @@
 **/*.bob
 edm/bobs
 **/*copy
-iocs/bl45p-ea-ioc-01/config/make_db.sh
-iocs/bl45p-ea-ioc-01/config/st.cmd
-
-# this file is placed in the folder for running CI tests
-/ci_test/values.yaml

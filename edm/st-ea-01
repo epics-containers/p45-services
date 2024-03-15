@@ -1,8 +1,0 @@
-#!/bin/bash
-
-EDMDATAFILES=/screens/bl45p-ea-ioc-01
-for i in adaravis adgenicam autosave deviocstats adcore adutil; do
-    export EDMDATAFILES=$EDMDATAFILES:/screens/${i}
-done
-
-$(dirname ${BASH_SOURCE[0]})/bl45p-launcher.sh BL45P-EA-IOC-01Top.edl ${@}

@@ -1,0 +1,3 @@
+shared:
+  ioc-instance:
+    image: ghcr.io/epics-containers/ioc-pmac-runtime:2024.3.2b2
