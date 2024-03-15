@@ -12,7 +12,7 @@ entities:
     IOC: "{{ ioc_name | upper }}"
 
   - type: pmac.pmacAsynIPPort
-    IP: 172.23.59.21
+    IP: 172.23.59.21:1025
     name: BRICK1port
 
   - type: pmac.GeoBrick
