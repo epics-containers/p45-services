@@ -1,0 +1,17 @@
+# A Helm Chart for an IOC instance
+apiVersion: v2
+name: epics-opis
+
+version: 3.0.2
+
+# When we deploy with the edge-containers-cli we override this on the command line.
+# Direct deployment with Helm will use the default beta value.
+appVersion: 0.0.1b1
+
+type: application
+
+dependencies:
+  - name: epics-opis
+    version: "3.0.2"
+    #repository: "file:///scratch/hgv27681/work/ec-helm-charts/Charts/epics-opis"
+    repository: "oci://ghcr.io/epics-containers"

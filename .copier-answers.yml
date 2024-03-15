@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 3.2.1
+_src_path: gh:epics-containers/ec-services-template
+beamline: bl45p
+cluster_name: pollux
+cluster_namespace: bl45p
+cluster_type: dls_shared
+description: beamline bl45p IOC Instances and Services
+git_platform: github.com
+github_org: epics-containers
+logging_url: https://graylog2.diamond.ac.uk/search?rangetype=relative&fields=message%2Csource&width=1489&highlightMessage=&relative=172800&q=pod_name%3A{service_name}*
+node_type: test-rig
+repo_uri: git@github.com:epics-containers/bl45p.git
+type: beamline

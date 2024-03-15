@@ -1,0 +1,10 @@
+# a config map to contain nginx config - ingests the files in config folder
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name:  {{ .Release.Name }}-nginx-config
+  labels:
+    app: {{ .Release.Name }}
+data:
+{{ (.Files.Glob "config/*").AsConfig | indent 2 }}
+---
