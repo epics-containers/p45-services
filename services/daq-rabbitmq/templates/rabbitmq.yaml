@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: rabbitmq-password
+  namespace: bl45p
+spec:
+  encryptedData:
+    rabbitmq-password: AgDPDY4OTExVgPb2pDdO4YEZPTR+BN4IMvSDET1QFqRkfJ7r8OW9GdfSOJrmJ5/MOGL5u4kNIeVrhvzXJAvk8osWNXpvbA1B32psXRE/Fdlt5C95k8A1TBgGikh85o4BDv08rOGKIg3/LyYwWx9oGNDSsa0qEp4dato95UhS+JIhiKcvvHDf5CxRN3mUrzggALEM8x0b3qmkDbeSp15k2l0bn/BNBcjRe1aZhEBxd3mEmaKkX+y2T+BKiYCQ/k+IplZ+HLbJZlwtxqVZS85IfGeHsWAgMztmMbWMBH4vd/8qwaz1f79MWQ+W9p1ENy0er7XmFj2NRSa40BTAO8lpx3KAYR0Wr/TcEFhpcyTVSHPVvWSC83eyFOuoFaT6twil1OMMTpfpjK9zrsx3KytNaOkzgsLhmChefYpmRPNZL0b0jrHCIu+OaLpYdsULRYYWbZVEodSoj2IDrZ78U1h35nZYzDM6vf5J6953ZHC6NDkCCzZ+TaR+yZ0FgA5V+HBxFaBWBWFdZwYa0PysWpu5Kajn6LIInII4SAbGMGQ69nWpfH46qbShCgTzGn4xdrlUYYJ4Z8QnknEW4q/LWDgaDEwng1blyZZqp1npK/wycmDzyRWE26S5VHJDiCX+rM5y9J4JfJvCi0K93SUMD3hM50fOpXgRjo7D4RrK8kbnYWTcB1tAfPcE4K1APfguLoB/J80PHe0=
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: rabbitmq-password
+      namespace: bl45p
+

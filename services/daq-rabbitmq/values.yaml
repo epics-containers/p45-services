@@ -1,0 +1,28 @@
+rabbitmq:
+  auth:
+    username: p45
+    existingPasswordSecret: rabbitmq-password
+  extraPlugins: rabbitmq_jms_topic_exchange,rabbitmq_stomp
+  persistence:
+    enabled: false
+  rbac:
+    create: false
+  serviceAccount:
+    create: false
+    name: default-full-access-mounted  # TODO: use only required permissions
+  extraContainerPorts:
+    - name: stomp
+      containerPort: 61613
+  service:
+    type: LoadBalancer
+    loadBalancerIP: 172.23.168.219 # This static IP is mapped to directly from a DNS entry for p45-rabbitmq-daq.diamond.ac.uk
+    extraPorts:
+      - name: stomp
+        port: 61613
+        targetPort: stomp
+  metrics:  # TODO: Enable monitoring stack in namespace
+    enabled: true
+    podAnnotations:
+      prometheus.io/scrape: "true"
+      prometheus.io/path: /metrics
+      prometheus.io/port: "8080"
