@@ -6,7 +6,7 @@ name: ioc-instance
 # via a symlink. When changes are made to the dependent charts, it is
 # necessary to update the version number here so that all IOC instances
 # show a change in the next commit.
-version: 3.0.0
+version: 3.4.0
 
 # When we deploy with the edge-containers-cli we override this on the command line.
 # Direct deployment with Helm will use the default beta value.This value should
@@ -17,5 +17,5 @@ type: application
 
 dependencies:
   - name: shared
-    version: "3.0.0"
+    version: "3.4.0"
     repository: file://../../helm/shared

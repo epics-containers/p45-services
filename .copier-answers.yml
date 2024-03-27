@@ -1,5 +1,5 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: 3.2.1
+_commit: 3.4.0
 _src_path: gh:epics-containers/ec-services-template
 beamline: bl45p
 cluster_name: pollux
