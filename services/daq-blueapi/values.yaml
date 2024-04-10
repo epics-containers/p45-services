@@ -1,0 +1,55 @@
+blueapi:
+  hostNetwork: true
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 500Mi
+    requests:
+      cpu: 500m
+      memory: 100Mi
+  nodeSelector:
+    kubernetes.io/hostname: p45-control.diamond.ac.uk
+  tolerations:
+    - key: nodetype
+      operator: Equal
+      value: test-rig
+      effect: NoSchedule
+    - key: beamline
+      operator: Equal
+      value: bl45p
+      effect: NoSchedule
+  ingress:
+    create: false
+#    host: p45-blueapi.diamond.ac.uk  # TODO: Get DNS entry created
+  extraEnvVars: |
+    - name: SCRATCH_AREA
+      value: {{ .Values.scratch.containerPath }}
+    - name: RABBITMQ_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: rabbitmq-password
+          key: rabbitmq-password
+  worker:
+    env:
+      sources:
+        - kind: dodal
+          module: dodal.beamlines.p45
+        # TODO: Make p45 plans repository
+        - kind: planFunctions
+          module: dls_bluesky_core.plans
+        - kind: planFunctions
+          module: dls_bluesky_core.stubs
+      data_writing:
+        visit_service_url: http://p45-control.diamond.ac.uk:8088/api
+        visit_directory: /dls/p45/data/2024/cm37283-2
+        group_name: p45
+      events: 
+        broadcast_status_events: False
+    stomp:
+      auth:
+        username: p45
+        passcode: ${RABBITMQ_PASSWORD}
+      host: p45-rabbitmq-daq.diamond.ac.uk
+  scratch:
+    hostPath: /dls_sw/p45/software/blueapi/scratch
+    containerPath: /dls_sw/p45/software/blueapi/scratch
