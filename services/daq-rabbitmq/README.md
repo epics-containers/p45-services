@@ -9,8 +9,6 @@ using environment.sh and then executing the following commands:
 ```bash
 # lists the latest versions of all services
 ec list
-# deploy the latest version of the epics-pvcs which includes an opis volume
-ec deploy daq-rabbitmq VERSION
-# deploy the latest version of the epics-opis service
+# deploy daq-rabbitmq with specified version
 ec deploy daq-rabbitmq VERSION
 ```
