@@ -1,4 +1,4 @@
 shared:
   ioc-instance:
-    image: ghcr.io/pandablocks/pandablocks-ioc:0.5.0
+    image: ghcr.io/pandablocks/pandablocks-ioc:0.6.0
     iocConfig: /epics/ioc
