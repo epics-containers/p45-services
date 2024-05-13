@@ -2,3 +2,17 @@ shared:
   ioc-instance:
     image: ghcr.io/pandablocks/pandablocks-ioc:0.6.0
     iocConfig: /epics/ioc
+
+    # run as p45detector for write permission to /dls/p45/data
+    # (obtain this id with `id p45detector`)
+    securityContext:
+      runAsUser: 37988
+      runAsGroup: 37988
+
+    dataVolume:
+      # don't create a pvc - instead we will mount a host folder
+      pvc: false
+      # A path on the host machine to write data into. Also used as the path where
+      # the folder will be mounted inside of the container so that users need not
+      # be confused about inside/outside container paths.
+      hostPath: /dls/p45/data
