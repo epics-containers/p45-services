@@ -99,11 +99,11 @@ entities:
     R: ":HDF5:"
     TIMEOUT: 1
 
-  - type: ADCore.NDCircularBuff
-    NDARRAY_PORT: DIFF.DET
-    P: BL45P-EA-DIFF-01
-    PORT: DIFF.BUFF
-    R: ":BUFF:"
+  # - type: ADCore.NDCircularBuff
+  #   NDARRAY_PORT: DIFF.DET
+  #   P: BL45P-EA-DIFF-01
+  #   PORT: DIFF.BUFF
+  #   R: ":BUFF:"
 
   - type: ADCore.NDPosPlugin
     ENABLED: 1
@@ -112,3 +112,11 @@ entities:
     PORT: DIFF.POS
     QUEUE: 1000
     R: ":POS:"
+
+  - type: ADCore.NDPvaPlugin
+    ENABLED: 1
+    NDARRAY_PORT: DIFF.DET
+    PVNAME: BL45P-EA-DIFF-01:TX:PVA
+    PORT: DIFF.PVA
+    P: BL45P-EA-DIFF-01
+    R: ":PVA:"

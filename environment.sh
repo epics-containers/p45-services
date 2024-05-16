@@ -55,7 +55,7 @@ module load pollux > /dev/null
 # set the default namespace for kubectl and helm (for convenience only)
 kubectl config set-context --current --namespace=bl45p
 # make sure the user has provided credentials
-kubectl version --short
+kubectl version
 
 
 # enable shell completion for k8s tools
