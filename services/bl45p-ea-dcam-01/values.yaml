@@ -1,7 +1,7 @@
 # latest container image for GigE cameras from the GitHub Container Registry
 shared:
   ioc-instance:
-    image: ghcr.io/epics-containers/ioc-adaravis-linux-runtime:2024.5.1
+    image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.5.1
 
     # run as p45detector for write permission to /dls/p45/data
     # (obtain this id with `id p45detector`)
