@@ -1,6 +1,7 @@
+# yaml-language-server: $schema=https://github.com/marcelldls/ec-helm-charts/releases/download/3.4.4/ioc-instance.schema.json#/$defs/repo
+
 # default values for all IOCs on bl45p
 ioc-instance:
-
   # the beamline name - only set for beamlines
   beamline: bl45p
   # the location where the IOCs will run - same as beamline for beamlines
@@ -19,18 +20,16 @@ ioc-instance:
   # useAffinity - only run on nodes with label beamline:<beamline-name>
   # or location:<location-name>
   # Comment out useAffiniity for dedicated cluster, set to true for shared cluster
-  
+
   useAffinity: true
-  
 
   # root folder for ioc source/binaries inside generic IOC container
   iocFolder: /epics/ioc
   iocConfig: /epics/ioc/config
   # scripts for controlling the IOC
-  start: /epics/ioc/start.sh
+  startCommand: /epics/ioc/start.sh
   stop: /epics/ioc/stop.sh
   liveness: /epics/ioc/liveness.sh
-
 
   # The following are added to the pod's environment and are shared by all
   # IOCs. TODO - these defaults are for a lab crate in DLS - if you have
@@ -64,8 +63,8 @@ ioc-instance:
   # iXXdetector user/group IDs
   securityContext:
     allowPrivilegeEscalation: false
-  #   runAsUser: 37887
-  #   runAsGroup: 37887
+    runAsUser: 37887
+    runAsGroup: 37887
 
   ########################################################################################
   # The following values are expected to be overridden in individual IOC values.yaml
@@ -73,7 +72,7 @@ ioc-instance:
 
   # This value is the only mandatory override. You must declare the image for the
   # Generic IOC in the values.yaml for each IOC instance.
-  image:
+  # image:
 
   # a volume to mount for writing data to. This can be a PVC or a hostPath
   # the PVC
@@ -111,4 +110,3 @@ ioc-instance:
       operator: "Equal"
       value: "test-rig"
       effect: "NoSchedule"
-  

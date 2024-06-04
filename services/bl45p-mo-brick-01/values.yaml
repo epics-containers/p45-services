@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://github.com/marcelldls/ec-helm-charts/releases/download/3.4.4/ioc-instance.schema.json#/$defs/service
+
 shared:
   ioc-instance:
     image: ghcr.io/epics-containers/ioc-pmac-runtime:2024.3.2b2
