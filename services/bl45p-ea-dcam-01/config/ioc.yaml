@@ -115,7 +115,7 @@ entities:
 
   - type: ADCore.NDPvaPlugin
     ENABLED: 1
-    NDARRAY_PORT: DIFF.DET
+    NDARRAY_PORT: DET.DET
     PVNAME: BL45P-EA-MAP-01:TX:PVA
     PORT: DIFF.PVA
     P: BL45P-EA-MAP-01
