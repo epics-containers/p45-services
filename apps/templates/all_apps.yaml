@@ -1,0 +1,26 @@
+{{ $currentScope := .}}
+{{- range .Values.services }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ . }}
+  namespace: {{ $currentScope.Release.Namespace }}
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ default $currentScope.Release.Namespace $currentScope.Values.spec.project }}
+  destination:
+    namespace: {{ $currentScope.Values.spec.destination.namespace }}
+    name: {{ $currentScope.Values.spec.destination.name }}
+  source:
+    path: services/{{ . }}
+    repoURL: {{ $currentScope.Values.spec.source.repoURL }}
+    targetRevision: {{ $currentScope.Values.spec.source.targetRevision }}
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+
+{{- end }}

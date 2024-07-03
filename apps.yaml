@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bl45p
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: bl45p
+  destination:
+    name: argus
+    namespace: bl45p
+  source:
+    path: apps
+    repoURL: https://github.com/gilesknap/bl02t.git
+    targetRevision: argocd
+    helm:
+      valuesObject:
+        spec:
+          project: bl45p
+          destination:
+            name: pollux
+            namespace: bl45p
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
