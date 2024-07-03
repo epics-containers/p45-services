@@ -1,0 +1,17 @@
+spec:
+  project: ""
+  destination:
+    name: ""
+    namespace: ""
+  source:
+    repoURL: https://github.com/gilesknap/bl02t
+    targetRevision: HEAD
+
+services:
+  - epics-pvcs
+  - epics-opis
+  - bl45p-ea-dcam-01
+  - bl45p-ea-dcam-02
+  - bl45p-mo-panda-01
+  - bl45p-mo-panda-02
+  - bl45p-mo-brick-01
