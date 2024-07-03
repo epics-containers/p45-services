@@ -1,1 +1,19 @@
-../../include/iocs/Chart.yaml
+# A Helm Chart for an IOC instance
+apiVersion: v2
+name: ec-service
+
+# this may track the version of ioc-instance for convenience
+version: 3.4.4
+
+# When we deploy with the edge-containers-cli we override this on the command line.
+# Direct deployment with Helm will use the default beta value.This value should
+# be left as beta always, as it gets used when deploying manually with Helm.
+appVersion: 0.0.1b1
+
+type: application
+
+dependencies:
+  - name: ioc-instance
+    version: 3.4.4
+    repository: "oci://ghcr.io/epics-containers"
+    #repository: "file:///scratch/hgv27681/work/ec-helm-charts/Charts/ioc-instance"

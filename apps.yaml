@@ -11,15 +11,8 @@ spec:
     namespace: bl45p
   source:
     path: apps
-    repoURL: https://github.com/gilesknap/bl02t.git
-    targetRevision: argocd
-    helm:
-      valuesObject:
-        spec:
-          project: bl45p
-          destination:
-            name: pollux
-            namespace: bl45p
+    repoURL: https://github.com/epics-containers/bl45p.git
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true

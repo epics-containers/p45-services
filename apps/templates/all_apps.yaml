@@ -3,19 +3,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ . }}
+  name: {{ .service }}
   namespace: {{ $currentScope.Release.Namespace }}
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: {{ default $currentScope.Release.Namespace $currentScope.Values.spec.project }}
+  project: {{ default $currentScope.Release.Namespace $currentScope.Values.project }}
   destination:
-    namespace: {{ $currentScope.Values.spec.destination.namespace }}
-    name: {{ $currentScope.Values.spec.destination.name }}
+    namespace: {{ $currentScope.Values.destination.namespace }}
+    name: {{ $currentScope.Values.destination.name }}
   source:
-    path: services/{{ . }}
-    repoURL: {{ $currentScope.Values.spec.source.repoURL }}
-    targetRevision: {{ $currentScope.Values.spec.source.targetRevision }}
+    path: services/{{ .service }}
+    repoURL: {{ default $currentScope.Values.source.repoURL .repoURL }}
+    targetRevision: {{ default $currentScope.Values.source.targetRevision .targetRevision }}
 
   syncPolicy:
     automated:

@@ -1,17 +1,24 @@
-spec:
-  project: ""
-  destination:
-    name: ""
-    namespace: ""
-  source:
-    repoURL: https://github.com/gilesknap/bl02t
-    targetRevision: HEAD
+project: bl45p
+destination:
+  name: pollux
+  namespace: bl45p
+source:
+  repoURL: https://github.com/epics-containers/bl45p.git
+  targetRevision: main
 
+# list of services to deploy from the /services folder of this repo
+# each item is of the form:
+# - service: service folder (name of service is the folder name)
+#   targetRevision: optional override for targetRevision above
+#   repoURL: optional override for repoURL above
 services:
-  - epics-pvcs
-  - epics-opis
-  - bl45p-ea-dcam-01
-  - bl45p-ea-dcam-02
-  - bl45p-mo-panda-01
-  - bl45p-mo-panda-02
-  - bl45p-mo-brick-01
+  - service: epics-pvcs
+  - service: epics-opis
+    targetRevision: test-dev
+  # - service: bl45p-ea-dcam-01 --- camera is offline
+  - service: bl45p-ea-dcam-02
+  - service: bl45p-mo-panda-01
+  - service: bl45p-mo-panda-02
+  - service: bl45p-mo-brick-01
+  # - service: daq-blueapi --- boot looping
+  - service: daq-rabbitmq
