@@ -11,6 +11,6 @@ type: application
 
 dependencies:
   - name: ioc-instance
-    version: 3.5.0
+    version: 3.5.1+b1
     repository: "oci://ghcr.io/epics-containers"
     # repository: "file:///home/giles/work/ec-helm-charts/Charts/ioc-instance"
