@@ -23,6 +23,7 @@ spec:
       selfHeal: true
     syncOptions:
       - Replace=true
+      - Force=true
 ---
 
 {{- end }}
