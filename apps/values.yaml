@@ -4,7 +4,7 @@ destination:
   namespace: bl45p
 source:
   repoURL: https://github.com/epics-containers/bl45p.git
-  targetRevision: main
+  targetRevision: update-values
 
 # list of services to deploy from the /services folder of this repo
 # each item is of the form:
