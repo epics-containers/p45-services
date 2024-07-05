@@ -4,7 +4,7 @@
 ioc-instance:
   beamline: bl45p
 
-  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.6.2
+  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.6.22
 
   securityContext:
     runAsUser: 37988
