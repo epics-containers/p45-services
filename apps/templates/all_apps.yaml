@@ -21,10 +21,8 @@ spec:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - Replace=true
-      # force fails because it tries to update PVCs
-      # - Force=true
+    syncOptions: []
+      - Force=true
 ---
 
 {{- end }}
