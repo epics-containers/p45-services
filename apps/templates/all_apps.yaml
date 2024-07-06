@@ -21,7 +21,9 @@ spec:
     automated:
       prune: true
       selfHeal: true
-    syncOptions: []
+    syncOptions:
+      # don't restart pods unless there has been a change
+      - ApplyOutOfSyncOnly=true
       # - Replace=true
       # - Force=true
 ---
