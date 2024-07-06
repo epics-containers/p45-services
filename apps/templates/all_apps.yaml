@@ -23,7 +23,8 @@ spec:
       selfHeal: true
     syncOptions:
       - Replace=true
-      - Force=true
+      # force fails because it tries to update PVCs
+      # - Force=true
 ---
 
 {{- end }}
