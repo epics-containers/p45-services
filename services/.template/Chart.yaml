@@ -4,8 +4,6 @@ name: ec-service
 
 version: 1.0.0
 
-appVersion: 0.0.1
-
 type: application
 
 dependencies:

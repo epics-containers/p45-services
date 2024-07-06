@@ -4,9 +4,6 @@ name: ec-service
 
 version: 1.0.0
 
-# TODO - what does argo do with appVersion?
-appVersion: 0.0.1b1
-
 type: application
 
 dependencies:
