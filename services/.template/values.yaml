@@ -1,10 +1,20 @@
 # yaml-language-server: $schema=https://github.com/marcelldls/ec-helm-charts/releases/download/3.4.4/ioc-instance.schema.json#/$defs/service
 
-# latest container image for GigE cameras from the GitHub Container Registry
+# This command will list the overridable values and their defaults:
+#   helm show values oci://ghcr.io/epics-containers/ioc-instance
+
 ioc-instance:
   beamline: bl45p
 
-  image: ghcr.io/epics-containers/ioc-pmac-runtime:2024.3.2b2
+  image:
+
+  securityContext:
+    runAsUser: 37988
+    runAsGroup: 37988
+
+  dataVolume:
+    pvc: false
+    hostPath: /dls/p45/data
 
   useAffinity: true
 
