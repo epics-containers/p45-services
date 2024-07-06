@@ -16,7 +16,7 @@ ioc-instance:
 
   useAffinity: true
 
-  # extra toleration for bl45p's nodetype taint (benign change)
+  # extra toleration for bl45p's nodetype taint
   tolerations:
     - key: "nodetype"
       operator: "Equal"
