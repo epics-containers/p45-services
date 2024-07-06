@@ -18,7 +18,7 @@ services:
   # - service: bl45p-ea-dcam-01 --- camera is offline
   - service: bl45p-ea-dcam-02
   - service: bl45p-mo-panda-01
-  - service: bl45p-mo-panda-02
+  # - service: bl45p-mo-panda-02
   - service: bl45p-mo-brick-01
   # - service: daq-blueapi --- boot looping
   - service: daq-rabbitmq
