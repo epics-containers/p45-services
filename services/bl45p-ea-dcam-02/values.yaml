@@ -22,3 +22,5 @@ ioc-instance:
       operator: "Equal"
       value: "test-rig"
       effect: "NoSchedule"
+# adding a block of comments as
+# a benign change in dcam 02
