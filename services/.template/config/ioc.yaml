@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://github.com/epics-containers/ioc-adaravis/releases/download/2024.1.2/ibek.ioc.schema.json
+
+ioc_name: "{{ _global.get_env('IOC_NAME') }}"
+
+description: ""
+
+entities:
+  - type: epics.EpicsCaMaxArrayBytes
+    max_bytes: 6000000
+
+  - type: epics.StartupCommand
+    command: callbackSetQueueSize(10000)
+
+  - type: devIocStats.iocAdminSoft
+    IOC: "{{ ioc_name | upper }}"

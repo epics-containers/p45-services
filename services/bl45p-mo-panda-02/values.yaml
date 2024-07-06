@@ -1,69 +1,30 @@
 # yaml-language-server: $schema=https://github.com/marcelldls/ec-helm-charts/releases/download/3.4.4/ioc-instance.schema.json#/$defs/service
 
+# To discover the set of values that can be applied here:
+# helm show values oci://ghcr.io/epics-containers/ioc-instance
+
 # latest container image for GigE cameras from the GitHub Container Registry
 ioc-instance:
-  image: ghcr.io/pandablocks/pandablocks-ioc:0.7.1
+  beamline: bl45p
+
+  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.6.2
+
+  # this causes our config folder's start.sh to be mounted over the default
+  # /epics/ioc/start.sh - thus making the pandaBlocks container image have
+  # the same entrypoint as ioc-template based images
   iocConfig: /epics/ioc
 
-  # run as p45detector for write permission to /dls/p45/data
   securityContext:
     runAsUser: 37988
     runAsGroup: 37988
 
   dataVolume:
-    # don't create a pvc - instead we will mount a host folder
-    pvc: true
-    # A path on the host machine to write data into. Also used as the path where
-    # the folder will be mounted inside of the container so that users need not
-    # be confused about inside/outside container paths.
-    hostPath: /data
-
-  # the beamline name - only set for beamlines
-  beamline: bl45p
-  # the name of the repository in which the IOC is grouped
-  ioc_group: bl45p
-  # the location where the IOCs will run - same as beamline for beamlines
-  location: bl45p
-
-  # typically use the default service account in the namespace.
-  # If you need to specify an alternative then uncomment below
-  # serviceAccountName: k8s-p38-iocs
-
-  # useHostNetwork - use host network for IOC - required for Channel Access
-  # to work outside of the cluster
-  hostNetwork: true
-
-  # useAffinity - only run on nodes with label beamline:<beamline-name>
-  # or location:<location-name>
-  # Comment out useAffiniity for dedicated cluster, set to true for shared cluster
+    pvc: false
+    hostPath: /dls/p45/data
 
   useAffinity: true
 
-  # root folder for ioc source/binaries inside generic IOC container
-  iocFolder: /epics/ioc
-  # scripts for controlling the IOC
-  startCommand: bash
-  startArgs: /epics/ioc/start.sh
-  stop: /epics/ioc/stop.sh
-  liveness: /epics/ioc/liveness.sh
-
-  # use the shared PVC for publishing opi files over http (see services/opis)
-  opisClaim: bl45p-opi-claim
-  # use the shared PVC for publishing opi files over http (see services/opis)
-  runtimeClaim: bl45p-runtime-claim
-  # use the shared PVC autosave files (comment out for no autosave)
-  autosaveClaim: bl45p-autosave-claim
-
-  # default resource limits
-  resources:
-    limits:
-      cpu: 500m
-      memory: 256Mi
-    requests:
-      cpu: 100m
-      memory: 64M
-
-  # extra tolerations as required
+  # extra toleration for bl45p's nodetype taint
   tolerations:
     - key: "nodetype"
       operator: "Equal"
