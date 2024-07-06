@@ -2,7 +2,7 @@
 
 This repository holds the a definition of beamline bl45p IOC Instances and services. Each sub folder of the `services` directory contains a helm chart for a specific service or IOC.
 
-NOTE: in order to take advantage of version control, you must deploy these services using the edge-containers-cli. This will ensure that the services are deployed from a specific tag of this repository and that the version number is recorded in the cluster.
+The respository is deployed into the beamline cluster using Argo CD which keeps the cluster namespace bl45p in sync with the contents of this repo.
 
-See https://github.com/epics-containers/edge-containers-cli for more information.
+See apps.yaml for the root app of apps description.
 
