@@ -12,18 +12,18 @@ source:
 #   targetRevision: optional override for targetRevision above
 #   repoURL: optional override for repoURL above
 services:
-  # shared epics services ######################################################
+  # shared epics services ##############################################
   - service: epics-pvcs
     targetRevision: 2024.7.1
   - service: epics-opis
     targetRevision: 2024.7.1
 
-  # daq services ###############################################################
+  # daq services ####################################################
   - service: daq-rabbitmq
     targetRevision: 2024.7.1
   # - service: daq-blueapi --- boot looping
 
-  # epics iocs #################################################################
+  # epics iocs ######################################################
   # - service: bl45p-ea-dcam-01 --- camera is offline
   - service: bl45p-ea-dcam-02
   - service: bl45p-mo-panda-01
