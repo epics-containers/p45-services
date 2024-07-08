@@ -18,7 +18,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      # only update apps whose app manifest has changed
-      - ApplyOutOfSyncOnly=true
+      # only update apps whose app manifest has changed?
+      # - ApplyOutOfSyncOnly=true
       # - Replace=true
       # - Force=true
