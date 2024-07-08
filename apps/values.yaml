@@ -11,6 +11,9 @@ source:
 # - service: service folder (name of service is the folder name)
 #   targetRevision: optional override for targetRevision above
 #   repoURL: optional override for repoURL above
+
+# TODO put an enabled field in each service so it can be overriden in parameters
+
 services:
   # shared epics services ######################################################
   - service: epics-pvcs
@@ -27,5 +30,5 @@ services:
   # - service: bl45p-ea-dcam-01 --- camera is offline
   - service: bl45p-ea-dcam-02
   - service: bl45p-mo-panda-01
-  # - service: bl45p-mo-panda-02
+  - service: bl45p-mo-panda-02
   - service: bl45p-mo-brick-01
