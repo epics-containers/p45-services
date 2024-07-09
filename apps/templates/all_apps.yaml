@@ -22,7 +22,8 @@ spec:
         - ../beamline_values.yaml
         - values.yaml
       values: |
-        ioc-instance.enabled: {{ ternary true false (ne .enabled false) }}
+        ioc-instance:
+          enabled: {{ ternary true false (ne .enabled false) }}
   syncPolicy:
     automated:
       prune: true
