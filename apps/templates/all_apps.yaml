@@ -21,7 +21,7 @@ spec:
       valueFiles:
         - ../beamline_values.yaml
         - values.yaml
-      valuesObject:
+      values: |
         ioc-instance.enabled: {{ ternary true false (ne .enabled false) }}
   syncPolicy:
     automated:
