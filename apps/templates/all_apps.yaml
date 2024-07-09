@@ -23,7 +23,7 @@ spec:
         - ../beamline_values.yaml
         - values.yaml
       values:
-        configSha: {{ ($currentScope.Files.Glob "config/*").AsConfig | sha256sum }}
+        configSha: {{ ($currentScope.Files.Glob "config/*").AsConfig | sha256sum | toString }}
 
   syncPolicy:
     automated:
