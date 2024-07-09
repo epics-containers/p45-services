@@ -25,7 +25,7 @@ services:
 
   # epics iocs #################################################################
   - service: bl45p-ea-dcam-01
-    enabled: false # --- camera is offline
+  # enabled: false # --- camera is offline
   - service: bl45p-ea-dcam-02
   - service: bl45p-mo-panda-01
   - service: bl45p-mo-panda-02
