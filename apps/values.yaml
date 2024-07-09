@@ -28,15 +28,18 @@ services:
 
   # epics iocs #################################################################
 
-  # TODO dls-aravis will be a published chart and we will change the schema here
-  # so that you still get to name your service as well as pass the chart URI.
+  # TODO dls-aravis will be a published chart.
   # For this demo dls-aravis is a local chart in the services folder.
-  - service: dls-aravis
+  # If you supply chart then that is used otherwise the local folder
+  # services/<service> is used.
+  - service: bl45p-ea-dcam-01
     enabled: false # --- camera is offline
+    chart: ../services/dls-aravis
     values:
       P: BL45P-EA-MAP-01
       ID: bl45p-ea-detector-01
-  - service: dls-aravis
+  - service: bl45p-ea-dcam-02
+    chart: ../services/dls-araviss
     values:
       P: BL45P-EA-DIFF-01
       ID: bl45p-ea-detector-02
