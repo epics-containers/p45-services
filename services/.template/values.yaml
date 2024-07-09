@@ -7,20 +7,3 @@ ioc-instance:
   beamline: bl45p
 
   image:
-
-  securityContext:
-    runAsUser: 37988
-    runAsGroup: 37988
-
-  dataVolume:
-    pvc: false
-    hostPath: /dls/p45/data
-
-  useAffinity: true
-
-  # extra toleration for bl45p's nodetype taint
-  tolerations:
-    - key: "nodetype"
-      operator: "Equal"
-      value: "test-rig"
-      effect: "NoSchedule"

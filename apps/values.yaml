@@ -6,6 +6,13 @@ source:
   repoURL: https://github.com/epics-containers/bl45p.git
   targetRevision: main
 
+# list of services to deploy from the /services folder of this repo
+# each item is of the form:
+# - service: service folder (name of service is the folder name)
+#   enabled: set to false to turn off an IOC
+#   targetRevision: optional override for targetRevision above
+#   repoURL: optional override for repoURL above
+
 services:
   # shared epics services ######################################################
   - service: epics-pvcs
