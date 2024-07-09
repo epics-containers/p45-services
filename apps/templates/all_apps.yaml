@@ -20,8 +20,8 @@ spec:
     helm:
       version: v3
       valueFiles:
-        - values.yaml
         - ../beamline_values.yaml
+        - values.yaml
 
   syncPolicy:
     automated:

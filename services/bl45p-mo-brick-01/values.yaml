@@ -9,3 +9,4 @@ ioc-instance:
 
   dataVolume:
     pvc: true
+    hostPath: /data
