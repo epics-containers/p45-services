@@ -1,7 +1,7 @@
 {{- $currentScope := .}}
 {{- range .Values.services -}}
 apiVersion: argoproj.io/v1alpha1
-kind: Application s
+kind: Application
 metadata:
   name: {{ .service }}
   namespace: {{ $currentScope.Release.Namespace }}
@@ -23,7 +23,6 @@ spec:
         - values.yaml
       valuesObject:
         ioc-instance.enabled: {{ ternary true false (ne .enabled false) }}
-
   syncPolicy:
     automated:
       prune: true
