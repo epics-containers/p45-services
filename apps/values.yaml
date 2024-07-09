@@ -20,12 +20,15 @@ services:
 
   # daq services ###############################################################
   - service: daq-rabbitmq
-  - service: daq-blueapi
-    enabled: false # --- boot looping
+  # commented out because daq-blueapi does not obey ioc-instance.enabled
+  # TODO: move enabled to global and set up our helm charts to obey that as
+  # they see fit.
+  # - service: daq-blueapi
+  #   enabled: false # --- boot looping
 
   # epics iocs #################################################################
   - service: bl45p-ea-dcam-01
-  # enabled: false # --- camera is offline
+    enabled: false # --- camera is offline
   - service: bl45p-ea-dcam-02
   - service: bl45p-mo-panda-01
   - service: bl45p-mo-panda-02
