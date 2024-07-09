@@ -22,6 +22,8 @@ spec:
       valueFiles:
         - ../beamline_values.yaml
         - values.yaml
+      values:
+        configSha: {{ (.Files.Glob "config/*").AsConfig | indent 2 }}
 
   syncPolicy:
     automated:
