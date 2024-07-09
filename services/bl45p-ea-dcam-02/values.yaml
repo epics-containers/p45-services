@@ -1,5 +1,0 @@
-# yaml-language-server: $schema=https://github.com/marcelldls/ec-helm-charts/releases/download/3.4.4/ioc-instance.schema.json#/$defs/service
-
-# latest container image for GigE cameras from the GitHub Container Registry
-ioc-instance:
-  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.6.2
