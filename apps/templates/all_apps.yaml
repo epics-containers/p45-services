@@ -1,6 +1,6 @@
 {{ $currentScope := .}}
 {{- range .Values.services }}
-{{- if (default true .enabled != false) -}}
+{{- if ne .enabled false -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
