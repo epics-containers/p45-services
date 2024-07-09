@@ -25,8 +25,7 @@ spec:
       valuesObject:
         # TODO this does not work - the Files list is empty (nice idea though!)
         configSha: {{ ($currentScope.Files.Glob "config/*").AsConfig | sha256sum }}
-        test: hello world
-        ioc-instance.enabled: {{ .enabled }}
+        ioc-instance.enabled: {{ (default true .enabled) }}
 
   syncPolicy:
     automated:
