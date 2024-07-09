@@ -28,5 +28,5 @@ spec:
       # - Replace=true
       # - Force=true
 ---
-{{- end /* if .enabled */ -}}
-{{- end /* range .Values.services */ }}
+{{- end -}}
+{{- end -}}
