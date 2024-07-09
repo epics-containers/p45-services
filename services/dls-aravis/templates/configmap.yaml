@@ -7,4 +7,4 @@ metadata:
 # configure an Aravis Camera with the Standard set of Plugins
 data:
   ioc.yaml: >
-  {{ tpl (.Files.Get "_ioc.yaml") . | nindent 4 }}
+  {{ tpl (.Files.Get "ioc.yaml") . | nindent 4 | replace "[[" "{{" | replace "]]" "}}" }}
