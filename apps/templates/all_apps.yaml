@@ -30,5 +30,5 @@ spec:
       # - Replace=true
       # - Force=true
 ---
-{{- end -}}
-{{- end -}}
+{{- end /* if ne .enabled false */ -}}
+{{- end /* range .Values.services */ -}}
