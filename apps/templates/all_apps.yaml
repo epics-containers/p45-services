@@ -1,7 +1,7 @@
-{{ $currentScope := .}}
-{{- range .Values.services }}
+{{- $currentScope := .}}
+{{- range .Values.services -}}
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: Application s
 metadata:
   name: {{ .service }}
   namespace: {{ $currentScope.Release.Namespace }}
@@ -22,9 +22,7 @@ spec:
         - ../beamline_values.yaml
         - values.yaml
       valuesObject:
-        # TODO this does not work - the Files list is empty (nice idea though!)
-        configSha: {{ ($currentScope.Files.Glob "config/*").AsConfig | sha256sum }}
-        ioc-instance.enabled: {{ (default true .enabled) }}
+        ioc-instance.enabled: {{ ternary true false (ne .enabled false) }}
 
   syncPolicy:
     automated:
