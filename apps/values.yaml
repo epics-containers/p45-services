@@ -4,30 +4,24 @@ destination:
   namespace: bl45p
 source:
   repoURL: https://github.com/epics-containers/bl45p.git
-  targetRevision: work
+  targetRevision: main
 
-# list of services to deploy from the /services folder of this repo
-# each item is of the form:
-# - service: service folder (name of service is the folder name)
-#   targetRevision: optional override for targetRevision above
-#   repoURL: optional override for repoURL above
 services:
   # shared epics services ######################################################
   - service: epics-pvcs
-    targetRevision: 2024.7.1
   - service: epics-opis
-    targetRevision: 2024.7.1
 
   # daq services ###############################################################
   - service: daq-rabbitmq
-    targetRevision: 2024.7.1
-  # - service: daq-blueapi --- boot looping
+  - service: daq-blueapi
+    enabled: false # --- boot looping
 
   # epics iocs #################################################################
-  # - service: bl45p-ea-dcam-01 --- camera is offline
+  - service: bl45p-ea-dcam-01
+    enabled: false # --- camera is offline
   - service: bl45p-ea-dcam-02
   - service: bl45p-mo-panda-01
-  # - service: bl45p-mo-panda-02
+  - service: bl45p-mo-panda-02
   - service: bl45p-mo-brick-01
 
   # other services #############################################################
