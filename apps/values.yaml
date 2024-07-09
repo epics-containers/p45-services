@@ -39,7 +39,7 @@ services:
       P: BL45P-EA-MAP-01
       ID: bl45p-ea-detector-01
   - service: bl45p-ea-dcam-02
-    chart: services/dls-araviss
+    chart: services/dls-aravis
     values:
       P: BL45P-EA-DIFF-01
       ID: bl45p-ea-detector-02
