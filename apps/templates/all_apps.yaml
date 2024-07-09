@@ -29,6 +29,7 @@ spec:
       values: |
         ioc-instance:
           enabled: {{ ternary true false (ne .enabled false) }}
+{{ toYaml .values | indent 8}}
   syncPolicy:
     automated:
       prune: true

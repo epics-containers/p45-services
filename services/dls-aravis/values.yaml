@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://github.com/marcelldls/ec-helm-charts/releases/download/3.4.4/ioc-instance.schema.json#/$defs/service
+
+# This parent chart creates an Diagnostics GigE camera with AD plugins
+# The following values may be supplied, the first two are mandatory
+
+# TODO - this chart could easily also allow for configuring the count of
+# each type of plugin you would like. Currently there is a fixed set of plugins.
+
+# PV Prefix
+P: p
+
+# Camera ID - identifier, ip address or DNS name
+ID: id
+
+# The type of camera - leave this value as AutoADGenICam for automatic discovery
+CLASS: AutoADGenICam
+
+# Child chart ioc-instance configures K8S manifisets for this IOC
+# NOTE: the values for ioc-instance will be combined with beamline_values.yaml
+# when this is being deployed from a beamline repo by ArgoCD
+ioc-instance:
+  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.7.1b3
