@@ -1,6 +1,5 @@
 {{ $currentScope := .}}
 {{- range .Values.services }}
-{{- if ne .enabled false -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -37,5 +36,4 @@ spec:
       # - Replace=true
       # - Force=true
 ---
-{{- end -}}
 {{- end -}}
