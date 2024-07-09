@@ -1,6 +1,6 @@
 {{- $currentScope := .}}
 {{- range .Values.services -}}
-{{- if .enabled ne false -}}
+{{- if ne .enabled false -}}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -22,6 +22,9 @@ spec:
       valueFiles:
         - ../beamline_values.yaml
         - values.yaml
+      # this passes the enabled flag down to the ioc-instance chart but we
+      # don't need this as we don't create disabled apps - keeping it as an
+      # example of how to do this for future features.
       values: |
         ioc-instance:
           enabled: {{ ternary true false (ne .enabled false) }}
