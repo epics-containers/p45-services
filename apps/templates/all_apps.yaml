@@ -19,6 +19,9 @@ spec:
     targetRevision: {{ default $currentScope.Values.source.targetRevision .targetRevision }}
     helm:
       version: v3
+      valueFiles:
+        - services/beamline_values.yaml
+        - services/{{ .service }}
 
   syncPolicy:
     automated:

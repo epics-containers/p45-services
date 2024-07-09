@@ -1,6 +1,4 @@
 epics-opis:
-
-
   # the beamline name - only set for beamlines
   beamline: bl45p
   # the location where the IOCs will run - same as beamline for beamlines
@@ -11,9 +9,8 @@ epics-opis:
   # useAffinity - only run on nodes with label beamline:<beamline-name>
   # or location:<location-name>
   # Comment out useAffiniity for dedicated cluster, set to true for shared cluster
-  
+
   useAffinity: true
-  
 
   # extra toleration for the shared cluster training rigs
   tolerations:
@@ -21,4 +18,3 @@ epics-opis:
       operator: "Equal"
       value: "test-rig"
       effect: "NoSchedule"
-  

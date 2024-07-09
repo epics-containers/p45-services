@@ -2,15 +2,10 @@
 
 # latest container image for GigE cameras from the GitHub Container Registry
 ioc-instance:
-  beamline: bl45p
-
   image: ghcr.io/epics-containers/ioc-pmac-runtime:2024.3.2b2
 
-  useAffinity: true
+  # this IOC needs no data folder mount so switch to default account and pvc volume
+  securityContext: {}
 
-  # extra toleration for bl45p's nodetype taint
-  tolerations:
-    - key: "nodetype"
-      operator: "Equal"
-      value: "test-rig"
-      effect: "NoSchedule"
+  dataVolume:
+    pvc: true
