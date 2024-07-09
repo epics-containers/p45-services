@@ -17,6 +17,8 @@ spec:
     path: services/{{ .service }}
     repoURL: {{ default $currentScope.Values.source.repoURL .repoURL }}
     targetRevision: {{ default $currentScope.Values.source.targetRevision .targetRevision }}
+    helm:
+      version: v3
 
   syncPolicy:
     automated:
