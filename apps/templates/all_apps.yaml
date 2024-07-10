@@ -18,11 +18,11 @@ spec:
     targetRevision: {{ default $currentScope.Values.source.targetRevision .targetRevision }}
     helm:
       parameters:
-        name: ioc-instance.enabled
-        value: {{ ternary true false (ne .enabled false) }}
+        - name: ioc-instance.enabled
+          value: {{ ternary true false (ne .enabled false) }}
         {{-  range $k, $v := .values }}
-        name: {{ $k }}
-        value: {{ $v }}
+        - name: {{ $k }}
+          value: {{ $v }}
         {{- end }}
       version: v3
       valueFiles:
