@@ -11,7 +11,7 @@ spec:
   project: {{ default $currentScope.Release.Namespace $currentScope.Values.project }}
   destination:
     namespace: {{ $currentScope.Values.destination.namespace }}
-    server: {{ $currentScope.Values.destination.server }}
+    name: {{ $currentScope.Values.destination.name }}
   source:
     repoURL: {{ default $currentScope.Values.source.repoURL .repoURL }}
     path: services/{{ default .service .folder }}
