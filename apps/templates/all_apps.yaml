@@ -17,6 +17,8 @@ spec:
     repoURL: {{ default $currentScope.Values.source.repoURL .repoURL }}
     targetRevision: {{ default $currentScope.Values.source.targetRevision .targetRevision }}
     helm:
+      valuesObject:
+        ioc-instance.enabled2: true
       version: v3
       valueFiles:
         - ../beamline_values.yaml
