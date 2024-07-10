@@ -24,11 +24,11 @@ spec:
       values: |
         ioc-instance:
           enabled: {{ ternary true false (ne .enabled false) }}
-{{- if .values -}}
+{{ if .values -}}
 {{ toYaml .values | indent 8}}
-{{- end -}}
+{{- end }}
   syncPolicy:
-    automated:
+    automate
       prune: true
       selfHeal: true
     syncOptions:
