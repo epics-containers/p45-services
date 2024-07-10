@@ -13,8 +13,9 @@ spec:
     namespace: {{ $currentScope.Values.destination.namespace }}
     name: {{ $currentScope.Values.destination.name }}
   source:
-    path: {{ default (print "services/" .service) .chart }}
     repoURL: {{ default $currentScope.Values.source.repoURL .repoURL }}
+    path: services/{{ default .service .folder }}
+    chart: {{ default "" .chart }}
     targetRevision: {{ default $currentScope.Values.source.targetRevision .targetRevision }}
     helm:
       parameters:
@@ -28,10 +29,7 @@ spec:
       valueFiles:
         - ../beamline_values.yaml
         - values.yaml
-  # ignoreApplicationDifferences:
-  #   - jsonPointers:
-  #       # allow toggling of 'enabled' without sync undoing it
-  #       - /spec/source/helm/parameters[0]
+
   syncPolicy:
     automated:
       prune: true

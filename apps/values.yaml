@@ -6,12 +6,14 @@ source:
   repoURL: https://github.com/epics-containers/bl45p.git
   targetRevision: main
 
-# list of services to deploy from the /services folder of this repo
-# each item is of the form:
-# - service: service folder (name of service is the folder name)
+# list of services to deploy. Each item is of the form:
+# - service: service name as it appears in K8S (statefulset/deployment name)
 #   enabled: set to false to turn off an IOC
 #   targetRevision: optional override for targetRevision above
-#   repoURL: optional override for repoURL above
+#   repoURL: optional override for helm chart or git repository
+#   folder: a subfolder of /services, defaults  /services/service_name
+#       used this for shared, templated charts and add some values to customize
+#   values: A dict of key:value to pass as parameters to the target chart
 
 services:
   # shared epics services ######################################################
@@ -20,30 +22,28 @@ services:
 
   # daq services ###############################################################
   - service: daq-rabbitmq
-  # commented out because daq-blueapi does not obey ioc-instance.enabled
-  # TODO: move enabled to global and set up our helm charts to obey that as
-  # they see fit.
   # - service: daq-blueapi
   #   enabled: false # --- boot looping
 
   # epics iocs #################################################################
 
-  # TODO dls-aravis will be a published chart.
-  # For this demo dls-aravis is a local chart in the services folder.
-  # If you supply chart then that is used otherwise the local folder
-  # services/<service> is used.
+  # example of epics templating in a oci helm registry
   - service: bl45p-ea-dcam-01
     enabled: false # --- camera is offline
-    repoURL: ghcr.io/epics-containers/dls-aravis:0.1.0
+    repoURL: ghcr.io/epics-containers/dls-aravis
+    chart: dls-aravis
     values:
       P: BL45P-EA-MAP-01
       ID: bl45p-ea-detector-01
+
+  # example of epics templating in a local folder
   - service: bl45p-ea-dcam-02
-    chart: services/dls-aravis
+    folder: services/dls-aravis
     values:
       P: BL45P-EA-DIFF-01
       ID: bl45p-ea-detector-02
-      DUMMY: test
+
+
   - service: bl45p-mo-panda-01
   # - service: bl45p-mo-panda-02
   - service: bl45p-mo-brick-01
