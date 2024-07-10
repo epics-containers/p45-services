@@ -43,6 +43,7 @@ services:
     values:
       P: BL45P-EA-DIFF-01
       ID: bl45p-ea-detector-02
+      DUMMY: test
   - service: bl45p-mo-panda-01
   - service: bl45p-mo-panda-02
   - service: bl45p-mo-brick-01
