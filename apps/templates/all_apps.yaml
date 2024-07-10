@@ -28,10 +28,10 @@ spec:
       valueFiles:
         - ../beamline_values.yaml
         - values.yaml
-  ignoreApplicationDifferences:
-    - jsonPointers:
-        # allow toggling of 'enabled' without sync undoing it
-        - /spec/source/helm/parameters[0]
+  # ignoreApplicationDifferences:
+  #   - jsonPointers:
+  #       # allow toggling of 'enabled' without sync undoing it
+  #       - /spec/source/helm/parameters[0]
   syncPolicy:
     automated:
       prune: true
