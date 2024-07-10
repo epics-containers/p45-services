@@ -19,4 +19,4 @@ CLASS: AutoADGenICam
 # NOTE: the values for ioc-instance will be combined with beamline_values.yaml
 # when this is being deployed from a beamline repo by ArgoCD
 ioc-instance:
-  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.7.1b3
+  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.7.1
