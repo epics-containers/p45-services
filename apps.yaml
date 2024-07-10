@@ -7,7 +7,7 @@ metadata:
 spec:
   project: bl45p
   destination:
-    name: argus
+    server: https://api.argus.diamond.ac.uk:6443
     namespace: bl45p
   source:
     path: apps
