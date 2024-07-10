@@ -19,10 +19,10 @@ spec:
     helm:
       parameters:
         - name: ioc-instance.enabled
-          value: {{ ternary true false (ne .enabled false) }}
+          value: {{ ternary true false (ne .enabled false) | quote }}
         {{-  range $k, $v := .values }}
         - name: {{ $k }}
-          value: {{ $v }}
+          value: {{ $v | quote }}
         {{- end }}
       version: v3
       valueFiles:
