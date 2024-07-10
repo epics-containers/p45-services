@@ -32,6 +32,7 @@ services:
     enabled: false # --- camera is offline
     repoURL: ghcr.io/epics-containers/dls-aravis
     chart: dls-aravis
+    targetRevision: 0.1.0
     values:
       P: BL45P-EA-MAP-01
       ID: bl45p-ea-detector-01
