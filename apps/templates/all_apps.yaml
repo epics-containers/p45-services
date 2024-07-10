@@ -39,5 +39,17 @@ spec:
     syncOptions:
       # don't restart pods unless there has been a change
       - ApplyOutOfSyncOnly=true
+      - RespectIgnoreDifferences=true
+
+  # allow ec to start/stop services without sync undoing that
+  ignoreDifferences:
+  - group: apps
+    kind: Deployment
+    jsonPointers:
+    - /spec/replicas
+  - group: apps
+    kind: StatefulSet
+    jsonPointers:
+    - /spec/replicas
 ---
 {{- end -}}
