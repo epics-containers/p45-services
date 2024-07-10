@@ -44,5 +44,5 @@ services:
 
 
   - service: bl45p-mo-panda-01
-  # - service: bl45p-mo-panda-02
+  - service: bl45p-mo-panda-02
   - service: bl45p-mo-brick-01
