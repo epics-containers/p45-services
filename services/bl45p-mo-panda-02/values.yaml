@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=https://github.com/marcelldls/ec-helm-charts/releases/download/3.4.4/ioc-instance.schema.json#/$defs/service
+
+# latest container image for GigE cameras from the GitHub Container Registry
+ioc-instance:
+  image: ghcr.io/pandablocks/pandablocks-ioc:0.7.1
+
+  # this causes our config folder's start.sh to be mounted over the default
+  # /epics/ioc/start.sh - thus making the pandaBlocks container image have
+  # the same entrypoint as ioc-template based images
+  iocConfig: /epics/ioc

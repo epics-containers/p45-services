@@ -1,0 +1,16 @@
+# A Helm Chart for an IOC instance
+apiVersion: v2
+name: ec-service
+
+version: 1.0.0
+
+# TODO - what does argo do with appVersion?
+appVersion: 0.0.1b1
+
+type: application
+
+dependencies:
+  - name: ioc-instance
+    version: 3.5.1+b1
+    repository: "oci://ghcr.io/epics-containers"
+    # repository: "file:///home/giles/work/ec-helm-charts/Charts/ioc-instance"
