@@ -98,11 +98,11 @@ entities:
     R: ":HDF5:"
     TIMEOUT: 1
 
-  - type: ADCore.NDCircularBuff
-    NDARRAY_PORT: DET.DET
-    P: {{ .Values.P }}
-    PORT: DET.BUFF
-    R: ":BUFF:"
+  # - type: ADCore.NDCircularBuff
+  #   NDARRAY_PORT: DET.DET
+  #   P: {{ .Values.P }}
+  #   PORT: DET.BUFF
+  #   R: ":BUFF:"
 
   - type: ADCore.NDPosPlugin
     ENABLED: 1
