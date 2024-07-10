@@ -24,7 +24,9 @@ spec:
       values: |
         ioc-instance:
           enabled: {{ ternary true false (ne .enabled false) }}
+{{- if .values -}}
 {{ toYaml .values | indent 8}}
+{{- end -}}
   syncPolicy:
     automated:
       prune: true
