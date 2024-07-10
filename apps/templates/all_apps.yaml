@@ -28,7 +28,7 @@ spec:
 {{ toYaml .values | indent 8 }}
 {{- end }}
   syncPolicy:
-    automate:
+    automated:
       prune: true
       selfHeal: true
     syncOptions:
