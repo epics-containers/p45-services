@@ -1,6 +1,6 @@
 project: bl45p
 destination:
-  name: pollux
+  server: https://api.pollux.diamond.ac.uk:6443
   namespace: bl45p
 source:
   repoURL: https://github.com/epics-containers/bl45p.git
