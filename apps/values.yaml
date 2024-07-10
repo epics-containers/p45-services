@@ -34,7 +34,7 @@ services:
   # services/<service> is used.
   - service: bl45p-ea-dcam-01
     enabled: false # --- camera is offline
-    chart: services/dls-aravis
+    repoURL: ghcr.io/epics-containers/dls-aravis:0.1.0
     values:
       P: BL45P-EA-MAP-01
       ID: bl45p-ea-detector-01
@@ -45,5 +45,5 @@ services:
       ID: bl45p-ea-detector-02
       DUMMY: test
   - service: bl45p-mo-panda-01
-  - service: bl45p-mo-panda-02
+  # - service: bl45p-mo-panda-02
   - service: bl45p-mo-brick-01
