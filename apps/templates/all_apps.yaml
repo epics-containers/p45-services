@@ -17,18 +17,17 @@ spec:
     repoURL: {{ default $currentScope.Values.source.repoURL .repoURL }}
     targetRevision: {{ default $currentScope.Values.source.targetRevision .targetRevision }}
     helm:
-      valuesObject:
-        ioc-instance.enabled2: true
+      parameters:
+        name: ioc-instance.enabled
+        value: {{ ternary true false (ne .enabled false) }}
+        {{-  range $k, $v := .values }}
+        name: {{ $k }}
+        value: {{ $v }}
+        {{- end }}
       version: v3
       valueFiles:
         - ../beamline_values.yaml
         - values.yaml
-      values: |
-        ioc-instance:
-          enabled: {{ ternary true false (ne .enabled false) }}
-{{- if .values }}
-{{ toYaml .values | indent 8 }}
-{{- end }}
   syncPolicy:
     automated:
       prune: true
