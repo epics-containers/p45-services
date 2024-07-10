@@ -40,14 +40,15 @@ spec:
       - RespectIgnoreDifferences=true
 
   # allow ec to start/stop services without sync undoing that
-  ignoreDifferences:
-  - group: apps
-    kind: Deployment
-    jsonPointers:
-    - /spec/replicas
-  - group: apps
-    kind: StatefulSet
-    jsonPointers:
-    - /spec/replicas
+  # I think we prefer use of 'enabled' as an override
+  # ignoreDifferences:
+  # - group: apps
+  #   kind: Deployment
+  #   jsonPointers:
+  #   - /spec/replicas
+  # - group: apps
+  #   kind: StatefulSet
+  #   jsonPointers:
+  #   - /spec/replicas
 ---
 {{- end -}}
