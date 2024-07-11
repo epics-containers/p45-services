@@ -23,10 +23,10 @@ services:
 
   # daq services ###############################################################
   - service: daq-rabbitmq
-  - service: daq-nexus
     # this service always restarts if you don't pin it (must have a random seed)
     targetRevision: 2024.7.5
   - service: daq-blueapi
+  - service: daq-nexus
 
   # epics iocs #################################################################
 
