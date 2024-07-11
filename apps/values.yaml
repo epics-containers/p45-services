@@ -25,8 +25,8 @@ services:
   - service: daq-rabbitmq
     # this service always restarts if you don't pin it (must have a random seed)
     targetRevision: 2024.7.5
-  # - service: daq-blueapi
-  #   enabled: false # --- boot looping
+  - service: daq-blueapi
+     enabled: true # --- boot looping
 
   # epics iocs #################################################################
 
