@@ -20,7 +20,7 @@ blueapi:
       effect: NoSchedule
   ingress:
     create: false
-#    host: p45-blueapi.diamond.ac.uk  # TODO: Get DNS entry created
+    host: p45-blueapi.diamond.ac.uk  # TODO: Get DNS entry created
   extraEnvVars: |
     - name: SCRATCH_AREA
       value: {{ .Values.scratch.containerPath }}
@@ -32,18 +32,14 @@ blueapi:
   worker:
     env:
       sources:
-        - kind: dodal
-          module: dodal.beamlines.p45
+      - kind: dodal
+        module: dodal.beamlines.p45
         # TODO: Make p45 plans repository
-        - kind: planFunctions
-          module: dls_bluesky_core.plans
-        - kind: planFunctions
-          module: dls_bluesky_core.stubs
-      data_writing:
-        visit_service_url: http://p45-control.diamond.ac.uk:8088/api
-        visit_directory: /dls/p45/data/2024/cm37283-2
-        group_name: p45
-      events: 
+      - kind: planFunctions
+        module: dls_bluesky_core.plans
+      - kind: planFunctions
+        module: dls_bluesky_core.stubs
+      events:
         broadcast_status_events: False
     stomp:
       auth:
