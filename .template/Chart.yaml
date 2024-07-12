@@ -4,13 +4,11 @@ name: ec-service
 
 version: 1.0.0
 
-# TODO - what does argo do with appVersion?
-appVersion: 0.0.1b1
-
 type: application
 
 dependencies:
   - name: ioc-instance
-    version: 3.5.4+b9
-    repository: "oci://ghcr.io/epics-containers"
+    version: 4.0.0
+    #repository: "oci://ghcr.io/epics-containers"
+    # version 1.0.0
     # repository: "file:///home/giles/work/ec-helm-charts/Charts/ioc-instance"

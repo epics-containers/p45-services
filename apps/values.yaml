@@ -18,34 +18,33 @@ source:
 
 services:
   # shared epics services ######################################################
-  - service: epics-pvcs
-  - service: epics-opis
+  epics-pvcs:
+  epics-opis:
 
   # daq services ###############################################################
-  - service: daq-rabbitmq
+  daq-rabbitmq:
     # this service always restarts if you don't pin it (must have a random seed)
     targetRevision: 2024.7.5
-  - service: daq-blueapi
-  - service: daq-nexus
+  daq-blueapi:
+  daq-nexus:
 
   # epics iocs #################################################################
 
-  # example of epics templating in an oci helm registry
-  - service: bl45p-ea-dcam-01
+  # example of epics templating in a local shared folder
+  bl45p-ea-dcam-01:
     enabled: false
     folder: dls-aravis
     values:
       P: BL45P-EA-MAP-01
       ID: bl45p-ea-detector-01
 
-  # example of epics templating in a local shared folder
-  - service: bl45p-ea-dcam-02
+  bl45p-ea-dcam-02:
     folder: dls-aravis
     values:
       P: BL45P-EA-DIFF-01
       ID: bl45p-ea-detector-02
 
 
-  - service: bl45p-mo-panda-01
-  - service: bl45p-mo-panda-02
-  - service: bl45p-mo-brick-01
+  bl45p-mo-panda-01:
+  bl45p-mo-panda-02:
+  bl45p-mo-brick-01:
