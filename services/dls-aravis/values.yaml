@@ -7,10 +7,10 @@
 # each type of plugin you would like. Currently there is a fixed set of plugins.
 
 # PV Prefix
-P: p
+P:
 
 # Camera ID - identifier, ip address or DNS name
-ID: id
+ID:
 
 # The type of camera - leave this value as AutoADGenICam for automatic discovery
 CLASS: AutoADGenICam
