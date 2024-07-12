@@ -1,0 +1,50 @@
+project: bl45p
+destination:
+  name: pollux
+  namespace: bl45p
+source:
+  repoURL: https://github.com/epics-containers/bl45p.git
+  targetRevision: main
+
+# list of services to deploy. Each item is of the form:
+# - service: service name as it appears in K8S (statefulset/deployment name)
+#   enabled: set to false to turn off an IOC
+#   targetRevision: optional override for targetRevision above
+#   repoURL: optional override for helm chart repo or git repo
+#   chart: chart name if above is a helm repo (needs a token so let's not)
+#   folder: a subfolder of /services, defaults  /services/service_name
+#       used this for shared, templated charts and add some values to customize
+#   values: A dict of key:value to pass as parameters to the target chart
+
+services:
+  # shared epics services ######################################################
+  epics-pvcs:
+  epics-opis:
+
+  # daq services ###############################################################
+  daq-rabbitmq:
+    # this service always restarts if you don't pin it (must have a random seed)
+    targetRevision: 2024.7.5
+  daq-blueapi:
+  daq-nexus:
+
+  # epics iocs #################################################################
+
+  # example of epics templating in a local shared folder
+  bl45p-ea-dcam-01:
+    enabled: false
+    folder: dls-aravis
+    values:
+      P: BL45P-EA-MAP-01
+      ID: bl45p-ea-detector-01
+
+  bl45p-ea-dcam-02:
+    folder: dls-aravis
+    values:
+      P: BL45P-EA-DIFF-01
+      ID: bl45p-ea-detector-02
+
+
+  bl45p-mo-panda-01:
+  bl45p-mo-panda-02:
+  bl45p-mo-brick-01:

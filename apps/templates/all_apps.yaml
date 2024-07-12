@@ -1,0 +1,52 @@
+{{- $currentScope := . -}}
+{{- range $service, $settings := .Values.services -}}
+# if there are no settings, make settings just {enabled: true)
+{{- $settings := default (dict "enabled" true) $settings -}}
+# set removed to true to take this application off of the cluster
+{{ if ne $settings.removed true }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $service }}
+  namespace: {{ $currentScope.Release.Namespace }}
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: {{ default $currentScope.Release.Namespace $currentScope.Values.project }}
+  destination:
+    namespace: {{ $currentScope.Values.destination.namespace }}
+    name: {{ $currentScope.Values.destination.name }}
+  source:
+    repoURL: {{ default $currentScope.Values.source.repoURL $settings.repoURL }}
+    path: services/{{ default $service $settings.folder }}
+    targetRevision: {{ default $currentScope.Values.source.targetRevision $settings.targetRevision }}
+    helm:
+      version: v3
+      valueFiles:
+        - ../beamline_values.yaml
+        - values.yaml
+      {{-  range $settings.files  }}
+      fileParameters:
+        - name: global.files.{{ . | replace "." "_dot_" }}
+          path: config/{{ . }}
+      {{- end }}
+      {{- if eq $settings.enabled false }}
+      parameters:
+        - name: global.enabled
+          value: {{ $settings.enabled | quote }}
+      {{- end -}}
+      {{ if $settings.values -}}
+      values: |
+{{ toYaml $settings.values | indent 8 }}
+      {{- end }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      # don't restart pods unless there has been a change
+      - ApplyOutOfSyncOnly=true
+      - RespectIgnoreDifferences=true
+---
+{{ end }}
+{{- end -}}
