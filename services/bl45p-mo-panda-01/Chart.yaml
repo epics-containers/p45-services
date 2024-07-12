@@ -8,6 +8,6 @@ type: application
 
 dependencies:
   - name: ioc-instance
-    version: 3.5.1+b9
+    version: 3.5.4+b9
     repository: "oci://ghcr.io/epics-containers"
     # repository: "file:///home/giles/work/ec-helm-charts/Charts/ioc-instance"
