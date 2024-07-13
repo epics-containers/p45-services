@@ -13,4 +13,4 @@ dependencies:
   - name: dls-aravis
     version: 1.0.0
     # repository: "file://../dls-aravis"
-    repository: "https://raw.githubusercontent.com/epics-containers/bl45p/main/services/dls-aravis/"
+    repository: "https://raw.githubusercontent.com/epics-containers/bl45p/argo-update/services/dls-aravis/"

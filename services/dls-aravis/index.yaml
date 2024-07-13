@@ -1,3 +1,12 @@
 apiVersion: v1
-entries: {}
-generated: "2024-07-13T08:28:26.407413992+01:00"
+entries:
+  dls-aravis:
+  - apiVersion: v2
+    created: "2024-07-13T08:35:50.517629443+01:00"
+    digest: 63ed1585950901f5a100c15169b9c654985bfde51151b1d5123101bf00c777ed
+    name: dls-aravis
+    type: application
+    urls:
+    - dls-aravis-1.0.0.tgz
+    version: 1.0.0
+generated: "2024-07-13T08:35:50.517454132+01:00"
