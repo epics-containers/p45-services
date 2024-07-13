@@ -1,7 +1,6 @@
 # shared beamline values for all services
 
 ioc-instance:
-
   securityContext:
     runAsUser: 37988
     runAsGroup: 37988
@@ -21,5 +20,3 @@ ioc-instance:
 
 global:
   beamline: bl45p
-  enabled: true
-
