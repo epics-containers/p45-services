@@ -11,6 +11,6 @@ dependencies:
     version: 4.0.0
     repository: "oci://ghcr.io/epics-containers"
   - name: dls-aravis
-    version: 1.0.0
+    version: 1.0.1
     # repository: "file://../dls-aravis"
     repository: "https://raw.githubusercontent.com/epics-containers/bl45p/argo-update/services/dls-aravis/"
