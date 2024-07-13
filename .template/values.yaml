@@ -1,8 +1,0 @@
-# yaml-language-server: $schema=https://github.com/marcelldls/ec-helm-charts/releases/download/3.4.4/ioc-instance.schema.json#/$defs/service
-
-# This command will list the overridable values and their defaults:
-#   helm show values oci://ghcr.io/epics-containers/ioc-instance
-
-ioc-instance:
-
-  image:

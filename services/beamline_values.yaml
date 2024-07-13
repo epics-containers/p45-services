@@ -1,8 +1,6 @@
 # shared beamline values for all services
 
 ioc-instance:
-  beamline: bl45p
-
   securityContext:
     runAsUser: 37988
     runAsGroup: 37988
@@ -19,3 +17,7 @@ ioc-instance:
       operator: "Equal"
       value: "test-rig"
       effect: "NoSchedule"
+
+global:
+  beamline: bl45p
+  enabled: true
