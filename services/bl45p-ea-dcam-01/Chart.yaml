@@ -8,7 +8,7 @@ type: application
 
 dependencies:
   - name: ioc-instance
-    version: 4.0.0
+    version: 4.0.1+b1
     repository: "oci://ghcr.io/epics-containers"
   - name: dls-aravis
     version: 1.0.0
