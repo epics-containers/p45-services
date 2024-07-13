@@ -1,12 +1,12 @@
 apiVersion: v1
 entries:
   dls-aravis:
-  - apiVersion: v2
-    created: "2024-07-13T08:39:07.741403947+01:00"
-    digest: 63ed1585950901f5a100c15169b9c654985bfde51151b1d5123101bf00c777ed
-    name: dls-aravis
-    type: application
-    urls:
-    - https://raw.githubusercontent.com/epics-containers/bl45p/main/services/dls-aravis/dls-aravis-1.0.0.tgz
-    version: 1.0.0
+    - apiVersion: v2
+      created: "2024-07-13T08:39:07.741403947+01:00"
+      digest: 63ed1585950901f5a100c15169b9c654985bfde51151b1d5123101bf00c777ed
+      name: dls-aravis
+      type: application
+      urls:
+        - https://raw.githubusercontent.com/epics-containers/bl45p/argo-updates/services/dls-aravis/dls-aravis-1.0.0.tgz
+      version: 1.0.0
 generated: "2024-07-13T08:39:07.741196466+01:00"
