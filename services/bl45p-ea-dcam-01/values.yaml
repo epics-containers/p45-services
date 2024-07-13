@@ -1,0 +1,10 @@
+# Arguments to the shared ioc instance template dls-aravis
+# This will make an IOC instance for an aravis camera with a standard set
+# of Areadetector plugins.
+
+dls-aravis:
+  P: BL45P-EA-MAP-01
+  ID: bl45p-ea-detector-01
+
+ioc-instance:
+  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.7.1

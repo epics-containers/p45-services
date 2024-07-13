@@ -9,6 +9,7 @@ type: application
 dependencies:
   - name: ioc-instance
     version: 4.0.0
-    #repository: "oci://ghcr.io/epics-containers"
-    # version 1.0.0
-    # repository: "file:///home/giles/work/ec-helm-charts/Charts/ioc-instance"
+    repository: "oci://ghcr.io/epics-containers"
+  - name: dls-aravis
+    version: 1.0.0
+    repository: "file://../dls-aravis"
