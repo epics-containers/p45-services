@@ -12,4 +12,4 @@ dependencies:
     repository: "oci://ghcr.io/epics-containers"
   - name: dls-aravis
     version: 1.0.0
-    repository: "../dls-aravis"
+    # this is locally available via symlink in the charts directory
