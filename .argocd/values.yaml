@@ -9,11 +9,11 @@
 # parameters that pass in files from the config folder in each service.
 
 project: ""
+service: ""
 destination:
   name: ""
   namespace: ""
 source:
   repoURL: ""
   targetRevision: ""
-  path: ""
 

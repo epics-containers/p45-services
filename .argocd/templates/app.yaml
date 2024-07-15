@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Values.destination.name }}-app
+  name: {{ .Values.service }}
   namespace: {{ .Release.Namespace }}
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -9,10 +9,10 @@ spec:
   project: {{ .Values.project }}
   destination:
     namespace: {{ .Values.destination.namespace }}
-    name: {{ .Values.destination.name }}-svc
+    name: {{ .Values.destination.name }}
   source:
     repoURL: {{ .Values.source.repoURL }}
-    path: {{ .Values.source.path }}
+    path: services/{{ .Values.service }}
     targetRevision: {{ .Values.source.targetRevision }}
     helm:
       version: v3
