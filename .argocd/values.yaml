@@ -1,0 +1,19 @@
+# This is a local argo cd app for deploying each of the helm charts represented
+# in the services folder.
+#
+# It is intended to be called by a parent Argo CD app from a separate repo
+# which will pass values as follows:
+#
+# The reason for this additional app inserted between the app of apps and
+# the helm chart itself is so that we have a local place to make the helm
+# parameters that pass in files from the config folder in each service.
+
+project: ""
+destination:
+  name: ""
+  namespace: ""
+source:
+  repoURL: ""
+  targetRevision: ""
+  path: ""
+

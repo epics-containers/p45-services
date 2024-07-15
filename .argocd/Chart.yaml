@@ -1,0 +1,7 @@
+apiVersion: v2
+name: argoServiceApp
+description: A local Argo CD app for deploying services in this repository
+
+type: application
+
+version: 1.0.0
