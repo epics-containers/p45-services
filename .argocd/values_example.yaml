@@ -1,0 +1,9 @@
+
+project: bl45p
+destination:
+  name: pollux
+  namespace: bl45p
+source:
+  repoURL: https://github.com/epics-containers/bl45p.git
+  targetRevision: main
+  path: /services/bl45p-ea-dcam-01

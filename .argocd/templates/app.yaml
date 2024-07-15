@@ -12,7 +12,7 @@ spec:
     name: {{ .Values.destination.name }}
   source:
     repoURL: {{ .Values.source.repoURL }}
-    path: {{ .Vaules.source.path }}
+    path: {{ .Values.source.path }}
     targetRevision: {{ .Values.source.targetRevision }}
     helm:
       version: v3
@@ -20,10 +20,12 @@ spec:
         - ../beamline_values.yaml
         - values.yaml
       fileParameters:
-      {{-  range .Files.glob{{ "config/*"}}  }}
-        - name: global.files.{{ . | replace "." "_dot_" }}
-          path: config/{{ . }}
-      {{- end -}}
+        {{-  range $name, $path := .Values.configFiles }}
+          # TODO change this to global.files.$name for better clarity
+          # requires a change to the helm chart
+          - name: global.files.{{ $path | replace "." "_dot_" }}
+            path: config/{{ $path }}
+        {{- end }}
   syncPolicy:
     automated:
       prune: true
