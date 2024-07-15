@@ -1,33 +1,48 @@
+# Boilerplate root app for a beamline.
+#
+# Recieves the services dictionary from the values.yaml file that is maintained
+# in the blxxi-app repo and generates an app for each service described in that
+# dictionary. The services are helm charts that are sourced from the services
+# directory in this repo.
+#
+{{- $currentScope := . -}}
+{{- range $service, $settings := .Values.services }}
+{{- /* Make sure settings is an empty dict if it is currently nil */ -}}
+{{ $settings := default dict $settings -}}
+{{ if ne $settings.removed true }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Values.service }}-svc
-  namespace: {{ .Release.Namespace }}
+  name: {{ $service }}
+  namespace: {{ $currentScope.Release.Namespace }}
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: {{ .Values.project }}
+  project: {{ $currentScope.Values.project }}
   destination:
-    namespace: {{ .Values.destination.namespace }}
-    name: {{ .Values.destination.name }}
+    namespace: {{ $currentScope.Values.destination.namespace }}
+    name: {{ $currentScope.Values.destination.name }}
   source:
-    repoURL: {{ .Values.source.repoURL }}
-    path: services/{{ .Values.service }}
-    targetRevision: {{ .Values.source.targetRevision }}
+    repoURL: {{ default $currentScope.Values.source.repoURL $settings.repoURL }}
+    path: services/{{ $service }}
+    targetRevision: {{ default $currentScope.Values.source.targetRevision $settings.targetRevision }}
     helm:
       version: v3
       valueFiles:
         - ../beamline_values.yaml
         - values.yaml
-      {{- if .Values.configFiles }}
+      {{- if $currentScope.Values.configFiles }}
       fileParameters:
-        {{-  range $name, $path := .Values.configFiles }}
+        {{-  range $name, $path := $currentScope.Values.configFiles }}
           # TODO change this to global.files.$name for better clarity
           # requires a change to the helm chart
           - name: global.files.{{ $path | replace "." "_dot_" }}
             path: config/{{ $path }}
         {{- end -}}
       {{- end }}
+      parameters:
+        - name: global.enabled
+          value: {{ eq $settings.enabled false | ternary false true | quote }}
   syncPolicy:
     automated:
       prune: true
@@ -36,3 +51,6 @@ spec:
       # don't restart pods unless there has been a change
       - ApplyOutOfSyncOnly=true
       - RespectIgnoreDifferences=true
+---
+{{- end -}}
+{{ end }}
