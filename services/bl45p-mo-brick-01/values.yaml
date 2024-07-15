@@ -2,6 +2,7 @@
 
 configFiles:
   iocyaml: ioc.yaml
+  ttdb: test.db
 
 # latest container image for GigE cameras from the GitHub Container Registry
 ioc-instance:
