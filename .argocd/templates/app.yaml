@@ -19,13 +19,15 @@ spec:
       valueFiles:
         - ../beamline_values.yaml
         - values.yaml
+      {{- if .Values.configFiles }}
       fileParameters:
         {{-  range $name, $path := .Values.configFiles }}
           # TODO change this to global.files.$name for better clarity
           # requires a change to the helm chart
           - name: global.files.{{ $path | replace "." "_dot_" }}
             path: config/{{ $path }}
-        {{- end }}
+        {{- end -}}
+      {{- end }}
   syncPolicy:
     automated:
       prune: true
