@@ -8,5 +8,5 @@ type: application
 
 dependencies:
   - name: ioc-instance
-    version: 4.0.1+b2
+    version: 3.5.1+b10
     repository: "oci://ghcr.io/epics-containers"
