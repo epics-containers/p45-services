@@ -8,7 +8,7 @@ type: application
 
 dependencies:
   - name: ioc-instance
-    version: 3.5.1+b10
+    version: 3.5.1
     repository: "oci://ghcr.io/epics-containers"
   # dls-aravis is locally available via symlink in the charts directory
   - name: dls-aravis
