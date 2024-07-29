@@ -21,7 +21,7 @@ export EC_REGISTRY_MAPPING_REGEX='
 .*gitlab.diamond.ac.uk.*\/(.*) gcr.io/diamond-privreg/controls/prod/ioc/\1
 '
 # the namespace to use for kubernetes deployments - use local for local docker/podman
-export EC_K8S_NAMESPACE=bl45p
+export EC_NAMESPACE=bl45p
 # the git repo for this project
 export EC_SERVICES_REPO=git@github.com:epics-containers/bl45p.git
 # declare your centralised log server Web UI
