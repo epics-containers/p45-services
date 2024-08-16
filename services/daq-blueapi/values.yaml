@@ -18,11 +18,9 @@ blueapi:
       operator: Equal
       value: bl45p
       effect: NoSchedule
-  service:
-    type: LoadBalancer # TODO: when DNS entry created expose only as ClusterIP
   ingress:
-    create: false
-    host: p45-blueapi.diamond.ac.uk  # TODO: Get DNS entry created
+    create: true
+    host: p45-blueapi.diamond.ac.uk
   extraEnvVars: |
     - name: SCRATCH_AREA
       value: {{ .Values.scratch.containerPath }}
