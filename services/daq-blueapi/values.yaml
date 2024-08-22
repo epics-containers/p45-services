@@ -34,6 +34,8 @@ blueapi:
       sources:
       - kind: dodal
         module: dodal.beamlines.p45
+      - kind: planFunctions
+        module: i22_bluesky.plans
         # TODO: Make p45 plans repository
       - kind: planFunctions
         module: dls_bluesky_core.plans
