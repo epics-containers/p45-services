@@ -46,4 +46,6 @@ blueapi:
         username: p45
         passcode: ${RABBITMQ_PASSWORD}
       host: p45-rabbitmq-daq.diamond.ac.uk
+    scratch:
+      root: /dls_sw/p45/software/blueapi/scratch
   scratchHostPath: /dls_sw/p45/software/blueapi/scratch
