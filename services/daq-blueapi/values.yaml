@@ -21,7 +21,7 @@ blueapi:
   ingress:
     create: true
     host: p45-blueapi.diamond.ac.uk
-  extraEnvVars: |
+  extraEnvVars:
     - name: RABBITMQ_PASSWORD
       valueFrom:
         secretKeyRef:
