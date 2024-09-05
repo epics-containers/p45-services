@@ -22,8 +22,6 @@ blueapi:
     create: true
     host: p45-blueapi.diamond.ac.uk
   extraEnvVars: |
-    - name: SCRATCH_AREA
-      value: {{ .Values.scratch.containerPath }}
     - name: RABBITMQ_PASSWORD
       valueFrom:
         secretKeyRef:
@@ -48,6 +46,4 @@ blueapi:
         username: p45
         passcode: ${RABBITMQ_PASSWORD}
       host: p45-rabbitmq-daq.diamond.ac.uk
-  scratch:
-    hostPath: /dls_sw/p45/software/blueapi/scratch
-    containerPath: /dls_sw/p45/software/blueapi/scratch
+  scratchHostPath: /dls_sw/p45/software/blueapi/scratch
