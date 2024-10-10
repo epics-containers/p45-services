@@ -44,8 +44,10 @@ blueapi:
     stomp:
       auth:
         username: p45
-        passcode: ${RABBITMQ_PASSWORD}
+        password: ${RABBITMQ_PASSWORD}
       host: p45-rabbitmq-daq.diamond.ac.uk
+
+  initContainer:
     scratch:
       root: /dls_sw/p45/software/blueapi/scratch
       repositories:

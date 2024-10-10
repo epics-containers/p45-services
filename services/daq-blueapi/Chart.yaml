@@ -2,7 +2,7 @@ apiVersion: v2
 name: daq-blueapi
 description: blueapi
 
-version: 0.4.5-a3
+version: 0.6.0
 
 # When we deploy with the edge-containers-cli we override this on the command line.
 # Direct deployment with Helm will use the default beta value.
@@ -12,5 +12,5 @@ type: application
 
 dependencies:
   - name: blueapi
-    version: "0.4.5-a3"
+    version: "0.6.0"
     repository: "oci://ghcr.io/diamondlightsource/charts"
