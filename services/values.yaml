@@ -1,25 +1,40 @@
 # shared beamline values for all services
 
 global:
-  beamline: bl45p
-  enabled: true
-  location: bl45p
   ioc_group: p45
+  location: bl45p
+  enabled: true
 
 ioc-instance:
+  # useHostNetwork - use host network for IOC - required for Channel Access
+  # to work outside of the cluster
+  hostNetwork: true
+
+  # affinity and tolerations to get the right nodes on pollux
   securityContext:
     runAsUser: 37988
     runAsGroup: 37988
 
-  dataVolume:
-    pvc: false
-    hostPath: /dls/p45/data
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: beamline
+                operator: In
+                values:
+                  - bl45p
 
-  useAffinity: true
-
-  # extra toleration for bl45p's nodetype taint
   tolerations:
-    - key: "nodetype"
-      operator: "Equal"
-      value: "test-rig"
-      effect: "NoSchedule"
+    - key: beamline
+      operator: Equal
+      value: bl45p
+      effect: NoSchedule
+    - key: location
+      operator: Equal
+      value: bl45p
+      effect: NoSchedule
+    - key: nodetype
+      operator: Equal
+      value: training-rig
+      effect: NoSchedule

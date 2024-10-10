@@ -1,20 +1,4 @@
-epics-opis:
-  # the beamline name - only set for beamlines
-  beamline: bl45p
-  # the location where the IOCs will run - same as beamline for beamlines
-  ioc_group: bl45p
-  # the name of the repository in which the IOC is grouped
-  location: bl45p
-
-  # useAffinity - only run on nodes with label beamline:<beamline-name>
-  # or location:<location-name>
-  # Comment out useAffiniity for dedicated cluster, set to true for shared cluster
-
-  useAffinity: true
-
-  # extra toleration for the shared cluster training rigs
-  tolerations:
-    - key: "nodetype"
-      operator: "Equal"
-      value: "test-rig"
-      effect: "NoSchedule"
+# Short name for this collection of services
+# ioc_group:
+# location where these IOCs and services will run
+# location:

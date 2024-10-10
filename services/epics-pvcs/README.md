@@ -8,13 +8,3 @@ Sets up the PVCs that all IOCs may use. These should be set up once and not dele
   - autosave data: for IOCs that support autosave. This is separate from IOC helm charts so that it can survive deletion and re-creation of an IOC.
 
   - opis: all the OPI files for engineering screens that an IOC supplies are saved here. This is stored in a single PVC so that the opis service can publish them over http for access by an OPI client.
-
-Deploy this chart to the cluster by setting up your cluster namespace connection using environment.sh and then executing
-the following commands:
-
-```bash
-# lists the latest versions of all services
-ec list
-# deploy the latest version of the epics-pvcs
-ec deploy epics-pvcs VERSION
-```
