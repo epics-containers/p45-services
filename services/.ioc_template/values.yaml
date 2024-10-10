@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://github.com/epics-containers/ec-helm-charts/releases/download/3.4.4/ioc-instance.schema.json#/$defs/service
+ioc-instance:
+  image: REPLACE_WITH_IMAGE_URI
+
+  # NOTE: the following are suggestions to help with debugging IOCs
+  # 1. replace the runtime container with the developer version
+  #    this adds tools and compilers to the container so you
+  #    can experiment in the cluster to fix the issue
+  #
+  # image: ghcr.io/epics-containers/ioc-adsimdetector-developer:2024.4.1
+
+  # 2. override the entry point to be a sleep infinity
+  #    this means you can now use 'ec exec' to get a shell
+  #    in the container and run /epics/ioc/start.sh.
+  #    If it fails you can see the error and the pod
+  #    will not terminate. In combination with 1. above you
+  #    can experiment with changes until the issue
+  #    is fixed.
+  #
+  # startCommand: sleep
+  # startArgs: infinity
