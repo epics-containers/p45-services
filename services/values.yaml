@@ -21,3 +21,4 @@ ioc-instance:
 global:
   beamline: bl45p
   enabled: true
+  location: bl46p
