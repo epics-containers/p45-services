@@ -25,16 +25,9 @@ ioc-instance:
                 values:
                   - bl45p
 
+  # extra toleration for bl45p's nodetype taint
   tolerations:
-    - key: beamline
-      operator: Equal
-      value: bl45p
-      effect: NoSchedule
-    - key: location
-      operator: Equal
-      value: bl45p
-      effect: NoSchedule
-    - key: nodetype
-      operator: Equal
-      value: training-rig
-      effect: NoSchedule
+    - key: "nodetype"
+      operator: "Equal"
+      value: "test-rig"
+      effect: "NoSchedule"
