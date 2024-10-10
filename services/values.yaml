@@ -15,19 +15,22 @@ ioc-instance:
     runAsUser: 37988
     runAsGroup: 37988
 
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-              - key: beamline
-                operator: In
-                values:
-                  - bl45p
+  dataVolume:
+    pvc: false
+    hostPath: /dls/p45/data
 
-  # extra toleration for bl45p's nodetype taint
+  useAffinity: true
+
   tolerations:
-    - key: "nodetype"
-      operator: "Equal"
-      value: "test-rig"
-      effect: "NoSchedule"
+    - key: beamline
+      operator: Equal
+      value: bl45p
+      effect: NoSchedule
+    - key: location
+      operator: Equal
+      value: bl45p
+      effect: NoSchedule
+    - key: nodetype
+      operator: Equal
+      value: test-rig
+      effect: NoSchedule
