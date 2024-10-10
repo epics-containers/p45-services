@@ -10,23 +10,23 @@ blueapi:
   nodeSelector:
     kubernetes.io/hostname: p45-control.diamond.ac.uk
   tolerations:
-    - key: nodetype
-      operator: Equal
-      value: test-rig
-      effect: NoSchedule
-    - key: beamline
-      operator: Equal
-      value: bl45p
-      effect: NoSchedule
+  - key: nodetype
+    operator: Equal
+    value: test-rig
+    effect: NoSchedule
+  - key: beamline
+    operator: Equal
+    value: bl45p
+    effect: NoSchedule
   ingress:
     create: true
     host: p45-blueapi.diamond.ac.uk
   extraEnvVars:
-    - name: RABBITMQ_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: rabbitmq-password
-          key: rabbitmq-password
+  - name: RABBITMQ_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: rabbitmq-password
+        key: rabbitmq-password
   worker:
     env:
       sources:
@@ -44,11 +44,15 @@ blueapi:
     stomp:
       auth:
         username: p45
-        passcode: ${RABBITMQ_PASSWORD}
+        password: ${RABBITMQ_PASSWORD}
       host: p45-rabbitmq-daq.diamond.ac.uk
     scratch:
       root: /dls_sw/p45/software/blueapi/scratch
+
+  initContainer:
+    scratch:
+      root: /dls_sw/p45/software/blueapi/scratch
       repositories:
-        - name: dodal
-          remote_url: https://github.com/DiamondLightSource/dodal.git
+      - name: dodal
+        remote_url: https://github.com/DiamondLightSource/dodal.git
   scratchHostPath: /dls_sw/p45/software/blueapi/scratch
