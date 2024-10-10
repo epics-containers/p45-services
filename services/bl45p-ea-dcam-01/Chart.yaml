@@ -1,14 +1,13 @@
 # A Helm Chart for an IOC instance
 apiVersion: v2
 name: ec-service
-
 version: 1.0.0
 
 type: application
 
 dependencies:
   - name: ioc-instance
-    version: 3.5.1
+    version: 4.0.0
     repository: "oci://ghcr.io/epics-containers"
   # dls-aravis is locally available via symlink in the charts directory
   - name: dls-aravis
