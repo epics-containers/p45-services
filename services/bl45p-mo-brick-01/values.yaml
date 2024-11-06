@@ -2,6 +2,4 @@
 
 # latest container image for the pmac motion controller
 ioc-instance:
-  image: ghcr.io/epics-containers/ioc-pmac-runtime:2024.5.1
-
-
+  image: ghcr.io/epics-containers/ioc-pmac-runtime:2024.9.1
