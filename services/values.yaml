@@ -1,4 +1,4 @@
-# shared beamline values for all services
+# shared values for all services
 
 global:
   ioc_group: p45
