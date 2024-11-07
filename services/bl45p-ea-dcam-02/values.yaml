@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://github.com/epics-containers/ec-helm-charts/releases/download/4.1.2/ioc-instance.schema.json
+
 # Arguments to the shared ioc instance template dls-aravis
 # This will make an IOC instance for an aravis camera with a standard set
 # of Areadetector plugins.
@@ -7,4 +9,5 @@ dls-aravis:
   ID: bl45p-ea-detector-02
 
 ioc-instance:
-  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.7.1
+  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.11.1
+  location: bl45p # TODO remove me when schema is fixed

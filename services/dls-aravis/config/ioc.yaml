@@ -5,6 +5,10 @@ ioc_name: "[[ _global.get_env('IOC_NAME') ]]"
 description: shared template for all Aravis cameras on p45
 
 entities:
+  - type: epics.EpicsEnvSet
+    name: EPICS_TZ
+    value: "GMT0BST"
+
   - type: epics.EpicsCaMaxArrayBytes
     max_bytes: 6000000
 
@@ -16,7 +20,7 @@ entities:
     IOC: "[[ ioc_name | upper ]]"
 
   - type: ADAravis.aravisCamera
-    CLASS: {{ .Values.CLASS}}
+    CLASS: {{ .Values.CLASS }}
     ID: {{ .Values.ID }}
     P:  {{ .Values.P }}
     PORT: DET.DET

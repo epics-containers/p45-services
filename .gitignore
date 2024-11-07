@@ -1,6 +1,9 @@
+**/*.tz
+**/*.tgz
 .history
-**/*.bob
-edm/bobs
-**/*copy
-**/charts/*tgz
+venv*
+.venv*
 **/Chart.lock
+**/charts
+**/*copy
+.ci_work

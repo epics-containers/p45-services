@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # a bash script to source in order to set up your command line to in order
-# to work with the bl45p IOCs and Services.
+# to work with the p45 IOCs and Services.
 
 # check we are sourced
 if [ "$0" = "$BASH_SOURCE" ]; then
@@ -9,28 +9,17 @@ if [ "$0" = "$BASH_SOURCE" ]; then
     exit 1
 fi
 
-echo "Loading environment for beamline bl45p IOC Instances and Services ..."
+echo "Loading environment for p45 IOC Instances and Services ..."
 
 #### SECTION 1. Environment variables ##########################################
 
-# a mapping between generic IOC repo roots and the related container registry
-# use spaces or line breaks to separate multiple mappings by default this
-# inlcudes mappings for github and DLS gitlab, add your own here.
-export EC_REGISTRY_MAPPING_REGEX='
-.*github.com:(.*)\/(.*) ghcr.io/\1/\2
-.*gitlab.diamond.ac.uk.*\/(.*) gcr.io/diamond-privreg/controls/prod/ioc/\1
-'
-# the namespace to use for kubernetes deployments - use local for local docker/podman
-export EC_NAMESPACE=bl45p
+export EC_CLI_BACKEND="K8S"
+# the namespace to use for kubernetes deployments
+export EC_TARGET=p45-beamline
 # the git repo for this project
-export EC_SERVICES_REPO=git@github.com:epics-containers/bl45p.git
+export EC_SERVICES_REPO=https://github.com/epics-containers/p45-services
 # declare your centralised log server Web UI
-export EC_LOG_URL="https://graylog.diamond.ac.uk/search?rangetype=relative&fields=message%2Csource&width=1489&highlightMessage=&relative=172800&q=pod_name%3A{service_name}*"
-# enforce a specific container cli - defaults to whatever is available
-# export EC_CONTAINER_CLI=podman
-# enable debug output in all 'ec' commands
-# export EC_DEBUG=1
-
+export EC_LOG_URL="https://graylog2.diamond.ac.uk/search?rangetype=relative&fields=message%2Csource&width=1489&highlightMessage=&relative=172800&q=pod_name%3A{service_name}*"
 
 #### SECTION 2. Install ec #####################################################
 
@@ -46,12 +35,13 @@ source <(ec --show-completion ${SHELL})
 
 #### SECTION 3. Configure Kubernetes Cluster ###################################
 
+
 # the following configures kubernetes inside DLS.
 
 module unload pollux > /dev/null
 module load pollux > /dev/null
 # set the default namespace for kubectl and helm (for convenience only)
-kubectl config set-context --current --namespace=bl45p
+kubectl config set-context --current --namespace=p45-beamline
 # make sure the user has provided credentials
 kubectl version
 

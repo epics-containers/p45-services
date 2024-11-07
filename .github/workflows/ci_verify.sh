@@ -8,14 +8,45 @@
 # other future services that don't use ibek, we will need to add a standard
 # entrypoint for validating the config folder mounted at /config.
 
-ROOT=$(realpath $(dirname ${0})/../..)
+HERE=$(realpath $(dirname ${0}))
+ROOT=$(realpath ${HERE}/../..)
 set -xe
+rm -rf ${ROOT}/.ci_work/
+mkdir -p ${ROOT}/.ci_work
 
 # use docker if available else use podman
 if ! docker version &>/dev/null; then docker=podman; else docker=docker; fi
 
-for service in ${ROOT}/services/*
+# copy the services to a temporary location to avoid dirtying the repo
+cp -r ${ROOT}/services/* ${ROOT}/.ci_work/
+
+for service in ${ROOT}/services/*/  # */ to skip files
 do
+    ### Lint each service chart and validate if schema given ###
+    service_name=$(basename $service)
+
+    # skip services appearing in ci_skip_checks
+    checks=${HERE}/ci_skip_checks
+    if [[ -f ${checks} ]] && grep -q ${service_name} ${checks}; then
+        echo "Skipping ${service_name}"
+        continue
+    fi
+
+    schema=$(cat ${service}/values.yaml | sed -rn 's/^# yaml-language-server: \$schema=(.*)/\1/p')
+    if [ -n "${schema}" ]; then
+        echo "{\"\$ref\": \"$schema\"}" > ${ROOT}/.ci_work/$service_name/values.schema.json
+    fi
+
+    $docker run --rm --entrypoint bash \
+        -v ${ROOT}/.ci_work:/services \
+        alpine/helm:3.14.3 \
+        -c "
+           helm lint /services/$service_name --values /services/values.yaml &&
+           helm dependency update /services/$service_name &&
+           rm -rf /services/$service_name/charts
+        "
+
+    ### Valiate each ioc config ###
     # Skip if subfolder has no config to validate
     if [ ! -f "${service}/config/ioc.yaml" ]; then
         continue
@@ -27,10 +58,20 @@ do
     if [ -n "${image}" ]; then
         echo "Validating ${service} with ${image}"
 
+        runtime=/tmp/ioc-runtime/$(basename ${service})
+        mkdir -p ${runtime}
+
         # This will fail and exit if the ioc.yaml is invalid
         $docker run --rm --entrypoint bash \
-            -v ${service}/config:/config ${image} \
+            -v ${service}/config:/config \
+            -v ${runtime}:/epics/runtime \
+            ${image} \
             -c 'ibek runtime generate /config/ioc.yaml /epics/ibek-defs/*'
+        # show the startup script we just generated (and verify it exists)
+        cat  ${runtime}/st.cmd
 
     fi
+
 done
+
+rm -r ${ROOT}/.ci_work
