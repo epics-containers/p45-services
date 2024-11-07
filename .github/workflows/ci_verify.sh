@@ -16,23 +16,23 @@ mkdir -p ${ROOT}/.ci_work
 # use docker if available else use podman
 if ! docker version &>/dev/null; then docker=podman; else docker=docker; fi
 
+# copy the services to a temporary location to avoid dirtying the repo
+cp -r ${ROOT}/services/* ${ROOT}/.ci_work/
+
 for service in ${ROOT}/services/*/  # */ to skip files
 do
-
     ### Lint each service chart and validate if schema given ###
     service_name=$(basename $service)
-    cp -r $service ${ROOT}/.ci_work/$service_name
     schema=$(cat ${service}/values.yaml | sed -rn 's/^# yaml-language-server: \$schema=(.*)/\1/p')
     if [ -n "${schema}" ]; then
         echo "{\"\$ref\": \"$schema\"}" > ${ROOT}/.ci_work/$service_name/values.schema.json
     fi
     $docker run --rm --entrypoint bash \
-        -v ${ROOT}/.ci_work/$service_name:/services/$service_name \
+        -v ${ROOT}/.ci_work:/services \
         alpine/helm:3.14.3 \
         -c "helm dependency update /services/$service_name"
     $docker run --rm --entrypoint bash \
-        -v ${ROOT}/.ci_work/$service_name:/services/$service_name \
-        -v ${ROOT}/services/values.yaml:/services/values.yaml \
+        -v ${ROOT}/.ci_work:/services \
         alpine/helm:3.14.3 \
         -c "helm lint /services/$service_name --values /services/values.yaml"
 

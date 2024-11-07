@@ -1,5 +1,6 @@
-# yaml-language-server: $schema=https://github.com/marcelldls/ec-helm-charts/releases/download/3.4.4/ioc-instance.schema.json#/$defs/service
+# yaml-language-server: $schema=https://github.com/epics-containers/ec-helm-charts/releases/download/4.1.2/ioc-instance.schema.json/#/$defs/service
 
 # latest container image for the pmac motion controller
 ioc-instance:
   image: ghcr.io/epics-containers/ioc-pmac-runtime:2024.9.1
+  location: bl45p # TODO remove me when schema is fixed

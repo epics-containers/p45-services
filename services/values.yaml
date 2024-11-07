@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://github.com/epics-containers/ec-helm-charts/releases/download/4.1.2/ioc-instance.schema.json/#/$defs/service
 # shared values for all services
 
 global:
@@ -9,6 +10,7 @@ ioc-instance:
   # useHostNetwork - use host network for IOC - required for Channel Access
   # to work outside of the cluster
   hostNetwork: true
+  location: bl45p # TODO remove me when schema is fixed
 
   # affinity and tolerations to get the right nodes on pollux
   securityContext:
@@ -19,7 +21,15 @@ ioc-instance:
     pvc: false
     hostPath: /dls/p45/data
 
-  useAffinity: true
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: beamline
+                operator: In
+                values:
+                  - bl45p
 
   tolerations:
     - key: beamline
