@@ -1,0 +1,7 @@
+# A Helm Chart to deploy an NFSv2/TFTP server
+apiVersion: v2
+name: nfsv2-tftp
+
+version: 1.0.0
+
+type: application
