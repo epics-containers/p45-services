@@ -28,7 +28,7 @@ spec:
 
       containers:
         - name: server
-          image: ghcr.io/epics-containers/nfsv2-tftp-server:0.1.1
+          image: ghcr.io/epics-containers/nfsv2-tftp-server:0.2.2
           ports:
             - containerPort: 2049
               protocol: UDP
@@ -43,11 +43,11 @@ spec:
 
           resources:
             limits:
-              memory: 50Mi
-              cpu: 100m
+              memory: 400Mi
+              cpu: 1
             requests:
-              memory: 20Mi
-              cpu: 50m
+              memory: 40Mi
+              cpu: 100m
 
           volumeMounts:
             - mountPath: "/iocs"
@@ -84,6 +84,10 @@ spec:
       port: 69
       protocol: UDP
       targetPort: 69
+    - name: rsync
+      port: 12002
+      protocol: TCP
+      targetPort: 12002
   sessionAffinity: None
   selector:
     app: nfs-tftp
