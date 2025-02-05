@@ -9,8 +9,13 @@ entities:
     name: EPICS_TS_MIN_WEST
     value: "0"
 
-  - type: devIocStats.iocAdminSoft
-    IOC: BLX4I-VA-IOC-01
+  # TODO: make this the standard behaviour of the StreamDevice ibek support yaml
+  - type: epics.EpicsEnvSet
+    name: STREAM_PROTOCOL_PATH
+    value: /iocs/bl04i-va-ioc-01/runtime/protocol
+
+  # - type: devIocStats.iocAdminSoft
+  #   IOC: BLX4I-VA-IOC-01
 
   # - type: IOCinfo.IOCinfo
   #   device: BLX4I-VA-IOC-01
@@ -19,19 +24,11 @@ entities:
   #   P: "BLX4I-VA-IOC-01:"
   #   debug: false
 
-  - type: epics.InterruptVectorVME
-    name: Vec1
-
   - type: ipac.Hy8002
-    interrupt_vector: Vec1
     name: BLX4I-VA-IOC-01.Slot4
     slot: 4
 
-  - type: epics.InterruptVectorVME
-    name: Vec2
-
   - type: ipac.Hy8002
-    interrupt_vector: Vec2
     name: BLX4I-VA-IOC-01.Slot5
     slot: 7
 

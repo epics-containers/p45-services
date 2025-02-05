@@ -28,7 +28,7 @@ spec:
 
       containers:
         - name: server
-          image: ghcr.io/epics-containers/nfsv2-tftp-server:0.2.2
+          image: ghcr.io/epics-containers/nfsv2-tftp-server:0.2.1
           ports:
             - containerPort: 2049
               protocol: UDP
@@ -39,7 +39,7 @@ spec:
             - containerPort: 69
               protocol: UDP
           command: ["/bin/bash"]
-          args: ["-c", "bash /scripts/startup.sh && sleep infinity"]
+          args: ["-c", "rsync --daemon && bash /scripts/startup.sh && sleep infinity"]
 
           resources:
             limits:
