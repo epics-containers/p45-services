@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=https://github.com/epics-containers/ec-helm-charts/releases/download/4.1.3/ioc-instance.schema.json
+
+ioc-instance:
+  image: gcr.io/diamond-privreg/controls/prod/iocs/ioc-dlsvmevac-rtems-beatnik-runtime:2025.1.1b2
+
+  # don't run start.sh so we can debug things
+  startCommand: sleep
+  startArgs: infinity
+
+  volumeMounts:
+    - mountPath: /nfsv2-tftp
+      subPath: bl04i-va-ioc-01
+      name: nfsv2-tftp
+
+  volumes:
+    - name: nfsv2-tftp
+      persistentVolumeClaim:
+        claimName: i04-binaries-claim
+
+  # ioc specific configuration for rtems-proxy
+  iocEnv:
+    # # For i04 VME Crate
+    # - name: RTEMS_IOC_IP
+    #   # IP address of the real RTEMS IOC crate
+    #   value: 172.23.168.190
+
+    # - name: RTEMS_CONSOLE
+    #   # IP address:port of terminal server connection to the crate's console
+    #   value: BL04I-NT-TSERV-03:7004
+
+    # For testing on the Controls Dev Network Crate
+    - name: RTEMS_IOC_IP
+      # IP address of the real RTEMS IOC crate
+      value: 172.23.250.39
+
+    - name: RTEMS_CONSOLE
+      # IP address:port of terminal server connection to the crate's console
+      value: ts0001:7027
+#
+# ttt
+# motboot settings for BL04I-VA-IOC-01
+# MVME5500> gevS
+# mot-/dev/enet0-snma=255.255.240.0
+# mot-/dev/enet0-gipa=172.23.240.254
+# mot-boot-device=/dev/em1
+# mot-/dev/enet0-sipa=172.23.168.190
+# rtems-client-name=TS_IO547
+# epics-ntpserver=EPICS_TS_NTP_INET
+# mot-/dev/enet0-cipa=172.23.250.39
+# epics-script=172.23.168.190:/iocs:bl04i-va-ioc-01/runtime/st.cmd
+# mot-script-boot
+# dla=malloc 0x230000
+# tftpGet -d/dev/enet1 -fbl04i-va-ioc-01/ioc/bin/RTEMS-beatnik/ioc.boot  -m255.255.240.0 -g172.23.240.254 -s172.23.168.190 -c172.23.250.39 -adla
+# go -a0095F000
+# reset
+
+# Total Number of GE Variables =8, Bytes Utilized =461, Bytes Free =3131
