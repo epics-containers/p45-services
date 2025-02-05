@@ -44,3 +44,37 @@ ioc-instance:
       operator: Equal
       value: test-rig
       effect: NoSchedule
+
+  # Common RTEMS settings for all VME Crates for use in rtems-proxy
+  globalEnv:
+    # # For i04 VME Crates
+    # - name: RTEMS_TFTP_PATH
+    #   value: /nfsv2-tftp
+
+    # - name: RTEMS_IOC_GATEWAY
+    #   value: 172.23.104.254
+
+    # - name: RTEMS_IOC_NETMASK
+    #   value: 255.255.240.0
+
+    # - name: RTEMS_NFS_IP
+    #   value: 172.23.104.224
+
+    # - name: RTEMS_TFTP_IP
+    #   value: 172.23.104.224
+
+    # For testing on the Controls Dev Network Crates
+    - name: RTEMS_TFTP_PATH
+      value: /nfsv2-tftp
+
+    - name: RTEMS_IOC_GATEWAY
+      value: 172.23.104.254
+
+    - name: RTEMS_IOC_NETMASK
+      value: 255.255.240.0
+
+    - name: RTEMS_NFS_IP
+      value: 172.23.168.190
+
+    - name: RTEMS_TFTP_IP
+      value: 172.23.168.190
