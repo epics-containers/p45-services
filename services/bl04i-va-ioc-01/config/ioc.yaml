@@ -9,10 +9,19 @@ entities:
     name: EPICS_TS_MIN_WEST
     value: "0"
 
+<<<<<<< Updated upstream
   # TODO: make this the standard behaviour of the StreamDevice ibek support yaml
   - type: epics.EpicsEnvSet
     name: STREAM_PROTOCOL_PATH
     value: /iocs/bl04i-va-ioc-01/runtime/protocol
+=======
+  - type: epics.EpicsEnvSet
+    name: STREAM_PROTOCOL_PATH
+    value: /iocs/{{  _global.get_env('IOC_NAME') }}/runtime/protocol/
+
+  - type: epics.StartupCommand
+    command: nfsMount("172.23.168.190", "/autosave/bl04i-va-ioc-01", "/autosave")
+>>>>>>> Stashed changes
 
   # - type: devIocStats.iocAdminSoft
   #   IOC: BLX4I-VA-IOC-01
@@ -20,18 +29,21 @@ entities:
   # - type: IOCinfo.IOCinfo
   #   device: BLX4I-VA-IOC-01
 
-  # - type: autosave.Autosave
-  #   P: "BLX4I-VA-IOC-01:"
-  #   debug: false
+  - type: autosave.Autosave
+    P: "BLX4I-VA-IOC-01:"
+    debug: false
 
   - type: ipac.Hy8002
     name: BLX4I-VA-IOC-01.Slot4
     slot: 4
 
+<<<<<<< Updated upstream
   - type: ipac.Hy8002
     name: BLX4I-VA-IOC-01.Slot5
     slot: 7
 
+=======
+>>>>>>> Stashed changes
   - type: epics.InterruptVectorVME
     name: Vec3
 
@@ -54,8 +66,3 @@ entities:
     interrupt_vector: Vec4
     ipslot: 0
     name: BLX4I-VA-IOC-01.Slot4.A
-
-  - type: asyn.AsynSerial
-    name: ty_40_0
-    port: /ty/40/0
-    priority: 0
