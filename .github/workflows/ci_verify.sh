@@ -20,7 +20,7 @@ if ! docker version &>/dev/null; then docker=podman; else docker=docker; fi
 # copy the services to a temporary location to avoid dirtying the repo
 cp -r ${ROOT}/services/* ${ROOT}/.ci_work/
 
-for service in ${ROOT}/services/*/  # */ to skip files
+for service in ${ROOT}/.ci_work/*/  # */ to skip files
 do
     ### Lint each service chart and validate if schema given ###
     service_name=$(basename $service)
@@ -34,11 +34,12 @@ do
 
     schema=$(cat ${service}/values.yaml | sed -rn 's/^# yaml-language-server: \$schema=(.*)/\1/p')
     if [ -n "${schema}" ]; then
-        echo "{\"\$ref\": \"$schema\"}" > ${ROOT}/.ci_work/$service_name/values.schema.json
+        echo "{\"\$ref\": \"$schema\"}" > ${service}/values.schema.json
     fi
 
     $docker run --rm --entrypoint bash \
-        -v ${ROOT}/.ci_work:/services \
+        -v ${ROOT}/.ci_work:/services:z \
+        -v ${ROOT}/.helm-shared:/.helm-shared:z \
         alpine/helm:3.14.3 \
         -c "
            helm lint /services/$service_name --values /services/values.yaml &&
@@ -61,10 +62,13 @@ do
         runtime=/tmp/ioc-runtime/$(basename ${service})
         mkdir -p ${runtime}
 
+        # avoid issues with auto-gen genicam pvi files (ioc-adaravis only)
+        sed -i s/AutoADGenICam/ADGenICam/ ${service}/config/ioc.yaml
+
         # This will fail and exit if the ioc.yaml is invalid
         $docker run --rm --entrypoint bash \
-            -v ${service}/config:/config \
-            -v ${runtime}:/epics/runtime \
+            -v ${service}/config:/config:z \
+            -v ${runtime}:/epics/runtime:z \
             ${image} \
             -c 'ibek runtime generate /config/ioc.yaml /epics/ibek-defs/*'
         # show the startup script we just generated (and verify it exists)
