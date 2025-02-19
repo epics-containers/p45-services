@@ -1,7 +1,8 @@
 rabbitmq:
   auth:
     username: p45
-    existingPasswordSecret: rabbitmq-password
+    existingPasswordSecret: rabbitmq-secrets
+    existingErlangSecret: rabbitmq-secrets
   extraPlugins: rabbitmq_jms_topic_exchange,rabbitmq_stomp
   persistence:
     enabled: false
