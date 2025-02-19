@@ -25,7 +25,7 @@ blueapi:
   - name: RABBITMQ_PASSWORD
     valueFrom:
       secretKeyRef:
-        name: rabbitmq-password
+        name: rabbitmq-secrets
         key: rabbitmq-password
   worker:
     env:
