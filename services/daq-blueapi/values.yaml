@@ -21,12 +21,6 @@ blueapi:
   ingress:
     create: true
     host: p45-blueapi.diamond.ac.uk
-  extraEnvVars:
-  - name: RABBITMQ_PASSWORD
-    valueFrom:
-      secretKeyRef:
-        name: rabbitmq-secrets
-        key: rabbitmq-password
   worker:
     env:
       sources:
@@ -43,8 +37,8 @@ blueapi:
         broadcast_status_events: False
     stomp:
       auth:
-        username: p45
-        password: ${RABBITMQ_PASSWORD}
+        username: guest
+        password: guest
       host: p45-rabbitmq-daq.diamond.ac.uk
     scratch:
       root: /dls_sw/p45/software/blueapi/scratch
