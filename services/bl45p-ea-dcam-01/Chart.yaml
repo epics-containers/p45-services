@@ -12,8 +12,4 @@ dependencies:
   # dls-aravis is locally available via symlink in the charts directory
   - name: dls-aravis
     version: 1.0.0
-
-  # for local testing
-  # - name: ioc-instance
-  #   version: 1.0.0
-  #   repository: file://../../../ec-helm-charts/Charts/ioc-instance
+    repository: "file://../dls-aravis"

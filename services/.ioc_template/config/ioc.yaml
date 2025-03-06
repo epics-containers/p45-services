@@ -3,7 +3,7 @@
 # TODO replace above with the generic IOC schema this IOC is based on
 ioc_name: "{{ _global.get_env('IOC_NAME') }}"
 
-description: REPLACE WITH DESCRIPTION
+description: REPLACE_WITH_DESCRIPTION
 
 entities:
   - type: epics.EpicsEnvSet
