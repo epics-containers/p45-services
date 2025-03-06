@@ -34,7 +34,8 @@ nexus-file-converter:
         active: rabbitmq
       rabbitmq:
         host: p45-rabbitmq-daq.diamond.ac.uk
-        username: p45
+        username: guest
+        password: guest
     files:
       output:
         directory:
@@ -48,12 +49,6 @@ nexus-file-converter:
             panda2: NX_COLLECTION
             chopper: NX_COLLECTION
             sample_stage: NX_COLLECTION
-  containerEnvVars:
-  - name: SPRING_RABBITMQ_PASSWORD
-    valueFrom:
-      secretKeyRef:
-        name: rabbitmq-secrets
-        key: rabbitmq-password
   securityContext:
     runAsUser: 37988 # p45-detector
     runAsGroup: 37988
