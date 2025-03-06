@@ -4,6 +4,7 @@ rabbitmq:
     existingPasswordSecret: rabbitmq-secrets
     existingErlangSecret: rabbitmq-secrets
   extraPlugins: rabbitmq_jms_topic_exchange,rabbitmq_stomp
+  initScriptsCM: rabbitmq-init
   persistence:
     enabled: false
   rbac:
