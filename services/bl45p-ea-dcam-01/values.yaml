@@ -5,4 +5,4 @@ dls-aravis:
   ID: bl45p-ea-detector-01
 
 ioc-instance:
-  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.11.2
+  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2025.5.1
