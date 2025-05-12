@@ -9,5 +9,5 @@ dls-aravis:
   ID: bl45p-ea-detector-02
 
 ioc-instance:
-  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.11.1
+  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2024.11.2
   location: bl45p # TODO remove me when schema is fixed
