@@ -12,5 +12,5 @@ type: application
 
 dependencies:
   - name: rabbitmq
-    version: 11.16.2
+    version: 16.0.2
     repository: oci://registry-1.docker.io/bitnamicharts
