@@ -11,3 +11,5 @@ ioc_group: p45
 location: bl45p
 logging_url: https://graylog2.diamond.ac.uk/search?rangetype=relative&fields=message%2Csource&width=1489&highlightMessage=&relative=172800&q=pod_name%3A{service_name}*
 repo_uri: https://github.com/epics-containers/p45-services
+
+#copier updated
