@@ -65,8 +65,10 @@ metadata:
   labels:
     app: nfs-tftp
 spec:
-  externalTrafficPolicy: Local
   type: LoadBalancer
+  {{- if .Values.service_ip }}
+  loadBalancerIP: {{ .Values.service_ip }}
+  {{- end }}
   ports:
     - name: rpcbind
       port: 111
