@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://github.com/epics-containers/ioc-adaravis/releases/download/2024.1.2/ibek.ioc.schema.json
+# yaml-language-server: $schema=https://github.com/epics-containers/ioc-adaravis/releases/download/2025.8.3/ibek.ioc.schema.json
 
 ioc_name: "[[ _global.get_env('IOC_NAME') ]]"
 
@@ -117,7 +117,7 @@ entities:
     QUEUE: 1000
     R: ":POS:"
 
-  - type: ADCore.NDPvaPlugin
+  - type: ADCore.NDPvxsPlugin
     ENABLED: 1
     NDARRAY_PORT: DET.DET
     PVNAME: BL45P-EA-DIFF-01:TX:PVA
