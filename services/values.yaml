@@ -9,18 +9,18 @@ global:
 ioc-instance:
   # useHostNetwork - use host network for IOC - required for Channel Access
   # to work outside of the cluster
-  hostNetwork: false
-  location: bl45p # TODO remove me when schema is fixed
+  hostNetwork: true
+  location: bl45p
 
-  # affinity and tolerations to get the right nodes on pollux
-  securityContext:
-    runAsUser: 1200288
-    runAsGroup: 1200288
+  # securityContext:
+  #   runAsUser: 37988
+  #   runAsGroup: 37988
 
   dataVolume:
     pvc: false
     hostPath: /dls/p45/data
 
+  # affinity and tolerations to get the right nodes on pollux
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
