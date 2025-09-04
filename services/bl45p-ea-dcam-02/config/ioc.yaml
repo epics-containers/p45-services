@@ -20,9 +20,9 @@ entities:
     IOC: "[[ ioc_name | upper ]]"
 
   - type: ADAravis.aravisCamera
-    CLASS: {{ .Values.CLASS }}
-    ID: {{ .Values.ID }}
-    P:  {{ .Values.P }}
+    CLASS: AutoADGenICam
+    ID: bl45p-ea-detector-02
+    P: BL45P-EA-DIFF-01
     PORT: DET.DET
     R: ":DET:"
 
@@ -30,7 +30,7 @@ entities:
     ADDR: 0
     NDARRAY_ADDR: 0
     NDARRAY_PORT: DET.DET
-    P: {{ .Values.P }}
+    P: BL45P-EA-DIFF-01
     PORT: DET.roi
     QUEUE: 250
     R: ":ROI:"
@@ -42,7 +42,7 @@ entities:
     NCHANS: 20000
     NDARRAY_ADDR: 0
     NDARRAY_PORT: DET.DET
-    P: {{ .Values.P }}
+    P: BL45P-EA-DIFF-01
     PORT: DET.stat
     QUEUE: 250
     R: ":STAT:"
@@ -56,7 +56,7 @@ entities:
     NDARRAY_ADDR: 0
     NDARRAY_PORT: DET.roi
     NELEMENTS: 2354176
-    P: {{ .Values.P }}
+    P: BL45P-EA-DIFF-01
     PORT: DET.arr
     QUEUE: 2
     R: ":ARR:"
@@ -67,7 +67,7 @@ entities:
     ADDR: 0
     NDARRAY_ADDR: 0
     NDARRAY_PORT: DET.DET
-    P: {{ .Values.P }}
+    P: BL45P-EA-DIFF-01
     PORT: DET.proc
     QUEUE: 250
     R: ":PROC:"
@@ -77,7 +77,7 @@ entities:
   #   ADDR: 0
   #   NDARRAY_ADDR: 0
   #   NDARRAY_PORT: DET.proc
-  #   P: {{ .Values.P }}
+  #   P: BL45P-EA-DIFF-01
   #   PORT: DET.over
   #   QUEUE: 250
   #   R: ":OVER:"
@@ -87,7 +87,7 @@ entities:
     ADDR: 0
     NDARRAY_ADDR: 0
     NDARRAY_PORT: DET.DET
-    P: {{ .Values.P }}
+    P: BL45P-EA-DIFF-01
     PORT: DET.tiff
     QUEUE: 250
     R: ":TIFF:"
@@ -97,7 +97,7 @@ entities:
     ADDR: 0
     NDARRAY_ADDR: 0
     NDARRAY_PORT: DET.DET
-    P: {{ .Values.P }}
+    P: BL45P-EA-DIFF-01
     PORT: DET.hdf
     QUEUE: 250
     R: ":HDF5:"
@@ -105,14 +105,14 @@ entities:
 
   # - type: ADCore.NDCircularBuff
   #   NDARRAY_PORT: DET.DET
-  #   P: {{ .Values.P }}
+  #   P: BL45P-EA-DIFF-01
   #   PORT: DET.BUFF
   #   R: ":BUFF:"
 
   - type: ADCore.NDPosPlugin
     ENABLED: 1
     NDARRAY_PORT: DET.DET
-    P: {{ .Values.P }}
+    P: BL45P-EA-DIFF-01
     PORT: DET.POS
     QUEUE: 1000
     R: ":POS:"
@@ -120,7 +120,7 @@ entities:
   - type: ADCore.NDPvaPlugin
     ENABLED: 1
     NDARRAY_PORT: DET.DET
-    PVNAME: {{ .Values.P }}:TX:PVA
+    PVNAME: BL45P-EA-DIFF-01:TX:PVA
     PORT: DIFF.PVA
-    P: {{ .Values.P }}
+    P: BL45P-EA-DIFF-01
     R: ":PVA:"
