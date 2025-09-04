@@ -12,9 +12,9 @@ ioc-instance:
   hostNetwork: true
   location: bl45p
 
-  # securityContext:
-  #   runAsUser: 37988
-  #   runAsGroup: 37988
+  securityContext:
+    runAsUser: 1200288
+    runAsGroup: 1200288
 
   dataVolume:
     pvc: false
