@@ -18,7 +18,7 @@ ioc-instance:
     # runAsGroup: 1200288
 
   dataVolume:
-    pvc: false
+    pvc: true
     hostPath: /dls/p45/data
 
   # affinity and tolerations to get the right nodes on pollux
