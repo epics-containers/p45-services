@@ -14,8 +14,8 @@ ioc-instance:
 
   # affinity and tolerations to get the right nodes on pollux
   securityContext:
-    runAsUser: 37988
-    runAsGroup: 37988
+    runAsUser: 1200288
+    runAsGroup: 1200288
 
   dataVolume:
     pvc: false
