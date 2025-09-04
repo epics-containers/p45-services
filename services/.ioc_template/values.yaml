@@ -1,21 +1,34 @@
-# yaml-language-server: $schema=https://github.com/epics-containers/ec-helm-charts/releases/download/3.4.4/ioc-instance.schema.json#/$defs/service
+# yaml-language-server: $schema=https://github.com/epics-containers/ec-helm-charts/releases/download/4.1.3/ioc-instance.schema.json
+
 ioc-instance:
   image: REPLACE_WITH_IMAGE_URI
 
-  # NOTE: the following are suggestions to help with debugging IOCs
-  # 1. replace the runtime container with the developer version
-  #    this adds tools and compilers to the container so you
-  #    can experiment in the cluster to fix the issue
-  #
-  # image: ghcr.io/epics-containers/ioc-adsimdetector-developer:2024.4.1
+  # Debugging values ##########################################################
+  # image: ghcr.io/epics-containers/ioc-IOC_NAME-developer:VERSION
 
-  # 2. override the entry point to be a sleep infinity
-  #    this means you can now use 'ec exec' to get a shell
-  #    in the container and run /epics/ioc/start.sh.
-  #    If it fails you can see the error and the pod
-  #    will not terminate. In combination with 1. above you
-  #    can experiment with changes until the issue
-  #    is fixed.
-  #
+  # # don't make the IOC the entrypoint
   # startCommand: sleep
   # startArgs: infinity
+
+  # # disable host networking to allow root user
+  # hostNetwork: false
+
+  # # choose root user for write access to the container filesystem
+  # securityContext:
+  #   runAsUser: 0
+  #   runAsGroup: 0
+  #   readOnlyRootFilesystem: false
+  #   runAsNonRoot: false
+
+  # # mount the config map elsewhere so we can copy and edit it
+  # # i.e. `cp -r /tmp/config /epics/ioc/` before starting the IOC
+  # iocConfig: /tmp/config
+
+  # # generous resources to handle the extra overheads of debugging
+  # resources:
+  #   limits:
+  #     cpu: 4
+  #     memory: 4Gi
+  #   requests:
+  #     cpu: 1
+  #     memory: 1Gi

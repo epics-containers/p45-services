@@ -9,7 +9,7 @@ global:
 ioc-instance:
   # useHostNetwork - use host network for IOC - required for Channel Access
   # to work outside of the cluster
-  hostNetwork: true
+  hostNetwork: false
   location: bl45p # TODO remove me when schema is fixed
 
   # affinity and tolerations to get the right nodes on pollux

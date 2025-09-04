@@ -13,4 +13,4 @@ jobs:
 
       - name: run IOC checks
         run: |
-          bash .github/workflows/ci_verify.sh
+          bash ci_verify.sh
