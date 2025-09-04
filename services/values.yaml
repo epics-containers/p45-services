@@ -13,8 +13,9 @@ ioc-instance:
   location: bl45p
 
   securityContext:
-    runAsUser: 1200288
-    runAsGroup: 1200288
+    allowPrivilegeEscalation: false
+    # runAsUser: 1200288
+    # runAsGroup: 1200288
 
   dataVolume:
     pvc: false
