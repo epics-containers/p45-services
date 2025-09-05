@@ -35,6 +35,10 @@ source <(ec --show-completion ${SHELL})
 
 #### SECTION 3. Configure Kubernetes Cluster ###################################
 
+module unload ec
+module load uv
+# use `ec` CLI direct from PyPi
+alias ec='uvx --from edge-containers-cli ec'
 
 # the following configures kubernetes inside DLS.
 
