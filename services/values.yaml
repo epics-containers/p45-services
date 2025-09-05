@@ -46,7 +46,6 @@ dev-c7:
   <<: *shared
 
   podSecurityContext:
-    allowPrivilegeEscalation: false
     # need to set these for the hgv27681 (giles) namespace to mount in /dls_sw
     runAsUser: 1200288
     runAsGroup: 1200288

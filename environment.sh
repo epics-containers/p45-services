@@ -15,7 +15,7 @@ echo "Loading environment for p45 IOC Instances and Services ..."
 
 export EC_CLI_BACKEND="K8S"
 # the namespace to use for kubernetes deployments
-export EC_TARGET=p45-beamline
+export EC_TARGET=hgv27681
 # the git repo for this project
 export EC_SERVICES_REPO=https://github.com/epics-containers/p45-services
 # declare your centralised log server Web UI
