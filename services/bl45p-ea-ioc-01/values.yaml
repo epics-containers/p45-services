@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=/scratch/hgv27681/work/dev-c7/schemas/dev-c7.service.schema.json
+
+dev-c7:
+  ioc_version: 2-0

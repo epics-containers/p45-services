@@ -6,20 +6,16 @@ global:
   location: bl45p
   enabled: true
 
-ioc-instance:
+# shared values for both dev-c7 and ioc-instance based charts
+shared: &shared
   # useHostNetwork - use host network for IOC - required for Channel Access
   # to work outside of the cluster
   hostNetwork: false
-  location: bl45p
 
   securityContext:
     allowPrivilegeEscalation: false
     # runAsUser: 1200288
     # runAsGroup: 1200288
-
-  dataVolume:
-    pvc: true
-    hostPath: /dls/p45/data
 
   # affinity and tolerations to get the right nodes on pollux
   affinity:
@@ -45,3 +41,19 @@ ioc-instance:
       operator: Equal
       value: test-rig
       effect: NoSchedule
+
+dev-c7:
+  <<: *shared
+
+  podSecurityContext:
+    allowPrivilegeEscalation: false
+    # need to set these for the hgv27681 (giles) namespace to mount in /dls_sw
+    runAsUser: 1200288
+    runAsGroup: 1200288
+
+ioc-instance:
+  <<: *shared
+
+  dataVolume:
+    pvc: true
+    hostPath: /dls/p45/data
