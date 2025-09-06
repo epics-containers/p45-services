@@ -23,11 +23,10 @@ export EC_LOG_URL="https://graylog2.diamond.ac.uk/search?rangetype=relative&fiel
 
 #### SECTION 2. Install ec #####################################################
 
-# check if epics-containers-cli (ec command) is installed
-if ! ec --version &> /dev/null; then
-    echo "ERROR: Please set up a virtual environment and: 'pip install edge-containers-cli'"
-    return 1
-fi
+module unload ec
+module load uv
+# use `ec` CLI direct from PyPi
+alias ec='uvx --from edge-containers-cli ec'
 
 # enable shell completion for ec commands
 source <(ec --show-completion ${SHELL})
@@ -35,10 +34,6 @@ source <(ec --show-completion ${SHELL})
 
 #### SECTION 3. Configure Kubernetes Cluster ###################################
 
-module unload ec
-module load uv
-# use `ec` CLI direct from PyPi
-alias ec='uvx --from edge-containers-cli ec'
 
 # the following configures kubernetes inside DLS.
 
