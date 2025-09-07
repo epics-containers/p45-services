@@ -1,5 +1,4 @@
 # yaml-language-server: $schema=https://github.com/DiamondLightSource/dev-c7/releases/download/2025.9.1-beta.3/dev-c7.service.schema.json
 
 dev-c7:
-  # ioc_version: 2-0
   ioc_path: /dls_sw/work/R3.14.12.7/support/BL45P-BUILDER/iocs
