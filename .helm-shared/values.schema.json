@@ -1,0 +1,26 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "global": {
+            "type": "object",
+            "additionalProperties": true
+        },
+        "ioc-instance": {
+            "$ref": "https://github.com/epics-containers/ec-helm-charts/releases/download/4.1.2/ioc-instance.schema.json#$defs/base",
+            "type": "object",
+            "additionalProperties": false
+        },
+        "dev-c7": {
+            "$ref": "https://github.com/DiamondLightSource/dev-c7/releases/download/2025.9.1/dev-c7.values.schema.json",
+            "type": "object",
+            "additionalProperties": false
+        },
+        "fastcs": {
+            "$ref": "https://github.com/DiamondLightSource/FastCS/releases/download/0.10.1/fastcs-values.schema.json",
+            "type": "object",
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": false
+}
