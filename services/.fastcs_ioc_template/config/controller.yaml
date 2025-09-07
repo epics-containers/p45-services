@@ -1,10 +1,6 @@
 # yaml-language-server: $schema=schema.json
 
-# a temporary configuration file for running in the cluster - this will be provided
-# by the helm chart eventually
-
 # EXAMPLE CONTROLLER CONFIGURATION YAML REPLACE WITH YOURS
-
 controller:
   ip_settings:
     ip: "localhost"
