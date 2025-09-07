@@ -1,8 +1,4 @@
 # yaml-language-server: $schema=https://github.com/epics-containers/ec-helm-charts/releases/download/4.1.2/ioc-instance.schema.json
 
-dls-aravis:
-  P: BL45P-EA-MAP-01
-  ID: bl45p-ea-detector-01
-
 ioc-instance:
-  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2025.5.1
+  image: ghcr.io/epics-containers/ioc-adaravis-runtime:2025.8.3
