@@ -47,6 +47,7 @@ dev-c7:
 
   podSecurityContext:
     # need to set these for the hgv27681 (giles) namespace to mount in /dls_sw
+    # in a beamline namespace this will not be required
     runAsUser: 1200288
     runAsGroup: 1200288
 
@@ -56,3 +57,6 @@ ioc-instance:
   dataVolume:
     pvc: true
     hostPath: /dls/p45/data
+
+fastcs:
+  <<: *shared
