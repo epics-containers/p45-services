@@ -1,6 +1,7 @@
-# yaml-language-server: $schema=schema.json
-
 # EXAMPLE CONTROLLER CONFIGURATION YAML REPLACE WITH YOURS
+
+## yaml-language-server: $schema=schema.json
+
 controller:
   ip_settings:
     ip: "localhost"

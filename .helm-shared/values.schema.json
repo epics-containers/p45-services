@@ -7,7 +7,7 @@
             "additionalProperties": true
         },
         "ioc-instance": {
-            "$ref": "https://github.com/epics-containers/ec-helm-charts/releases/download/4.1.2/ioc-instance.schema.json#$defs/base",
+            "$ref": "https://github.com/epics-containers/ec-helm-charts/releases/download/4.4.3/ioc-instance.schema.json#$defs/base",
             "type": "object",
             "additionalProperties": false
         },
