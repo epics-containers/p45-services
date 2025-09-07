@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: rabbitmq-init
-data:
-  init_users.sh: |-
-{{ .Files.Get "files/init_users.sh" | indent 4 }}
