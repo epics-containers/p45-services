@@ -1,4 +1,5 @@
 # yaml-language-server: $schema=../.helm-shared/values.schema.json
+
 # shared values for all services
 
 global:
