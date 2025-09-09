@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=../../.helm-shared/values.schema.json
+
+dev-c7:
+  ioc_version: 2-1

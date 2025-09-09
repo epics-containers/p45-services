@@ -1,0 +1,13 @@
+# A Helm Chart for an IOC instance
+apiVersion: v2
+name: ec-legacy-service
+version: 1.0.0
+
+type: application
+
+dependencies:
+  - name: dev-c7
+    # version: 0.1.0
+    # repository: "file:///scratch/hgv27681/work/dev-c7/Charts/dev-c7"
+    version: 2025.9.1
+    repository: "oci://ghcr.io/diamondlightsource/charts"

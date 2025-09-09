@@ -1,0 +1,18 @@
+# EXAMPLE CONTROLLER CONFIGURATION YAML REPLACE WITH YOURS
+
+## yaml-language-server: $schema=schema.json
+
+controller:
+  ip_settings:
+    ip: "localhost"
+    port: 25565
+  num_ramp_controllers: 1
+transport:
+  - pva_ioc:
+      pv_prefix: P45-EA-FASTCS-01
+    gui:
+      output_path: /epics/opi/pva_example.bob
+  - ca_ioc:
+      pv_prefix: P45-EA-FASTCS-01
+    gui:
+      output_path: /epics/opi/ca_example.bob

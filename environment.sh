@@ -15,7 +15,7 @@ echo "Loading environment for p45 IOC Instances and Services ..."
 
 export EC_CLI_BACKEND="K8S"
 # the namespace to use for kubernetes deployments
-export EC_TARGET=p45-beamline
+export EC_TARGET=hgv27681
 # the git repo for this project
 export EC_SERVICES_REPO=https://github.com/epics-containers/p45-services
 # declare your centralised log server Web UI
@@ -23,11 +23,10 @@ export EC_LOG_URL="https://graylog2.diamond.ac.uk/search?rangetype=relative&fiel
 
 #### SECTION 2. Install ec #####################################################
 
-# check if epics-containers-cli (ec command) is installed
-if ! ec --version &> /dev/null; then
-    echo "ERROR: Please set up a virtual environment and: 'pip install edge-containers-cli'"
-    return 1
-fi
+module unload ec
+module load uv
+# use `ec` CLI direct from PyPi
+alias ec='uvx --from edge-containers-cli ec'
 
 # enable shell completion for ec commands
 source <(ec --show-completion ${SHELL})

@@ -1,0 +1,4 @@
+# yaml-language-server: $schema=../../.helm-shared/values.schema.json
+
+dev-c7:
+  ioc_path: /dls_sw/work/R3.14.12.7/support/BL45P-BUILDER/iocs
