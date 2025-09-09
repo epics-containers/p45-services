@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=../.helm-shared/values.schema.json
+# yaml-language-server: $schema=../../.helm-shared/values.schema.json
 
 ioc-instance:
   image: REPLACE_WITH_IMAGE_URI

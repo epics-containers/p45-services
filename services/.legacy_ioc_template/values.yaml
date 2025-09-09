@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=../.helm-shared/values.schema.json
+# yaml-language-server: $schema=../../.helm-shared/values.schema.json
 
 dev-c7:
   # Run a dls_sw/prod IOC
