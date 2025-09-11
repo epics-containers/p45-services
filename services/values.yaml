@@ -14,8 +14,8 @@ shared: &shared
 
   securityContext:
     allowPrivilegeEscalation: false
-    # runAsUser: 1200288
-    # runAsGroup: 1200288
+    runAsUser: 1200288
+    runAsGroup: 1200288
 
   # affinity and tolerations to get the right nodes on pollux
   affinity:
@@ -44,12 +44,6 @@ shared: &shared
 
 dev-c7:
   <<: *shared
-
-  podSecurityContext:
-    # need to set these for the hgv27681 (giles) namespace to mount in /dls_sw
-    # in a beamline namespace this will not be required
-    runAsUser: 1200288
-    runAsGroup: 1200288
 
 ioc-instance:
   <<: *shared
