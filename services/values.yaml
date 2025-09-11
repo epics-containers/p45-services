@@ -14,8 +14,9 @@ shared: &shared
 
   securityContext:
     allowPrivilegeEscalation: false
-    runAsUser: 1200288
-    runAsGroup: 1200288
+    # run as p45detector
+    runAsUser: 37988
+    runAsGroup: 37988
 
   # affinity and tolerations to get the right nodes on pollux
   affinity:
@@ -44,6 +45,11 @@ shared: &shared
 
 dev-c7:
   <<: *shared
+
+  podSecurityContext:
+    # run as p45detector
+    runAsUser: 37988
+    runAsGroup: 37988
 
 ioc-instance:
   <<: *shared
