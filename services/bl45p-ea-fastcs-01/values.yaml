@@ -13,7 +13,6 @@ fastcs:
   command:
     - stdio-expose
     - --ptty
-    - --stdin
     - fastcs-example run /epics/ioc/config/controller.yaml
 
   editable: false
