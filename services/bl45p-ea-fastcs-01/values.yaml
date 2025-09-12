@@ -25,3 +25,11 @@ fastcs:
         - tickit
         - all
         - /epics/ioc/config/temp_controller.yaml
+
+  globalEnv:
+    - name: demo1
+      value: test1
+
+  iocEnv:
+    - name: demo2
+      value: test2

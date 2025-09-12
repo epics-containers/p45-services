@@ -25,7 +25,7 @@
             "description": "Shared values for dev-c7 charts. These represent DLS legacy IOCs running out of the shared file system"
         },
         "fastcs": {
-            "$ref": "https://github.com/DiamondLightSource/FastCS/releases/download/0.10.1/fastcs-values.schema.json",
+            "$ref": "https://github.com/DiamondLightSource/FastCS/releases/download/1.10.2-beta.1/fastcs-values.schema.json",
             "type": "object",
             "additionalProperties": false,
             "description": "Shared values for fastcs charts. These represent python IOCs based on FastCS"
