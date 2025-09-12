@@ -7,7 +7,7 @@ type: application
 
 dependencies:
   - name: fastcs
-    version: 0.10.1
+    version: 1.10.2-beta.5
     repository: "oci://ghcr.io/diamondlightsource/charts"
     # version: 0.1.0
     # repository: "file://../../../fastcs/Charts/fastcs"

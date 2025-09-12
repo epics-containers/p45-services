@@ -10,7 +10,7 @@ global:
 shared: &shared
   # useHostNetwork - use host network for IOC - required for Channel Access
   # to work outside of the cluster
-  hostNetwork: false
+  hostNetwork: true
 
   securityContext:
     allowPrivilegeEscalation: false
@@ -55,7 +55,7 @@ ioc-instance:
   <<: *shared
 
   dataVolume:
-    pvc: true
+    pvc: false
     hostPath: /dls/p45/data
 
 fastcs:
