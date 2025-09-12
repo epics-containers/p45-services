@@ -11,9 +11,9 @@ fastcs:
   iocConfig: /epics/ioc/config
 
   command:
-    - stdio-expose
-    - --ptty
-    - fastcs-example run /epics/ioc/config/controller.yaml
+    - bash
+    - -c
+    - cd /tmp/home/; mkdir -p /tmp/home/.ipython; stdio-expose --ptty "fastcs-example run /epics/ioc/config/controller.yaml"
 
   editable: false
   autostart: true
@@ -26,10 +26,6 @@ fastcs:
         - all
         - /epics/ioc/config/temp_controller.yaml
 
-  globalEnv:
-    - name: demo1
-      value: test1
-
   iocEnv:
-    - name: demo2
-      value: test2
+    - name: IPYTHONDIR
+      value: /tmp/home/.ipython
