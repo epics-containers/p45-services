@@ -6,7 +6,7 @@ fastcs:
   image:
     repository: ghcr.io/diamondlightsource/fastcs-example
     tag: 2025.9.1-beta.1
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
 
   iocConfig: /epics/ioc/config
 
