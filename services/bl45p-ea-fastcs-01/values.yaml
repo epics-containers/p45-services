@@ -11,7 +11,7 @@ fastcs:
   iocConfig: /epics/ioc/config
 
   command:
-    - stdio-expose
+    - stdio-socket
     - --ptty
     - fastcs-example run /epics/ioc/config/controller.yaml
 
