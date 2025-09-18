@@ -1,4 +1,8 @@
 # yaml-language-server: $schema=../.helm-shared/values.schema.json
+<<<<<<< before updating
+=======
+
+>>>>>>> after updating
 # shared values for all services
 
 global:
@@ -6,6 +10,7 @@ global:
   location: bl45p
   enabled: true
 
+<<<<<<< before updating
 # shared values for both dev-c7 and ioc-instance based charts
 shared: &shared
   # useHostNetwork - use host network for IOC - required for Channel Access
@@ -60,3 +65,50 @@ ioc-instance:
 
 fastcs:
   <<: *shared
+=======
+# shared settings for all IOC types
+shared: &shared
+  # hostNetwork
+  # set to true for Channel Access work outside of the cluster (or use a gateway)
+  hostNetwork: true
+
+  # running as ixxdetector account uid,gid gives access to /dls/ixx/data
+  securityContext:
+    allowPrivilegeEscalation: false
+    # runAsUser: 37988
+    # runAsGroup: 37988
+
+  # affinity chooses which servers to run on
+  # Accelerator must set this for CIAs, Beamlines don't need it
+  affinity:
+    {}
+    # nodeAffinity:
+    #   requiredDuringSchedulingIgnoredDuringExecution:
+    #     nodeSelectorTerms:
+    #       - matchExpressions:
+    #           - key: location
+    #             operator: In
+    #             values:
+    #               - sr03c
+
+  # tolerations allow us to run on a tainted server
+  # Accelerator must set this for CIAs, Beamlines don't need it
+  tolerations:
+    []
+    # - key: location
+    #   operator: Equal
+    #   value: sr03c
+    #   effect: NoSchedule
+
+# shared settings for all ibek IOCs using the ioc-instance helm chart
+ioc-instance:
+  <<: *shared
+
+# shared settings for all fastcs IOCs using the fastcs helm chart
+fastcs:
+  <<: *shared
+
+# shared setting for all legacy IOCs using the dev-c7 helm chart
+dev-c7:
+  <<: *shared
+>>>>>>> after updating
