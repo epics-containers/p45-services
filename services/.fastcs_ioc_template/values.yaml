@@ -1,4 +1,8 @@
+<<<<<<< before updating
 # yaml-language-server: $schema=../.helm-shared/values.schema.json
+=======
+# yaml-language-server: $schema=../../.helm-shared/values.schema.json
+>>>>>>> after updating
 
 fastcs:
   image:
