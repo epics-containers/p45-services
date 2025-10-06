@@ -1,13 +1,22 @@
 # yaml-language-server: $schema=../../.helm-shared/values.schema.json
 
 dev-c7:
-  # Run a dls_sw/prod IOC
-  ioc_version: REPLACE WITH IOC PROD VERSION (eg 2-1)
-  # ioc_name: Defaults to ucase of service folder name
-  # ioc_domain: Defaults to ucase of location
-  # epics_version: R3.14.12.7
-  # lauches IOC at /dls_sw/prod/$epics_version/$domain/$ioc_name/$ioc_version
+  # prod #######################################################################
+  # To run a dls_sw/prod IOC only set iocVersion. This will launch from:
+  # /dls_sw/prod/$epicsVersion/ioc/$iocLocation/$iocName/$iocVersion
+  #
+  # Optionally override any of the following:
+  # iocName: Defaults to ucase of service folder name
+  # iocLocation: Defaults to ucase of global.location or dev-c7.location
+  # epicsVersion: Defaults to R3.14.12.7
+  iocVersion: REPLACE WITH IOC PROD VERSION (eg 2-1)
 
-  # Run a dls_sw/work IOC
-  # ioc_path: /dls_sw/work/R3.14.12.7/support/BL45P-BUILDER/iocs
-  # launches IOC at $ioc_path/$ioc_name
+  # work #######################################################################
+  # To run a dls_sw/work IOC set iocPath and optionally override iocName
+  # e.g.
+  # iocPath: /dls_sw/work/R3.14.12.7/support/BL45P-BUILDER/iocs
+  # This will launche from:
+  # $iocPath/$iocName
+  #
+  # iocName: Defaults to ucase of service folder name
+  # setting iocPath overrides use of iocVersion, iocLocation and epicsVersion
