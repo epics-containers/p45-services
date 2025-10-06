@@ -1,34 +1,9 @@
-# yaml-language-server: $schema=../.helm-shared/values.schema.json
+# yaml-language-server: $schema=../../.helm-shared/values.schema.json
 
 ioc-instance:
   image: REPLACE_WITH_IMAGE_URI
 
-  # Debugging values ##########################################################
-  # image: ghcr.io/epics-containers/ioc-IOC_NAME-developer:VERSION
-
-  # # don't make the IOC the entrypoint
-  # startCommand: sleep
-  # startArgs: infinity
-
-  # # disable host networking to allow root user
-  # hostNetwork: false
-
-  # # choose root user for write access to the container filesystem
-  # securityContext:
-  #   runAsUser: 0
-  #   runAsGroup: 0
-  #   readOnlyRootFilesystem: false
-  #   runAsNonRoot: false
-
-  # # mount the config map elsewhere so we can copy and edit it
-  # # i.e. `cp -r /tmp/config /epics/ioc/` before starting the IOC
-  # iocConfig: /tmp/config
-
-  # # generous resources to handle the extra overheads of debugging
-  # resources:
-  #   limits:
-  #     cpu: 4
-  #     memory: 4Gi
-  #   requests:
-  #     cpu: 1
-  #     memory: 1Gi
+  # mount in the beamline data folder
+  # dataVolume:
+  #   pvc: false
+  #   hostPath: /dls/ixx/data

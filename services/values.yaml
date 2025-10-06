@@ -6,19 +6,20 @@ global:
   location: bl45p
   enabled: true
 
-# shared values for both dev-c7 and ioc-instance based charts
+# shared settings for all IOC types
 shared: &shared
-  # useHostNetwork - use host network for IOC - required for Channel Access
-  # to work outside of the cluster
+  # hostNetwork
+  # set to true for Channel Access work outside of the cluster (or use a gateway)
   hostNetwork: true
 
+  # running as ixxdetector account uid,gid gives access to /dls/ixx/data
   securityContext:
     allowPrivilegeEscalation: false
-    # run as p45detector
     runAsUser: 37988
     runAsGroup: 37988
 
-  # affinity and tolerations to get the right nodes on pollux
+  # affinity chooses which servers to run on
+  # Accelerator must set this for CIAs, Beamlines don't need it
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
@@ -29,6 +30,8 @@ shared: &shared
                 values:
                   - bl45p
 
+  # tolerations allow us to run on a tainted server
+  # Accelerator must set this for CIAs, Beamlines don't need it
   tolerations:
     - key: beamline
       operator: Equal
@@ -43,20 +46,14 @@ shared: &shared
       value: test-rig
       effect: NoSchedule
 
-dev-c7:
-  <<: *shared
-
-  podSecurityContext:
-    # run as p45detector
-    runAsUser: 37988
-    runAsGroup: 37988
-
+# shared settings for all ibek IOCs using the ioc-instance helm chart
 ioc-instance:
   <<: *shared
 
-  dataVolume:
-    pvc: false
-    hostPath: /dls/p45/data
-
+# shared settings for all fastcs IOCs using the fastcs helm chart
 fastcs:
+  <<: *shared
+
+# shared setting for all legacy IOCs using the dev-c7 helm chart
+dev-c7:
   <<: *shared
