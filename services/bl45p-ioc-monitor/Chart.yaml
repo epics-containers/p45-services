@@ -1,0 +1,7 @@
+# A Helm Chart for a ca-gateway service
+# This is hard coded into the module right now TODO: make a oci chart for this
+apiVersion: v2
+name: ec-proxy
+version: 1.0.0
+
+type: application

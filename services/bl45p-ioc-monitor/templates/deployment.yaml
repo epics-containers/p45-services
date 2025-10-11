@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      serviceAccountName: default-full-access-mounted
+
+      # one container per command
+      containers:
+        {{- range $name, $command := .Values.commands }}
+        - command:
+            - sh
+          args:
+            - -c
+            - {{ $command }}
+          image: {{ $.Values.image }}
+          imagePullPolicy: Always
+          name: {{ $name }}
+          resources:
+            requests:
+              cpu: 2
+              memory: 1000Mi
+            limits:
+              cpu: 4
+              memory: 4000Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+          stdin: true
+          tty: true
+      {{- end }}
+
+
+      hostNetwork: false
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 3
+
+      # affinity and tolerations ###############################################
+      {{- if .Values.nodeName }}
+      nodeName: {{ .Values.nodeName }}
+      {{- else if .Values.affinity }}
+      affinity:
+{{  toYaml .Values.affinity | indent 8}}
+      {{- end }}
+      {{- if .Values.tolerations }}
+      tolerations:
+{{  toYaml .Values.tolerations | indent 8}}
+      {{- end }}

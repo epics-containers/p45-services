@@ -1,0 +1,12 @@
+image: ghcr.io/epics-containers/k8s-ioc-monitor:2025.10.1-beta.3
+
+# deployment.yaml will create a pod that runs a container for each command
+# in 'commands', which is a dictionery of container_name:command
+commands:
+  ioc-monitor: k8s-ioc-monitor
+
+service_ports:
+  80: 8080
+
+# set this if you want a fixed IP for the service (must be from the fixed pool)
+service_ip: 172.23.168.206

@@ -1,0 +1,23 @@
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  type: LoadBalancer
+  {{- if .Values.service_ip }}
+  loadBalancerIP: {{ .Values.service_ip }}
+  {{- end }}
+  ports:
+  {{- range $port, $target := .Values.service_ports }}
+    - name: {{ $.Release.Name }}-{{ $port }}
+      port: {{ $port }}
+      protocol: TCP
+      targetPort: {{ $target }}
+  {{- end }}
+  sessionAffinity: None
+  selector:
+    app: {{ .Release.Name }}
