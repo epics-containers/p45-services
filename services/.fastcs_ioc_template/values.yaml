@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../../.helm-shared/values.schema.json
+
+ioc-instance:
+  image: REPLACE_WITH_FASTCS_IMAGE_URI
+  args:
+    # REPLACE EXAMPLE BELOW
+    - stdio-socket --ptty "fastcs-example run /epics/ioc/config/controller.yaml"
+
+  # EXAMPLE simulation device for fastcs-example
+  # extraContainers:
+  #   - name: temp-controller-simulator
+  #     image: ghcr.io/diamondlightsource/fastcs-example:2025.8.1b2
+  #     command:
+  #       - tickit
+  #       - all
+  #       - /epics/ioc/config/temp_controller.yaml
+
+  # DO NOT use the default livenessProbe and preStop from ioc-instance.
+  # Leave blank or provide a path to an executable inside the container image.
+  livenessExecutable: ""
+  preStopExecutable: ""

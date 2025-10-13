@@ -9,12 +9,11 @@ global:
 # shared settings for all IOC types
 shared: &shared
   # hostNetwork
-  # set to true for Channel Access work outside of the cluster (or use a gateway)
+  # set to true for Channel Access to work outside of the cluster (or use a gateway)
   hostNetwork: true
 
   # running as ixxdetector account uid,gid gives access to /dls/ixx/data
-  securityContext:
-    allowPrivilegeEscalation: false
+  podSecurityContext:
     runAsUser: 37988
     runAsGroup: 37988
 
@@ -48,10 +47,6 @@ shared: &shared
 
 # shared settings for all ibek IOCs using the ioc-instance helm chart
 ioc-instance:
-  <<: *shared
-
-# shared settings for all fastcs IOCs using the fastcs helm chart
-fastcs:
   <<: *shared
 
 # shared setting for all legacy IOCs using the dev-c7 helm chart
