@@ -1,11 +1,11 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: 5.0.0-alpha.1
+_commit: 5.0.0-alpha.2
 _src_path: https://github.com/epics-containers/services-template-helm
 athena_services: []
 cluster_name: pollux
 cluster_namespace: p45-beamline
 description: p45 IOC Instances and Services
+domain: p45
 git_platform: github.com
-ioc_group: p45
 location: bl45p
 logging_url: https://graylog2.diamond.ac.uk/search?rangetype=relative&fields=message%2Csource&width=1489&highlightMessage=&relative=172800&q=pod_name%3A{service_name}*
