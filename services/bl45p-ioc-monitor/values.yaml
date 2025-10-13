@@ -1,4 +1,4 @@
-image: ghcr.io/epics-containers/k8s-ioc-monitor:2025.10.1-beta.3
+image: ghcr.io/epics-containers/k8s-ioc-monitor:2025.10.2
 
 # deployment.yaml will create a pod that runs a container for each command
 # in 'commands', which is a dictionery of container_name:command
