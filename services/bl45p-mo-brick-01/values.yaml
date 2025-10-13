@@ -2,5 +2,5 @@
 
 # latest container image for the pmac motion controller
 ioc-instance:
-  image: ghcr.io/epics-containers/ioc-pmac-runtime:2025.9.3
+  image: ghcr.io/epics-containers/ioc-pmac-runtime:2025.10.1
   location: bl45p # TODO remove me when schema is fixed
