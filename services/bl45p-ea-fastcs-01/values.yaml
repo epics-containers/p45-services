@@ -9,7 +9,7 @@ ioc-instance:
   extraContainers:
     - name: temp-controller-simulator
       # we seem to have dropped tickit out of most recent fastcs-example images
-      image: ghcr.io/diamondlightsource/fastcs-example:2025.8.1b2
+      image: ghcr.io/diamondlightsource/fastcs-example:2025.10.1
       command:
         - tickit
         - all
