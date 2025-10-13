@@ -6,6 +6,9 @@ version: 1.0.0
 type: application
 
 dependencies:
-  - name: fastcs
+  - name: ioc-instance
     version: 5.0.0-beta.4
-    repository: "oci://ghcr.io/diamondlightsource/charts"
+    repository: "oci://ghcr.io/epics-containers/charts"
+    import-values:
+      - child: ioc-instance
+        parent: ioc-instance
