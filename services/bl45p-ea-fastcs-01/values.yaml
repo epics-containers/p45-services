@@ -1,12 +1,7 @@
 # yaml-language-server: $schema=../../.helm-shared/values.schema.json
-# for local testing of schema changes switch to:
-### yaml-language-server: $schema=../../.helm-shared/values.schema.json
 
-fastcs:
-  image:
-    repository: ghcr.io/diamondlightsource/fastcs-example
-    tag: 2025.9.1
-    pullPolicy: Always
+ioc-instance:
+  image: ghcr.io/diamondlightsource/fastcs-example:2025.9.1
 
   iocConfig: /epics/ioc/config
 
@@ -14,9 +9,6 @@ fastcs:
     - stdio-socket
     - --ptty
     - fastcs-example run /epics/ioc/config/controller.yaml
-
-  editable: false
-  autostart: true
 
   extraContainers:
     - name: temp-controller-simulator
