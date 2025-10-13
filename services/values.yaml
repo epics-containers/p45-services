@@ -2,7 +2,7 @@
 # shared values for all services
 
 global:
-  ioc_group: p45
+  domain: p45
   location: bl45p
   enabled: true
 
