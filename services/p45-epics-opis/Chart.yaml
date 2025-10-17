@@ -8,5 +8,5 @@ type: application
 
 dependencies:
   - name: epics-opis
-    version: 5.0.0-beta.4
+    version: 5.0.0-beta.7
     repository: "oci://ghcr.io/epics-containers/charts"
