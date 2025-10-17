@@ -1,14 +1,14 @@
 # yaml-language-server: $schema=../../.helm-shared/values.schema.json
 
 ioc-instance:
-  image: ghcr.io/diamondlightsource/fastcs-example:2025.9.1
+  image: ghcr.io/diamondlightsource/fastcs-example:2025.10.1
 
   args:
     - stdio-socket --ptty "fastcs-example run /epics/ioc/config/controller.yaml"
 
   extraContainers:
     - name: temp-controller-simulator
-      image: ghcr.io/diamondlightsource/fastcs-example:latest
+      image: ghcr.io/diamondlightsource/fastcs-example:2025.9.1
       command:
         - tickit
         - all
