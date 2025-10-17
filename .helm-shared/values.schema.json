@@ -19,7 +19,7 @@
             "description": "Shared values for ioc-instance charts. These represent ibek IOCs"
         },
         "dev-c7": {
-            "$ref": "https://github.com/DiamondLightSource/dev-c7/releases/download/2025.10.3/dev-c7.values.schema.json",
+            "$ref": "https://github.com/DiamondLightSource/dev-c7/releases/download/2025.10.4/dev-c7.values.schema.json",
             "type": "object",
             "additionalProperties": false,
             "description": "Shared values for dev-c7 charts. These represent DLS legacy IOCs running out of the shared file system"

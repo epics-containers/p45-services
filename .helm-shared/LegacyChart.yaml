@@ -9,5 +9,5 @@ dependencies:
   - name: dev-c7
     # version: 0.1.0
     # repository: "file:///scratch/hgv27681/work/dev-c7/Charts/dev-c7"
-    version: 2025.10.3
+    version: 2025.10.4
     repository: "oci://ghcr.io/diamondlightsource/charts"
